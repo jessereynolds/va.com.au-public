@@ -1,0 +1,27 @@
+<a name="<output name="http_ref">"></a>
+<table border="0" bgcolor="#000066" cellpadding="1" cellspacing="0" width="502">
+<tr valign="top">
+<td>
+  <table border="0" cellpadding="2" cellspacing="0" width="500">
+  <tr valign="top">
+  <td width="500" bgcolor="#000066"><font color="#ffffff">
+  Message left by <b><output name="Email" pre='<a href="mailto:' post='">' type="html"><output name="name" type="html"><output name="Email" sub="</a>"></b> at
+  <output name="http_time"> on <output name="http_date"></font>
+  </td>
+  </tr>
+  <tr valign="top">
+  <td width="500" bgcolor="#eeeeff">
+  <br>
+  <output name="message" type="html" newline="html">
+  <br>&nbsp;
+  </td>
+  </tr>
+  </table>
+
+
+</td>
+</tr>
+</table>
+
+<br>
+

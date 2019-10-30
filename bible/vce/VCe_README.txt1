@@ -1,0 +1,144 @@
+VCe 2.0 README
+
+Current Version: 2.0a63
+Last Modified: 9 July 2001
+Maintained By: Jesse Reynolds, jesse@va.com.au
+
+This is a very minimal README for now. Note that Jesse got slack and didn't write any version history from 2.0a1 to 2.0a55, sorry about that. 
+
+
+-----------------------------------------------------------------------------
+INSTALLATION:
+-----------------------------------------------------------------------------
+
+You should be able to simply double-click on the file "VCE generic 2.0a57.comp" and have the VCe start up. You will be asked where the data file is, select the file "vce2_generic.data". 
+
+You will be asked a series of questions, most of which can be left as they are. Some will be more self-explanatory than others.
+
+You should see the three windows once the VCe has started up (two log windows and a old VA VCe picture in the custom window). 
+
+Change a few settings before doing much else. This is done by choosing "Edit Setting" from the "Site Admin" menu. Note that you may need to click on the "Custom" window if none of the menu's work. The first thing you should edit is the setting "super_domain" which should be the hostname of your macintosh VCe server, or it's IP address if you don't have a hostname configured for it. Everything else can then be configured from the superzone web interface. Note that you can enter the first part of a setting name and a list will be produced of all settings that match, eg try entereing "super" in the Edit Setting menu.
+
+Check that the web server has started up by going to (something like):
+
+http://yourmac.yourcompany.dom/
+
+which should load the dummy index.html file located in the webroot folder. Now try getting the VCe to send back some processes responses (ie not coming from flat files on your filesystem) with the following:
+
+http://yourmac.yourcompany.dom/vcegen.acgi$ping
+http://yourmac.yourcompany.dom/vcegen.acgi$whoami
+
+Now try logging in as the superuser, to the so called "superzone". you'll need the super_passwd that was set in the initial setup:
+
+http://yourmac.yourcompany.dom/vcegen.acgi$growth_frames
+
+If this works you'll get the superzone, which will allow you to check out the status page, and edit any of the core pages, chunks, and settings in your new VCe driven site. 
+
+Check out the database map in the docs folder within the webroot folder. 
+
+Cocoon:
+
+You'll now need to configure your cocoon to access the VCe, and configure the VCe so that it's rendering out xml files and ftp'ing them ont your cocoon server. I'm not going to detail how to do that here, instead please email support@vce.net and a VA consultant will be in touch to help you out. :-)
+
+
+
+
+-----------------------------------------------------------------------------
+Version History:
+-----------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------
+2.0a63
+29 June 2002
+
+It seems the automatic history logging feature introduced in a62 does not work. However I have make changes which should now mean it works properly. 
+
+I have made a minor alt to the debug logging (blurting) in http_Master, and smtp send mail. 
+
+I have made some fixes to the tuple tags as they were referencing the old "tuple set" field name, rather than the new VCe "tupleSet" field name. This would have affected <_select_similar ..._>, <_select_matching .._>, <_new_tuple_set ..._> and possibly some others. 
+
+
+
+-----------------------------------------------------------------------------
+2.0a62
+27 June 2002
+
+Added automatic history logging. Now all tables with the history field will have it automatically updated with a timestamp including the person that's just edited the thing. You can include a history field in edit forms as well, and this text will be included in the latest timestamp. the new timestamp gets added to the top of the history field. Note that the history field is a text field with a max length of 32k characters. I believe the oldest history entries will be lost as you go over 32k characters but this needs to be tested. ;-)
+
+
+-----------------------------------------------------------------------------
+2.0a61
+27 June 2002
+
+Added the fields status1, status2, status3, status4, and status5 to Events, Venues, and Members.
+
+
+-----------------------------------------------------------------------------
+2.0a60
+25 June 2002
+
+Fixed a bug introduced in a58 where the receiving of dates started ignoring months in the format "Jan", which the <_popup date_> tag generates. :-)
+
+
+
+-----------------------------------------------------------------------------
+2.0a59
+25 June 2002
+
+Hopefully have now really fixed the <_age_years ..._> tag. In a58 the age_years tag started returning nothing even for valid ages. It should now be fixed.
+
+if tag and testing for fields equal to search_less... I believe I have now fixed the very weird selection bug where the if tag would give the wrong result when testing for a particular field value of the current selected record, where that value is the same as the search_less value, and where there is at least one name=value pair after the search_less value. eg, if you go to the URL:
+   http://vce.yourdomain.dom/vcegen.acgi$tester_members?17302&name=value
+and then tested to see if [Members]id=17302 with the if tag as follows:
+   <_if [Members]id=17302_>OOPS<_/if [Members]id=17302_>
+Then you would get the wrong result if 17302 was in fact selected. 
+This was being caused by the if tag evaluating the 17302 as a form field name and it therefore replacing it with the value of this form field, which of course is null, and then testing if 17302="" which is of course false. I have fixed this by altering the detection of a form field such that it specifically decides it is not a form field if it is the same as search_less. (The VCe 4D  procedure I edited was "is it form").
+
+
+-----------------------------------------------------------------------------
+2.0a58
+24 June 2002
+
+Date popups in forms are now required to have 1 or 2 chars in the _day field, 1 or 2 chars in the _month field, and exactly 4 chars in the _year field, or the new date will not be saved. 
+
+<_age_years ..._> now returns a number between 0 and 150 (in text form) if the age calculation results in an age between 0 and 150. Negative years are not allowed and return nothing, as to ages over 150. 
+
+<_extract_tuple_value ..._> and <_display_tuple_value ..._> - made a very small alteration to 'extract tuple' and 'parse tuples' which means there's now no duplication of 'clean html' when using <_display_tuple_value ...>. This should not affect the functionality of the VCe in any way. ('clean html' is the VCe engine internal procedure which converts & to &#038; and cleans some other special characters, including double quotes etc)
+
+<_popup priority..._> can now be given a table name. <_popup priority_> used to assume the Stories table, but now that we have added the priority field to most VCe tables, we need to also extend this tag. So now you can go either <_popup priority|table_name_> (where table_name is a valid VCe table) or <_popup priority_> which is the same as <_popup priority|Stories_>.
+
+Hopefully now fixed the ReallyTheType bug. This feature should now work properly. 
+You can use an input field of name "ReallyTheType" to save a value to a field called "type" as a workaround for Cocoon, which doesn't allow input fields to be called "type" unfortunately.
+
+
+-----------------------------------------------------------------------------
+2.0a57
+22 June 2002
+
+Fixed the render bug introduced in a56. 
+
+Added the following text fields to all used tables: moreInfo, notes, history. Note that history will be used in the future by the VCe to store brief info about all updates to a record. 
+
+Fixed <_table_type ..._> and <_table_of_type ...> - Stories, StoryTypes, Media, and MediaTypes were returning table names beginning with a lowercase character, which is wrong and of course cocoon was having problems with it. 
+
+Order Variables are now available in swap tags, ie orderTable, howMany, pageNumber, filter1Term, filter1Method, filter1Field, order1Field, order1Direction, etc. 
+
+Fixed <_pager ..._>'s text limit, it now sends out each page entry one by one instead of building them all up into a text variable and spitting them out in one go (which was hitting 4d's 32k text var limit
+
+<_popup dob_> no contains nothing in the year field if the date was already blank, whereas we used to put "19" in the year, which resulted in dates such as "1 Jan 2019" - not the best. 
+
+Sticky debug_mode fixed. There was a bug where if debug_mode was set to on when the VCe started up then you it wouldn't go off if you changed the setting to "off". This is now fixed. 
+
+
+-----------------------------------------------------------------------------
+2.0a56
+19 June 2001
+
+In this release I attempted to address the issue Tim was having where some table selections were not being cleared between each page when doing a rerender_all. However this introduced a nasty bug which broke rendering of more than one page at a time. 
+
+Double quotes in text. In <_field ...> and <_field_clean ...> We now convert all double quotes to single quotes within valid HTML tags, and all other double quotes are converted to their unicode escape. This is to avoid cocoon having problems with things like:
+<input name="thing" value="hey i'm really "stupid"">
+
+Pager now passes verb instead of orderVerb so that you can send edit, remove, display etc as verbs for the order pages. 
+

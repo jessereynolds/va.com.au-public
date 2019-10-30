@@ -1,0 +1,112 @@
+<HTML>
+<HEAD><TITLE>Multiple TCP/IP addresses</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="DNSServer.html">previous</a>] [<a href="LyrisURL.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Multiple TCP/IP addresses</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · · <a href="Activationcodeandadmincontact.html">Activation code and admin contact</a><br>
+· · · <a href="TCP_IPSettings.html">TCP/IP Settings</a><br>
+· · · · <a href="DNSServer.html">DNS Server</a><br>
+· · · · <a href="MultipleTCP_IPaddresses.html"><font size=+0><b>Multiple TCP/IP addresses</b></font></a><br>
+· · · · <a href="LyrisURL.html">Lyris URL</a><br>
+· · · <a href="MailReceivingSettings.html">Mail Receiving Settings</a><br>
+· · · <a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+· · · <a href="LyrisCommandProtocol_LCP_Settings.html">Lyris Command Protocol (LCP) Settings</a><br>
+· · · <a href="ProgrammingExtensionsattheServerLevel.html">Programming Extensions at the Server Level</a><br>
+· · · <a href="Newsgroups.html">Newsgroups</a><br>
+· · · <a href="MiscellaneousServerConfigSettings.html">Miscellaneous Server Config Settings</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Multiple TCP/IP addresses</h3>
+If you have multiple TCP/IP addresses on the machine running Lyris, by default Lyris will listen for TCP/IP connections on all your TCP/IP addresses.  <p>
+If you would like to limit Lyris to only some of your TCP/IP addresses, you can enter them here.  If you enter several TCP/IP addresses, separate each address with a carriage return.<p>
+You will need to restart the Lyris server after saving your changes in order for them to take effect.<p>
+Lyris will use the first TCP/IP address you list here for all outgoing connections. Thus, if you have some TCP/IP addresses that have access only to an Internal network and others that have access to 
+the External network, make sure that the first TCP/IP address you list can has access to the portion of your network that you want Lyris to mail to.  You also should make sure that you do not list 
+127.0.0.1 as your first TCP/IP address, because then Lyris will not be able to send mail to any machine but the local host. 
+<p>
+When Lyris starts up, it will check on ports 2020 and 25 of each of the TCP/IP addresses Lyris listens to, to determine if another program is currently using that port and TCP/IP address combination. 
+ Two programs cannot both listen to the same TCP/IP address and port.  If there is a conflict, Lyris will inform you of the problem, and will exit. 
+<p>
+One reason to use the Multiple TCP/IP addresses feature is if you want to have Lyris coexist with a mail server also running on your machine.  If your mail server can be made to only listen to a 
+specific TCP/IP address (sendmail can, with the oOAddr= option), then you can have Lyris listen to the other address(es), and the two programs can coexist on your machine. 
+<p>
+For outgoing connections, Lyris will connect out from the first TCP/IP address that you list.  In most cases, this is fine. If you have two network cards in your computer, on different networks 
+(inside vs outside the firewall, for example), make sure that the first TCP/IP address listed is allowed to send mail to the outside world. 
+<p>
+Web interface note: by default, the Lyris web interface uses the loopback address (127.0.0.1) to talk to the Lyris server on the same machine.  If you specify IP addresses to use, you might want to 
+list 127.0.0.1 as one of the IP addresses, so that the web interface can continue to function. If you do not want Lyris to use 127.0.0.1, you can still use the web interface, but you will need to 
+change the Web Interface's "server_ip_address" setting to point to the new address.  The "server_ip_address" setting for the web interface is found in the "lyris.plc" file, located in the same 
+directory as "lyris.pl" 
+<p>
+ <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="TCP_IPSettings.html">TCP/IP Settings</a><br>
+<li><a href="SettingServerOptions.html">Setting Server Options</a><br>
+<li><a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+<li><a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+</td><td align=right valign=top>Page 112 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,101 @@
+<HTML>
+<HEAD><TITLE>How to bring up the Lyris Web Interface</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HowtostarttheLyrisserver.html">previous</a>] [<a href="DoyouneedaMailServertoUseLyrisonNT_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>How to bring up the Lyris Web Interface</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+· · <a href="DocBots.html">DocBots</a><br>
+· · <a href="RunningLyris.html">Running Lyris</a><br>
+· · · <a href="WhatmachineshouldIbuytorunLyrison_.html">What machine should I buy to run Lyris on?</a><br>
+· · · <a href="HowtostarttheLyrisserver.html">How to start the Lyris server</a><br>
+· · · <a href="HowtobringuptheLyrisWebInterface.html"><font size=+0><b>How to bring up the Lyris Web Interface</b></font></a><br>
+· · · <a href="DoyouneedaMailServertoUseLyrisonNT_.html">Do you need a Mail Server to Use Lyris on NT?</a><br>
+· · · <a href="ForgottenPassword.html">Forgotten Password</a><br>
+· · · <a href="WindowsNTvs_Windows95.html">Windows NT vs. Windows 95</a><br>
+· · <a href="Email.html">Email</a><br>
+· · <a href="LyrisAdministration.html">Lyris Administration</a><br>
+· · <a href="WebBrowsers.html">Web Browsers</a><br>
+· · <a href="UsenetNewsgroups.html">Usenet Newsgroups</a><br>
+· · <a href="International.html">International</a><br>
+· · <a href="OtherFAQissues.html">Other FAQ issues</a><br>
+· · <a href="MailingListFeatures.html">Mailing List Features</a><br>
+· · <a href="Perl_LyrisToolkit.html">Perl/Lyris Toolkit</a><br>
+· · <a href="UnixAdministration.html">Unix Administration</a><br>
+· · <a href="Up_Coming.html">Up & Coming</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>How to bring up the Lyris Web Interface</h3>
+The Lyris web interface is the main way you, the administrator, work with Lyris.  You will use the web interface to create sites, topics, mailings lists and access all of the 
+functionality in Lyris. 
+<p>
+When you install Lyris, a file named README.HTM (the program Icon is titled "Read This First!") is created on your system that includes links to bringing up the Lyris Web Interface on your computer.<p>
+If the README.HTM file does not work for you, you may want to consult the directions here.<p>
+To use the Lyris web interface, bring up your web browser, and go to the URL:<p>
+<font face='Courier New'><ul>http://your_machine/cgi-bin/lyris.pl<p>
+</ul></font>The exact URL you go to will depend on your machine name, and the name of your CGI directory.<p>
+For example, if your machine name is "clio.lyris.net", and your CGI directory (sometimes called ShellCGI) is /cgi-bin, then you would go to the URL:<p>
+<font face='Courier New'><ul>http://clio.lyris.net/cgi-bin/lyris.pl<p>
+</ul></font>This is the URL you should give to others to find the Lyris web interface.<p>
+Note: some Web Servers support multiple types of server extensions, and may have several different directories for each different extension type.  The Lyris web interface is written in Perl, and uses 
+the Common Gateway Interface (CGI) standard that is the most common standard.  
+<p>
+On Windows and OS/2, you can also try the same URL, but with the extensions .EXE, .BAT or .CMD (OS/2 only), as in:<p>
+<font face='Courier New'><ul>http://clio.lyris.net/cgi-bin/lyris.bat <br>http://clio.lyris.net/cgi-bin/lyris.exe <br>http://clio.lyris.net/cgi-bin/lyris.cmd<p>
+</ul></font>If you are using the Microsoft IIS server on Windows NT, use the word "scripts" instead of "cgi-bin", as in:<p>
+<font face='Courier New'><ul>http://clio.lyris.net/scripts/lyris.pl<p>
+</ul></font>If you are using an O'Reilly Web Server on Windows NT or Windows 95, use the word "cgi-shl" instead of "cgi-bin", as in:<p>
+<font face='Courier New'><ul>http://clio.lyris.net/cgi-shl/lyris.pl<p>
+</ul></font>If you are using a Netscape server on Windows NT or Unix, it is you who defines the directory to use for ShellCGI programs.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="RunningLyris.html">Running Lyris</a><br>
+</td><td align=right valign=top>Page 514 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

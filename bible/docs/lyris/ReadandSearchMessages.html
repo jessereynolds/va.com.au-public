@@ -1,0 +1,125 @@
+<HTML>
+<HEAD><TITLE>Read and Search Messages</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="MenuofMemberChoices.html">previous</a>] [<a href="Readaspecificmessage.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Read and Search Messages</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· · <a href="OverviewofWebInterfaceforUsers.html">Overview of Web Interface for Users</a><br>
+· · <a href="MainMenu.html">Main Menu</a><br>
+· · <a href="TopicScreen.html">Topic Screen</a><br>
+· · <a href="EnterMailingList.html">Enter Mailing List</a><br>
+· · <a href="JoinMailingList.html">Join Mailing List</a><br>
+· · <a href="MenuofMemberChoices.html">Menu of Member Choices</a><br>
+· · <a href="ReadandSearchMessages.html"><font size=+0><b>Read and Search Messages</b></font></a><br>
+· · <a href="Readaspecificmessage.html">Read a specific message</a><br>
+· · <a href="CreateaNewMessage.html">Create a New Message</a><br>
+· · <a href="EditMembershipsettings.html">Edit Membership settings</a><br>
+· · <a href="Leave.html">Leave</a><br>
+· · <a href="AboutThisList.html">About This List</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Read and Search Messages</h3>
+From this page, the user can select messages to read using a variety of means.  They can page forward or backward among the available messages.  They can jump to messages starting at a 
+given date.  Or, they can search the text of the messages for word of interest. 
+<p>
+The <I>Read and Search Messages </I>page has the following elements:</I><p>
+<B>Date Range <br></B>These two lines inform the user of the date range of messages being displayed.  The first line tells the user between what dates messages exist.  The first date is 
+the earliest date for which a message exists.  The second date is the most recent date for which a message was contributed.  The second line tells the user between what dates the current set of 
+messages falls. 
+</B><p>
+<B>Message Set <br></B>The current page of messages are displayed here.  Each message is given a separate line.  The subject of the message is displayed, followed by the author's email 
+address in parentheses, with the date of the message appended in square brackets at the end.  
+</B><p>
+<B>View Message button <br></B>When the user clicks on this button, the currently selected message is displayed in the Read a Specific Message page.  Once on that page, the user will be 
+able to continue forward or backward in the message set.  See  <a href="Readaspecificmessage.html">Read a specific message</a>. 
+</B><p>
+<B>Jump Messages button <br></B>The user can choose to move forward or backward in the total message set.  On the left, there is a drop-down list box that is used to select the number of 
+messages to jump.  To the right of the drop-down list box, are the buttons <I>Jump Forward</I> and <I>Jump Backward</I>.  If you are currently viewing the last message for that mailing list, only 
+the <I>Jump Backward</I> button will be visible. Likewise, if you are currently viewing the first message for that mailing list, only the <I>Jump Forward</I> button will be visible. 
+</I></B><p>
+<B>Search <br></B>The user can search for words of interest.  Lyris automatically indexes all mailing list messages, so search results are returned very quickly.  </B><p>
+The user can choose between searching for all the given words, or any of the given words.  If the user chooses "All These Words", Lyris will only display messages which contain all the given search 
+words.  If the user chooses "Any Of These Words", Lyris will display messages which contain at least one of the given words.  If there are multiple hits, messages with the most matching messages will 
+be displayed first.  If there are messages with an equal number of matching words, the messages will be ordered by date, with the most recent messages first.  
+<p>
+The user can choose to have Lyris look for the search words anywhere in the message, just in the message header, or just in the message body.<p>
+The Lyris text index does not remove so-called "noise" words -- all words of at least 2 letters, and less than 30 letters are indexed.  Punctuation is filtered out, and understood as a word 
+separator.  Non-English language characters are indexed correctly.  The Lyris search engine is not English-language dependent.  New messages begin to be indexed 15 seconds after they are created.  
+However, the Lyris Indexing process operates as the lowest priority task, and is only operative while the Lyris Server is idle.  Unless a Lyris Server is extremely busy, there is likely to be enough 
+idle time for a new message to be indexed within a few minutes. 
+<p>
+Note that the full text index does not index email file attachments: only the actual message text is indexed.<p>
+<B>Jump To Date button <br></B>The user can enter a date in the text box, and press the <I>Jump to Date</I> button to display a message set, with the first message of the set being on 
+the given date.  If there is no message for the date, the first message immediately after that date will begin the message set. 
+</I></B><p>
+<B>Number of Messages to Display <br></B>The user can decide to display a large number of messages in the message set at one time.  The default is 200 messages.  To change this, the user 
+chooses a new number in the drop-down list box, and clicks the <I>Show</I> button.  The current message set will be redisplayed, but with a larger set of messages. 
+</I></B><p>
+<B>Threaded vs. Sorted <br></B>By default, messages are organized by their Subject:. Messages with the same subject, or that are replying to the same subject (Re: xyz) are grouped 
+together. The messages are ordered so that the newest subjects are displayed at the top, with each reply grouped below it, in the order each reply was composed.  This type of display is known as 
+"threaded by subject".  
+</B><p>
+Other message ordering options are "sorted by date" and "sorted by author".  If you want to change the way messages are being ordered, select a different ordering, and then click the "show" button.<p>
+<B>Main Menu button <br></B>The user can click on this button to go to the Menu of Member Choices.</B><p>
+<B>Delete Selected Messages <br></B>If you are a list administrator, a button will appear titled "delete selected messages". You can mark any number of messages, and by clicking on this 
+button you will cause these messages to be deleted. 
+</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+<li><a href="Search.html">Search</a><br>
+<li><a href="MenuofMemberChoices.html">Menu of Member Choices</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+<li><a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+<li><a href="HowdoIdeletemessagesfromthearchives_.html">How do I delete messages from the archives?</a><br>
+</td><td align=right valign=top>Page 84 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

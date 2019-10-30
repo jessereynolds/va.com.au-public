@@ -1,0 +1,29 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Conditional Statement Results</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>Conditional Statement Results</h1>
+
+<p>Doh!! You didn't check the checkbox!</p>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="cond.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="cond_n.txt">cond_n.txt</a>.</p>
+</body>
+</html>

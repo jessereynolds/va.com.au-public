@@ -1,0 +1,1 @@
+<output name="myfile" pre="The file " post=" was sent by "><output name="Email"><output name="myfile" alt=" didn't send a file." sub=".">

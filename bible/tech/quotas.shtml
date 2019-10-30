@@ -1,0 +1,110 @@
+<html>
+
+<head>
+
+<title>The Bible - template</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+
+<!--#include virtual="/bible/nav.html" -->
+
+<blockquote> 
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">all about file system quotas</font></p>
+<br>
+<br>
+<p> Show a users/group Quota</p>
+<br>
+<p> Simply login as root and supply the command for example with user caos:<br>
+<br>
+root@goat mich]# quota -vu caos<br><br>
+<pre>Disk quotas for user caos (uid 502):
+     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+         /disk1   29878*  10000   12000   4days     626       0       0        
+</pre>
+<br>
+Just substitute the -u with a -g for group.<br>
+<p>
+The other command is repquota.
+repquota shows summarized quotas for a file system
+used with the -u or -g show user or group retrospectively.
+For example to show all users on all file systems that have quotas on:
+<br><br>
+	repquota -ua
+<pre>
+                                Block  limits                    File  limits
+User                   used     soft     hard  grace     used    soft    hard  grace
+root            --  1945113        0        0            7617       0       0       
+102             --    55733        0        0            4391       0       0       
+300             --      617        0        0              44       0       0       
+498             --       16        0        0               1       0       0       
+ross            --     1533        0        0               4       0       0       
+caos            --    29878    30000    32000             626       0       0       
+vce             --    27691        0        0              45       0       0       
+sunrange        --      636    10000    12000              56       0       0       
+</pre>
+</p>
+</p>
+<br>
+<p> Set Quota for a user/group</p>
+<br>
+<p> Quotas are set by blocks (1 block is 1024 bytes) or inode (files) To edit a <br>
+users quota use edquota -u user. This will drop you to a an editor which <br> 
+displays the user current quota in blocks and inodes. eg <br><br>
+</p>
+<p>
+[root@goat mich]# edquota -u mich<br>
+</p>
+<p>
+<pre>
+Quotas for user mich:
+/disk1: blocks in use: 22098, limits (soft = 0, hard = 0)
+        inodes in use: 1879, limits (soft = 0, hard = 0)
+</pre>
+</p>
+<p>
+This says that user mich uses 22098 blocks an 1879 inodes on file <br>
+system /disk1 with no soft or hard limit set.<br><br>
+</p>
+<p>
+In order to set a soft quota of 30M and a hard quota of 40M you edit the soft and <br>
+hard. <br><br>
+</p>
+<p>
+30M = 30000k = 30000 blocks <br> 
+40M = 40000k = 40000 blocks <br><br>
+</p>
+<p>
+[root@goat mich]# edquota -u mich<br><br>
+</p>
+<p>
+<pre>
+Quotas for user mich:
+/disk1: blocks in use: 22098, limits (soft = 30000, hard = 40000))
+        inodes in use: 1879, limits (soft = 0, hard = 0)
+</pre>
+Save and exit.
+<br>
+Just substitute the -u with a -g for group.<br>
+</p>
+<p>
+Now user mich has a soft quota of 30M and a hard quota of 40M. If the user goes over<br>
+and stays over the soft limit for more then one week the soft quota will turn into a <br>
+hard quota.<br>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+</blockquote>
+
+</body>
+
+</html>

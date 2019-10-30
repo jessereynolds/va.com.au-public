@@ -1,0 +1,35 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Sending HTML Mail Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+<body>
+
+<h1>Thank you <output name="Email"> for sending your address.</h1>
+
+<p>
+You should recieve a two emails sent to <output name="Email">. One contains
+a single HTML message, the other contains an HTML message and alternative
+text message.
+</p>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="senderformat.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a
+href="senderformatsuc.txt">senderformatsuc.txt</a>.
+</p>
+</body>
+</html>

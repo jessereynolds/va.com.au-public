@@ -1,0 +1,22 @@
+# This is a simple example of using counters in a 
+# config file.
+
+# The use of the blank template is useful here, because we're
+# not actually sending any data in the form.
+blank : counter1.txt
+
+# Set up the counterfile
+counter1file : counters/counter1
+
+# Do stuff with the counter on a blank return
+counter1onblank: yes
+
+# increase the counter by 1 (this is the default anyway)
+counter1step: 1
+
+# Wrap the counter at 5, and restart from 1
+if : ($counter_1 == 5) then setcounter1: 1
+if : ($counter_1 == 0) then setcounter1: 1
+
+# use the counter in the reference number
+ref: ref%counter_1%-%yyyy%-%mmm%-%dd%

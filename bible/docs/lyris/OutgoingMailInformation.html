@@ -1,0 +1,124 @@
+<HTML>
+<HEAD><TITLE>Outgoing Mail Information</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="SelectOutgoingMessages.html">previous</a>] [<a href="HowlongisOutgoingMailSaved_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Outgoing Mail Information</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · · <a href="SelectOutgoingMessages.html">Select Outgoing Messages</a><br>
+· · · <a href="OutgoingMailInformation.html"><font size=+0><b>Outgoing Mail Information</b></font></a><br>
+· · · <a href="HowlongisOutgoingMailSaved_.html">How long is Outgoing Mail Saved?</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Outgoing Mail Information</h3>
+On the first <I>Outgoing Mail </I>web page, the following pieces of information are given for each message:</I><p>
+<B>ID <br></B>The unique message identifier that Lyris automatically assigns to each incoming mail message. Lyris uses this to track each message.  </B><p>
+<B>Date <br></B>The date on which Lyris created this message.</B><p>
+<B>Type <br></B>The kind of message this is. For example, 'list" means that this is a posting to a mailing list.  There are many types of outgoing mail, for all sorts of different 
+situations in which Lyris would need to send mail out. 
+</B><p>
+<B>To <br></B>The name of the user receiving this message. For a mailing list, this is the To: field of the email message.</B><p>
+<B>Status <br></B>The current send status of this message.  "Done" means that this message sending has completed.  "Retry" means that some recipients of this message had mail problems, and 
+they need to be retried.  "New" means that Lyris has not yet tried to send this message. 
+</B><p>
+<B>List <br></B>If this outgoing mail message referred to a particular mailing list, what mailing list was it.  For example, if someone asked to subscribe or unsubscribe from your mailing 
+list, change their settings, or send a post to your list, it will be marked as such.  
+</B><p>
+<B>Subject <br></B>The Subject: line of the email message.</B><p>
+If you click the <I>View Selected Message </I>button, all the information about the message are displayed. In addition to the above fields, the following fields are also given:</I><p>
+<B>Header <br></B>The complete message header of this email message.  </B><p>
+<B>Body <br></B>The complete body of this email message. Note that this is the raw text of the message, and is does not do any decoding of MIME, Uuencoded attachments, Printed-Quotable, or 
+any other kind of encoding. This is the message exactly as it is sent over the Internet. 
+</B><p>
+For this reason, you may see unfamiliar characters and codes that your email program normally translates for you.  Lyris does not decode these for you on this page because we want to be able to see 
+exactly what was sent, without trying to shield you from the reality of the email message. 
+<p>
+<B>Transaction Report <br></B>This field shows you detailed information about the processing status of this message.  Each step that occurred to this message is displayed, along with a 
+date/time stamp. This Transaction Report is extremely helpful in tracking down the cause of problems.  The outgoing mail transaction report is what is mailed to list admins when the list 
+<a href="DeliveryReports.html">Delivery Reports</a> feature is used. 
+</B><p>
+<font face='Courier New'><ul>Here is a sample transaction report:<p>
+Mon, 07 Sep 1998 20:09:17 <br>- List posting had incoming mail ID: 20<p>
+Mon, 07 Sep 1998 20:09:21 <br>- Preparing to send to 1 recipients.<p>
+Mon, 07 Sep 1998 20:09:26 <br>- Successfully sent to 1 out of 1 recipients (100%) in 5 seconds<p>
+Mon, 07 Sep 1998 20:09:26 <br>- Done<B></B><p>
+<B></B></ul></font><B>Date Created <br></B>The date on which Lyris created this message.</B><p>
+<B>From <br></B>The SMTP MAIL FROM:&lt;&gt; value for this message. This is the address to which other mail systems send their error notifications to.  Normally, this is "XXX-admin" so that 
+Lyris can receive and process the error mail. Users receiving this email message will not be aware of this setting. 
+</B><p>
+<B>Finished Date <br></B>The date and time when Lyris stopped delivering this message.</B><p>
+<B>Date Sent <br></B>The date Lyris last attempted to send this message.</B><p>
+<B>Total Recipients <br></B>The total number of email addresses who are to receive this message</B><p>
+<B>Successfully Sent To: <br></B>If this message is a personal message, and not a list posting, then the email address(es) of the recipients who received this message are displayed here.</B><p>
+<B>Members Successfully Sent <br></B>The email addresses of the members who successfully received this message.  </B><p>
+If there are more than 250 members to display in this box, Lyris will instead display the message "(too many members to display)", because this would make the HTML page too large for your web 
+browser.  
+<p>
+<B>Other Fields</B> <br>A number of other fields may also be displayed, depending on the status of this message. For example, there may be fields showing you the email addresses of the 
+members who had serious problems receiving this message (bad DNS entries cause this), others who had transient problems (their mail server was too busy), and still others who are unreachable ("user 
+unknown" causes this). The percentage and number of recipients for each of these values will be displayed on the page, if there are values to be shown for this message. 
+</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="OutgoingMail.html">Outgoing Mail</a><br>
+</td><td align=right valign=top>Page 184 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

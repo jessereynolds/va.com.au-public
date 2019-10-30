@@ -1,0 +1,112 @@
+<HTML>
+<HEAD><TITLE>Making Lyris Run Faster</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="OtherFAQissues.html">previous</a>] [<a href="Howdoessearchingwork_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Making Lyris Run Faster</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+· · <a href="DocBots.html">DocBots</a><br>
+· · <a href="RunningLyris.html">Running Lyris</a><br>
+· · <a href="Email.html">Email</a><br>
+· · <a href="LyrisAdministration.html">Lyris Administration</a><br>
+· · <a href="WebBrowsers.html">Web Browsers</a><br>
+· · <a href="UsenetNewsgroups.html">Usenet Newsgroups</a><br>
+· · <a href="International.html">International</a><br>
+· · <a href="OtherFAQissues.html">Other FAQ issues</a><br>
+· · · <a href="MakingLyrisRunFaster.html"><font size=+0><b>Making Lyris Run Faster</b></font></a><br>
+· · · <a href="Howdoessearchingwork_.html">How does searching work?</a><br>
+· · · <a href="HowcanIgettheMultiViewversionofLyris_.html">How can I get the MultiView version of Lyris?</a><br>
+· · · <a href="CanLyrisworkonanIntranet_.html">Can Lyris work on an Intranet?</a><br>
+· · <a href="MailingListFeatures.html">Mailing List Features</a><br>
+· · <a href="Perl_LyrisToolkit.html">Perl/Lyris Toolkit</a><br>
+· · <a href="UnixAdministration.html">Unix Administration</a><br>
+· · <a href="Up_Coming.html">Up & Coming</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Making Lyris Run Faster</h3>
+This is a list of techniques we have found which can have an effect Lyris performance, and make it run faster.  <p>
+<B>Pack your mail queue databases</B> <br>The incoming and outgoing mail queues in Lyris are saved in databases. Over time, these become large, and their performance slows down.  If you 
+run the command "lyris dbfastpack" from the command line (from the Lyris directory) while the Lyris server is shut down, the incoming and outgoing mail queues will be rebuilt, and all deleted space 
+will be reclaimed. 
+</B><p>
+<B>Upgrade your databases</B> <br>As Lyris creates and deletes items in its database, the data slowly becomes fragmented, and its tree-based indices become less "balanced", meaning they 
+become less efficient.  This is the same problem that occurs with hard drives, called "hard disk fragmentation", that disk defragmenting tools fix.  By running the command "lyris dbupgrade" (from the 
+Lyris directory) while the Lyris server is shut down, you will build all new tables, with all their data defragmented, and with perfectly balanced database indices.  On very large sites, (100,000+ 
+members) we find that this case significantly improve performance.  You will especially want to do this after importing a large number of members, because Lyris mailing uses the members table 
+extensively, and defragmented & balanced member database will significantly improve Lyris' mailing speed. 
+</B><p>
+<B>Install a DNS Server on the machine running Lyris  <br></B>Instead of having Lyris use other machines as its DNS server, install a DNS server on the same machine that is running Lyris.  
+If possible, make it a full DNS server, that can look up its own records, instead of just caching the records from another DNS server.  Once you install a DNS server, specify the address "127.0.0.1" 
+as the TCP/IP address of the Lyris server.   At the very least, use a DNS server on your local network, and not one at your ISP's, over your main Internet connection. 
+</B><p>
+<B>Do not receive Error Mail Notifications <br></B>If you are set as a list administrator, have a large mailing list (10,000+) and set yourself to receive error mail notifications, you 
+will be asking Lyris to forward every copy of Error mail on to you. This increases the amount of work Lyris needs to do when it receives error mail.  
+</B><p>
+<B>Do not disable error mail handling <br></B>By default, Lyris will keep track of error mail, and a point each day that a user bounces mail. After 5 points, a user is put on hold. Do not 
+turn this mechanism off for large lists, as you will be telling Lyris to send mail to all your email addresses, even those that are invalid.  We find that about 10% of a mailing list's addresses go 
+bad every month.  Not letting Lyris clean up the list of members for you adds to the load. 
+</B><p>
+<B>Purchase the "Plus" version of Lyris. <br></B>The non-plus versions of Lyris are limited to 50 concurrent mail sending threads.  The plus version has no limit. On a typical machine, 
+Lyris can achieve 300 simultaneous send sessions.  If you are unsure as to whether the "plus" version can help you, contact us at sales@shelby.com for a free time-dated "plus" serial number, which 
+will allow you to see the "plus" version in action.  
+</B><p>
+<B>Make sure you have enough memory <br></B>Many sites are out of memory, and running on virtual memory (hard disk swapfile).  If you are running Unix, and use the Apache web server, make 
+sure that you do not have more Apache processes than you have memory.  The most important measurement on Windows and Unix systems is the total memory that your processes are using. If your processes 
+are using more memory than you have physical memory, then you are low on memory, and likely using your swapfile heavily. 
+</B><p>
+<B>Notify Held Members Infrequently</B> <br>On large lists, Lyris will be identifying many members with email problems and putting them on hold. If you use the hold notify feature, where 
+Lyris sends a notification message to held members, do so infrequently, such as on a 4 or 5 day interval.  Sending held notifications every night tends to use a lot of CPU power just to try to send 
+mail to people who probably are not receiving it anyway. 
+</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="OtherFAQissues.html">Other FAQ issues</a><br>
+</td><td align=right valign=top>Page 535 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

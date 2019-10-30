@@ -1,0 +1,64 @@
+<html>
+<head>
+<base href="<output name="ref" altvar="http_referer">">
+<title>Database example, part 1</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>Database example, part 1</h1>
+
+<p>This table shows the results of selecting everything from the 
+<b>testac</b> table in the database called <b>test</b>. It is the
+start of a series of database examples that show how to select, insert, 
+update and delete from tables.
+</p>
+
+
+<p>The template uses a <b>&lt;loop&gt;&lt;/loop&gt;</b> block to
+iterate round a database query.
+</p>
+
+<div>
+<form method="post" action="/cgi-bin/soupermail.pl">
+<table border="1">
+<tr>
+<th>object_id</th>
+<th>object_title</th>
+<th>Action</th>
+</tr>
+<loop name="u" sqlrun="1">
+<tr>
+<td><output name="sql_1_@u@_1" alt="<br>" type="html"></td>
+<td><output name="sql_1_@u@_2" alt="<br>" type="html"></td>
+<td><input type="button" name="act" value="Edit this" onclick="this.form.elements['id'].value=<output name="sql_1_@u@_1">;this.form.submit();">
+<input type="button" name="act" value="Delete this" onclick="this.form.elements['delid'].value=<output name="sql_1_@u@_1">;this.form.submit();">
+</td>
+</tr>
+</loop>
+</table>
+<input type="submit" value="Add a new Entry">
+<input type="hidden" name="id" value="">
+<input type="hidden" name="delid" value="">
+<input type="hidden" name="SoupermailConf" value="<output name="http_config_path" post="dbi2.con">">
+<input type="hidden" name="ref" value="<output name="ref" altvar="http_referer">">
+</form>
+</div>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="dbi.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="dbi.txt">dbi.txt</a>.</p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# This line will see if the checkbox checky equals the string
+# "yes" and if so, set the success template to cond_s.txt
+if: (checky eq 'yes') then success : cond_s.txt
+
+# If checky wasn't set, we can use an 'unless' statement to
+# change things
+unless : checky then success : cond_n.txt
+
+# This whole config file is quite daft.
+# A sensible approach would have been to set success to cond_n.txt
+# before the 'if' statement and then get rid of the 'unless' statement.
+# However, I wanted to show the use of an unless statement.
+

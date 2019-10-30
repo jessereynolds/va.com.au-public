@@ -1,0 +1,111 @@
+<HTML>
+<HEAD><TITLE>How Lyris Decides Who to Unsubscribe</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HowTouseLyrisExtensions.html">previous</a>] [<a href="Perl_LyrisToolkit.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>How Lyris Decides Who to Unsubscribe</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+· · <a href="DocBots.html">DocBots</a><br>
+· · <a href="RunningLyris.html">Running Lyris</a><br>
+· · <a href="Email.html">Email</a><br>
+· · <a href="LyrisAdministration.html">Lyris Administration</a><br>
+· · <a href="WebBrowsers.html">Web Browsers</a><br>
+· · <a href="UsenetNewsgroups.html">Usenet Newsgroups</a><br>
+· · <a href="International.html">International</a><br>
+· · <a href="OtherFAQissues.html">Other FAQ issues</a><br>
+· · <a href="MailingListFeatures.html">Mailing List Features</a><br>
+· · · <a href="HowcanImakeaprivatelist_.html">How can I make a private list?</a><br>
+· · · <a href="HowcanImakeamoderatedlist_.html">How can I make a moderated list?</a><br>
+· · · <a href="HowcanMembersExpireafteracertaintimeperiod_.html">How can Members Expire after a certain time period?</a><br>
+· · · <a href="HowdoIapprovemoderatedmessagesinbulk_.html">How do I approve moderated messages in bulk?</a><br>
+· · · <a href="OneWayMailingLists.html">One Way Mailing Lists</a><br>
+· · · <a href="HowdoImakeaMailingListwhichsendstoseveralMailinglists_.html">How do I make a Mailing List which sends to several Mailing lists?</a><br>
+· · · <a href="HowdoIaddaCancelBottomymailinglist_.html">How do I add a CancelBot to my mailing list?</a><br>
+· · · <a href="WhatHappenstoBadMailAddresses_.html">What Happens to Bad Mail Addresses?</a><br>
+· · · <a href="WhataboutMIMEDigests_.html">What about MIME Digests?</a><br>
+· · · <a href="HowTouseLyrisExtensions.html">How To use Lyris Extensions</a><br>
+· · · <a href="HowLyrisDecidesWhotoUnsubscribe.html"><font size=+0><b>How Lyris Decides Who to Unsubscribe</b></font></a><br>
+· · <a href="Perl_LyrisToolkit.html">Perl/Lyris Toolkit</a><br>
+· · <a href="UnixAdministration.html">Unix Administration</a><br>
+· · <a href="Up_Coming.html">Up & Coming</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>How Lyris Decides Who to Unsubscribe</h3>
+There are four ways to unsubscribe from a Lyris mailing list:<p>
+1) enter the Lyris web interface, and press the "leave" button<p>
+2) send the command "unsubscribe listname" to lyris@your-server-name.com<p>
+3) send the command "unsubscribe listname your-email-address" to lyris@your-server-name.com<p>
+4) forward any posting you receive from a lyris mailing list to the unsubscribe-listname@your-server-name.com address<p>
+If an unsubscribe request is made with the "unsubscribe" command sent to lyris@this-lyris-server.com, as in "unsubscribe jazztalk", then the person named in the From: field is unsubscribed.  If the 
+email address named in the From: field is not a member, Lyris returns a message to that person saying that they could not be unsubscribed. 
+<p>
+Lyris also provides the option of naming an email address on the "unsubscribe" command line, such as the command "unsubscribe jazztalk bob@somewhere.com".  In such a case, if unsubscribe confirmation 
+are enabled for the list, then a confirmation message is sent to the subscriber, the ensure that they are same person, and not that someone else is trying to unsubscribe them. 
+<p>
+When mail is received at the "unsubscribe-listname@&#133;" address, Lyris tries to determine who the subscriber is, and automatically removes them.  In most situations, this works 
+very well. 
+<p>
+The Lyris unsubscribing logic for unsubscribe requests received at the "unsubscribe-listname@&#133;" is fairly sophisticated, and here is how it works.  When Lyris receives a message 
+to the "unsubscribe-listname@&#133;" address, Lyris goes through the following steps: 
+<p>
+1) first looks for X-Lyris-Member-ID in the header.  If it's there, that's who gets unsubbed.  This catches almost all cases, except when the forwarding program strips out the headers (such as in 
+this example). 
+<p>
+2) looks for a purgeid tag in the header (X-Lyris-To:) and then in the body. If it's there, that person gets unsubbed. Note: purgeid tags are "cleaned up" before they are re-posted to a list (ie: in  
+quoted message), by removing the square brackets. In the example below, the square bracketed email address clearly identifies "wantsoff", so that who gets unsubscribed.  Also note that MS-Mail 
+generated addresses with the text [SMTP:...] are correctly skipped by Lyris as of Lyris 2.5 beta 3 (in earlier versions this Microsoft Mail behavior cause a false positive hit). 
+<p>
+3) look at the Return-Path (the MAIL FROM:&lt;&gt; sender), and see if it's a member.  If it is, then this is likely a forwarded message, and unsub that person.  Pegasus Mail does this.<p>
+4) Finally, if none of the above is valid, the person named in the From: header is unsubscribed.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailingListFeatures.html">Mailing List Features</a><br>
+</td><td align=right valign=top>Page 550 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

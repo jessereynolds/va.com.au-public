@@ -1,0 +1,3 @@
+# The use of the blank template is useful here, because we're
+# not actually sending any data in the form.
+blank : cgivars.txt

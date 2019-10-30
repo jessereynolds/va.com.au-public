@@ -1,0 +1,96 @@
+<HTML>
+<HEAD><TITLE>Having Post.Office coexist with Lyris</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="DisableSendmail.html">previous</a>] [<a href="HavingQmailcoexistwithLyris.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Having Post.Office coexist with Lyris</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · · <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+· · · <a href="HavingPost_OfficecoexistwithLyris.html"><font size=+0><b>Having Post.Office coexist with Lyris</b></font></a><br>
+· · · <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+· · · <a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+· · · <a href="HavingNetscapeMailServercoexistwithLyris.html">Having Netscape Mail Server coexist with Lyris</a><br>
+· · · <a href="HavingNotes_DominoCoexistwithLyris.html">Having Notes / Domino Coexist with Lyris</a><br>
+· · · <a href="HavingNTMailCoexistwithLyris.html">Having NTMail Coexist with Lyris</a><br>
+· · · <a href="HavingMicrosoftExchangeCoexistWithLyris.html">Having Microsoft Exchange Coexist With Lyris</a><br>
+· · · <a href="HavingAltaVistaMailCoexistwithLyris.html">Having AltaVista Mail Coexist with Lyris</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Having Post.Office coexist with Lyris</h3>
+Post.Office is capable of peacefully coexisting with Lyris on the same machine without any problems.  The following instructions explain how to set this up.  The process involves making 
+a second name for your computer, moving Lyris to another TCP/IP port, and telling Post.Office to forward mail sent to that second name on to Lyris. 
+<p>
+Here are the steps:<p>
+1) Create up an alias for your computer by adding an additional "A record" to your DNS entries.  For example, if your machine is named "po.shelby.com", copy the "A" record entry for that host, make a 
+copy, and change the name in the copy. Your DNS entry would look like this: 
+<p>
+<font face='Courier New'><ul>po     IN A 207.105.6.2  ; the original host name <br>lyris  IN A 207.105.6.2  ; the new "alias" host name<p>
+</ul></font>2) Tell Lyris what port you want it to use. In this example, we are using port 26.  To do this, open up a command window, change to the Lyris directory and type:<p>
+<font face='Courier New'><ul>lyris smtpport 26<p>
+</ul></font>3) Connect to Post.Office web page, log in as postmaster.<p>
+4) Click on 'System Config' button<p>
+5) Click on 'Set Mail Routing Options' button<p>
+6) Under "Special Routing Instructions - SMTP Mail Routing Table:"<p>
+Type: <p>
+<font face='Courier New'><ul>name_of_lyris_site:name_of_mail_server#port_number<p>
+</ul></font>For example, if your Post Office machine is named "po.shelby.com" and the new second name, the "alias" is "lyris.shelby.com", you would type::<p>
+<font face='Courier New'><ul>lyris.shelby.com:po.shelby.com#26<p>
+</ul></font>7) Now, start up your Lyris server.<p>
+8) You're ready to go. When you create your Lyris "sites" be sure to use the new hostname in the "hostname" entry.  In this example, this is "lyris.shelby.com".  <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+</td><td align=right valign=top>Page 474 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,252 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Test Form Results</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>Test Form Results</h1>
+
+<p>This table shows a set of output elements, and how they get displayed
+based on what you put into the form. Remember that the same output elements
+can be used in email and file templates.
+</p>
+
+<div align="center">
+<table border="1" width="90%">
+<tr>
+<th>
+&lt;output name="some_text" pre="You typed : &lt;b&gt;" post="&lt;/b&gt; for Some Text" alt="You didn't put anything in the some text bit" type="html"&gt;
+</th>
+</tr>
+<tr><td>
+<output name="some_text" pre="You typed : <b>" post="</b> for Some Text" 
+alt="You didn't put anything in the some text bit" type="html">.
+</td></tr>
+<tr>
+<th>
+&lt;output name="some_text" case="upper" alt="&lt;br&gt;" type="html"&gt;
+</th>
+</tr>
+<tr><td>
+<output name="some_text" case="upper" alt="<br>" type="html">
+</td></tr>
+<tr><th>
+&lt;output name="some_text" case="lower" alt="&lt;br&gt; type="html""&gt;
+</th></tr>
+<tr><td>
+<output name="some_text" case="lower" alt="<br>" type="html">
+</td></tr>
+<tr><th>
+&lt;output name="cc" alt="&lt;br&gt; type="html" format="%cccc%""&gt;
+</th></tr>
+<tr><td>
+<output name="cc" alt="<br>" type="html" format="%cccc%">
+</td></tr>
+<tr><th>
+&lt;output name="text_box" indent="....." alt="Text box left blank" type="html"&gt;
+</th></tr>
+<tr><td>
+<output name="text_box" sub="<pre>">
+<output name="text_box" indent="....." alt="Text box left blank" type="html">
+<output name="text_box" sub="</pre>">
+</td></tr>
+<tr><th>
+&lt;output name="text_box" alt="This would remove newlines and Tab characters" type="html" charmap="	, " newline="none"&gt;
+</th></tr>
+<tr><td>
+<output name="text_box" sub="<pre>">
+<output name="text_box" alt="This would remove newlines and Tab characters" type="html" charmap="	, " newline="none">
+<output name="text_box" sub="</pre>">
+</td></tr>
+<tr><th>
+&lt;output name="text_box" alt="This would map a to x and b to y" type="html" charmap="a,x" charmap="b,y"&gt;
+</th></tr>
+<tr><td>
+<output name="text_box" sub="<pre>">
+<output name="text_box" alt="This would map a to x and b to y" type="html" charmap="a,x" charmap="b,y">
+<output name="text_box" sub="</pre>">
+</td></tr>
+<tr><th>
+&lt;output name="checks" alt="No checkboxes checked"&gt;
+</th></tr>
+<tr><td>
+<output name="checks" alt="No checkboxes checked">
+</td></tr>
+<tr><th>
+&lt;output name="checks" list="text" delim=", " alt="No checkboxes checked"&gt;
+</th></tr>
+<tr><td>
+<output name="checks" list="text" delim=", " alt="No checkboxes checked">
+</td></tr>
+<tr><th>
+&lt;output name="checks" list="text" alt="No checkboxes checked"&gt;
+</th></tr>
+<tr><td>
+<output name="checks" list="text" alt="No checkboxes checked">
+</td></tr>
+<tr><th>
+&lt;output name="non-existant" alt="This field doesn't exist, but is ALTed"&gt;
+</th></tr>
+<tr><td>
+<output name="non-existant" alt="This field doesn't exist, but is ALTed">
+</td></tr>
+<tr><th>
+&lt;output name="non-existant" altvar="http_date" format="%mmm%"&gt;
+</th></tr>
+<tr><td>
+<output name="non-existant" altvar="http_date" format="%mmm%">
+</td></tr>
+<tr><th>
+&lt;output name="SoupermailConf" sub="This field does exist, but is SUBed"&gt;
+</th></tr>
+<tr><td>
+<output name="SoupermailConf" sub="This field does exist, but is SUBed">
+</td></tr>
+<tr><th>
+&lt;output name="SoupermailConf" subvar="http_time"&gt;
+</th></tr>
+<tr><td>
+<output name="SoupermailConf" subvar="http_time">
+</td></tr>
+<tr><th>
+&lt;output name="text_box" type="escaped" alt="&lt;br&gt;"&gt;
+</th></tr>
+<tr><td>
+<output name="text_box" type="escaped" alt="<br>">
+</td></tr>
+<tr><th>
+&lt;output name="checks" math="checks * 2" alt="&lt;br&gt;" pre="val * 2 = "&gt;
+</th></tr>
+<tr><td>
+<output name="checks" math="checks * 2" alt="<br>" pre="val * 2 = ">
+</td></tr>
+<tr><th>
+&lt;output name="checks" math="checks / 3" alt="&lt;br&gt;" pre="val / 2 = "&gt;
+</th></tr>
+<tr><td>
+<output name="checks" math="checks / 3" alt="<br>" pre="val / 2 = ">
+</td></tr>
+<tr><th>
+&lt;output name="checks" math="checks + 5.5" alt="&lt;br&gt;" pre="val + 5.5 = "&gt;
+</th></tr>
+<tr><td>
+<output name="checks" math="checks + 5.5" alt="<br>" pre="val + 5.5 = ">
+</td></tr>
+<tr><th>
+&lt;output name="checks" math="checks / non_existant" alt="&lt;br&gt;" pre="val / non_existant = "&gt; </th></tr>
+<tr><td>
+<output name="checks" math="checks / non_existant" alt="<br>" pre="val / non_existant = ">
+</td></tr>
+<tr><th>
+&lt;output name="SoupermailConf" math="5*5" alt="&lt;br&gt;" pre="5*5 = "&gt;
+</th></tr>
+<tr><td>
+<output name="SoupermailConf" math="5*5" alt="<br>" pre="5*5 = ">
+</td></tr>
+<tr><th>
+&lt;output name="checks" math="checks / (num1 + num2)" alt="&lt;br&gt;" pre="val / (num1 + num2) = " precision="4"&gt; </th></tr>
+<tr><td>
+<output name="checks" math="checks / (num1 + num2)" alt="<br>" pre="val / (num1 + num2) = " precision="4">
+</td></tr>
+<tr><th>
+&lt;output name="checks" math="checks / (num1 + num2)" alt="&lt;br&gt;" pre="val / (num1 + num2) = " precision="4" charmap=&quot;.,,&quot; 
+post=&quot;&lt;br&gt;Using charmap, we can change the decimal point from . to ,&quot;&gt; </th></tr>
+<tr><td>
+<output name="checks" math="checks / (num1 + num2)" alt="<br>" pre="val / (num1 + num2) = " precision="4" charmap=".,,"
+post="<br>Using charmap, we can change the decimal point from . to ,">
+</td></tr>
+<tr><th>
+&lt;output name="SoupermailConf" math="sum(checks)" alt="&lt;br&gt;" pre="sum(checks) = "&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="sum(checks)" alt="<br>" pre="sum(checks) = ">
+</td></tr>
+<tr><th>
+&lt;output name="SoupermailConf" math="count(checks)" alt="&lt;br&gt;" pre="count(checks) = "&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="count(checks)" alt="<br>" pre="count(checks) = ">
+</td></tr>
+<tr><th>
+&lt;output name="SoupermailConf" math="sum(checks) / count(checks)" alt="&lt;br&gt;" pre="checks average = "&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="sum(checks) / count(checks)" alt="<br>" pre="checks average = ">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="num2 - -.10"&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="num2 - -.10">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="num1 - 090"&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="num1 - 090">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="090 + num1"&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="090 + num1">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="10 - num1"&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="10 - num1">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="10 - num1 * 2"&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="10 - num1 * 2">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="(10 - num1) * 2"&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="(10 - num1) * 2">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="num1 / 3"&gt; </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="num1 / 3">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="(num1 / 3) - 0.5" precision="0"&gt;<br>
+This shows how to get the integer value of a number </th></tr>
+<tr><td>
+<output name="SoupermailConf" math="(num1 / 3) - 0.5" precision="0">
+</td></tr>
+
+<tr><th>
+&lt;output name="SoupermailConf" math="num1 / 3" precision="-3"&gt;<br>
+This shows how to get the fractional value of a number</th></tr>
+<tr><td>
+<output name="SoupermailConf" math="num1 / 3" precision="-3">
+</td></tr>
+
+
+</table>
+</div>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="testform.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="testform.txt">testform.txt</a>.</p>
+</body>
+</html>

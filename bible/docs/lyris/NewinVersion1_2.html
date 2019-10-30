@@ -1,0 +1,160 @@
+<HTML>
+<HEAD><TITLE>New in Version 1.2</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="NewinVersion2_0.html">previous</a>] [<a href="SoftwareLicenseAgreement.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in Version 1.2</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html">New in 3.0 beta 3 (v2.545)</a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html">New in 3.0 beta 2 (v2.543)</a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html">New in 3.0 beta 1 (v2.542)</a><br>
+· · · <a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+· · · <a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+· · · <a href="NewinVersion1_2.html"><font size=+0><b>New in Version 1.2</b></font></a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in Version 1.2</h3>
+<B>Major Changes:</B><p>
+<b></B>The subject line of a message is now checked for Lyris commands. For instance, a message with the subject "subscribe somelist" and no message body, would be valid, and would subscribe the person to 
+"somelist".  See  <a href="TheLyris_ServerAddress.html">The Lyris@ Server Address</a>. 
+</B><p>
+New command-listname and listname-command addresses. All email commands can now be sent "auto-responder style" to a designated address. For instance, if you have a list named "jazztalk", people can 
+subscribe by sending email to "jazztalk-subscribe" (or "subscribe-jazztalk") as well as any of the aliases for "subscribe". Unsubscribe (for example: "unsubscribe-jazztalk") and all the other 
+commands work the same way. This is much simpler and less error prone method of executing single Lyris commands. The following command-listname email addresses have been implemented: subscribe (and 
+aliases), unsubscribe (and aliases), purge, mail, digest, index, nomail, ack, noack, unhold, query, confirm, review, stats, hello, goodbye. In addition, the following email addresses issue the given 
+Lyris command: purge, unhold, help, info that (for example: unhold@clio.lyris.net).  See  <a href="Command_ListnameandListname_Command.html">Command-Listname and Listname-Command</a>. 
+<p>
+Added context sensitive help to all administrator menus of the Lyris web interface. Adobe Acrobat versions of the manuals are now available.<p>
+DocBots (document robots) can now be created. These are intelligent email addresses that respond to email by looking for specified phrases and mailing a given document in response. DocBots are 
+created by making an auto-responder, and attaching action phrases to them.  See  <a href="WhatisaDocBot_.html">What is a DocBot?</a>. 
+<p>
+Added mail-based approval of moderated messages. The admin notification of a pending message includes the commands for approving or rejecting the pending messages.  See  <a href="Moderate.html">Moderate</a>.<p>
+Added mail-based approval of applicants to a private mailing list. The admin notification of a an applicant includes the commands for approving or rejecting the person.  See  <a href="Member.html">Member</a>.<p>
+Added administrator email command "become". This allows an administrator to "become" someone else (use their email address and name) and issue any Lyris email command on their behalf.  See  
+<a href="Become.html">Become</a>. 
+<p>
+Lyris now can run as a Windows NT background service, or as a Windows 95 service. The command line parameters -install, -install95, -remove and -remove95 to control this.  See  
+<a href="TheLyriscommandline.html">The Lyris command line</a>. 
+<p>
+The Lyris command line has undergone some changes. Now, to start Lyris in the foreground, you use "lyris start". Just typing "lyris" will display the command line help information. This change was 
+needed in order to make Lyris compatible with Windows NT services, and is also more in line with Unix daemon standards.  See  <a href="TheLyriscommandline.html">The Lyris command line</a>. 
+<p>
+List administrators can now create documents, action phrases and autoresponders.  See <a href="ServerDocuments.html">Server Documents</a> or <a href="ServerActionPhrases.html">Server Action Phrases</a> or  
+<a href="Auto_Responders.html">Auto-Responders</a>. 
+<p>
+Better handling of intermittent mail problems: Lyris now classifies mail delivery problems into two groups: serious errors and intermittent problems. Serious errors are things such as "user not 
+found" messages. Intermittent problems are things like a TCP/IP connection timeout, or a DNS lookup failure. Intermittent mail problems are automatically retried every 15 minutes, except where there 
+is new mail which has not been attempted yet, in which case the new mail is sent first. Intermittent mail problems are retried a total of 96 times that is at least 24 hours. An error notification is 
+only sent out once the 24 hour retry period has been exhausted. Serious errors are set to a once-a-day retry schedule, and are retried for 6 days. 
+<p>
+<B>Minor Changes:</B><p>
+<b></B>All "something-listname" email addresses also work as "listname-something". For example: "jazztalk-remove" is equivalent to "remove-jazztalk". Since people are often confused as to which comes 
+first, we made both work.  See  <a href="Command_ListnameandListname_Command.html">Command-Listname and Listname-Command</a>. 
+</B><p>
+Messages and documents composed on the web are now optionally word-wrapped. A checkbox is available for disabling word-wrapping.  See  <a href="ServerDocuments.html">Server Documents</a>.<p>
+Added support for machines that have multiple TCP/IP addresses. A new server configuration setting "multiple tcp/ip addresses" lets you specify specifically which IP addresses you want Lyris to use. 
+If not specified, Lyris automatically listens to all the IP addresses.  See  <a href="MultipleTCP_IPaddresses.html">Multiple TCP/IP addresses</a>. 
+<p>
+Better handling of subscribers with intermittent problems.<p>
+All posting rejection notices now include the message text being rejected, so if the contributor wants to resend it, the message is there.<p>
+New server configuration setting: "Delivery speed" lets you slow down the pace of mail delivery. Usually, Lyris will send mail as fast as possible, and this can often end up using all your Internet 
+connection bandwidth. This option reduces Lyris' bandwidth usage.  See  <a href="DeliverySpeed.html">Delivery Speed</a>. 
+<p>
+When a member is placed on "hold", a message is sent to the person indicating this has happened, and Lyris will try for up to 20 days to deliver that message.   <a href="HoldUsers.html">Hold Users</a>.<p>
+Increased the number of aliases for subscribe: sub, signon, join, on, suscribe (a common misspelling) as well as aliases for unsubscribe: unsub, remove, unsubscribe, unsuscribe (common misspelling), 
+signoff, leave, off.  See  <a href="Command_ListnameandListname_Command.html">Command-Listname and Listname-Command</a>. 
+<p>
+The web display of archives messages now properly displays messages that used Content-Transfer-Encoding: quoted-printable.  See  <a href="ReadandSearchMessages.html">Read and Search Messages</a>.<p>
+The "hello" document for a list is now mailed properly for web-based subscriptions. If the list has "confirm" on, the hello document is not mailed until the confirmation is received.  See  
+<a href="Hello.html">Hello</a>. 
+<p>
+Added "set listname pw=" command so that you can set your password over email. Lyris only lets you set the password if you do not already have one. For security reasons, it will not let you change 
+your password over email.  See  <a href="ChangeMembershipSettings.html">Change Membership Settings</a>. 
+<p>
+Added "set listname unhold" command that means the same thing as just "unhold".  See  <a href="ChangeMembershipSettings.html">Change Membership Settings</a>.<p>
+With Web based subscriptions the "confirm" and "private" settings now work as one would expect.  See <a href="ConfirmSubscribes.html">Confirm Subscribes</a> or  <a href="SubscriptionSecurity.html">Subscription Security</a>.<p>
+Added "get listname hello" and "get listname goodbye" commands. This allows members to receive the hello or goodbye members via email.  See  <a href="GetDocuments.html">Get Documents</a>.<p>
+Added "help_url" option to lyris.plc to redirect help lookup elsewhere. The default is to look go to http://www.lyris.com/help, but you can download the HTML files and have the Lyris web interface 
+point to a local site.  See  <a href="LocationofWebInterfaceHelpFiles.html">Location of Web Interface Help Files</a>. 
+<p>
+Add "help=no" option to lyris.plc, When set, removes all help jumps from the web interface.  See  <a href="DisableHelpintheWebInterface.html">Disable Help in the Web Interface</a>.<p>
+Improved the appearance of digests in several ways.<p>
+Fixed problem with Microsoft Windows Messaging, list headers & footers, and the Encoding: header.<p>
+Added "down=" option to lyris.plc, so that you can configure the message that is given when the web interface cannot reach the Lyris server, for instance during a planned service outage.  See  
+<a href="LyrisUnavailableMessage.html">Lyris Unavailable Message</a>. 
+<p>
+Improved moderated message auto-approval mechanism. More options, better system messages, and the implications of the feature are clearer.  See  <a href="ReleaseDays.html">Release Days</a>.<p>
+A single action phrase can now match against a number phrases. Previously, each Action was limited to one search phrase.  See  <a href="ServerActionPhrases.html">Server Action Phrases</a>.<p>
+Added "login" command for administrator restricted functions. All administrator email commands first require a login.  See  <a href="Login.html">Login</a>.<p>
+All "delete" buttons now have a "are you sure" checkbox next to them, so that you cannot accidentally delete something.<p>
+New administrator email command: "send document-name email-address ..." lets administrators send a Lyris document to any number of email addresses.  See  <a href="Send.html">Send</a>.<p>
+A "\" character at the end of a message line to lyris@... acts as a line continuation command. I.e.: the next line is understood as being part of the previous line.  See  
+<a href="TheLineContinuationCharacter.html">The Line Continuation Character</a>. 
+<p>
+Added "get listname message-number" and "get listname message-range" commands so that members can retrieve the messages in the list archives. Examples: "get astor 150" or "get astor 200-290".  See  
+<a href="GetDocuments.html">Get Documents</a>. 
+<p>
+"Index" subscriptions have been reworked so that each daily index displays the Subject, From, and Lyris Message ID of each message. Then, at the bottom of the index, are prewritten instructions for 
+retrieving individual message bodies, or all the message bodies for that index.  
+<p>
+Auto-responders now have their From: and Reply-To: be the autoresponder address. Previously, auto-responder mail came from lyris@... To prevent mail loops, if the same email address asks for an 
+autoresponder more than 10 times in one day, the autoresponder From: and Reply-To: will change to lyris-admin@ (the error mail processor), thus stopping a potential mail loop.  See  
+<a href="Auto_Responders.html">Auto-Responders</a>. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 504 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

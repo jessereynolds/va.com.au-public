@@ -1,0 +1,36 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail Sender Attachments</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Sender Attachments</h1>
+
+<p><output name="Email"> should receive an email containing the following
+attachments:</p>
+
+<output name="attach" list="ul">
+
+<p>Return <a href="index.htm">to the examples page</a>.
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="attachment.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>This page has been built from a Soupermail template called 
+<code><a href="attachment.txt">attachment.txt</a></code>.
+</p>
+</body>
+</html>
+

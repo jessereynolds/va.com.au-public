@@ -1,0 +1,5 @@
+# Configuration file for the second form in the 
+# multipart forms example.
+# Easy one this, because it just bounces you to
+# the final page even if you don't enter anything
+success: multi3.txt

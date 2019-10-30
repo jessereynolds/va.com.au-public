@@ -1,0 +1,32 @@
+# What file to save to
+fileto: counters/guestbook.htm
+
+# make sure its viewable from the web
+filereadable: yes
+
+# make sure new entries appear at the top of the guestbook
+fileattop: yes
+
+# what to use as a file header
+headings: guesthead.txt
+
+# what to use as a file footer
+footings: guestfoot.txt
+
+# what template to use for the guestbook file
+filetemplate: guesttpl.txt
+
+# What template to use on success
+success: guestbook.txt
+
+# assign a unique number for the entry
+ref: %yy%%mmm%%dd%%rrrr%
+
+# If a confirmation email is needed, make sure they have put in an email
+# and the appropriate templates are used
+if : (confirm) then required: Email
+if : (confirm) then mailto: "$form_Email"
+if : (confirm) then mailtemplate: guestmail.txt
+
+# see if old entries are to be cleaned out
+if : (clearold) then filemaxbytes: 1

@@ -1,0 +1,108 @@
+<HTML>
+<HEAD><TITLE>Recipient Fields</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="LyrisMailMerge.html">previous</a>] [<a href="MemberFields.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Recipient Fields</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · · · <a href="RecipientFields.html"><font size=+0><b>Recipient Fields</b></font></a><br>
+· · · · <a href="MemberFields.html">Member Fields</a><br>
+· · · · <a href="Listfields.html">List fields</a><br>
+· · · · <a href="Sitefields.html">Site fields</a><br>
+· · · · <a href="EmailAddressfields.html">Email Address fields</a><br>
+· · · · <a href="IncomingMailfields.html">Incoming Mail fields</a><br>
+· · · · <a href="DateField.html">Date Field</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Recipient Fields</h3>
+The following mail merge fields are substituted on the fly, for each recipient as each message is delivered.<p>
+<B>$subst('Recip.EmailAddr') <br></B>This substitutes in the recipients' email address. </B><p>
+For example, you might make your list header be:<p>
+<font face='Courier New'><ul>To: $subst('Recip.EmailAddr')<p>
+You may be interested to know&#133;.<p>
+</ul></font>and Lyris would substitute it to say:<p>
+<font face='Courier New'><ul>To: bob.smith@somewhere.com<p>
+You may be interested to know&#133;.<p>
+</ul></font><B>$subst('Recip.FullName') <br></B>This substitutes in the recipients' full name.  If the member does not have a full name, their email address is used instead.</B><p>
+For example, you might start your mailing out with this:<p>
+<font face='Courier New'><ul>Dear $subst('Recip.FullName'), we are glad that you have&#133;<p>
+</ul></font>and Lyris would substitute it to say:<p>
+<font face='Courier New'><ul>Dear Bob Smith, we are glad that you have&#133;<p>
+</ul></font><B>$subst('Recip.FirstName') <br></B>This substitutes in the recipients' first name (the first component of their full name).  If the member does not have a full name, 
+their email address is used instead. If a member only has a single component to their name, that component is used. 
+</B><p>
+For example, you might start your mailing out with this:<p>
+<font face='Courier New'><ul>Dear $subst('Recip.FirstName'), we are glad that you have&#133;<p>
+</ul></font>and Lyris would substitute it to say:<p>
+<font face='Courier New'><ul>Dear Bob, we are glad that you have&#133;<p>
+</ul></font><B>$subst('Recip.MemberID') <br></B>This substitutes in the recipients' unique Member ID.  This is useful for exactly identifying the user.</B><p>
+<B>$subst('PurgeID') <br></B>This substitutes in the Recipient's email address, in square brackets. If this text is forwarded to the unsubscribe-listname@&#133; or 
+purge@&#133; address, Lyris will automatically locate it and unsubscribe this address.  This allows you to provide a failsafe unsubscribe mechanism.  For example, a typical list 
+footer might be: 
+</B><p>
+<font face='Courier New'><ul>This is a posting from: $subst('List.Name')<p>
+To unsubscribe, forward this message to $subst('Email.UnSub')<p>
+$subst('PurgeID')<p>
+</ul></font><B>$subst('Outmail.MessageID') <br></B>This substitutes in the message's unique ID.  This is useful for exactly identifying the message.</B><p>
+For example, if you sent the following message to a mailing list:<p>
+<font face='Courier New'><ul>Hello! Your email address is $subst('Recip.EmailAddr'), your member ID is $subst('Recip.MemberID') and the ID of this message is $subst('Outmail.MessageID').<p>
+</ul></font>To the person who received the message, it might look like this:<p>
+<font face='Courier New'><ul>Hello! Your email address is bob@somewhere.com, your member ID is 905 and the ID of this message is 3154.<p>
+</ul></font><h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+<li><a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+</td><td align=right valign=top>Page 400 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,102 @@
+<HTML>
+<HEAD><TITLE>Installing Lyris on Unix</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="LivingwithaFirewall.html">previous</a>] [<a href="BasicUnixInstallationInstructions.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Installing Lyris on Unix</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html"><font size=+0><b>Installing Lyris on Unix</b></font></a><br>
+· · · <a href="BasicUnixInstallationInstructions.html">Basic Unix Installation Instructions</a><br>
+· · · · <a href="BasicInstallationonSolaris_Sparc.html">Basic Installation on Solaris/Sparc</a><br>
+· · · · <a href="BasicInstallationonSolaris_Intel.html">Basic Installation on Solaris/Intel</a><br>
+· · · · <a href="BasicInstallationonIrix.html">Basic Installation on Irix</a><br>
+· · · · <a href="BasicInstallationonAIX.html">Basic Installation on AIX</a><br>
+· · · · <a href="BasicInstallationonDigitalUnix.html">Basic Installation on Digital Unix</a><br>
+· · · <a href="AfterInstallingLyrisonUnix.html">After Installing Lyris on Unix</a><br>
+· · · <a href="GettingHelp.html">Getting Help</a><br>
+· · · <a href="HowtoInstallLyrisbyHand.html">How to Install Lyris by Hand</a><br>
+· · · <a href="HowtoUpgradeLyrisbyHand.html">How to Upgrade Lyris by Hand</a><br>
+· · · <a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">How to Install the Web Interface on a separate machine</a><br>
+· · · · <a href="Ifyougetthe_ProtocolNotSupported_Error.html">If you get the "Protocol Not Supported" Error</a><br>
+· · · <a href="IfLyrisWillNotRun.html">If Lyris Will Not Run</a><br>
+· · · <a href="UnixDirectoryPermissionsNeeded.html">Unix Directory Permissions Needed</a><br>
+· · · <a href="MakingyourUnixMailServerandLyriscoexist.html">Making your Unix Mail Server and Lyris coexist</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Installing Lyris on Unix</h3>
+This document explains how to install Lyris on Unix, how to install Lyris by hand, how to install the Lyris Web Interface on a separate machine, and how to make Lyris and Sendmail 
+coexist. 
+<p>
+First read <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a> and decide what technique you want to use to have sendmail and Lyris coexist on your machine.  If you are using Qmail, 
+read  <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a>. 
+<p>
+Next, install Lyris by running the Lyris installation program, "install_lyris".  <p>
+If you have previously installed Lyris, you should still run the "install_lyris" program. It will ask you if you are upgrading an existing copy of Lyris, and if you answer yes, will automatically 
+upgrade your Lyris installation for you. 
+<p>
+<h3><i><B>More:</B><p>
+<B></i></h3></B><ul><b><a href="BasicUnixInstallationInstructions.html">Basic Unix Installation Instructions</a><p>
+<a href="AfterInstallingLyrisonUnix.html">After Installing Lyris on Unix</a><p>
+<a href="GettingHelp.html">Getting Help</a><p>
+<a href="HowtoInstallLyrisbyHand.html">How to Install Lyris by Hand</a><p>
+<a href="HowtoUpgradeLyrisbyHand.html">How to Upgrade Lyris by Hand</a><p>
+<a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">How to Install the Web Interface on a separate machine</a><p>
+<a href="IfLyrisWillNotRun.html">If Lyris Will Not Run</a><p>
+<a href="UnixDirectoryPermissionsNeeded.html">Unix Directory Permissions Needed</a><p>
+<a href="MakingyourUnixMailServerandLyriscoexist.html">Making your Unix Mail Server and Lyris coexist</a><p>
+</b></ul><h2><B></h2></B></B><p>
+</B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+</td><td align=right valign=top>Page 452 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

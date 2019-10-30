@@ -1,0 +1,6 @@
+required: Email
+required: your_name
+if : (ashtml eq "yes") then mailto: "$form_Email"
+htmlmailtemplate: sendaform.txt
+success: sendaform.txt
+subject: Sending a HTML form via email

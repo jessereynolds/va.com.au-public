@@ -1,0 +1,28 @@
+# The line below says use cookie.txt as the template
+# if the form is OK to send.
+success: cookie.txt
+
+# The line below will generate a cookie called ExampleCookie.
+cookie1name: ExampleCookie
+
+# The line below will make ExampleCookie last for 1 day.
+cookie1expires: +1d
+
+# The line below sets the value of ExampleCookie to whatever
+# was in the form field 'stuff'.
+cookie1value: "$form_stuff"
+
+# If you don't supply a value, the two lines below will delete
+# the cookie. Sending an empty value for the cookie value doesn't
+# seem to work :(
+unless : stuff then cookie1expires: -1d
+unless : stuff then cookie1value: "delete me"
+
+# the line below makes the browser send ExampleCookie to all
+# pages on the current webserver.
+cookie1path: /
+
+# Make sure cookies are sent even if you send in a blank form. This
+# allows the cookie to be erased.
+cookieonblank : yes
+

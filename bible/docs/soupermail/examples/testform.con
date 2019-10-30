@@ -1,0 +1,10 @@
+success: testform.txt
+blank: testform.txt
+failure: testformfail.txt
+
+# Check the datatypes on some of the fields
+isnumber: num1
+isinteger: num2
+isinteger: checks
+iscreditcard: cc
+isemail: mail

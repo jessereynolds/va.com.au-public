@@ -1,0 +1,104 @@
+<HTML>
+<HEAD><TITLE>Relay Host</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="ForwardMail.html">previous</a>] [<a href="ForwardingOrders.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Relay Host</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · · <a href="Activationcodeandadmincontact.html">Activation code and admin contact</a><br>
+· · · <a href="TCP_IPSettings.html">TCP/IP Settings</a><br>
+· · · <a href="MailReceivingSettings.html">Mail Receiving Settings</a><br>
+· · · <a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+· · · · <a href="ForwardMail.html">Forward Mail</a><br>
+· · · · <a href="RelayHost.html"><font size=+0><b>Relay Host</b></font></a><br>
+· · · · <a href="ForwardingOrders.html">Forwarding Orders</a><br>
+· · · · <a href="DeliverySpeed.html">Delivery Speed</a><br>
+· · · · <a href="MaxSendJobs.html">Max Send Jobs</a><br>
+· · · · <a href="EnableDNSCaching.html">Enable DNS Caching</a><br>
+· · · · <a href="MailDeliveryStatisticsSize.html">Mail Delivery Statistics Size</a><br>
+· · · · <a href="MailDeliveryStatisticsInterval.html">Mail Delivery Statistics Interval</a><br>
+· · · · <a href="In_MemoryProcessing.html">In-Memory Processing</a><br>
+· · · · <a href="EnableLogging.html">Enable Logging</a><br>
+· · · <a href="LyrisCommandProtocol_LCP_Settings.html">Lyris Command Protocol (LCP) Settings</a><br>
+· · · <a href="ProgrammingExtensionsattheServerLevel.html">Programming Extensions at the Server Level</a><br>
+· · · <a href="Newsgroups.html">Newsgroups</a><br>
+· · · <a href="MiscellaneousServerConfigSettings.html">Miscellaneous Server Config Settings</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Relay Host</h3>
+Relay all outbound mail through this mail host rather than doing regular direct delivery. <p>
+Some environments need outbound mail to be relayed through a specific host.  For instance, your organization might employ a TCP/IP firewall that prevents Lyris from directly delivering mail.  In such 
+a case, each application behind the firewall must use a Relay Host to communicate with the outside. 
+<p>
+A mail server must be listening on the port of the TCP/IP address that you specify.  For this setting, you specify an address/port combination.<p>
+You can specify as many relay hosts as you like. Each entry must be separated by a carriage return. If you specify multiple relay hosts, Lyris will automatically distribute the mail relay load 
+between them. If you need to send a great deal of mail through a relay host setup, we recommend that you specify several relay hosts. 
+<p>
+Example: <p>
+<font face='Courier New'><ul>207.105.6.2 25<p>
+</ul></font> <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+<li><a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+</td><td align=right valign=top>Page 127 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

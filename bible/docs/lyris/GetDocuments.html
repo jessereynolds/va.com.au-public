@@ -1,0 +1,105 @@
+<HTML>
+<HEAD><TITLE>Get Documents</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HelpDocument.html">previous</a>] [<a href="End.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Get Documents</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· · <a href="HowtosendmailtoyourLyrisserver.html">How to send mail to your Lyris server</a><br>
+· · <a href="SendingEmailCommandstoLyris.html">Sending Email Commands to Lyris</a><br>
+· · <a href="Subscribing.html">Subscribing</a><br>
+· · <a href="Unsubscribe.html">Unsubscribe</a><br>
+· · <a href="ChangeMembershipSettings.html">Change Membership Settings</a><br>
+· · <a href="DetermineMembershipSettings.html">Determine Membership Settings</a><br>
+· · <a href="MailingListInformation.html">Mailing List Information</a><br>
+· · <a href="Search.html">Search</a><br>
+· · <a href="HelpDocument.html">Help Document</a><br>
+· · <a href="GetDocuments.html"><font size=+0><b>Get Documents</b></font></a><br>
+· · <a href="End.html">End</a><br>
+· · <a href="AdministratorCommands.html">Administrator Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Get Documents</h3>
+Members of a mailing list can obtain the documents from a mailing with the Get command.  They syntax for the get command <p>
+<font face='Courier New'><ul>get listname document-name-or-range<p>
+</ul></font>Currently, two kinds of documents are available: "hello" and "goodbye".  These are the documents that are mailed when someone joins the mailing list, and when someone leaves the 
+mailing list. For example: 
+<p>
+<font face='Courier New'><ul>get jazztalk hello <br>get rock-discussion hello<p>
+</ul></font>The hello and goodbye documents can also be obtained by sending email to the Command-Listname address "hello-listname@&#133;" and 
+"goodbye-listname@&#133;"  
+<p>
+If you know the document ID or range of IDs of archived messages that you want to retrieve, you can also use the "get" command to retrieve specific message bodies.<p>
+For instance, if you subscribe to a mailing list with "index" mode, you receive a nightly summary of the messages from that day, with a get command pre-written to retrieve the message bodies.<p>
+The format of the get command for retrieving an archived message (or a set of messages) is:<p>
+<font face='Courier New'><ul>get listname message-id [message-id] &#133;<p>
+</ul></font>or you can specify a range with:<p>
+<font face='Courier New'><ul>get listname (first-message-id)-(last-message-id)<p>
+</ul></font>For example:<p>
+<font face='Courier New'><ul>get jazztalk 100 105 106 109 <br>get jazztalk 100-109<p>
+</ul></font><B>Get Documents Example</B><p>
+<B></B>This is a sample nightly index document from the NeoForum mailing list. Notice that the "get" command is pre-written for the user in the message.</B><p>
+<font face='Courier New'><ul>CDLIST Index for Saturday, March 08, 1997. <br>-----------------------------------------------------<p>
+Subject: Re: results <br>From:    Jason Smith &lt;jsmith@somewhere.com&gt; <br>ID:      133<p>
+Subject: Re: Aborting a cd <br>From:    Bob Jones &lt;neo@elsewhere.com&gt; <br>ID:      136<p>
+Subject: CD-Roms <br>From:    mainp@domain.co.uk (Matt Smith) <br>ID:      139<p>
+Subject: Re[2]: Client/Server? <br>From:    pben@mydomain.com <br>ID:      141<p>
+-----------------------------------------------------<p>
+To receive the full text of these messages, send the following command to lyris@lyris.shelby.com<p>
+   get cdlist 133-141<p>
+Or, you can retrieve specific messages with a command such as:<p>
+   get cdlist 133 136<p>
+-----------------------------------------------------<p>
+</ul></font><h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+</td><td align=right valign=top>Page 62 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

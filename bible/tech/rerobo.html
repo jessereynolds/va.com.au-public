@@ -1,0 +1,129 @@
+<html>
+
+<head>
+
+<title>The Bible - Tech - re-roboing</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+<!--#include virtual="/bible/nav.html" -->
+<blockquote> 
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td>
+       <font face="Arial, Helvetica, sans-serif">
+        <p>
+        
+        <h1>How To Run 'Rerobo'</h1>
+        </p>
+<p>
+
+<b>NOTE:</b> "Quotation" marks enclose what you need to type - obviously, you don't actually need to type the quotation marks ;-)
+</p>
+<p>
+<b>1/</b> Open Nifty Telnet and select 'New Connection' from the file menu.
+</p>
+<p>
+<b>2/</b> Select 'Beetroot' and click 'Connect'.
+</p>
+<p>
+<b>3/</b> Login with your username and password.
+</p>
+<p>
+<b>4/</b> When you get the command prompt '$' type "su -" and press enter.
+</p>
+<p>
+<b>5/</b> You will be asked for a password. Type "xxx#xxx".
+</p>
+<p>
+<b>6/</b> You are now the "SuperUser" and can do all sorts of things so be very careful. Each time you do something you will go to a new line and get '#' as a command prompt.
+</p>
+<p>
+<b>7/</b> Type 'ps aux | grep java'. This command will show you all the applications running that are using Java.
+</p>
+<p>
+<b>8/</b> This should give you a couple of lines, (or more), that look like this:<br />
+</p>
+<p><pre>
+root   12311   0.5   0.5   732    304    pts/3  R  16:33:27  0:00  grep java
+root   12240   0.0   3.0   3000   1888   ?      S  16:18:43  0:35  /disk1/java/bin/..<br />
+</pre></p>
+<p>
+The first one with "grep java" in it is the one we just did so you can ignore it, it is the second one we are looking for.
+</p>
+<p>
+<b>9/</b> The first number in the line is the "process id number", (you can pretty much ignore the rest of the line). You need to 'kill' this process so type "kill 12240" or whatever that id number is.
+</p>
+<p>
+<b>10/</b> Now we need to check that this has worked so type  "ps aux | grep java" again. You should get only one line ending in 'grep java' this time if the process has successfully been 'killed'. If not, you need to 'really' kill it, so type "kill -9".
+</p>
+<p>
+<b>11/</b> Check it again by typing  "ps aux | grep java" again.
+</p>
+<p>
+<b>12/</b> Repeat steps 10 and 11 as many times as needed until the process is dead.
+</p>
+<p>
+<b>13/</b> Now we run 'Rerobo' by typing "/root/rerobo.sh".
+</p>
+<p>
+<b>14/</b> If you get a message saying something like 'error connecting to server...' you will need to Timbuktu into the Robomac and restart it.
+</p>
+<p>
+<b>15/</b> Open Timbuktu Pro. If the 'New Connection' dialogue box does not open automatically select 'New Connection' from the 'File' menu and select 'robomac' by clicking on it and hitting 'enter'.
+</p>
+<p>
+<b>16/</b> You be asked for a password. It is "xxxxxx". A  new window will open that will show the desktop of the Robomac. 
+</p>
+<p>
+<b>17/</b> Quit the Webcam Turbo application then select the 'Desktop' and choose 'Restart' from the 'Special' menu. Be VERY careful not to choose 'Shutdown' as you will then have to go down to the machine and start it by hand.
+</p>
+<p>
+<b>18/</b> Open Netscape and check that the RoboCam is working. You should be able to see the commands in the Nifty Telnet window as you move the camera around.
+</p>
+<p>
+<b>19/</b> Close the Timbuktu connection.
+</p>
+<p>
+<b>20/</b> Log out of Beetroot by typing "exit" and hitting 'enter' once to log out as the SuperUser and then again to log out as yourself.
+</p>
+<p>
+<b>21/</b> There - you have done it!
+</p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </font></p>
+        
+        <p>&nbsp;</p>
+      </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p><font face="Arial, Helvetica, sans-serif"><map name="bible_header_nav.map">
+      <area shape="rect" coords="9,23,152,106" href="/bible/index.html" alt="Home">
+      <area shape="rect" coords="160,107,223,134" href="/bible/ftp/ftp.html" alt="FTP Info">
+      <area shape="rect" coords="238,107,282,134" href="/bible/faq/faq.html" alt="FAQ's">
+      <area shape="rect" coords="298,107,368,134" href="/bible/office/office.html" alt="Office Info">
+      <area shape="rect" coords="388,107,458,134" href="/bible/tech/tech.html" alt="Tech Maps">
+      <area shape="rect" coords="476,107,537,134" href="/bible/general/general.html" alt="General Info">
+      <area shape="rect" coords="553,107,617,134" href="/bible/vce/vce.html" alt="VCe">
+    </map> </font></p>
+</blockquote>
+</body>
+
+</html>

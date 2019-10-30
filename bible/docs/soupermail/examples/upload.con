@@ -1,0 +1,5 @@
+# This config file is dead basic, and allows file upload
+mimeon : yes
+mailto : "$form_Email"
+mailtemplate : upload_mail.txt 
+success : upload.txt

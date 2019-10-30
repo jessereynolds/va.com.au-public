@@ -1,0 +1,143 @@
+<HTML>
+<HEAD><TITLE>New in Version 2.0</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="NewinVersion2_5.html">previous</a>] [<a href="NewinVersion1_2.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in Version 2.0</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html">New in 3.0 beta 3 (v2.545)</a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html">New in 3.0 beta 2 (v2.543)</a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html">New in 3.0 beta 1 (v2.542)</a><br>
+· · · <a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+· · · <a href="NewinVersion2_0.html"><font size=+0><b>New in Version 2.0</b></font></a><br>
+· · · <a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in Version 2.0</h3>
+<B>Summary of changes:</B></B><p>
+* new mail and dns engine <br>* performance improvements throughout <br>* lower disk space needs <br>* mail merge feature <br>* Lyris extensions <br>* To: 
+address rewriting rules <br>* DNS load balancing <br>* Relay host load balancing <br>* Option to allow Non-members to contribute <br>* Easy deleting from the mail 
+archives <br>* Limit archives by date and number <br>* Improved optional error mail reports <br>* user-defined To: header <br>* user-defined mail header removal 
+<br>* command line parameters for turning off parts of Lyris <br>* option to not archive a list <br>* option to not text index a list <br>* web interface now 
+guides you through logical steps <br>* web interface option to send user back to your site after joining <br>* obtain a list of members with admin "review" command <br>* 
+ability to disable auto-hold of members <br>* "quiet" option for "set" and "subscribe" <br>* new "end" command <br>* ftp links are hotlinked <br>* SMTP receiving 
+can be moved to another port <br> 
+<p>
+<B>Detailed Description of Changes:</B></B><p>
+New multithreaded mail engine provides extremely fast and reliable mail delivery. New built-in caching DNS resolver helps mail delivery be faster, and avoids bugs with some DNS servers. A 
+sophisticated in-memory indexed caching scheme improves DNS performance by 60% on average. 
+<p>
+The performance of the Lyris server has been improved about 40% overall.<p>
+Lyris is now more efficient in the way it uses disk space. Most sites will see Lyris disk space usage drop by 50%.<p>
+New "mail merge" feature. You can now insert text anywhere in a message (header or body) which specifies that you want text substituted for each user. For instance, you can have Lyris automatically 
+substitute each user's email address directly in the message body. You can also use mail merge in your Lyris Documents, such as the welcome message. Lyris uses an in-place mail substitution algorithm 
+that makes this feature extremely fast and efficient.  See  <a href="LyrisMailMerge.html">How can I use the Mail merge feature?</a>. 
+<p>
+You can now extend Lyris with external programs. A program can be tied to an email address (with a responder), to a phrase (with action phrases) to the list server address (lyris@...) or to a mailing 
+list posting. Your program can be run before or after the action, and can cause the normal Lyris actions to occur or be cancelled (for example, stop a message from being posted). The sample Perl 
+program "lyrext.pl" shows how extensions can be easily written.  See  <a href="HowcanIextendLyriswithmyownprograms_.html">How can I extend Lyris with my own programs?</a>. 
+<p>
+To: address rewriting. You can now specify rewrite rules for changing the To: address of incoming mail, just as you can for the From: address. For example, you can rewrite mail sent to 
+"listservices@..." to become "lyris@..."  See  <a href="IncomingTo_MailRewrites.html">Incoming To: Mail Rewrites</a>. 
+<p>
+DNS load balancing. You can now specify as many DNS servers as you like, and Lyris will automatically balance the DNS query load among them, and keep a centralized local cache of the results. See  
+<a href="DNSServer.html">DNS Server</a>. 
+<p>
+Relay host load balancing. If you want to have Lyris send its mail through a relay host, you can now specify as many relay hosts as you want, and Lyris will automatically load balance between them.  
+See  <a href="RelayHost.html">Relay Host</a>. 
+<p>
+Option in list settings to allow non-members to contribute to your mailing list. By default, Lyris only allows members to send mail to a mailing list, and rejects attempts by non-members to send to 
+the mailing list. This new option allows non-members to post and not be rejected. One aspect of this feature is that you can optionally use "new member moderating" to moderate the non-member 
+contributions, while letting the member contributions through without needing approval.  See  <a href="Non_MembersCanPost.html">Non-Members Can Post</a>. 
+<p>
+You can now delete messages from the archives by using the web interface. If you are reading messages and you are a list administrator, a "delete" button appears on the bottom of the page. You can 
+delete groups of messages (by marking several), or individual messages. If you have full text indexing enabled for your list (which is the default), the archives are correctly de-indexed, thus 
+freeing up the space in the text index.  See  <a href="ReadandSearchMessages.html">Read and Search Messages</a>. 
+<p>
+Option to limit the number of messages in the archives for each list. You can now specify how many days, and how many total messages should be saved in the archives for a list. For example, you 
+instruct Lyris to keep only the last 10 messages, one week's worth of messages, or leave the default to keep archives forever.  See  <a href="ArchiveDays.html">Archive Days</a>. 
+<p>
+The optional error mail reports are now much more detailed. A complete SMTP transaction log is included, allowing you to easily track down problems with member's email addresses. If a person 
+subscribes using the web interface, and reverses the data for the name and email fields, Lyris will detect this and reverse the fields for them.  See  <a href="ErrorMail.html">Error Mail</a>. 
+<p>
+You can now define the To: field for mailing list mail to be anything you like. By default, the To: is the mailing list address. For instance, the To: can now be each user's email address, by 
+defining To: as $subst('Recip.EmailAddr').  
+<p>
+User-defined header removal. You can now specify individual message header lines that you want removed. You can also specify Lyris-inserted headers to be removed.   <a href="RemoveHeaders.html">Remove Headers</a>.<p>
+New command line parameters for turning various parts of Lyris off, such as receiving inbound mail. Run "lyris help" for a listing.  See  <a href="TheLyriscommandline.html">The Lyris command line</a>.<p>
+New list option to not archive a mailing list's messages.  <p>
+New list option to not full text index a mailing list's archives. This saves disk space, and means that the archives will not be text searchable.  See  <a href="ArchiveSearching.html">Archive Searching</a>.<p>
+When first installing Lyris, or when creating a topic, or a mailing list, Lyris now guides you to the next logical step. Because first setting up a list involves several steps (create a site, a 
+topic, a mailing list, an administrator), this greatly simplifies life for the user, since the next step is automatically given. 
+<p>
+New "&return=" CGI parameter allows you to jump right to the Web Interface "join mailing list" page, and once the person has joined, they are returned back to where you specified, rather than moving 
+forward inside the Lyris Web Interface. For an example, see http://www.lyris.com/forms/lists.html  See  <a href="SendtheuserbacktoawebpageafterJoining.html">Send the user back to a web page after Joining</a>. 
+<p>
+New option with the "review" command. If an administrator logs in first, with the "login" command, then the "review" command returns a list of members, along with the standard review information.  
+See  <a href="Review.html">Review</a>. 
+<p>
+New option to disable, on a list, the automatic "hold" feature. Normally, when a user bounces a great deal of mail sent to them, Lyris identifies the user and places their membership status on 
+"hold". You can now disable this feature for a particular mailing list.  See  <a href="HoldUsers.html">Hold Users</a>. 
+<p>
+New "quiet" options for "subscribe" and "set" when used mean that the commands do not send a confirming message back when they worked. A reply message is only sent if the command fails. New "end" 
+command signifies the end of command processing for a message.  See  <a href="Subscribing.html">Subscribing</a>. 
+<p>
+Ability to move SMTP mail receiving to another port.  See  <a href="SMTPPort.html">SMTP Port</a>.<p>
+When reading messages on the web, ftp links in messages are now hot-linked.  See  <a href="Readaspecificmessage.html">Read a specific message</a>.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 503 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

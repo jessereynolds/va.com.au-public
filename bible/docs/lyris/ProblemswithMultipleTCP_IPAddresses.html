@@ -1,0 +1,90 @@
+<HTML>
+<HEAD><TITLE>Problems with Multiple TCP/IP Addresses</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="ProblemsstartingtheLyrisServer.html">previous</a>] [<a href="ReinstalledWindowsNT_NowLyrisWebInterfaceNoLongerWorks.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Problems with Multiple TCP/IP Addresses</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· · · <a href="ProblemsrunningLyrisWebInterface.html">Problems running Lyris Web Interface</a><br>
+· · · <a href="ProblemsstartingtheLyrisServer.html">Problems starting the Lyris Server</a><br>
+· · · <a href="ProblemswithMultipleTCP_IPAddresses.html"><font size=+0><b>Problems with Multiple TCP/IP Addresses</b></font></a><br>
+· · · <a href="ReinstalledWindowsNT_NowLyrisWebInterfaceNoLongerWorks.html">Reinstalled Windows NT, Now Lyris Web Interface No Longer Works</a><br>
+· · · <a href="LyrisDoesNotRespondtoEmailISendit.html">Lyris Does Not Respond to Email I Send it</a><br>
+· · · <a href="FindingNTMemoryLeaks.html">Finding NT Memory Leaks</a><br>
+· · · <a href="HardDiskDefraggers.html">Hard Disk Defraggers</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Problems with Multiple TCP/IP Addresses</h3>
+If you have multiple TCP/IP addresses on your machine, some of which have reverse DNS defined, and some which do not, you can tell Lyris to only uses the TCP/IP addresses which have 
+reverse DNS defined. 
+<p>
+To do this, you use the "tcpip" command line option.<p>
+For example, if you have three TCP/IP addresses, say:<p>
+<font face='Courier New'><ul>207.90.101.4 <br>207.90.101.5 <br>207.90.101.6<p>
+</ul></font>and the last one, 207.90.101.6, does not have reverse DNS defined, then you want Lyris to only use the first two.  To do this, you would run the following command:<p>
+<font face='Courier New'><ul>lyris tcpip 207.90.101.4 207.90.101.5 127.0.0.1<p>
+</ul></font>Each TCP/IP address is separated by a space. Note that we added the TCP/IP address "127.0.0.1" to the end. This is very important: the Lyris web interface talks to the Lyris server 
+over the 127.0.0.1 TCP/IP address (note: 127.0.0.1 means "localhost", or <I>this machine</I>). If you do not list 127.0.0.1 as a TCP/IP address for Lyris to use, your web interface will no longer 
+work (it will say "server unavailable").  If you absolutely do not want to have Lyris use 127.0.0.1, you can make your web interface work by changing the server_ip= line of the lyris.plc file 
+(located in your web server CGI directory). See  <a href="TCP_IPAddressofLyrisServer.html">TCP/IP Address of Lyris Server</a>. 
+</I><p>
+You can reset Lyris to automatically use all TCP/IP addresses (the default) with the command line command:<p>
+<font face='Courier New'><ul>lyris tcpip<p>
+</ul></font><h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Troubleshooting.html">Troubleshooting</a><br>
+<li><a href="ProblemsstartingtheLyrisServer.html">Problems starting the Lyris Server</a><br>
+</td><td align=right valign=top>Page 489 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

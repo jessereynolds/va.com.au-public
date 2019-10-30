@@ -1,0 +1,50 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Conditional Results</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>Conditional Results</h1>
+
+<!-- I could have used a normal output element here -->
+<only if="!number"><p>No number given!</p></only>
+
+<!-- is number too small, or not a number? -->
+<only if="number && number < 1">
+<!-- if the data's wrong, we have to catch it here -->
+<output name="number" data="isnotnumber" post=" is not a number" type="html">
+<output name="number" data="isnumber" post=" is too small" type="html">
+<!--#include virtual="toosmall.txt"-->
+</only>
+
+<!-- is number too large? -->
+<only if='number >10'>
+<output name="number"> is too large
+<!--#include virtual="toolarge.txt"-->
+</only>
+
+<only if="number <= 10 && number >= 1">
+<output name="number"> is in range
+<!--#include virtual="justright.txt"-->
+</only>
+
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="conds.con" type="html"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="conds.txt">conds.txt</a>.</p>
+</body>
+</html>

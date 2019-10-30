@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+<title>The Bible - template</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+
+<!--#include virtual="/bible/nav.html" -->
+
+<blockquote> 
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">Setting up a new Mailman list</font></p>
+        
+        <p>&nbsp;</p>
+        
+      </td>
+    </tr>
+  </table>
+  
+</blockquote>
+
+<br>
+login to polly.va.com.au and su to root.
+<br><br>
+change directory to /usr/local/mailman/bin/
+<br><br>
+now its time to set up the new list. 
+<br><br>
+at the prompt type ./newlist
+<br><br>
+at this point you'll be asked some questions.<br>
+1) Enter the name of the list:<br>
+2) Enter the email of the person running the list:<br>
+3) Initial list-name password:<br>
+<br><br>
+thats it.. the email you placed in number 2) will be sent the details about the list<br>
+including the password. so the first time the owner logs in would be a good time to<br>
+change the password.
+
+</body>
+</html>

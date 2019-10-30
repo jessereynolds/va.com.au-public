@@ -1,0 +1,128 @@
+<HTML>
+<HEAD><TITLE>Use two TCP/IP addresses</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HavingSendmailcoexistwithLyris.html">previous</a>] [<a href="SendmailforwardstoLyris.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Use two TCP/IP addresses</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · · <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+· · · · <a href="UsetwoTCP_IPaddresses.html"><font size=+0><b>Use two TCP/IP addresses</b></font></a><br>
+· · · · <a href="SendmailforwardstoLyris.html">Sendmail forwards to Lyris</a><br>
+· · · · <a href="LyrisforwardstoSendmail.html">Lyris forwards to Sendmail</a><br>
+· · · · <a href="DisableSendmail.html">Disable Sendmail</a><br>
+· · · <a href="HavingPost_OfficecoexistwithLyris.html">Having Post.Office coexist with Lyris</a><br>
+· · · <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+· · · <a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+· · · <a href="HavingNetscapeMailServercoexistwithLyris.html">Having Netscape Mail Server coexist with Lyris</a><br>
+· · · <a href="HavingNotes_DominoCoexistwithLyris.html">Having Notes / Domino Coexist with Lyris</a><br>
+· · · <a href="HavingNTMailCoexistwithLyris.html">Having NTMail Coexist with Lyris</a><br>
+· · · <a href="HavingMicrosoftExchangeCoexistWithLyris.html">Having Microsoft Exchange Coexist With Lyris</a><br>
+· · · <a href="HavingAltaVistaMailCoexistwithLyris.html">Having AltaVista Mail Coexist with Lyris</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Use two TCP/IP addresses</h3>
+In this scenario, your machine uses two TCP/IP addresses, and has two machine names.  Sendmail will run on one TCP/IP address, and receive mail there. Lyris will run on the other TCP/IP 
+address, and receive mail there. Each TCP/IP address should resolve to a different DNS host name, so that people can send email to either address by using the appropriate host name. 
+<p>
+The advantage of this approach is that it is very straightforward to set up, and does not cause any dependency between sendmail and Lyris.  Thus, it is also very reliable.<p>
+For example, if your machine is named "apollo.mycorp.com" and has the TCP/IP address "207.105.6.10", you might also assign your machine the TCP/IP address "207.105.6.11" which resolves to 
+"juno.mycorp.com".  Sendmail would be told to use the "apollo" address, and Lyris could use the "juno" address.  To the outside world, it will appear that your network has two machines, "apollo" and 
+"juno", when actually they are one machine, with two TCP/IP addresses. 
+<p>
+The first step in implementing this method is to obtain, from your network administrator, a second TCP/IP address, and to make sure that a separate host name is assigned in the DNS for it.  <p>
+<B>Adding a TCP/IP address on Solaris</B></B><p>
+Once this is done, you can add this TCP/IP address to your Solaris system with a command such as this:<p>
+<font face='Courier New'><ul>ifconfig le0:1 207.105.6.11 up<p>
+</ul></font>in this example, the Ethernet adapter "le0" has been assigned a second address (with the ":1") of "207.105.6.11", and is now up.  You might want to add this command to a startup 
+file, such as /etc/rc2.d/S72inetsvc so that this command executes automatically at system startup. 
+<p>
+<B>Adding a TCP/IP address on Irix</B><p>
+<B></B>As of Irix 6.2, you can add a TCP/IP address using the "alias" option of the "ifconfig" command.  The "man ifconfig" documentation page explains it this way:</B><p>
+<font face='Courier New'><ul>ifconfig interface alias addr     <p>
+Establish an additional network address for this interface.  This can be useful in permitting a single physical interface to accept packets addressed to several different addresses such as when you 
+are changing network numbers and you wish to accept packets addressed to the old interface.  Another case is when you'd like to have multiple addresses assigned to a single network interface. The 
+broadcast and netmask options can also be used in conjunction with the alias option.  When using aliases you may have to change the configuration of routed, especially if aliases are on different 
+networks than the primary address.  Aliases are added as host entries in the routing tables for routed.  See routed(1M) for more information on this. 
+<p>
+</ul></font><B>Adding a TCP/IP address on Digital Unix</B><p>
+<B></B>Digital Unix supports multiple TCP/IP addresses using the "alias" option of the "ifconfig" command. Consult the documentation page for "man ifconfig" for more information.</B><p>
+<B>After you have added a TCP/IP address</B><p>
+<b></B>The next step is to configure sendmail to use only one TCP/IP address.  If  you do not do this, sendmail will automatically use all the TCP/IP addresses on your machine, and none will be available 
+for Lyris. 
+</B><p>
+To restrict sendmail to one TCP/IP address, add the following line to your /etc/mail/sendmail.cf file:<p>
+<font face='Courier New'><ul>OOAddr=207.105.6.11<p>
+</ul></font>substituting your 1st TCP/IP address for 207.105.6.11.  This sendmail option is explained in the "Options" chapter of the O'Reilly sendmail book.<p>
+You will now need to restart sendmail. Be sure to telnet to port 25 on each TCP/IP address to ensure that sendmail is using the correct TCP/IP address.<p>
+<font face='Courier New'><ul>apollo# telnet 207.105.6.10 25 <br>Trying 207.105.6.10... <br>Connected to 207.105.6.10. <br>Escape character is '^]'. <br>220 apollo.mycorp.com 
+ESMTP Sendmail 8.8.5/8.8.5; Mon, 16 Jun 1997 <br> <br>apollo# telnet 207.105.6.11 25 <br>Trying 207.105.6.11... <br>telnet: Unable to connect to remote host: 
+Connection refused 
+<p>
+</ul></font>You should now go ahead and install Lyris. Once Lyris is installed, you will need to tell Lyris to use the 2nd TCP/IP address.  The installation program will give this option, or 
+you can do this with the "tcpip" command line parameter.  For example: 
+<p>
+<font face='Courier New'><ul>lyris tcpip 207.105.6.11 127.0.0.1<p>
+</ul></font>The "127.0.0.1" is added so that you can connect to Lyris from your own machine. By default, the Lyris Web Interface uses 127.0.0.1 to connect to the Lyris server. If you do not 
+specify 127.0.0.1 as a TCP/IP address you will need to edit your "lyris.plc" config file to point to the address. 
+<p>
+You are now ready to use Lyris! You can start Lyris in the foreground with the command "lyris start" or in the background with "lyris -bd".  The first time, we recommend that you run Lyris in the 
+foreground, so that any error messages are immediately displayed. If you would like complete debugging information, add the "debug" parameter when you run Lyris, as in: "lyris start debug" 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+<li><a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+</td><td align=right valign=top>Page 470 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

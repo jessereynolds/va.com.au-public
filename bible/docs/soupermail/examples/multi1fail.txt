@@ -1,0 +1,25 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail MultiPart Form Failure</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail MultiPart Form Failure</h1>
+
+<h2>Sorry</h2>
+
+<p>You did not complete all of the required fields needed
+to move onto the second form.</p>
+
+<p>Please press <b>Back</b> and complete the following fields:</p>
+
+<ul>
+<output name="your_name" alt="<li>Your Name" sub="">
+</ul>
+
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail Formats Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body bgcolor="white" text="black">
+<h1>Formats in Templates</h1>
+
+<p>This page shows the use of formats with OUTPUT
+elements in a template.</p>
+
+<div align="center">
+<table border="1" width="90%">
+
+<tr>
+<th>OUTPUT Element</th>
+<th>Template Results</th>
+</tr>
+
+<tr>
+<td>&lt;output name="http_time" alt="&lt;br&gt;"&gt;</td>
+<td><output name="http_time" alt="<br>"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_time" alt="&lt;br&gt;" format="%hh% hours, %mm% minutes and %ss% seconds (%ampm%)"&gt;</td>
+<td><output name="http_time" alt="<br>" format="%hh% hours, %mm% minutes and %ss% seconds (%ampm%)"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_date" alt="&lt;br&gt;"&gt;</td>
+<td><output name="http_date" alt="<br>"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_date" alt="&lt;br&gt;" format="%dd%/%mmm%/%yy%"&gt;</td>
+<td><output name="http_date" alt="<br>" format="%dd%/%mmm%/%yy%"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_date" alt="&lt;br&gt;" format="%epoch%"&gt;</td>
+<td><output name="http_date" alt="<br>" format="%epoch%"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_date" alt="&lt;br&gt;" timeoffset=&quot;-5y&quot;&gt;</td>
+<td><output name="http_date" alt="<br>" timeoffset="-5y"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_date" alt="&lt;br&gt;" timeoffset=&quot;+14M&quot;&gt;</td>
+<td><output name="http_date" alt="<br>" timeoffset="+14M"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_date" alt="&lt;br&gt;" timeoffset=&quot;-83d&quot;&gt;</td>
+<td><output name="http_date" alt="<br>" timeoffset="-83d"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_time" alt="&lt;br&gt;" timeoffset=&quot;+15h&quot;&gt;</td>
+<td><output name="http_time" alt="<br>" timeoffset="+15h"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_time" alt="&lt;br&gt;" timeoffset=&quot;-35m&quot;&gt;</td>
+<td><output name="http_time" alt="<br>" timeoffset="-35m"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_time" alt="&lt;br&gt;" timeoffset=&quot;+160s&quot;&gt;</td>
+<td><output name="http_time" alt="<br>" timeoffset="+160s"></td>
+</tr>
+
+</table>
+</div>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="formats.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="formats.txt">formats.txt</a>.</p>
+</body>
+</html>

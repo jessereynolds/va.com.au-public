@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>Using ODBC with Lyris</TITLE></HEAD>
+<BODY>
+<body bgcolor="#ffffff" text="#606060" link="#008cc3" vlink="#003c73" alink="#ffffff"><a href="http://www.lyris.com"><img align=right width=125 height=40 border=0 src="llogos.gif" alt="Lyris"></a><p><a href="index1.html"></a><p>
+<h2>     Using ODBC with Lyris<p>
+</h2>The safest, easiest way to read the Lyris database files is to use ODBC. ODBC is a set of database drivers which allows ODBC capable programs (such as Microsoft Excel, Access, Paradox, 
+Crystal Reports) to view and change data in many different database formats.  By creating an ODBC configuration for Lyris, you will be able to read the Lyris databases from any ODBC capable program. 
+<p>
+<B>Directions for configuring ODBC for Lyris</B><p>
+<b></B>ODBC drivers are available for Windows, Mac and Unix.  These directions apply to Windows ODBC drivers.  ODBC drivers are not included with Windows, but many programs install them automatically. For 
+instance, if you have Microsoft Office, you already have the necessary ODBC driver (the "FoxPro" or "Visual FoxPro" driver). 
+</B><p>
+If you do not have the Visual FoxPro driver, you can obtain it from Microsoft at no charge.  Check www.microsoft.com, or download it directly from 
+http://support.microsoft.com/download/support/mslfiles/VFPODBC5.EXE 
+<p>
+* The first step is to go to the control panel, and click on the ODBC icon. It may say "ODBC 32" -- that's what you want.<p>
+* You will be presented with a dialog box labeled "Data Sources".  Click the "Add" button.<p>
+* Choose "Microsoft Visual FoxPro Driver" and click OK.<p>
+* A window labeled "ODBC Visual FoxPro Setup" will appear.  In the <I>Data Source</I> field, enter "Lyris". In the <I>Description</I> field, enter "Lyris".  Choose "Free Table Directory" as the 
+<I>Database Type</I>.  For <I>Path</I>, choose the "db" subdirectory where you installed Lyris.  On most computers, this is "c:\lyris\db".  Click Ok. 
+</I><p>
+* You will be back at the "Data Sources" dialog box.  You are done, so click the "close" button.<p>
+<B>Directions for using the Lyris ODBC driver</B><p>
+<B></B>These directions apply to Microsoft Access 95.  The directions are very similar for Access 97, and for other database programs.</B><p>
+* First, create a blank Microsoft Access Database.<p>
+* Next, choose the File/Get External Data/Link Tables menu choice.<p>
+* Where the "Link" dialog box lists "Files of Type", choose "ODBC Databases"<p>
+* Choose the "Lyris" ODBC definition you just recently created (using the directions above).<p>
+* Choose the table you want to connect to.  For example, choose "messages."<p>
+* When Access asks you for the "Unique Record Identifier" enter the Key field for that table.  For the "messages" table, this is "messageid".  The Key field for each table is documented in the Lyris 
+Programmer's Guide, in the "Lyris Databases" section, available online at http://www.lyris.com/guide/  The Key field for each table is the field labeled as "<I>PrimaryKey = yes</I>" for each table. 
+For example, for the Messages table, you will see "Messages.MessageID.PrimaryKey = yes".  This means that for the "Messages" table, the "MessageID" field is the "Primary Key". 
+</I><p>
+* You are now done.  You can click on the Lyris table in Microsoft Access and edit or view it as you wish.  If you make any significant changes, we highly recommend that you back up the tables 
+beforehand. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+<img border=0 src="beige2.gif"><p><a href="index.html"><img src="./contents.gif" border=0 alt=Contents></a><a href="sitemap.html"><img src="sitemap.gif" border=0></a><a href="Step_by_stepinstructionsforImportingLyrisdataintoAccess97.html"><img src="./previous.gif" border=0 alt=Previous></a><a href="Perl_LyrisToolkit.html"><img src="./next.gif" border=0 alt=Next></a><p>
+</BODY></HTML>

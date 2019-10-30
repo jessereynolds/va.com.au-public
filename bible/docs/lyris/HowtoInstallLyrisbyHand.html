@@ -1,0 +1,116 @@
+<HTML>
+<HEAD><TITLE>How to Install Lyris by Hand</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="GettingHelp.html">previous</a>] [<a href="HowtoUpgradeLyrisbyHand.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>How to Install Lyris by Hand</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · · <a href="BasicUnixInstallationInstructions.html">Basic Unix Installation Instructions</a><br>
+· · · <a href="AfterInstallingLyrisonUnix.html">After Installing Lyris on Unix</a><br>
+· · · <a href="GettingHelp.html">Getting Help</a><br>
+· · · <a href="HowtoInstallLyrisbyHand.html"><font size=+0><b>How to Install Lyris by Hand</b></font></a><br>
+· · · <a href="HowtoUpgradeLyrisbyHand.html">How to Upgrade Lyris by Hand</a><br>
+· · · <a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">How to Install the Web Interface on a separate machine</a><br>
+· · · <a href="IfLyrisWillNotRun.html">If Lyris Will Not Run</a><br>
+· · · <a href="UnixDirectoryPermissionsNeeded.html">Unix Directory Permissions Needed</a><br>
+· · · <a href="MakingyourUnixMailServerandLyriscoexist.html">Making your Unix Mail Server and Lyris coexist</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>How to Install Lyris by Hand</h3>
+If you do not want to use the "install_lyris" script, you can follow these steps to install it by hand.<p>
+1) uncompress lyris tar file to the directory where you want to run it from<p>
+2) create a directory named "/lyris" under your HTML document root directory on   your web server, then copy the files from ~/graphics to this directory.   You should be able to see these graphics 
+from the URL http://localhost/lyris 
+<p>
+3) If you have Perl installed, skip to the next step.  If you do not have Perl installed, copy the file ~/lyris/perl/bin/perl to /usr/bin/perl  Make a directory named /usr/local/lib/perl5<p>
+4) Copy the files in ~/lyris/perl/lib to your Perl library directory that should be /usr/local/lib/perl5   <p>
+5) Copy the following files in the ~/lyris/cgi directory to the "cgi-bin" directory on your web server: <I>lyris.pl, lyrislib.pl, lyrispg.pl, lyris.plc</I>.  This directory should already exist, 
+and is <I>not</I> located in your HTML document directory. It is a separate directory your   web server maintains for running CGI scripts. 
+</I><p>
+6) run "~/lyris/bin/lyris dbcreate &lt;admin-password&gt;" to create the Lyris databases.  Specify the administrator password you would like to use on this server. For example, "lyris dbcreate sesame" 
+would create an account named "admin" with a password of "sesame" 
+<p>
+7) run "~/lyris/bin/lyris dns 127.0.0.1" to assign Lyris to your DNS server. Change "127.0.0.1" to the TCP/IP of your DNS server.<p>
+8) if you want Lyris to run its SMTP receiving agent on a alternate port, run "~/lyris/bin/lyris smtpport 26" where "26" specifies the port you want Lyris to use.<p>
+9) if you want Lyris to only listen to specific TCP/IP addresses, run "~/lyris/bin/lyris tcpip 207.105.6.2 127.0.0.1" substituting the TCP/IP addresses you want Lyris to use.  Note that we recommend 
+that you let Lyris listen to the localhost address (127.0.0.1) because the Lyris Web Interface (lyris.pl) goes to that by default. If you do not allow Lyris to listen to 127.0.0.1, you will need to 
+edit the file "lyris.plc" that is located in your cgi-bin directory, so that the line which reads "server_ip_address=" points to a TCP/IP address that Lyris is listening on. Note that the Lyris 
+Command Protocol that the web interface uses to communicate with the Lyris Server, listens on port 2020. 
+<p>
+10) read the directions below to decide on a method for having Sendmail and Lyris coexist.<p>
+11) Run the command "ulimit -n 512" to increase your file descriptor limit. Then, run "~/lyris/bin/lyris start" to run Lyris in the foreground or run "~/lyris/bin/lyris -bd" to run Lyris in the 
+background. If you encounter a problem, run Lyris in the foreground, in debug mode, with the command "~/lyris/bin/lyris start debug" 
+<p>
+12) send mail to lyris@your-server to make sure that Lyris is answering email<p>
+13) cd to your web server's CGI directory.  Run "./lyris.pl". You should see a page full of HTML displayed. <p>
+14) With a web browser, go to the URL http://localhost/cgi-bin/lyris.pl and follow the configuration instructions.<p>
+15) Copy the file "S96lyris" from the Lyris /bin installation directory, into your /etc/rc2.d directory.  If you did not install Lyris in /opt/lyris you will need to edit this file to point to the 
+location where you did install Lyris to.  This S96 file will automatically start and stop the Lyris background daemon whenever you boot up and shut down. 
+<p>
+16) run the command "/usr/bin/ulimit -n". If a number smaller than 150 is displayed, you do not have enough file descriptors for Lyris to function correctly.  <p>
+On most Unixes, you can increase your file descriptor limit by issuing the command: <p>
+<font face='Courier New'><ul>ulimit -n 512<p>
+</ul></font>be sure to issue this command before you run Lyris. Note that the S96Lyris file does this for you before running the Lyris background daemon.  If you always use this S96lyris to 
+start and stop Lyris, then you do not need to worry about file descriptors, since it fixes this for you. 
+<p>
+On Solaris, to permanently increase the maximum file descriptor limit, add these two lines to /etc/system<p>
+<font face='Courier New'><ul>set rlim_fd_max=0x400 <br>set rlim_fd_cur=0x300<p>
+</ul></font>You will need to reboot your Solaris in order for this change to take effect.  Once you reboot, check that the change worked, with "/usr/bin/ulimit -n"<p>
+That's all! Lyris should now be running on your system!<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+</td><td align=right valign=top>Page 461 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

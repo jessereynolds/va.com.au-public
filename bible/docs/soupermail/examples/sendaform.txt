@@ -1,0 +1,75 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Send A Form Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body bgcolor="white" text="black">
+
+<h1>Send a Form</h1>
+
+<p>This form contains values previously filled in. Look at the template source
+to see how sending HTML is handled. Also, see how the <b>value</b>
+attribute in <b>output</b> elements is used to handle the select and
+radio box form fields.</p>
+
+<form>
+Their Name: <input type="text" name="their_name" value="<output name="your_name" type="html" newline="none">">
+(The <b>output</b> element for this field has no newlines and is HTML safe)<p>
+Their Email: <input type="text" name="Email" value="<output name="Email" type="html" newline="none">">
+(The <b>output</b> element for this field has no newlines and is HTML safe)<p>
+
+Their Request:
+<textarea name="request" cols="30" rows="5" wrap="virtual"><output
+name="request" type="html" newline="unchanged"></textarea>
+<br>
+(The <b>output</b> element here is HTML safe, but we want to keep the original
+newline characters as specified in the first textarea)
+<p>
+Their request is of priority:
+<select name="priority">
+<option>
+<option value="urgent"<output name="priority" value="urgent" sub=" selected"
+alt="">>Urgent
+<option value="medium"<output name="priority" value="medium" sub=" selected"
+alt="">>Medium
+<option value="low"<output name="priority" value="low" sub=" selected"
+alt="">>Low
+</select>
+<br>
+(The <b>output</b> element here is used with a <b>value</b> attribute to
+write ' selected' for one of the options)
+
+<p>
+Send as HTML:
+(<input type="radio" name="ashtml" value="yes"<output name="ashtml" value="yes"
+alt="" sub=" checked">> Yes)
+(<input type="radio" name="ashtml" value="no"<output name="ashtml" value="no"
+alt="" sub=" checked">> No)
+<br>
+(The <b>output</b> element here is used with a <b>value</b> attribute to
+write ' checked' for one of the radio boxes)
+
+</form>
+<p>Return <a href="index.htm">to the examples page</a>.</p> 
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="sendaform.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>This page has been built from a Soupermail template called
+<code><a href="sendaform.txt">sendaform.txt</a></code>.
+Look at the template with a text editor, and you'll see some interesting
+use of &lt;output&gt; elements.</p> 
+
+</body>
+</html>

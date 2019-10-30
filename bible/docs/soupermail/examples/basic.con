@@ -1,0 +1,13 @@
+# The line below ensures that an email address has been given
+required : Email
+
+# The line below specifies a template to use upon success
+success  : basic.txt
+
+# The line below lets Soupermail know who to send the message
+# to. Its actually the value of the Email field from the form
+mailto   : "$form_Email"
+
+# this sets the subject of the email
+subject : "This is a test from $http_referer"
+

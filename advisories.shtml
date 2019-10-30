@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Virtual Artists Pty Ltd</title>
+
+<link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
+
+
+</head>
+
+<!-- <body bgcolor="#FFFFFF" background="images/grey_bg.gif"> -->
+
+<body>
+
+
+<div id="header">
+<p class="inside">
+	<a href="http://www.va.com.au/"><img id="logo" src="graphics/va_logo_162_100.jpg" height="100" width="162"></a>
+	<span id="tag-line">Virtual Artists</span><br/>
+	<span id="url">va.com.au</span><br/>
+	<span class="pipe"><a href="domains.html">Domain Names</a> |
+	<a href="hosting.html">Hosting</a> |
+	<a href="advisories.html">Advisories</a> |
+	<a href="clients.html">Clients</a> |
+	<a href="contact.html">Contact</a></span>
+</p>
+</div><br class="clear"/>
+
+  <div id="primary">
+    <div class="inside" id="contact">
+      <h1>Current Advisories (scheduled maintenance, outages etc)</h1>
+
+<!-- <p><strong>No known issues.</strong></p> -->
+<p><strong>Hosting Services Shutting Down Permanently on May 28 2016.</strong></p>
+
+<p>VA's hosting services will be closing down on May 28 2016. 21 years of running hosting services is enough for Jesse.</p>
+
+<p>You can also follow <a href="http://twitter.com/#!/virtualartists">@virtualartists</a> on twitter for more up-to-the-minute status information.</p>
+
+      <h1>Past Advisories</h1>
+<p><strong>Some websites are unavailable - 26 November 2012</strong></p>
+
+<p>During power maintenance work one of our servers has suffered a failure. It hosts some websites including VA Webmail. We are moving sites onto new servers to mitigate the issue.</p>
+
+
+
+
+
+
+
+
+<p><strong>Email and Web Hosting Outage - 28 April 2011</strong></p>
+
+
+<p>
+<strong>28 April 2011 8:11 CST (UTC+09:30)</strong><BR />
+One of our servers ("shiraz") is currently offline. This server hosts email and some websites and databases. FTP services on some other servers are also affected by this. Staff are now en route to the data centre. </p>
+
+<p>
+<strong>Update 9:40 AM CST</strong><br />
+A hardware fault has been diagnosed and repair work is underway.</p>
+
+<p>
+<strong>Update 11:17 AM CST</strong><br />
+Shiraz is up and running again and all services have been restored. Email may take a while to be received as it will be queued on external mail servers.</p>
+<p>
+<strong>Update 11:26 AM CST</strong><br />
+We will need to reboot shiraz a few times over the course of the next few hours to fully restore normal operational reliability. So there may be a few brief outages (under five minutes). </p>
+<strong>Update 1:46 PM CST</strong><br />
+All services are restored to normality. No more reboots are necessary. </p>
+<strong>Update 2:30 PM CST</strong><br />
+Some email received today may show a date of 1 January 2002 on some email programs (eg Apple Mail). If you sort your inbox by Date Received you may need to scroll back to Jan 1 2002 to see messages that arrived between around 11am and 12pm today.</p>
+
+
+<p><strong>Email Server - delay receiving messages</strong></p>
+
+<p>
+5 May 2009 14:22<BR />
+Virus scanning has been temporarily disabled to speed up the delivery of messages that are queued.
+</p>
+
+<p>
+5 May 2009 13:44<BR />
+We are experiencing a problem receiving emails from external mail servers. The problem is being investigated. </p>
+
+
+    </div>
+  </div>
+
+    <div class="inside" id="footer">
+      <hr>
+      <span id="fine-print">&copy; 1995-2016 Virtual Artists Pty Ltd, Adelaide, Australia.</span>
+    </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8354952-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>
+

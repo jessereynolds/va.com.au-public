@@ -1,0 +1,107 @@
+<HTML>
+<HEAD><TITLE>Login</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="AdministratorCommands.html">previous</a>] [<a href="Become.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Login</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· · <a href="HowtosendmailtoyourLyrisserver.html">How to send mail to your Lyris server</a><br>
+· · <a href="SendingEmailCommandstoLyris.html">Sending Email Commands to Lyris</a><br>
+· · <a href="Subscribing.html">Subscribing</a><br>
+· · <a href="Unsubscribe.html">Unsubscribe</a><br>
+· · <a href="ChangeMembershipSettings.html">Change Membership Settings</a><br>
+· · <a href="DetermineMembershipSettings.html">Determine Membership Settings</a><br>
+· · <a href="MailingListInformation.html">Mailing List Information</a><br>
+· · <a href="Search.html">Search</a><br>
+· · <a href="HelpDocument.html">Help Document</a><br>
+· · <a href="GetDocuments.html">Get Documents</a><br>
+· · <a href="End.html">End</a><br>
+· · <a href="AdministratorCommands.html">Administrator Commands</a><br>
+· · · <a href="Login.html"><font size=+0><b>Login</b></font></a><br>
+· · · <a href="Become.html">Become</a><br>
+· · · <a href="Add.html">Add</a><br>
+· · · <a href="Delete.html">Delete</a><br>
+· · · <a href="Member.html">Member</a><br>
+· · · <a href="Moderate.html">Moderate</a><br>
+· · · <a href="Review.html">Review</a><br>
+· · · <a href="Send.html">Send</a><br>
+· · · <a href="Which_foradmins_.html">Which (for admins)</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Login</h3>
+All administrator email commands require you to first login, giving your password so that Lyris can verify your right to use the administrator commands.  <p>
+Lyris will look at your email address to determine if you are a Server, Site or List Administrator, and then check the password you gave.  If the password you specified with the login command is 
+correct, you will be able to proceed.  If it is not, processing of your message will stop.  
+<p>
+Note that in order for Server and Site administrators to be able to use administrator commands, their email address must be in their People entry so that Lyris can validate them. If you are a Site or 
+Server administrator (and not a list administrator), your email address must be in your People information entry. 
+<p>
+In addition, administrator email commands are only available if your administrator account has a password. Lyris allows administrators to have a blank password and use the Web interface to administer 
+Lyris.  However, because email is inherently a less secure communication mechanism than the web, Lyris requires administrators to have a password in order to use the administrator commands.  You can 
+set your password using the Lyris Web Interface, or, for list administrators, by using the "set listname pw=password" command." 
+<p>
+The syntax of the login command is:<p>
+<font face='Courier New'><ul>login password<p>
+</ul></font>Lyris will use the email address you are sending from to identify you.<p>
+When Lyris detects a login command, it replaces the password with an XXX in the archived copy it keeps, and in the acknowledgement message that is sent back to you. The reason for this is so that 
+other people looking at your email message, either in your mail box, or in the incoming mail web page, will not be able to determine your password. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="AdministratorCommands.html">Administrator Commands</a><br>
+<li><a href="Become.html">Become</a><br>
+<li><a href="Add.html">Add</a><br>
+<li><a href="Delete.html">Delete</a><br>
+<li><a href="Send.html">Send</a><br>
+<li><a href="Which_foradmins_.html">Which (for admins)</a><br>
+<li><a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+</td><td align=right valign=top>Page 65 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,95 @@
+<html>
+<head>
+
+<!-- Because Soupermail's usually called from the /cgi-bin/
+     directory, relative HTML links can go awry. So, to counter
+     this, here's a BASE element, which uses the URL of the
+     very first form to make sure all relative links are sane. -->
+<base href="<output name="original_referer">">
+
+<title>Soupermail Multipart Form - 3</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Multipart Form - 3</h1>
+
+<p>This page is the <b>third</b> part of a three part form. </p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+
+<!-- Here's something cunning. Because we want to keep the
+     configuration paths relative, I'm using the path from the
+     last form's configuration file to specify where to
+     find this form's configuration file. It makes sense if you
+     think about it... honest :) -->
+<input type="hidden" name="SoupermailConf" value="<output
+name="http_config_path">multi3.con">
+
+<!-- Now we want to include the values from the second form. Note that they're
+     of type="escaped", because we don't want any of the stuff to mess up our
+     nice HTML -->
+<input type="hidden" name="soupermail_comments" value="<output
+name="soupermail_comments" type="escaped">">
+
+<!-- Here we're including values from the first form. They don't have to be
+     escaped, because that was all handled by the previous form. -->
+<input type="hidden" name="your_name" value="<output name="your_name">">
+<input type="hidden" name="comments" value="<output name="comments">">
+
+<!-- Here we keep the original form's URL so we can set later BASE elements
+     correctly. -->
+<input type="hidden" name="original_referer" value="<output name="original_referer">">
+
+<!-- Here we put the name that we got from the very first part back in.
+     Notice the type of the output tag is "unescapedhtml". Firstly, its
+     unescaped because it was encoded to get past the middle form, and
+     secondly its html because there may angle brackets in there.     -->
+<p>Thanks <b><output name="your_name" type="unescapedhtml"></b> for filling 
+in the following fields:</p>
+
+<ul>
+<output name="your_name" sub="<li>Your name" alt="">
+<output name="comments" sub="<li>Your random thoughts" alt="">
+<output name="rating" sub="<li>Your rating of Soupermail" alt="">
+<output name="soupermail_comments" sub="<li>Your comments on Soupermail" alt="">
+</ul>
+
+<p>Your rating was:
+<select name="rating">
+<option<output name="rating" value="Excellent" sub=" selected">>Excellent
+<option<output name="rating" value="Good" sub=" selected">>Good
+<option<output name="rating" value="OKish" sub=" selected">>OKish
+<option<output name="rating" value="Poor" sub=" selected">>Poor
+<option<output name="rating" value="Pants" sub=" selected">>Pants
+</select> (just in case you change your mind)
+</p>
+
+<p>
+Now enter your email address, and this form will be submitted to you:</p>
+<input type="text" name="Email"> (required)
+<br>
+<input type="submit" value="Send Data">
+</form>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="multi2.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>This page has been built from a Soupermail template called 
+<code><a href="multi3.txt">multi3.txt</a></code>.
+Look at the template with a text editor, and you'll see some interesting
+use of &lt;output&gt; elements. Compare the template with the source
+of this page and see how the output tags have been translated.</p>
+</body>
+</html>
+

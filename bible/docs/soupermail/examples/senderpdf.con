@@ -1,0 +1,8 @@
+if: (Email && tomailto) then pdfmailtemplate: senderpdf2.lout
+if: (Email && tosender) then pdfsendertemplate: senderpdf.lout
+if: (Email && tomailto) then mailto: "$form_Email"
+unless: (tobrowser) then success: senderpdf.txt
+if: (tobrowser) then pdftemplate:  sender2browserpdf.lout
+subject: Generating a PDF with Soupermail
+sendersubject: Generated PDF to the sender
+

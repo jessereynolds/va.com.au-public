@@ -1,0 +1,37 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>PGP File Upload Results</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>PGP/File Upload Results</h1>
+<p>
+You should receive an email using the settings supplied in your form.
+</p>
+<p>
+The message will contain the form fields encrypted with
+<only if="pgpversion eq 'gpg'">GNU Privacy Guard</only><only if="pgpversion eq 'pgp5'">PGP Version 5.0</only>.
+The files you uploaded will 
+<only if="enc eq 'no'">not be encrpyted</only><only if="enc ne 'no'">be 
+encrypted</only>.
+</p>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="pgpfile.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="pgpfile.txt">pgpfile.txt</a>.</p>
+</body>
+</html>

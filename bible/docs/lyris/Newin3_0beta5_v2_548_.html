@@ -1,0 +1,326 @@
+<HTML>
+<HEAD><TITLE>New in 3.0 beta 5 (v2.548)</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Newinreleaseversionv3_0.html">previous</a>] [<a href="Newin3_0beta4_v2_547_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in 3.0 beta 5 (v2.548)</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html"><font size=+0><b>New in 3.0 beta 5 (v2.548)</b></font></a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html">New in 3.0 beta 3 (v2.545)</a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html">New in 3.0 beta 2 (v2.543)</a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html">New in 3.0 beta 1 (v2.542)</a><br>
+· · · <a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+· · · <a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+· · · <a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in 3.0 beta 5 (v2.548)</h3>
+Here is a summary of the most noteworthy improvements in this version.<p>
+<B>Major new features: <br></B>* New unsubscribing method which always works <br>* Password-verified posting <br>* Timed approval of moderated messages <br>* 
+Edit moderated messages <br>* Automated periodic mailings <br>* Detailed transaction logs <br>* Web Interface 5X faster with ActiveState's PerlEx  <br>* Automatic 
+email delivery progress reports <br>* Now much faster at replying to single messages <br>* New bounce mail processing method that is extremely accurate 
+</B><p>
+<B>Significant features:</B> <br>* Easily delete all members on a list <br>* New ways to view members <br>* Admin "delete *" command  <br>* Date: header 
+rewriting for moderated messages <br>* Bounce report handling now much faster <br>* Regular expressions for action phrases <br>* Admin "which" command <br>* Can 
+now set the moderated message default approval time <br>* "Password Required" lists now assign a random password to email subscribers <br>* Automatic detection of Lyris Virtual 
+Servers <br>* Ability to view just List Admins in web interface <br>* Ability to specify exceptions to the new Loop Breaking feature <br>* Majordomo Import Program 
+</B><p>
+<B>Important Changes:</B> <br>* New serial number scheme <br>* Member importing sped up by 10X <br>* Email confirmation for private lists now includes request message 
+<br>* Ability to clear log <br>* Action phrases can now search just header <br>* Held notification now more helpful <br>* "Out of office" postings now rejected 
+more helpfully <br>* Action phrase notifications more helpful <br>* X-Lyris-Type header added <br>* Login password now blanked <br>* Autoresponders now log their 
+usage, helpful for billing purposes 
+</B><p>
+ <p>
+Here is a detailed list of the improvements in this version:<p>
+<B>Major new features:</B><p>
+<b></B><B><I>New unsubscribing method which always works</I></B>: With the old version of Lyris, members needed to forward a list posting to the unsubscribe address for it work in a foolproof manner.  
+However, some people did not understand what "forwarding" was, and instead sent new blank messages, and this was only as foolproof as unsubscribing with other list server packages (ie: a changed 
+address can confuse the list server)  With this new version of Lyris, if you use the $subst('Email.Unsub') mail merge tag (it is in the default footer), each recipient will see a unique unsubscribe 
+email address, which works specifically for their address. For example, for a list named "jazztalk", the unsubscribe address for a member might be "leave-jazztalk-1505P@clio.lyris.net".  This method 
+is 100% fail-safe, as it automatically unsubscribes member "1505" when a message is received at this address, no matter what email address sent to it. The last letter ("P" in this example) is a 
+"check character" and protects against forgeries -- if the letter is incorrect, the email acts as if it was simply sent to "leave-jazztalk".  Thus, only the actual recipient of the message will know 
+what unsubscribe address to email to, and thus Lyris can know exactly what member should be unsubscribed.  This new feature means that to unsubscribe, members no longer need to forward a list 
+posting, but can rather send any email to their unsubscribe address and it will work perfectly. In addition, Lyris automatically detects accidentally quoted unsub addresses in list postings, and 
+converts them back into the mail merge tag, so quoted unsub addresses do not cause the wrong email address to be unsubscribed. The $subst('Email.Purge') tag, for unsubscribing from all lists, also 
+supports this new fail-safe technique. See  <a href="Unsubscribe.html">Unsubscribe</a>. 
+</I></B><p>
+<B><I>Password-verified posting</I></B>: A new posting option to require users to include their password in the body of messages they send to a list -- thus positively confirming their identity. 
+This feature gets rid of the "spoofing" problem inherent in email, where someone can tell their email client that they are someone else, and thus impersonate that person.  This feature works equally 
+well with announcement lists as with discussion lists. With discussion lists, you also have the option of requiring all users to have a password in order to post, or just requiring users who have a 
+password set to use it -- this way, user can choose how much security they want. See  <a href="PasswordRequired.html">Password Required</a>. 
+</I></B><p>
+<B><I>Timed approval of moderated messages</I></B>: Added ability to schedule moderated messages for release, to 10 minute accuracy, using the web interface and with a "moderate ID time 
+CCYY/MM/DD HH:MM" command. For example, "moderate time 105 6:30" and "moderate time 106 1998/06/23 18:00". See  <a href="ModeratedMessages.html">Moderated Messages</a>. See  <a href="ViewMessagetoModerate.html">View Message to Moderate</a> 
+. 
+</I></B><p>
+<B><I>Edit moderated messages</I></B>: added web interface ability to edit a moderated message, including all the text in the header and the body.  See  <a href="ModeratedMessages.html">Moderated Messages</a>.  
+See  <a href="ViewMessagetoModerate.html">View Message to Moderate</a>. 
+</I></B><p>
+<B><I>Automated periodic mailings</I></B>: New "moderated message resubmit" feature, so that a message, when approved, is automatically resubmitted for automatic approval after a set number of 
+days. This allows you to have messages which are periodically mailed to your mailing list on an automatic basis.  See  <a href="ModeratedMessages.html">Moderated Messages</a>.  See  <a href="ViewMessagetoModerate.html">View Message to Moderate</a> 
+. 
+</I></B><p>
+<B><I>Detailed transaction logs</I></B>: Added a transaction log for every incoming and outgoing mail. This can be viewing in the web interface, and gives you great detail about what a particular 
+email message has done. This feature is very useful in tracking down "mysteries" where it isn't clear to you why Lyris did something that it did -- the transaction log for that message will usually 
+explain why Lyris did what it did.  See <a href="IncomingMailInformation.html">Incoming Mail Information</a> and  <a href="OutgoingMailInformation.html">Outgoing Mail Information</a>. 
+</I></B><p>
+<B><I>Web Interface 5X faster with ActiveState's PerlEx</I></B>. The ActiveState product  "PerlEx" increases the speed of the Lyris web Interface on NT by about 5 times, works with Netscape, 
+Microsoft and O'Reilly web servers, and costs only $395. For Unix users, the changes we have made for PerlEx will also help if you use mod_perl.  ActiveState has a free evaluation of PerlEx -- see 
+http://www.activestate.com.  To enable Lyris for PerlEx, here are the simple steps: first copy the lyris*.pl files from your \lyris\web directory to the \perl5\eg\perlex\demand\ directory, then 
+rename lyris.pl to lyris.plx, and finally, use your web browser to access http://localhost/perlex/demand/lyris.plx. The first time lyris.plx loads, it will take a long time (about 15 seconds) and 
+thereafter, page reloads will be under a second! 
+</I></B><p>
+<B><I>Automatic email delivery progress reports</I></B>: New feature sends "email delivery progress report" to the administrators of the mailing list to report on the progress of individual 
+message delivery.  The report tells you exactly when your message was queued for delivery on the mailing list, how long it took, how many people received the message, how many people need further 
+retries, and when the next retry is scheduled for.  You can elect to receive a report after the first attempt, the last attempt, every attempt, or just the first and last attempts.  The setting to 
+enable this feature is in the "list info" page, and the email is sent to list administrators set to "receive admin mail".  This feature is especially useful for very-important announcement lists, 
+where you are very interested in being informed about how your list is performing, and who has received your message. See  <a href="DeliveryReports.html">Delivery Reports</a>. 
+</I></B><p>
+<B><I>Now much faster at replying to single messages</I></B>: A new, faster way of handling single messages has been implemented. Previously, single messages (such as "welcome to this mailing 
+list") were saved to the outgoing mail database, and sent there.  This meant that the single message might take a few minutes to be sent if the mail queue was especially busy. It also made the 
+outmail* database files grow quickly on busy servers.  The new implementation of these one-off messages sends the message in-memory, during the actual processing of the incoming message.  This means 
+that single email requests are replied to almost instantaneously, and the sender gets a result in under a minute in most cases.  The single message is only saved in the outgoing mail database if 
+there is a transient mail sending problem which prevents it from being sent at that moment.  In addition, there is a setting in "server config" to turn off this feature, if you do not want it, but it 
+is on by default. See  <a href="In_MemoryProcessing.html">In-Memory Processing</a>. 
+</I></B><p>
+<B><I>New bounce mail processing method: </I></B>previously In past versions, Lyris would embed unique tags in the message header (and optionally, in the body) of outgoing email, and these tags 
+served to identify the recipient of the message. Thus, when a bounce report came back, about 80% of the bounce reports included a copy of the headers of the message, and Lyris could identify the 
+cause of the bounce by reading these unique tags.  This technique was already much more effective than the techniques used in other list servers, which attempt to read the English-language 
+description of the bounce (an independent audit found that technique to be 40% successful).  Beginning with this version of Lyris, every single member has their own custom bounce address, which 
+looks like this: bounce-jazztalk-283@mycompany.com. Because every member has their own bounce address, and every message is sent with that unique bounce address, when Lyris receives an email message 
+to this address, Lyris can be certain which member caused the bounce (because no other member sees this special address).  This is a very simple, but highly effective technique, which Lyris is able 
+to accomplish because it has own built-in email server, which is closely tied in to the list server logic.  With this version, bounce message processing in Lyris now attains a near-perfect accuracy 
+rate.  See  <a href="FastBounceHandling.html">Fast Bounce Handling</a>. 
+</I></B><p>
+   <p>
+<B>Significant features:</B></B><p>
+<B><I>Easily delete all members</I></B>: Added web interface option to delete all members from the list in one quick pass.  See  <a href="DeleteAllMembers.html">Delete All Members </a>.</I></B><p>
+<B><I>New ways to view members</I></B>: added ability in the web interface to view members that are "digest" or just 'nomail" or whatever subscription type you want.  See  
+<a href="SelectionType.html">Selection Type</a>. 
+</I></B><p>
+<B><I>Admin "delete *" command</I></B>: to purge a member: the administrator email command: "delete" can now take "*" as a list name, so that a email address is removed from all lists that they 
+are on. For example, "delete * bob@somewhere.com". See  <a href="Delete.html">Delete</a>. 
+</I></B><p>
+<B><I>Date: header rewriting for moderated messages</I></B>: Added a list setting, which determines whether moderated messages should have their Date: header rewritten to the date/time that they 
+are approved, rather than displaying the original Date header of the time the message was composed.. Also added a feature in the moderated message approval web page which sets this on an individual 
+message basis.  See <a href="RewriteModeratedDate_Header.html">Rewrite Moderated Date: Header</a> and  <a href="ViewMessagetoModerate.html">View Message to Moderate</a>..  
+</I></B><p>
+<B><I>Bounce report handing now much faster</I></B>: A new, faster way of handling email bounce reports has been implemented. Previously, all bounces were saved in the incoming mail database and 
+processed. Now, bounce mail is automatically processed in memory, so that it is much faster, and does not use up disk space.  In addition, Lyris caches in memory the email addresses who have sent 
+bounces that day, and automatically discards (during the SMTP session itself) excess bounce reports, further improving performance.  These improvements keep the "incoming mail" database (inmail.*) 
+from growing because of error mail. In addition, there is a setting in "server config" to disable this feature if you do not want it, but it is on by default.  See  <a href="FastBounceHandling.html">Fast Bounce Handling</a> 
+. 
+</I></B><p>
+<B><I>Regular expressions for action phrases</I></B>: Action phrases now support regular expression for matching text. To specify that a given action phrase text is a regular expression, you 
+surround the text with / characters, as in: /regexp/ (Note: regular expressions are a sophisticated mathematical description for text matching patterns). A complete description of the regular express 
+syntax in Lyris is available here: ftp://ftp.lyris.com/extra/regex.txt  See  <a href="Phrase.html">Phrase</a>. 
+</I></B><p>
+<B><I>Admin "which" command</I></B>: Admin email command to determine what mailing lists a member is on: this is done by specifying an email address after the "which" command (after a login 
+command), like so: "which email-addr"  See  <a href="Which_foradmins_.html">Which (for admins)</a>. 
+</I></B><p>
+<B><I>Can now set the moderated message default approval time</I></B>: Added the ability to schedule approval of moderated messages as a default time for a list, previously this time was always 
+midnight.  See  <a href="ReleaseTime.html">Release Time</a>. 
+</I></B><p>
+<B><I>"Password Required" lists now assign a random password to email subscribers</I></B> <br>When a mailing list is set to "Password Required", if a person subscribes to the mailing 
+list via email, Lyris will now assign the person a password, and notify them of it.  The password is an easy to remember "adjective-noun" combination. If the person subscribes using the web 
+interface, they have to define their own password on the subscription form. See  <a href="PasswordRequired.html">Password Required</a>. 
+</I></B><p>
+<B><I>Automatic detection of Lyris Virtual Servers</I></B> <br>If you use Lyris to create multiple sites with different hostname (ie: virtual servers), the Lyris web interface will now 
+automatically determine what site the person is requesting. Previously, the site name had to be set in the site= setting of the lyris.plc or in the requesting URL.  Now, Lyris compares the host name 
+of the web server request with the host names defined for the Lyris sites, and displays the matching site.  Note: this feature requires that your web server support the HTTP_HOST environment 
+variable, which many servers do.  If your server does not, this feature will not be able to work. 
+</I></B><p>
+<B><I>Ability to view just List Admins in web interface</I></B> <br>In the members page of the list administrator web interface, you can now obtain a listing of just the list 
+administrators for a mailing list.  See  <a href="SelectionType.html">Selection Type</a>. 
+</I></B><p>
+<B><I>Ability to specify exceptions to the new Loop Breaking feature</I></B> <br>The new Email Loop Breaking feature in Lyris keeps track of how many message From: one person have gone 
+to each To: address, and sets a limit on the daily number. You can now specify exceptions to this feature. For example, if you have a script which generates many commands from the same email address 
+each day, you can put an exception in for your script, and still retain tight control over breaking mail loops. To use this feature, specify either to sender or the recipient address, or specify a 
+sender/recipient email address combination by putting the "sender-recipient" together on a line, separated by a dash. You can specify as many exceptions as you like, each on a separate line.  See  
+<a href="LoopException.html">Loop Exception</a>. 
+</I></B><p>
+<B><I>Majordomo Import Program <br></I></B>A program to import Majordomo "config" files and create Lyris lists and list administrators is now available. Please see: 
+http://www.lyris.com/down/scripts.html 
+</I></B><p>
+ <p>
+<B>Minor Features:</B><p>
+<b></B><B><I>New mail loop prevention technique</I></B>: Added a new failsafe loop breaking mechanism, and the ability to set the amount of mail from/to the same recipient before loop break comes in. 
+This is in the server config page.  See  <a href="LoopException.html">Loop Exception</a>. 
+</I></B><p>
+<B><I>Ability to delete individual log entries</I></B>: Added web interface way to delete individual log entries, and groups of log entries. See  <a href="ServerAdminLog.html">Server Admin Log</a>.</I></B><p>
+<B><I>Remove HTML Codes in email</I></B>: A new Lyris extension is now available to remove all HTML codes from an email message.  See http://www.lyris.com/down/scripts.html</I></B><p>
+<B><I>New mail merge tags</I></B>: added mail merge tags for member.comments, member.additional and member.userid mail merge tags. Mail merging can also handle multi-line inserts.  See  
+<a href="MemberFields.html">Member Fields</a>. 
+</I></B><p>
+<B><I>For programmers, added an IdReset() command</I></B>: we added an "IdReset()" command to LCP (and the Perl toolkit), which resets the internal Lyris IDs. This helps programmers add items 
+directly into the Lyris databases, when those items require unique IDs. After calling &IdReset, Lyris will determine the next available ID for a record by looking at the existing data (the ID.DBF 
+table is no longer used, and is now gone). See the programmer's guide at http://www.lyris.com/guide for more information. 
+</I></B><p>
+<B><I>For programmers, added MemberDeleteAllInList()</I></B>: command &MemberDeleteAllInList("listname"); will very quickly delete all members in the list  See the programmer's guide at 
+http://www.lyris.com/guide for more information. 
+</I></B><p>
+ <p>
+<B>Important Changes:</B><p>
+<b></B><B><I>New serial number scheme</I></B>: when you receive your Lyris serial number (or upgrade an existing Lyris server), you need to register your serial number and TCP/IP address at our web 
+site to receive an activation code for your machine.  This activation code works as your serial number used to, except that the activation code only works on that TCP/IP address: an activation code 
+for one machine cannot be used on multiple machines.  We apologize for the slightly increased work that this new scheme may cause you, but we needed to implement this technique due to problems we've 
+had with people running many Lyris servers with only one purchased license.  See  <a href="ActivationCode.html">Activation Code</a>. 
+</I></B><p>
+<B><I>Member importing sped up by 10X</I></B>: This version speeds up member creation in the web interface and command-line by 10X, and also ads an option in import scripts to not check for 
+dupes, which speeds member importing up by an additional 35%. On a Pentium 133 running Windows NT, importing 500 members previously took 440 seconds, and now takes 35 seconds. See  
+<a href="CreateManyMembers.html">Create Many Members</a>. 
+</I></B><p>
+<B><I>Email confirmation now includes message</I></B>: For admin confirm lists (lists which are private), the email notification now includes the message that was sent as the subscribe request  
+See  <a href="SubscriptionSecurity.html">Subscription Security</a>.  See  <a href="SubscriptionSecurity.html">Subscription Security</a>. 
+</I></B><p>
+<B><I>Ability to clear log</I></B>: Added way to clear log from command line, with the "dblogcreate" command.  See  <a href="DatabaseOperations.html">Database Operations</a>.</I></B><p>
+<B><I>Action phrases can now search just header</I></B>: Added option for action phrases to search only in the message header, or "not in" the message header. See  <a href="CreatePhrase.html">Create Phrase</a>.</I></B><p>
+<B><I>Held notification now more helpful</I></B>: The "you have been held" notification email messages to members who have been held now includes a copy of the most recent bounce report, so they 
+can see what the problem is and take it to their email administrator as proof that there is a problem. See  <a href="HoldUsers.html">Hold Users</a>. 
+</I></B><p>
+<B><I>"Out of office" postings now rejected more helpfully</I></B>: Messages identified as error mail are no longer be quietly rejected -- they now cause a error message to go back to the user. 
+For example, if "OUT OF OFFICE" in the subject of a posting, Lyris will send a message back to the sender indicating that the message was rejected, and with a copy of the posting, so that they can 
+resend it. 
+</I></B><p>
+<B><I>Action phrase notifications more helpful</I></B>: The action phrase notification message now returns header and body of the message that matched, and transaction log also tells what 
+matched.  See  <a href="ResponseDocument.html">Response Document</a>. 
+</I></B><p>
+<B><I>X-Lyris-Type header added</I></B>: Added a X-Lyris-Type header to all individual Lyris messages sent, which helps users understand why a message was sent to them, and also helps with 
+automated filtering by email client programs. 
+</I></B><p>
+<B><I>Login password now blanked</I></B>: The password setting in the "login ...." command is now blanked out as "login XXXXX" in all incoming email, and also in all correspondence that includes 
+the body of the message (such as "Re: your admin commands"). This improves the security. See  <a href="Login.html">Login</a>. 
+</I></B><p>
+<B><I>Autoresponders now log their usage, helpful for billing purposes</I></B> <br>Previously, Autoresponder usage was not logged in the Lyris log. Now, their usage is logged, as well as 
+the size of the message sent, and who it was sent to. This is helpful for list hosting facilities who want to bill for autoresponder usage. See  <a href="ServerAdminLog.html">Server Admin Log</a>. 
+</I></B><p>
+ <p>
+<B>Less Important Changes:</B></B><p>
+<B><I>List owners can bypass cross-posting limitation</I></B>: and can always cross post, regardless of list posting. The "prevent cross-posting" feature continues to work as  before, and applies 
+to all list members except for the list administrator. See  <a href="AllowCrossposting.html">Allow Crossposting</a>. 
+</I></B><p>
+<B><I>For programmers, added MemberBatchAdd command</I></B>: Added LCP command  &MemberBatchAdd(%attribs); and improve user import programs to take advantage of it  See the programmer's guide at 
+http://www.lyris.com/guide for more information. 
+</I></B><p>
+<B><I>Owner-listname mail more descriptive</I></B>: owner-listname mail now indicates what list the message was for at the top of the message.  See  <a href="TheListOwnerAddress.html">The List Owner Address</a>.</I></B><p>
+<B><I>Mail stats page more helpful when no stats available</I></B>: Changed the mail statistics page so that it says that there are "no statistics available yet" rather than a blank page if there 
+is not statistical data. 
+</I></B><p>
+<B><I>Japanese support</I></B>: Added support to the Lyris web interface for reading message with Japanese language encoding.</I></B><p>
+<B><I>Command line "gettcpip" command added</I></B>: Added "gettcpip" command line command to be told what the first TCP/IP address on a machine is, which is useful when registering your serial 
+number.  See  <a href="SettingServerOptions.html">Setting Server Options</a>. 
+</I></B><p>
+<B><I>Quotation marks forbidden in list name</I></B>: In the Lyris web interface, you are no longer allowed to create a list with quotation marks in the name. Previously, this was allowed, but 
+would cause problems later on. 
+</I></B><p>
+<B><I>Lyris "people" must have unique names</I></B>: Lyris no longer allows the same name to be used for multiple "people". Previously, you could do this, which could lead to confusion. </I></B><p>
+<B><I>Removed "dbpack" command</I></B>: dbpack was removed from lyris command line, as dbupgrade is better in all cases</I></B><p>
+<B><I>Unique IDs handled better and faster</I></B>: Changed ID management system so that ID table is not used any more, speeding up a number of operations by 3X (such as full text indexing).  
+This change will only be visible to programmers, but will make many parts of Lyris run faster. 
+</I></B><p>
+<B><I>Lyris Perl Library now friendlier to programmers</I></B>: several changes were made to lyrislib.pl to make it more friendly to Perl programmers using eval{}.  Our thanks go to Leroy Lefman 
+for his code change suggestions. 
+</I></B><p>
+<B><I>Log entries now sorted numerically</I></B>: Changed web interface log view page so that log entries are viewed in reverse chronological order, as opposed to the not-intuitive ordering of 
+the previous beta 
+</I></B><p>
+<B><I>Topics must have unique names</I></B>: Web interface fixed so that you are now not allowed to create duplicate topics. </I></B><p>
+<B><I>Topic description now used in web interface</I></B>: Topic descriptions are now displayed in the main web interface menu, previously the Topic name was displayed.  See  
+<a href="TopicDescription.html">Topic Description</a>. 
+</I></B><p>
+<B><I>Better checking of header overrides for valid settings</I></B>: Web Interface now requires that the list settings To: & From: & Reply-To & MAIL FROM: must contain an email address. See  
+<a href="FromHeader.html">From Header</a>,  <a href="ReplyTo.html">Reply To</a>,  <a href="To_Header.html">To: Header</a>, and  <a href="MailFrom.html">Mail From</a>. 
+</I></B><p>
+<B><I>Moderated message viewing shows Date</I></B>: Moderated messages, when viewed on the web, now include the date header. </I></B><p>
+<B><I>Better logging of action phrase activity</I></B>: Action phrase rejections now log what word was the rejected phrase in the transaction log. See  <a href="IncomingMailInformation.html">Incoming Mail Information</a> 
+. 
+</I></B><p>
+<B><I>Ability to disable logging</I></B>: In Server Admin/Server Config, added web interface ability to disable logging. See  <a href="EnableLogging.html">Enable Logging</a>.</I></B><p>
+<B><I>Added "activate" command line option</I></B>: added "lyris activate" command line synonym for "serial", "lyris serial" is now obsolete.  See  <a href="SettingServerOptions.html">Setting Server Options</a>.</I></B><p>
+<B><I>Increased incoming mail load capability</I></B>: Increased the number of simultaneously processed incoming mail from 5 to 20 threads to better accommodate the new in-memory mail sending 
+feature 
+</I></B><p>
+ <p>
+<B>Bug Fixes:</B></B><p>
+<B><I>Support for "Opera" web browser</I></B>: Fixed a Lyris web interface bug when using the Opera web browser to edit settings. Opera treats carriage returns differently than IE or Netscape.</I></B><p>
+<B><I>Recip. merge tags</I></B>: Fixed a bug in the previous beta which prevented the $subst('Recip.FirstName') and $subst('Recip.FullName') mail merge tags from working correctly.  See  
+<a href="RecipientFields.html">Recipient Fields</a>. 
+</I></B><p>
+<B><I>lcppass command now case-sensitive</I></B>: "lcppass" command line option sets password with case preserved - previously set it to all lower case.  See  <a href="SettingServerOptions.html">Setting Server Options</a> 
+. 
+</I></B><p>
+<B><I>ODBC driver now can change data</I></B>: The Lyris ODBC driver now works correctly with Lyris from Microsoft Access -- previously, you could view data, but some tables would not allow data 
+changes. This was due to a bug in MS Access, which could not handle blank TRUE/FALSE fields, and the new Lyris works around this limitation on Access.  See  <a href="LyrisODBCDriver.html">Lyris ODBC Driver</a>. 
+</I></B><p>
+<B><I>Various news group problems</I></B>: Fixed problems with Internet Explorer using Lyris secure newsgroups.  Previously, IE had trouble if a member belonged to some lists with a password, and 
+some lists without a password. Now, we work around this limitation in IE by always asking for a password.  Note that Lyris auto-detects between the Netscape and Internet Explorer browser, so that 
+Netscape users can still enjoy the password-requested-on-demand feature that Netscape offers. 
+</I></B><p>
+<B><I>Netscape news posting warning</I></B>: Fix a bug when posting to newsgroups which gives an error message with Netscape browsers, even though the post worked</I></B><p>
+<B><I>Mail merge confusing in the error mail report</I></B>: if multiple people could not receive an email message,  the error mail report substituted the wrong mail merge fields in -- it 
+substituted the first member's data for all the delivery reports, and this could be confusing to the recipient of the error mail report.  See  <a href="ErrorMail.html">Error Mail</a>. 
+</I></B><p>
+<B><I>"add" command notification</I></B>: Fixed a problem where the admin "add" command fails on dupes (as it should), but sent failure report back to the user rather than to the admin.  See  
+<a href="Add.html">Add</a>. 
+</I></B><p>
+<B><I>Out-of-order sorting of outgoing mail display</I></B>: Fixed a problem with the outgoing mail log  where IDs were sorted alphabetical, not numerical, resulting in an occasional out-of-order 
+sorting.  See  <a href="OutgoingMail.html">Outgoing Mail</a>. 
+</I></B><p>
+<B><I>Archive Date: importing problem with some archives</I></B>: Fix archive import program problem where Date: was the first line of the message -- date was not being correctly read in this case</I></B><p>
+ <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 497 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

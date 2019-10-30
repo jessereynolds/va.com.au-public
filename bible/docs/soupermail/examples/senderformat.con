@@ -1,0 +1,14 @@
+# The two following lines set up the mail templates
+# sent back to Email
+htmlsendertemplate: senderformat.htm
+sendertemplate: senderformat.txt
+
+# The subject
+subject: Example Formatting
+
+# Also send mail back to Email with senderformat1.htm
+mailto: "$form_Email"
+htmlmailtemplate: senderformat1.htm
+
+# Go to the success page
+success: senderformatsuc.txt

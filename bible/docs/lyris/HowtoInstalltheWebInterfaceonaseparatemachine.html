@@ -1,0 +1,109 @@
+<HTML>
+<HEAD><TITLE>How to Install the Web Interface on a separate machine</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HowtoUpgradeLyrisbyHand.html">previous</a>] [<a href="Ifyougetthe_ProtocolNotSupported_Error.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>How to Install the Web Interface on a separate machine</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · · <a href="BasicUnixInstallationInstructions.html">Basic Unix Installation Instructions</a><br>
+· · · <a href="AfterInstallingLyrisonUnix.html">After Installing Lyris on Unix</a><br>
+· · · <a href="GettingHelp.html">Getting Help</a><br>
+· · · <a href="HowtoInstallLyrisbyHand.html">How to Install Lyris by Hand</a><br>
+· · · <a href="HowtoUpgradeLyrisbyHand.html">How to Upgrade Lyris by Hand</a><br>
+· · · <a href="HowtoInstalltheWebInterfaceonaseparatemachine.html"><font size=+0><b>How to Install the Web Interface on a separate machine</b></font></a><br>
+· · · · <a href="Ifyougetthe_ProtocolNotSupported_Error.html">If you get the "Protocol Not Supported" Error</a><br>
+· · · <a href="IfLyrisWillNotRun.html">If Lyris Will Not Run</a><br>
+· · · <a href="UnixDirectoryPermissionsNeeded.html">Unix Directory Permissions Needed</a><br>
+· · · <a href="MakingyourUnixMailServerandLyriscoexist.html">Making your Unix Mail Server and Lyris coexist</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>How to Install the Web Interface on a separate machine</h3>
+The Lyris web interface does not need to be installed on the same machine as the Lyris Server, it can be on a different machine.  If you already have a production web server, this may 
+be more convenient. 
+<p>
+The easiest way to install the web interface is to run install_lyris and get the Lyris web interface working on the local server.  Then, proceed to step 6 to tell the web interface to use another 
+Lyris server. 
+<p>
+By hand, to install the Lyris Web Interface to a web server running on a different machine, follow these steps:<p>
+1) uncompress the lyris tar file to the temporary directory<p>
+2) create a directory named "/lyris" under your HTML document root directory on your web server, then copy the files from ~/graphics to this directory. You should be able to see these graphics from 
+the URL http://localhost/lyris 
+<p>
+3) If you have Perl installed, skip to the next step.  If you do not have Perl installed, copy the file ~/lyris/perl/bin/perl to /usr/bin/perl Make a directory named /usr/local/lib/perl5<p>
+4) Copy the files in ~/lyris/perl/lib to your Perl library directory that should be /usr/local/lib/perl5   <p>
+5) Copy the files in the ~/lyris/cgi directory to the "cgi-bin" directory on your web server.  This directory should already exist, and is *not* located in your HTML document directory. It is a 
+separate directory your web server maintains for running CGI scripts. 
+<p>
+6) In your web server's cgi-bin directory, you will find a file named  "lyris.plc" which contains the configuration settings for the Lyris  Web Interface.  Change the line which reads 
+"server_ip_address=127.0.0.1" so instead point to a TCP/IP address that your Lyris Server is listening to, on the other machine. 
+<p>
+7) Go to the machine running your Lyris Server.  Type the command "~/lyris/bin/lyris lcp 207.105.6.2" substituting the TCP/IP address that the Lyris Web Interface on your web server will be coming 
+from. By default, the Lyris Server rejects all Lyris Command Protocol connection requests from unknown TCP/IP addresses.  This step is necessary so that the lyris.pl script on your web server is 
+allowed to connect to your Lyris server. 
+<p>
+8) Stop your Lyris server, and start it in debug mode, with the command: "~/lyris/bin/lyris start debug"  Now, try to display the web interface by pointing a web browser at the URL 
+http://web.server/cgi-bin/lyris.pl The web interface should appear in your browser.  If it does not, look at the Lyris console. If it says "unauthorized connection attempt from ZZZZ" then repeat step 
+#7 for that TCP/IP address, and try again.  If something else is wrong, go to your cgi-bin directory, type ./lyris.pl and see what happens. You should get a page of HTML.  If you do not, an error 
+message should will be displayed indicating the problem. 
+<p>
+ that's all!<p>
+Consult <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a> if you would like additional information about the configuration options available in the web interface.<p>
+<h3><i><B>More:</B><p>
+<B></i></h3></B><ul><b><a href="Ifyougetthe_ProtocolNotSupported_Error.html">If you get the "Protocol Not Supported" Error</a><p>
+</b></ul><h2><B></h2></B></B><p>
+</B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+</td><td align=right valign=top>Page 463 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE>Send</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Review.html">previous</a>] [<a href="Which_foradmins_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Send</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· · <a href="HowtosendmailtoyourLyrisserver.html">How to send mail to your Lyris server</a><br>
+· · <a href="SendingEmailCommandstoLyris.html">Sending Email Commands to Lyris</a><br>
+· · <a href="Subscribing.html">Subscribing</a><br>
+· · <a href="Unsubscribe.html">Unsubscribe</a><br>
+· · <a href="ChangeMembershipSettings.html">Change Membership Settings</a><br>
+· · <a href="DetermineMembershipSettings.html">Determine Membership Settings</a><br>
+· · <a href="MailingListInformation.html">Mailing List Information</a><br>
+· · <a href="Search.html">Search</a><br>
+· · <a href="HelpDocument.html">Help Document</a><br>
+· · <a href="GetDocuments.html">Get Documents</a><br>
+· · <a href="End.html">End</a><br>
+· · <a href="AdministratorCommands.html">Administrator Commands</a><br>
+· · · <a href="Login.html">Login</a><br>
+· · · <a href="Become.html">Become</a><br>
+· · · <a href="Add.html">Add</a><br>
+· · · <a href="Delete.html">Delete</a><br>
+· · · <a href="Member.html">Member</a><br>
+· · · <a href="Moderate.html">Moderate</a><br>
+· · · <a href="Review.html">Review</a><br>
+· · · <a href="Send.html"><font size=+0><b>Send</b></font></a><br>
+· · · <a href="Which_foradmins_.html">Which (for admins)</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Send</h3>
+The send command allows you to email a Lyris document to any number of email addresses.  For instance, if you receive a request to join a private list, you might want to send the 
+applicant a document describing the guidelines for being allowed into the mailing list.  Or, if you have an announcement you would like to make to a number of people, you can use the send command to 
+send a "one time message" to them, without the work of creating a mailing list. 
+<p>
+The syntax of send command is:<p>
+<font face='Courier New'><ul>send document-name email-address [email-address] &#133;<p>
+</ul></font>The document-name must be a currently existing Lyris document.  For more information about Lyris documents, see  <a href="ServerDocuments.html">Server Documents</a>.<p>
+You can also use the line-continuation character, "\" to specify as many email addresses as you like, without being restricted by the length of a line.  For example:<p>
+<font face='Courier New'><ul>send I_am_going_on_vacation \ <br>john@acme.com \ <br>jane@something.com \ <br>bob@widget.com \ <br>robert@elsewhere.com<p>
+</ul></font>The From: and Reply-To: of the message sent is by default the email address and name that you are issuing the send command from.  If you would like the From: and Reply-To: to be 
+something else, you can use the <I>become </I>command to assume another identity, and then use the send command with that identity.  For more information about the become command, see  
+<a href="Become.html">Become</a>. 
+</I><p>
+The send command is only available to administrators. You must issue a "login" command before using the send command.  For more information about login, see  <a href="Login.html">Login</a>.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="AdministratorCommands.html">Administrator Commands</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+</td><td align=right valign=top>Page 72 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

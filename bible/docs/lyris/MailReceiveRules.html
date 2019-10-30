@@ -1,0 +1,113 @@
+<HTML>
+<HEAD><TITLE>Mail Receive Rules</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="RemoveLyrisAddresses.html">previous</a>] [<a href="MaxMessageSize.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Mail Receive Rules</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · · <a href="Activationcodeandadmincontact.html">Activation code and admin contact</a><br>
+· · · <a href="TCP_IPSettings.html">TCP/IP Settings</a><br>
+· · · <a href="MailReceivingSettings.html">Mail Receiving Settings</a><br>
+· · · · <a href="IncomingFrom_MailRewrites.html">Incoming From: Mail Rewrites</a><br>
+· · · · <a href="IncomingTo_MailRewrites.html">Incoming To: Mail Rewrites</a><br>
+· · · · <a href="SMTPPort.html">SMTP Port</a><br>
+· · · · <a href="BanMailFrom.html">Ban Mail From</a><br>
+· · · · <a href="RemoveLyrisAddresses.html">Remove Lyris Addresses</a><br>
+· · · · <a href="MailReceiveRules.html"><font size=+0><b>Mail Receive Rules</b></font></a><br>
+· · · · <a href="MaxMessageSize.html">Max Message Size</a><br>
+· · · · <a href="FastBounceHandling.html">Fast Bounce Handling</a><br>
+· · · · <a href="LoopDetection.html">Loop Detection</a><br>
+· · · · <a href="LoopException.html">Loop Exception</a><br>
+· · · <a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+· · · <a href="LyrisCommandProtocol_LCP_Settings.html">Lyris Command Protocol (LCP) Settings</a><br>
+· · · <a href="ProgrammingExtensionsattheServerLevel.html">Programming Extensions at the Server Level</a><br>
+· · · <a href="Newsgroups.html">Newsgroups</a><br>
+· · · <a href="MiscellaneousServerConfigSettings.html">Miscellaneous Server Config Settings</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Mail Receive Rules</h3>
+Defines the rules by which Lyris determines whether mail should be processed by Lyris or not.<p>
+By default, Lyris looks at the username of email it receives to determine whether the message should be processed by Lyris.  The host name portion of the mail address is not consulted. Lyris does 
+this to support any number of virtual hosts without needing to be configured.  By default, Lyris will automatically assume the hostname identity of any email it receives which is addressed to a valid 
+Lyris user name. 
+<p>
+This Mail Receive Rules option allows you to change this default behavior, so that Lyris first looks at the rules you have defined, and if the local recipient address does not match a rule, the 
+message is not processed by Lyris. 
+<p>
+The Mail Receive Rules are simple text search rules.   For example, to receive any mail addressed to the "shelby.com" domain, the rule would be:<p>
+<font face='Courier New'><ul>shelby.com<p>
+</ul></font>this would allow any of these different addresses to be received:<p>
+<font face='Courier New'><ul>lyris@shelby.com <br>lyris@lists.shelby.com <br>lyris@discussions.shelby.com<p>
+</ul></font>but any address which did not have "shelby.com" in it would be rejected.  If your rule was "@shelby.com", only the first example above "lyris@shelby.com" would be accepted.<p>
+The most common use for this feature is if you are using Lyris in front of another mail server, and you want to make sure that Lyris only accepts mail addressed to itself, and forwards on any mail 
+addressed otherwise.  If you have told Lyris to "Forward non-Lyris Mail" to another location, any mail which <I>does not </I>match a "Mail Receive Rule" will automatically be forwarded on to the 
+other server.  See  <a href="ForwardMail.html">Forward Mail</a>. 
+</I><p>
+If you do not have "Forward non-Lyris Mail" defined, then mail which does not match a Mail Receive Rule will simply be rejected.<p>
+You can define multiple Mail Receive Rules, each on a separate line<p>
+ <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailReceivingSettings.html">Mail Receiving Settings</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+</td><td align=right valign=top>Page 120 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

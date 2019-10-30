@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+User-agent: PicoSearch/1.0
+Disallow: /
+
+

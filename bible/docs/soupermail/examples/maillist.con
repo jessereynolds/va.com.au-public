@@ -1,0 +1,25 @@
+# Below is the form field that will have the mailing list data
+if: useform eq 'y' then listformfield: mailfield
+
+# Specify the text and HTML formats for the email
+listtemplate: maillist.txt
+htmllisttemplate: maillist.htm
+
+# Some message parameters
+listprecedence: junk
+listsubject: "Soupermail mailing list example to $maillist_1 from $http_ref"
+listreplyto: vittal.aithal@bigfoot.com
+listfrom: vittal.aithal@bigfoot.com
+
+# Here, I'll add an outgoing image to the mail, and set
+# its MIME type. 
+listattachment1: made.gif
+listattachment1mime: image/gif
+
+# where to go once the form's submitted
+success: maillistok.txt
+
+# The line below would be used to specify a mailing list file
+#maillist: maillist.csv
+unless: useform eq 'y' then maillist: maillist.csv
+

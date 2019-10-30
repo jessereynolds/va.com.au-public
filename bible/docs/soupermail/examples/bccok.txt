@@ -1,0 +1,33 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>BCC Example Results</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>BCC Example Results</h1>
+
+<p>
+You should have now send an email to <output name="email1"> with it
+Bcc'ed to <output name="email2">
+</p>
+
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="bcc.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="bccok.txt">bccok.txt</a>.</p>
+</body>
+</html>

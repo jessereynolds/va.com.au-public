@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Virtual Artists Pty Ltd</title>
+
+<!--#include virtual="chunks/head_styles.html" -->
+
+</head>
+
+<!-- <body bgcolor="#FFFFFF" background="images/grey_bg.gif"> -->
+
+<body>
+
+<!--#include virtual="chunks/nav_top.html" -->
+
+	<div id="primary">
+	<div class="inside" id="littlefeet">
+
+<h1>Little Feet - Newborn and Baby Photography by Jo Reynolds</h1>
+
+<p>After 10 years as an integral part of the VA team we are very proud to support Jo's new endeavor - <a href="http://www.littlefeetphotography.com.au">Little Feet Photography</a>.</p>
+
+<p>Based in Adelaide from January 2009 Jo Reynolds is Australia's leading provider of custom newborn portrait photography. Jo's focus is on fine art, black and white portrait photography of newborns, twins (multiples), babies, pregnancy &amp; breastfeeding. Jo specialises in photographing newborn babies (including multiples) in the first week of life, so please make contact during your preganncy. She prefers natural light and will come to your home or the location of your choice.</p>
+
+<p>Jo is also available for commissions anywhere in Australia and has a strong client base in Sydney.</p>
+
+<table><tr><td><iframe width="380" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.au/maps?near=adelaide&amp;q=little+feet+photography&amp;f=p&amp;rl=1&amp;ie=UTF8&amp;ll=-34.920159,138.602958&amp;spn=0.006158,0.008154&amp;z=16&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com.au/maps?near=adelaide&amp;q=little+feet+photography&amp;f=p&amp;rl=1&amp;ie=UTF8&amp;ll=-34.920159,138.602958&amp;spn=0.006158,0.008154&amp;z=16&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small></td><td>
+<address>Little Feet - Newborn and Baby Photography by Jo Reynolds<br />email: jo [at] littlefeetphotography [dot] com [dot] au<br />phone: 0414 498 646<br />PO Box 371, Rundle Mall, Adelaide, South Australia, 5000<br /></address></td></tr></table>
+</div>
+
+<!--#include virtual="chunks/footer.html" -->

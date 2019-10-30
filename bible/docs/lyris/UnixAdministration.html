@@ -1,0 +1,110 @@
+<HTML>
+<HEAD><TITLE>Unix Administration</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="SampleProgram_importmailinglistarchives.html">previous</a>] [<a href="Up_Coming.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Unix Administration</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+· · <a href="DocBots.html">DocBots</a><br>
+· · <a href="RunningLyris.html">Running Lyris</a><br>
+· · <a href="Email.html">Email</a><br>
+· · <a href="LyrisAdministration.html">Lyris Administration</a><br>
+· · <a href="WebBrowsers.html">Web Browsers</a><br>
+· · <a href="UsenetNewsgroups.html">Usenet Newsgroups</a><br>
+· · <a href="International.html">International</a><br>
+· · <a href="OtherFAQissues.html">Other FAQ issues</a><br>
+· · <a href="MailingListFeatures.html">Mailing List Features</a><br>
+· · <a href="Perl_LyrisToolkit.html">Perl/Lyris Toolkit</a><br>
+· · <a href="UnixAdministration.html"><font size=+0><b>Unix Administration</b></font></a><br>
+· · <a href="Up_Coming.html">Up & Coming</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Unix Administration</h3>
+This perl script checks to make sure that a given Lyris host is working properly, by going to the Lyris Web Interface and making sure the page displays correct information.  If there 
+appears to be a problem, an email message is sent off. 
+<p>
+We recommend that you place this script in your Unix cron table, and have it periodically check the status of your Lyris server.  <p>
+To use this program, use the following command line:<p>
+<font face='Courier New'>./chklyris.pl http://clio.lyris.net/cgi-bin/lyris.pl root 10<p>
+</font>The parameters are: <br>* the URL to check (which needs to be the Lyris web interface) <br>* the email address to send notifications to <br>* the slowest 
+acceptable time for the Lyris Web interface to respond. If the average is slower than this, a notification is sent. 
+<p>
+Depending on the location of sendmail (default is /usr/lib/sendmail) and lynx (default is /usr/local/bin/lynx) on your Unix system, you may need to edit the variables at the top of this script.<p>
+<font face='Courier New'>#!/usr/bin/perl <br> <br># chklyris - checks the main lyris web page, mails admin if this <br># fails or took longer than X number of seconds <br># 
+<br># This script is useful for periodic checking of your Lyris site. <br># If the Lyris web interface does not display "Main Menu" when <br># this script loads up the 
+page, then something is wrong with <br># your Lyris server, and a warning message gets emailed to the <br># email address you provided. Also, if the page takes too long 
+<br># to load, then something is also probably wrong, and this also <br># triggers an email warning. <br> <br># for example, our unix crontab looks like this: 
+<br># 5 * * * * /web/bin/chklyris http://clio.lyris.net/cgi-bin/lyris.pl root 8 &gt;/dev/null <br># 35 * * * * /web/bin/chklyris http://clio.lyris.net/cgi-bin/lyris.pl root 8 
+&gt;/dev/null <br># <br># These cron entries check our Lyris server twice an our, at 5 minutes past the hour, <br># and at 35 minutes past the hour.  If a failure occurs, or 
+the page takes longer, on <br># average, than 8 seconds to load, then a warning message is sent to root. <br> <br># command line format: <br># <br># 
+chklyris http://clio.lyris.net/cgi-bin/lyris.pl root@clio.lyris.net 10 <br>#           URL-TO-CHECK   ADMIN-MAIL  TIME-OUT <br> <br># Copyright 1997 Shelby Group Ltd.   
+<br> <br># location of lynx on your system <br># note: your version of lynx must be capable of the "-dump" command line option <br>$lynx = "/usr/local/bin/lynx"; 
+<br> <br># the location of sendmail on your system <br>$mailprog = '/usr/lib/sendmail'; <br> <br># the number of passes to make with the check 
+<br>$passes = 2; <br> <br>$failures_to_allow = 0; <br> <br># the phrase to look for on the lyris URL <br>$keyphrase = "Main Menu"; <br> 
+<br>########################################################################### <br># You probably do not have to edit anything below this <br> <br># the number of 
+failures  <br>$failures = 0; <br> <br> <br>$TimeStart = time; <br> <br>$URL = $ARGV[0]; <br>if (index($URL, "http") &lt; 0) { 
+<br>    print "Please place URL in http:// format on command line\n"; <br>    print "Example: http://clio.lyris.net/cgi-bin/lyris.pl root\@clio.lyris.net 10\n"; <br>    
+exit <br>}; <br> <br>$EMAIL = $ARGV[1]; <br> <br>$OKTIME = $ARGV[2]; <br>if ($OKTIME &lt; 1) { <br>    print "Please place acceptable 
+average delay time on command line\n"; <br>    print "Example: http://clio.lyris.net/cgi-bin/lyris.pl root\@clio.lyris.net 10\n"; <br>    exit <br>}; <br> 
+<br>@FullQuery = ($lynx,"-dump", $URL); <br> <br># do the queries, by using "lynx -dump URL" <br>for ($EachPass = 0; $EachPass &lt; $passes; $EachPass++) { 
+<br>        open(LYNXQ, "-|") || exec (@FullQuery); <br> <br>        $InString = ""; <br> <br>        while ($InLine = &lt;LYNXQ&gt;) { <br>            
+    $InString .= $InLine; <br>        } <br>        close(LYNXQ); <br>        if (index($InString,"access start file") &gt; -1) {$failures++; } <br>        if 
+(index($InString, $keyphrase) &lt; 1) {$failures++; } <br>} <br> <br>$TimeEnd = time; <br>$TimeDiff = $TimeEnd - $TimeStart; <br>print "$passes lookups of 
+$URL took $TimeDiff seconds, an average of "; <br>print ($TimeDiff/$passes); <br>print " seconds/fetch\n"; <br>print "There were ".$failures." failed lookups\n"; 
+<br> <br>if ((($TimeDiff/$passes) &gt; $OKTIME) || ($failures &gt; $failures_to_allow) ){ <br>    &MailVariables; <br>}; <br> <br>sub MailVariables { 
+<br> <br>    if ((open (MAIL, "|$mailprog $EMAIL")) == 1) { } <br>    else { <br>        print MAIL "From: Lyris Checker &lt;jbuckman\@shelby.com&gt;\n"; <br>   
+     print MAIL "Subject: Lyris Checker Report\n\n"; <br>        print MAIL "$passes lookups of $URL took $TimeDiff seconds,\n"; <br>        print MAIL "an average of 
+".($TimeDiff/$passes)." seconds/fetch.\n"; <br>        print MAIL "\nThere were ".$failures." failed lookups\n"; <br>        close (MAIL); <br>    } <br>} 
+<p>
+</font><h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</td><td align=right valign=top>Page 555 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

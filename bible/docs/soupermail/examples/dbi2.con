@@ -1,0 +1,22 @@
+# Set up the database connection stuff
+sqlname: dbi:mysql:database=test;hostname=localhost
+sqluser: test
+sqlpassword: testpassword
+
+# make sure we've got an id - if not, go to the insert page
+required: id || delid
+# Make sure the title isn't too long
+unless: delid then failure: dbi2a.txt
+
+# Pull out the information from the database based on the id
+sqlbind1: "$form_id"
+sqlrun1: select object_id, object_title from testac where object_id = ?
+
+# This is the page to use if we got a result
+success: dbi2.txt
+
+# But to catch the case where there's no result....
+unless: ($sql_1_1_1 || delid) then success: dbi2a.txt
+
+# If we're deleting an entry, we'll bounce over to a deletion page
+if: delid then success: dbi2b.txt

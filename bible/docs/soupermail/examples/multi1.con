@@ -1,0 +1,14 @@
+# Multipart form example configuration
+# Configuration for part one of the example
+
+# Make sure that at least the person's name has been
+# typed in:
+
+required: your_name
+failure: multi1fail.txt
+
+# If things went OK, then pass them onto the second form.
+# However, note that its not a HTML file, but a template
+
+success: multi2.txt
+

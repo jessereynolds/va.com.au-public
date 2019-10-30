@@ -1,0 +1,93 @@
+<HTML>
+<HEAD><TITLE>Having MetaInfo sendmail coexist with Lyris</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HavingQmailcoexistwithLyris.html">previous</a>] [<a href="HavingNetscapeMailServercoexistwithLyris.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Having MetaInfo sendmail coexist with Lyris</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · · <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+· · · <a href="HavingPost_OfficecoexistwithLyris.html">Having Post.Office coexist with Lyris</a><br>
+· · · <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+· · · <a href="HavingMetaInfosendmailcoexistwithLyris.html"><font size=+0><b>Having MetaInfo sendmail coexist with Lyris</b></font></a><br>
+· · · <a href="HavingNetscapeMailServercoexistwithLyris.html">Having Netscape Mail Server coexist with Lyris</a><br>
+· · · <a href="HavingNotes_DominoCoexistwithLyris.html">Having Notes / Domino Coexist with Lyris</a><br>
+· · · <a href="HavingNTMailCoexistwithLyris.html">Having NTMail Coexist with Lyris</a><br>
+· · · <a href="HavingMicrosoftExchangeCoexistWithLyris.html">Having Microsoft Exchange Coexist With Lyris</a><br>
+· · · <a href="HavingAltaVistaMailCoexistwithLyris.html">Having AltaVista Mail Coexist with Lyris</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Having MetaInfo sendmail coexist with Lyris</h3>
+Robert Basil, a Lyris user, wrote this message to the Lyris-Discuss mailing list explaining how he has MetaInfo's sendmail coexist with Lyris.  <p>
+Note that the technique he is using here, of having MetaInfo run on one set of TCP/IP addresses, and Lyris on another, is explained in more detail at  <a href="UsetwoTCP_IPaddresses.html">Use two TCP/IP addresses</a> 
+.  The instructions given here indicate how MetaInfo sendmail handles the forwarding order, as opposed to how Unix sendmail is told to do the forwarding. 
+<p>
+Date sent:        Tue, 16 Sep 1997 09:37:54  <br>To:               "Lyris Discussion" &lt;lyris-discuss@clio.lyris.net&gt; <br>From:             Robert Basil &lt;robert@arizonainternet.com&gt; 
+<br>Subject:          NT MetaInfo Sendmail Config Solution. <br>Send reply to:    "Lyris Discussion" &lt;lyris-discuss@clio.lyris.net&gt; <br> <br>Just to let everyone 
+know how we got the Lyris software to work with <br>the MetaInfo Sendmail running on multiple IP's/Domains here are the <br>steps.  In my setup, my MetaInfo sendmail machine has 
+several TCP/IP addresses, and MetaInfo sendmail is using several of them.  I have one TCP/IP address free (not used) on which I run Lyris. 
+<p>
+ <br>1. Install Lyris (If you already have Perl 5 installed, or you are running <br>IIS4.0b2 choose "no" on the Perl install) <br> <br>2. On the last step (Start 
+server now) un check the box. <br> <br>3. Bring up a DOS box, change to the Lyris directory and type: lyris tcpip (your IP for Lyris here).  See <a href="MultipleTCP_IPaddresses.html">Multiple TCP/IP addresses</a> 
+ for more information. <br> <br>4. Edit the "lyris.plc" file in your c:\inetpub\scripts directory to read: server_ip_address=(your IP for Lyris here). See 
+<a href="TCP_IPPortofLyrisServer.html">TCP/IP Port of Lyris Server</a> for more information. <br> <br>5. Go into your MetaInfo Sendmail control panel and stop the Sendmail program. <br> 
+<br>6. Start the Lyris server by clicking on the "Start Lyris Server" icon. <br> <br>7. Go into your MetaInfo Sendmail control panel and start the Sendmail 
+<br>program. <br> <br>8. Go into your Internet Services Manager and stop your IIS service <br> <br>9. Go into your Internet Services Manager and restart 
+your IIS service <br> <br>10. Go to http://www.(your-domain).com/scripts/lyris.pl and start <br>configuring your lists. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+</td><td align=right valign=top>Page 476 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

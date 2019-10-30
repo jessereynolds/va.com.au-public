@@ -1,0 +1,110 @@
+<HTML>
+<HEAD><TITLE>Forward Mail</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="MailDeliverySettings.html">previous</a>] [<a href="RelayHost.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Forward Mail</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · · <a href="Activationcodeandadmincontact.html">Activation code and admin contact</a><br>
+· · · <a href="TCP_IPSettings.html">TCP/IP Settings</a><br>
+· · · <a href="MailReceivingSettings.html">Mail Receiving Settings</a><br>
+· · · <a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+· · · · <a href="ForwardMail.html"><font size=+0><b>Forward Mail</b></font></a><br>
+· · · · <a href="RelayHost.html">Relay Host</a><br>
+· · · · <a href="ForwardingOrders.html">Forwarding Orders</a><br>
+· · · · <a href="DeliverySpeed.html">Delivery Speed</a><br>
+· · · · <a href="MaxSendJobs.html">Max Send Jobs</a><br>
+· · · · <a href="EnableDNSCaching.html">Enable DNS Caching</a><br>
+· · · · <a href="MailDeliveryStatisticsSize.html">Mail Delivery Statistics Size</a><br>
+· · · · <a href="MailDeliveryStatisticsInterval.html">Mail Delivery Statistics Interval</a><br>
+· · · · <a href="In_MemoryProcessing.html">In-Memory Processing</a><br>
+· · · · <a href="EnableLogging.html">Enable Logging</a><br>
+· · · <a href="LyrisCommandProtocol_LCP_Settings.html">Lyris Command Protocol (LCP) Settings</a><br>
+· · · <a href="ProgrammingExtensionsattheServerLevel.html">Programming Extensions at the Server Level</a><br>
+· · · <a href="Newsgroups.html">Newsgroups</a><br>
+· · · <a href="MiscellaneousServerConfigSettings.html">Miscellaneous Server Config Settings</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Forward Mail</h3>
+Optionally forward non-Lyris mail to another SMTP server. <p>
+This allows Lyris to coexist with another SMTP server on the same machine.<p>
+For instance, if the machine you want to run Lyris on has a mail server running on it (for instance, Sendmail or Post.Office), and you want this machine to continue running a mail server, then this 
+setting will allow Lyris to coexist with your mail server. 
+<p>
+Before Lyris can be installed, you will need to configure your mail server to listen to a different port than port 25 for receiving mail.  Once this is done, you can install Lyris, and instruct it 
+with this "Forward Mail" feature to pass non-Lyris mail onto your regular mail server.  Mail sending and receiving from both Lyris and your regular mail server is unaffected. 
+<p>
+In this way, both Lyris and your mail server can coexist peacefully on the same machine.<p>
+For this "Forward Mail" setting, you will need to specify the TCP/IP address and port number. <p>
+For example: "127.0.0.1 2025" forwards non-Lyris mail to an SMTP server running on the same machine, on port 2025.  This is a common setting with Lyris is coexisting with a mail server on the same 
+machine. 
+<p>
+Another example: "207.105.7.62 25" forwards non Lyris mail to an SMTP server running on a different machine. Thus, mail that isn't for Lyris is forwarded to another mail server for regular processing.<p>
+For more information, see <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a> or  <a href="HavingPost_OfficecoexistwithLyris.html">Having Post.Office coexist with Lyris</a>.<p>
+ <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailReceiveRules.html">Mail Receive Rules</a><br>
+<li><a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+<li><a href="SettingServerOptions.html">Setting Server Options</a><br>
+</td><td align=right valign=top>Page 126 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,7 @@
+Thank you <output name="Email"> for your request.
+
+Attached are the following:
+
+<output name="attach" list="text">
+
+

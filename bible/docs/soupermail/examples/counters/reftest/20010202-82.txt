@@ -1,0 +1,3 @@
+SoupermailConf = reftest.con
+pgpversion = gpg
+your_name = vittal

@@ -1,0 +1,132 @@
+<HTML>
+<HEAD><TITLE>Sendmail forwards to Lyris</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="UsetwoTCP_IPaddresses.html">previous</a>] [<a href="LyrisforwardstoSendmail.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Sendmail forwards to Lyris</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · · <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+· · · · <a href="UsetwoTCP_IPaddresses.html">Use two TCP/IP addresses</a><br>
+· · · · <a href="SendmailforwardstoLyris.html"><font size=+0><b>Sendmail forwards to Lyris</b></font></a><br>
+· · · · <a href="LyrisforwardstoSendmail.html">Lyris forwards to Sendmail</a><br>
+· · · · <a href="DisableSendmail.html">Disable Sendmail</a><br>
+· · · <a href="HavingPost_OfficecoexistwithLyris.html">Having Post.Office coexist with Lyris</a><br>
+· · · <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+· · · <a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+· · · <a href="HavingNetscapeMailServercoexistwithLyris.html">Having Netscape Mail Server coexist with Lyris</a><br>
+· · · <a href="HavingNotes_DominoCoexistwithLyris.html">Having Notes / Domino Coexist with Lyris</a><br>
+· · · <a href="HavingNTMailCoexistwithLyris.html">Having NTMail Coexist with Lyris</a><br>
+· · · <a href="HavingMicrosoftExchangeCoexistWithLyris.html">Having Microsoft Exchange Coexist With Lyris</a><br>
+· · · <a href="HavingAltaVistaMailCoexistwithLyris.html">Having AltaVista Mail Coexist with Lyris</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Sendmail forwards to Lyris</h3>
+Create an alias and tell sendmail to forward email addressed to the alias to Lyris that runs on another port.<p>
+The main advantage of this approach is that it will work with virtually any system configuration. Both sendmail and Lyris can coexist on the same machine, without having to assign new TCP/IP 
+addresses or any other significant system changes. 
+<p>
+The only significant disadvantage to this method is that it requires 2 lines of sendmail.cf changes, and a one line DNS entry.  The 2 sendmail changes are very simple, and these instructions will 
+walk you through them. 
+<p>
+The first step in using this approach is to define an alias (an alternate  name) for your machine.<p>
+Please note: You <I>cannot</I> use a DNS CNAME for this purpose, because newer versions of sendmail will often detect the CNAME in the RCPT TO: address and rewrite it to be the host the CNAME 
+points to (canonical form), thus negating the purpose of creating the CNAME in the first place. 
+</I><p>
+Instead, you should add a new 'A' record in your DNS with the "alias" name, pointing to the same TCP/IP address already used by your machine. There will then be two 'A' records for your TCP/IP 
+address, defining the two names. 
+<p>
+For example, to define an alias called "lists" for a machine named "apollo" you would first locate the line which reads "apollo IN A 207.105.6.2", copy and duplicate that line, defining the alias 
+name in the second line. Your DNS file would read: 
+<p>
+<font face='Courier New'><ul>apollo IN A 207.105.6.2  ; the original host name <br>lists  IN A 207.105.6.2  ; the new "alias" host name<p>
+</ul></font>Please consult your network administrator if you need help in doing this.<p>
+Once your alias is configured, go ahead and install Lyris.<p>
+You now need to tell Lyris to listen for incoming SMTP connections on an alternate port. Because sendmail will be listening to port 25 (the SMTP standard) you should pick something which does not 
+conflict.  A common choice is port 26. 
+<p>
+While you are installing Lyris, you will be given the option to do this through the installation program.  Alternatively, you can inform Lyris that it should use the alternate port with the 
+"smtpport" command line parameter. For example: 
+<p>
+<font face='Courier New'><ul>lyris smtpport 26<p>
+</ul></font>Lyris will respond with "Successfully updated SMTP port number"<p>
+Finally, you need to define a sendmail rule to tell sendmail to forward mail which is addressed to the alias (the new "DNS A record" you just created) to Lyris that is running on the alternate port.<p>
+There are two steps to this.  First, you must define a mail delivery agent, then you must define a RULE 0 to look for your alias and use that delivery agent.<p>
+You must first define a delivery agent. Edit /etc/mail/sendmail.cf and search for a line which begins with "Mprog", then add this line below it:<p>
+<font face='Courier New'><ul>Mlyris, P=[TCP], A=TCP localhost 26 $h<p>
+</ul></font>This command will eventually allow sendmail to forward mail to an alternate port.<p>
+Then, search for a line which reads "S0" and add this line below the "S0":<p>
+<font face='Courier New'><ul>R$*&lt;$*@lists.$*&gt;$*    $#lyris $@lists.$3 $:$1&lt;$2@lists.$3&gt;$4<p>
+</ul></font>in the above line, change the word "lists." in each of the 3 instances to your alias.  For example, if "juno" is the alias for "apollo", you would substitute in the word "juno." at 
+each place. 
+<p>
+Here is what the line would look like for a "juno" alias:<p>
+<font face='Courier New'><ul>R$*&lt;$*@juno.$*&gt;$* $#lyris $@juno.$3 $:$1&lt;$2@juno.$3&gt;$4 <br>--------[1]-----[2]--[3]-----[4]--------[5]-----------<p>
+</ul></font>Comments:  <br>[1] searches for "juno." in the RCPT TO: address,  <br>[2] must be a tab,  <br>[3] specifies the Lyris delivery agent,  
+<br>[4] specifies the hostname <br>[5] specifies the username.  
+<p>
+This line is not as complicated as it looks: all we've done is instructed sendmail to look for "@juno." In the RCPT TO: address, and forward messages that match this on to Lyris running on port 26.<p>
+Very important: the character before $#lyris <I>must</I> be a tab, and all the other blanks must be a space, and must <I>not</I> be a tab.  The rule will not work correctly unless this is exactly 
+right. 
+</I><p>
+Now, restart sendmail. The easiest way to do this is to first "kill" sendmail, then restart it with "/usr/lib/sendmail -bd"<p>
+To test that these changes work, start Lyris in the foreground with the "debug" parameter, like this: "lyris start debug".  Then send email to the alias name, such as "lyris@lists.mycorp.com".  You 
+should see immediate activity on the Lyris screen, indicating that the email message was received. 
+<p>
+You should also receive a prompt reply to your email message from Lyris.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+</td><td align=right valign=top>Page 471 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

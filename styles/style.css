@@ -1,0 +1,382 @@
+/*  
+Theme Name: Littlefeet TWO
+Theme URI: http://warpspire.com/hemingway
+Description: Littlefeet TWO is a simple photoblog theme by Jo Bourne, based on Hemingway.  If you'd like to learn more about Hemingway, <a href="http://warpspire.com/hemingway">head on over to Warpspire</a> or ask a question in the <a href="http://discuss.warpspire.com">official support forums.</a> <br /><strong>This theme requires WordPress 2.0+</strong></a>.
+Version: 0.1
+Author: Kyle Neath
+Author URI: http://warpspire.com
+*/
+
+
+
+/*-----------------------------------------------------------------------------------------------
+  Global Styles
+-----------------------------------------------------------------------------------------------*/
+
+* {
+	padding:0;
+	margin:0;
+}
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, label, ul, ol, dl, fieldset, address { margin:1em 0; }
+li, dd { margin-left:5%; }
+fieldset { padding: .5em; }
+select option{ padding:0 5px; }
+
+.hide, .print-logo, .close-button{ display:none; }
+.left{ 
+	float:left; 
+	margin-right:0px;
+}
+.right{ 
+	float:right; 
+	margin-left:20px;	
+}
+.clear{ clear:both; height:1px; font-size:1px; line-height:1px; }
+a img{ border:none; }
+a{
+	color:#9a2b2b;
+	text-decoration:none;
+}
+a:hover{ 
+	color:#9a2b2b;
+	text-decoration:underline;
+}
+
+/*-----------------------------------------------------------------------------------------------
+  Layout / Base Page Styling
+-----------------------------------------------------------------------------------------------*/
+
+body{
+	background:#FFF;
+	color: #666;
+	font-size:12px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+/* This class sets the width and position for all rows */
+
+
+.inside{
+	width:700px;
+
+/*	margin-left:50px;	*/
+
+/*	mr.snow 7/2/08 float the content to the centre of the screen */
+	margin-left : auto;
+	margin-right : auto;
+}
+
+#verso, #recto {
+
+}
+
+#verso {
+}
+
+#recto {
+	border-top:2px solid #dbdada;
+	border-right:2px solid #dbdada;
+	border-bottom:2px solid #dbdada;
+	height: 472px;
+	overflow: auto;
+	padding-right: 50px;
+	padding-left: 50px;
+
+}
+ 
+
+h1{
+	color:#9a2b2b;
+	font-size:1.5em;
+	font-weight:500;
+}
+
+h2{
+	color:#9a2b2b;
+	font-size:1.15em;
+	font-weight:normal;
+}
+
+h3{
+	color:#9a2b2b;
+	font-size:1.3em;
+	font-weight:500;
+
+}
+
+h4{
+	color:#9a2b2b;
+	font-size:1em;
+	font-weight:normal;
+}
+
+h5{
+	font-size:1em;
+	font-weight:bold;
+	margin:0 0 -10px 0;
+}
+
+#fine-print{
+	font-size:0.9em;
+	font-weight:normal;
+}
+
+
+p{
+	line-height:1.5em;
+}
+
+ul li{
+	list-style-type:square;
+	margin:0.5em 0 0.5em 2em;
+}
+
+blockquote{
+	margin-left:1em;
+	padding-left:1em;
+	border-left:2px solid #CCC;
+}
+
+pre{
+	width:100%;
+	padding:1em 0;
+	overflow:auto;
+	border-top:1px dotted #333;
+	border-bottom:1px dotted #333;
+}
+
+table{
+}
+table th, table td{ 
+}
+table th{
+}
+table td{
+vertical-align: top;}
+table caption{
+}
+
+.rule{
+	border-top:1px solid #CCC;
+	height:1px;
+	font-size:1px;
+	line-height:1px;
+	margin:1.5em 0;
+}
+
+address{
+	color:#888;
+	font-size:1em;
+	line-height:1.7em;
+	float:right; 
+	position: relative; 
+	padding-left: 30px;
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+  Header
+-----------------------------------------------------------------------------------------------*/
+
+#header .inside{
+	margin-top:40px;
+	margin-bottom: 1px;	
+}
+
+
+#header a img {
+	float:left; 
+	margin-right:15px;	
+}
+
+#header .inside #tag-line {
+	line-height:1.5em;
+	font-size:2.5em;
+	font-weight:normal;
+}
+
+
+#header .inside #url {
+	font-size:1.5em;
+	font-weight:normal;
+}
+
+
+.pipe {
+	color:#9a2b2b;
+	font-size:1.15em;
+	line-height:4em;
+	float:right; 
+	position: relative; 
+}
+
+.pipe a{
+	color:#666;
+}
+
+.pipe-2 {
+	color:#9a2b2b;
+	font-size:1.15em;
+	line-height:4em;
+	float:left; 
+	position: relative; 
+}
+
+.pipe-2 a{
+	color:#666;
+}
+
+
+
+/*-----------------------------------------------------------------------------------------------
+  Primary Items
+-----------------------------------------------------------------------------------------------*/
+
+
+#primary.onecol-stories .story{
+	float:left;
+}
+
+.story p{
+	width:550px;
+	}
+
+.story .centered{
+    text-align: center;
+	}
+
+.story img{
+	border: 1px solid #000;
+	padding: 25px;
+	margin-bottom: 25px;
+	}
+
+.story h1{
+	font-size:1.15em;
+	margin:0 0 1.5em 0;
+	font-weight:normal;
+}
+
+.story h3{
+	font-size:1.15em;
+	margin:0 0 1.5em 0;
+	font-weight:normal;
+}
+
+#SlideshowLink{
+	color:#9a2b2b;
+	font-size:1.10em;
+	margin:5em 0 1.5em 0;
+	font-weight:500;
+}
+
+.story p a{
+	border-bottom:1px dotted #666;
+}
+
+.story .details{
+	width:550px;
+	font-size:0.95em;
+}
+.details .title{
+	float:left;
+	font-size:1.2em;
+}
+
+.story .details .read-on{
+	background:url(images/readon_black.gif) 100% 60% no-repeat;
+	padding-right:20px;
+	display:block;
+}
+
+/* Single Post Styles */
+
+* html #primary .secondary{ margin-right:3%; }
+
+
+.single-post h1, .single-post h2{ margin-top:0; }
+
+
+
+
+
+/*-----------------------------------------------------------------------------------------------
+  Foooter
+-----------------------------------------------------------------------------------------------*/
+
+#footer{
+	clear:both;
+	margin-top:40px;
+	margin-bottom:40px;
+}
+#footer .inside{
+	padding:.2em 0;
+}
+
+#footer p{
+	margin:0;
+	font-size:0.95em;
+}
+#footer h2{
+	float:left;
+	margin:0 10px 0 0;
+}
+#footer p.copyright{ float:left; }
+
+#footer p.attributes{ 
+	background-color: #dbdada;
+	width : 900px;
+	text-align:right;
+	font-size:.9em;
+}
+#footer p.attributes a{
+	padding:0 0 0 1em;
+}
+
+#footer div.extra-info {
+	margin:200px 0 0 0;
+}
+#footer div.extra-info p{
+	color:#888;
+    text-align: center;	
+	margin:10px 0 0 0;
+}
+
+/*-----------------------------------------------------------------------------------------------
+  SUB NAV
+-----------------------------------------------------------------------------------------------*/
+
+span#sub-nav-dinkus {
+	font-size:1.05em;
+	text-align:left;
+	padding-left: 30px;
+	padding-right: 8px;	
+	position: relative; 
+	color:#666;
+}
+
+ul#sub-nav {
+	width:900px;
+	height:10px;
+	margin-top: 1px;	
+	font-size:1.05em;
+	text-align:left;
+	height-old:17px;
+	margin-top-old: 4px;	
+	background-color-old: #dbdada;
+}
+
+li.page_item {
+	white-space : nowrap;
+}
+.page_item {
+	display: inline; 
+	margin-left: -7px; 
+	padding-right:6px; 
+	list-style:none;
+	color:#666;
+}
+.page_item a {
+	color:#9a2b2b;
+}
+

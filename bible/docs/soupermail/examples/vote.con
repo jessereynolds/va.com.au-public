@@ -1,0 +1,47 @@
+# This config file is used to decide which counters to update
+# based on the user's input
+
+# Make sure they vote!
+required: vote
+
+success: voteresult.txt
+
+# Here are the counter files being used.
+# There could be any number really.
+
+counter1file: counters/vote1.txt 
+counter2file: counters/vote2.txt 
+counter3file: counters/vote3.txt 
+counter4file: counters/votetotal.txt
+
+# Only vote if its a success
+# Note that counters don't automatically get increased,
+# they need an onsuccess, onfailure, onblank or onexpires
+# config line.
+
+if : (vote == 1) then counter1onsuccess: yes
+if : (vote == 2) then counter2onsuccess: yes
+if : (vote == 3) then counter3onsuccess: yes
+
+# This vote is rigged! After 10 tries, it'll wrap around.
+# Things to notice:
+# 1) The setcounter won't have an effect unless its given an
+#    onsuccess, onfailure, onexpires or onblank config line
+# 2) To catch the 'wrap round' vote, I set the vote counter to
+#    one if appropriate. See how the setcounter command overrides
+#    the onsuccess increments set earlier.
+# 3) To catch the final vote, counter4 is set to 1 and not 0 at the
+#    wrap around point
+
+counter4onsuccess: yes
+if : ("$counter_4" == 10) then setcounter1 : 0
+if : ("$counter_4" == 10 && vote == 1) then setcounter1 : 1
+if : ("$counter_4" == 10) then counter1onsuccess : yes
+if : ("$counter_4" == 10) then setcounter2 : 0
+if : ("$counter_4" == 10 && vote == 2) then setcounter2 : 1
+if : ("$counter_4" == 10) then counter2onsuccess : yes
+if : ("$counter_4" == 10) then setcounter3 : 0
+if : ("$counter_4" == 10 && vote == 3) then setcounter3 : 1
+if : ("$counter_4" == 10) then counter3onsuccess : yes
+if : ("$counter_4" == 10) then setcounter4 : 1
+

@@ -1,0 +1,16 @@
+# Go to the followon page
+success: attachment.txt
+
+required: attach
+
+if: attach has "pgp keyring" then attachment1: pubring.pkr
+
+if: attach has "text template" then attachment2: attachment.txt
+
+if: attach has "config file" then attachment3: attachment.con
+if: attach has "config file" then attachment3mime: text/plain
+
+if: attach has "gif image" then attachment4: made.gif
+if: attach has "gif image" then attachment4mime: image/gif
+
+sendertemplate: attachmail.txt

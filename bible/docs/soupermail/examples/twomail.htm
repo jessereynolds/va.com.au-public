@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Soupermail Sender Templates</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Sender Templates</h1>
+
+<p>This page will demonstrate how the mailtemplate and sendertemplate
+can be used for your forms.</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="twomail.con">
+
+Your Name: <input type="text" name="your_name" size="15"> <p>
+Your Email: <input type="text" name="Email" size="15"> (required)<p>
+
+Please send me more information on:
+<select name="interest">
+<option selected>Winnets
+<option>Grommets
+</select>
+
+<p>
+
+<input type="submit" value="Send &gt;">
+</form>
+
+</body>
+</html>
+

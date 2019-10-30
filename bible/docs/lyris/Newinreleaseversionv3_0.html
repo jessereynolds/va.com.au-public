@@ -1,0 +1,143 @@
+<HTML>
+<HEAD><TITLE>New in release version v3.0</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="WhatisNewinthisVersion_.html">previous</a>] [<a href="Newin3_0beta5_v2_548_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in release version v3.0</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html"><font size=+0><b>New in release version v3.0</b></font></a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html">New in 3.0 beta 3 (v2.545)</a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html">New in 3.0 beta 2 (v2.543)</a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html">New in 3.0 beta 1 (v2.542)</a><br>
+· · · <a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+· · · <a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+· · · <a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in release version v3.0</h3>
+Here is a summary of the most noteworthy improvements in this version.<p>
+<B>Major features:</B> <br>* Site admin can disable a mailing list <br>* Site admin can limit the number of members on a list <br>* Progress reports can also now report 
+full SMTP delivery summary <br>* Ability to have parent/child lists 
+</B><p>
+<B>New features:</B> <br>* Mail merge codes for list and sites now enabled in most documents <br>* Option added to allow messages with blank subjects <br>* Admin is 
+notified when a mail loop is detected <br>* New pw= option when subscribing <br>* Server Cookie commands added to Perl toolkit <br>* Option to disable Message-Id rewriting 
+<br>* Option to disable [email] address rewriting <br>* List settings now have a comment field <br>* Thread-priority commands added to Perl toolkit 
+</B><p>
+<B>Changes:</B> <br>* Speed improvements on Lyris Platinum Plus  <br>* Security vulnerability fix <br>* Improvements to transaction logging <br>* Improved mail 
+loop detection <br>* Ctrl-Break toggles debugging info <br>* Received: line now Internet standards compliant <br>* SMTP Thread-tracking option 
+</B><p>
+  <br><B><I>Site admin can disable a mailing list</I></B>: the site administrator now has the ability to disable a mailing list.  This is very helpful for sites doing list hosting, who 
+want to disable a mailing list due to lack of payment. You must edit the mailing list through the site admin menu in order to have access to this feature. See  <a href="Disable.html">Disable</a>. 
+</I></B><p>
+<B><I>Site admin can limit the number of members on a list</I></B>: the site administrator can limit the number of members that are allowed on a mailing list. This is useful for sites doing list 
+hosting, where the cost being charges is based on a maximum number of members.  You must edit the mailing list through the site admin menu in order to have access to this feature. See  
+<a href="MaximumMembers.html">Maximum Members</a>. 
+</I></B><p>
+<B><I>Progress reports can also now report full SMTP delivery summary</I></B>: the "progress reports" feature in the List Info page can now full delivery progress information for every member 
+which was attempted in a mailing.  This way, if you are having some sort of delivery problem, you can enable these reports, and you will immediately receive a message which details the reason why 
+each message attempt was unsuccessful. This can be very helpful in finding the cause of problems.  See  <a href="DeliveryReports.html">Delivery Reports</a>. 
+</I></B><p>
+<B><I>Ability to have parent/child lists</I></B>: one mailing list can now be a member of another mailing list. For example, you might want to have a "sports-announcements" parent list, and two 
+child lists, such as "soccer-announcements" and "tennis-announcements". See  <a href="ChildList.html">Child List</a>.<B><I> 
+</I></B><p>
+<b><i>Mail merge codes for list and sites now enabled in most documents</I></B>: you can now use the Site and List mail merge codes in most documents, include Hello and Goodbye documents.  This makes it easy to 
+create a template "Hello" document that can be reused in many lists, and which automatically adapts to the use in question. See  <a href="Hello.html">Hello</a>. 
+</I></B><p>
+<B><I>Option added to allow messages with blank subjects</I></B>: you can now choose to allow messages to be posted which have a blank subject. Previously, Lyris would not allow them. Related to 
+this, some email programs place a carriage return in the Subject, which is highly non-standard and caused Lyris to sometimes think the subject was blank. Lyris now removes the carriage return in the 
+Subject line, to make the message conform better with standards. See <a href="AllowBlankSubject.html">Allow Blank Subject</a> 
+</I></B><p>
+<B><I>Admin is notified when a mail loop is detected</I></B><B>:</B> Lyris now sends a note to the server admin when a mail loop has been detected and automatically halted, using the new loop 
+detection threshold feature.  See  <a href="AdminEmailAddress.html">Admin Email Address</a>. 
+</I></B><p>
+<B><I>New pw= option when subscribing</I></B>: when subscribing by sending to lyris@servername or listname-request@servername, you can now specify the password you want to use for your membership 
+on the subscribe line.  Simply add the "pw=XYZ" command to your subscribe request, substituting your password for "XYZ".  For example: "subscribe jazztalk pw=sesame". See  <a href="SetyourPassword.html">Set your Password</a> 
+. 
+</I></B><p>
+<B><I>Added Server Cookie commands to Perl toolkit</I></B>: several new commands, dealing with cookies, were added to the Perl/Lyris toolkit.  These all server-side cookies to be set and 
+maintained across distinct LCP sessions. The new commands are: CookiePut(key, value); $value = CookieGet(key); CookieClear(value or "*"). See the Programmer's Guide at www.lyris.com/guide for more 
+information. 
+</I></B><p>
+<B><I>Added Thread-priority commands to Perl toolkit</I></B>: a SetPriority(level) command was added to the Perl/Lyris toolkit.  This controls the thread priority of the commands run on the Lyris 
+server, as requested by the controlling Perl program.  This feature is especially useful if you are writing long-running Perl programs, and do not want them to interfere with the operation of 
+more-important tasks. The priorities settings are: 1: lowest, 2: below normal, 3: normal, 4: above normal, 5: highest. See the Programmer's Guide at www.lyris.com/guide for more information. 
+</I></B><p>
+<B><I>Security vulnerability fix</I></B>: a potential security vulnerability was found in the Lyris web interface and fixed.  All versions after v3.0b1 have this fix. </I></B><p>
+<B><I>Option to disable Message-Id rewriting</I></B><B>:</B> Added option to leave the Message-id header alone, and instead use X-Lyris-Message-Id for that purpose. Some users object to Lyris 
+rewriting the Message-Id to be unique for each member, so this allows them to disable this feature. This option is the in the list settings.  The Message-Id syntax was also rewritten to put the 
+recipient email address in it, for easier human reading of bounces.  See  <a href="RewriteMessage_IdHeader.html">Rewrite Message-Id Header</a>. 
+</I></B><p>
+<B><I>Speed improvements</I></B><B>: </B>Dramatic speed improvement for mail sending on Lyris Platinum Plus for Windows and Unix. A typical machine can easily achieve 60,000 messages/hour with 
+a plain Pentium 200 on a T1. 
+</I></B><p>
+<B><I>Improvements to the transaction logging</I></B>: now logs the weeding out of crossposted members, logs mail jobs interrupted by a shutdown, and other events.  </I></B><p>
+<B><I>List settings now have a comment field</I></B><B>:</B> Added a "comment" field to the list settings, which end-users can use to put whatever information you like.  </I></B><p>
+<B><I>Improved loop detection</I></B>: if the MAIL FROM of an incoming message is blank, then the message is always  understood as error mail. This is conformance with the RFC standards.</I></B><p>
+<B><I>Ctrl-Break toggles debugging info</I></B>: Added the ability to turn debug mode on/off w/o turning off the server with ctrl-break, when running Lyris as a foreground application on Windows. 
+ On Unix, sending "kill -usr1 `cat /etc/lyris.pid`" will do this as well. You must be running Lyris in the foreground to see the debug messages.  See  <a href="StartingLyris.html">Starting Lyris</a>. 
+</I></B><p>
+<B><I>Option to disable [email] address rewriting</I></B>: Added the option to disable [email] address rewriting, as a server config level setting. See  <a href="RewritePurge_IdTag.html">Rewrite Purge-Id Tag</a> 
+. 
+</I></B><p>
+<B><I>Received: line now Internet standards compliant</I></B>: The Received: header line now conforms to Internet standards. Previously, the Time Zone identifier and the "with" string were not 
+standards compliant. 
+</I></B><p>
+<B><I>SMTP Thread-tracking option</I></B>: when you start Lyris in the foreground with the "threadtrack" option on the command line, Lyris will keep track of the current state of every SMTP mail 
+thread.  You can view the instant status of all mail sending threads from the server statistics page, where this additional information is appended.  See  <a href="StartingLyris.html">Starting Lyris</a>. 
+</I></B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 496 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

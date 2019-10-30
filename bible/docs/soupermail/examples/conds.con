@@ -1,0 +1,9 @@
+# I'm lazy, so i'll use the same templates for success and failure
+success: conds.txt
+failure: conds.txt
+
+# Given that i'm using the same templates, the required may seem
+# useless - and it is in this situation. however, if you were setting
+# cookies, then it could be significant
+required: number >= 1 && number <= 1
+isnumber: number

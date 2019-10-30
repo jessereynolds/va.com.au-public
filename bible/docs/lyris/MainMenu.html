@@ -1,0 +1,105 @@
+<HTML>
+<HEAD><TITLE>Main Menu                           </TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="OverviewofWebInterfaceforUsers.html">previous</a>] [<a href="TopicScreen.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Main Menu                           </b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· · <a href="OverviewofWebInterfaceforUsers.html">Overview of Web Interface for Users</a><br>
+· · <a href="MainMenu.html"><font size=+0><b>Main Menu</b></font></a><br>
+· · <a href="TopicScreen.html">Topic Screen</a><br>
+· · <a href="EnterMailingList.html">Enter Mailing List</a><br>
+· · <a href="JoinMailingList.html">Join Mailing List</a><br>
+· · <a href="MenuofMemberChoices.html">Menu of Member Choices</a><br>
+· · <a href="ReadandSearchMessages.html">Read and Search Messages</a><br>
+· · <a href="Readaspecificmessage.html">Read a specific message</a><br>
+· · <a href="CreateaNewMessage.html">Create a New Message</a><br>
+· · <a href="EditMembershipsettings.html">Edit Membership settings</a><br>
+· · <a href="Leave.html">Leave</a><br>
+· · <a href="AboutThisList.html">About This List</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Main Menu                           </h3>
+The "Lyris Home page" for your site is the starting point to all Lyris Web Interface functions.  This is the page that is displayed when a user goes to the Lyris Web Interface URL for 
+your site.  A sample URL might be: <I>http://www.shelby.com/cgi-bin/lyris.pl</I>. (note: this is not a real url, it is only an example) 
+</I><p>
+The first page will say <I>Main Menu</I>, and has the following elements:</I><p>
+<B>Site graphic <br></B>The graphic logo of your organization is displayed here.  In Lyris terminology, one organization is a "site", and each site can have its own topics and mailing 
+lists.  There can be many sites defined on one Lyris server.  
+</B><p>
+If there are multiple sites defined on one server, the site a user sees depends on the URL they go to.  A different site can be specified in several ways, with a different CGI program, such as 
+<I>lyris.pl</I>, <I>shelby.pl</I>, <I>acme.pl</I>, each for a different site, each having a separate CGI configuration file (<I>lyris.plc</I>).  Or, each site might be defined as a "virtual 
+domain" on your web server, in which case each domain has its own CGI directory, and hence its own copy of the Lyris Web Interface script, lyris.pl.  Finally, you can also specify the site to display 
+on the URL itself, by adding <I>site=&lt;sitename&gt;</I> on the URL, as in: 
+</I><p>
+<font face='Courier New'><ul>http://www.shelby.com/cgi-bin/lyris.pl?site=acme<p>
+</ul></font>Note: if no graphic is defined for the site, Lyris will instead display the name of the organization for that site as text.  The Site Graphic is defined when the Site is created in 
+Lyris. 
+<p>
+<B>Page Title <br></B>The title of each Lyris Web Interface page is displayed in this location.  This will help you understand the purpose of each page, and keep you from getting lost.</B><p>
+<B>Topic Description</B> <br>This line of text titles the topics that follow.  If there are no topics defined, this text will say so.  Topics are created by the Site Administrator.  See 
+<a href="CreateTopicPage.html">Create Topic Page</a> 
+</B><p>
+<B>Topic listing <br></B>Every topic for a site is displayed here.  If a topic has a graphic defined, then the graphic is displayed rather than the text of the topic name.</B><p>
+<B>Graphics Off button <br></B>If you click this button, the Lyris Home Page will re-display, with no graphics on the page.  From that point on, you will be able to navigate the Lyris Web 
+Interface with all the pages using all text, no graphics.  This option is useful if you have a slow Internet connection, use browsers which do not display graphics, and if you prefer to use the Lyris 
+Web Interface faster (but less attractive), since the per-page load time is faster with graphics off. 
+</B><p>
+<B>Admin button</B> <br>The admin button brings you to the Administrator Login screen.  Before you can proceed beyond that page, you will need to enter a username and password.  Depending 
+on the your existing security level, you will be allowed to proceed to the list admin, site admin or server administrator menus.  If you do not have an administrator account on this Lyris Server, you 
+will not be able to access the administrator menus.  (Note:  Administrator privileges are set in the People section of Site Admin or Server Admin.)  Lyris has different pages for List Administrators, 
+Site Administrators and Server Administrators. 
+</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+<li><a href="LyrisMenuOverview.html">Lyris Menu Overview</a><br>
+</td><td align=right valign=top>Page 76 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

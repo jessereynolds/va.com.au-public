@@ -1,0 +1,64 @@
+<html>
+
+<head>
+
+<title>The Bible - template</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+
+<!--#include virtual="/bible/nav.html" -->
+
+<blockquote> 
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">all about qmail rc file</font></p>
+        
+        <p>&nbsp;</p>
+        
+<br>
+WHAT THE qmail rc files looks like and what it does.
+<br><br>
+----start----
+#!/bin/sh
+<br><br>
+#set PATH for qmail, vpopmail and rblsmtpd<br>
+PATH="/var/qmail/bin:/usr/local/bin:/usr/local/vpopmail/bin"<br>
+<br><br>
+#start qmail-send to deliver mail to ~/Maildir/ and log.<br>
+qmail-start ./Maildir/ |setuidgid qmaill \<br>
+multilog t n100 s1000000 /var/log/qmail &<br>
+<br><br>
+##here we start the tcpserver for smtp with rblsmtpd and log<br>
+tcpserver -v -u82 -g81 -R -H -lmail.va.com.au \<br>
+-x/usr/local/vpopmail/etc/tcp.smtp.cdb \<br>
+203.15.106.1 smtp fixcrio \<br>
+rblsmtpd -r inputs.orbz.org \<br>
+rblsmtpd -r relays.ordb.org \<br>
+qmail-smtpd 2>&1 | setuidgid qmaill \<br>
+multilog t n100 s1000000 /var/log/smtp &<br>
+<br><br>
+#here we start it for pop and log<br>
+tcpserver -v -u89 -g89 -R -H -lmail.va.com.au 203.15.106.1 \<br>
+pop3 qmail-popup mail.va.com.au \<br>
+vchkpw qmail-pop3d Maildir 2>&1 | setuidgid qmaill \<br>
+multilog t n100 s1000000 /var/log/pop3 &<br>
+----end----<br>
+<br><br>
+multilog n=number of log files to keep, s=size of each log file in bytes<br>
+fixcrio inserts missing CRs at the ends of lines<br>
+
+      </td>
+    </tr>
+  </table>
+  
+</blockquote>
+
+</body>
+
+</html>

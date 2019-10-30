@@ -1,0 +1,118 @@
+<HTML>
+<HEAD><TITLE>Starting Lyris</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="TheLyriscommandline.html">previous</a>] [<a href="DatabaseOperations.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Starting Lyris</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · · <a href="StartingLyris.html"><font size=+0><b>Starting Lyris</b></font></a><br>
+· · · <a href="DatabaseOperations.html">Database Operations</a><br>
+· · · <a href="SettingServerOptions.html">Setting Server Options</a><br>
+· · · <a href="WindowsServices.html">Windows Services</a><br>
+· · · <a href="UnixDaemonOption.html">Unix Daemon Option</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Starting Lyris</h3>
+To run the Lyris server, you simply type "lyris start" on the command line.  Lyris with no command line parameters will display the available options and then exit.<p>
+The "start" action can be modified with a number of options. The options can be anywhere on the command line, in any order.  The options are:<p>
+ <p>
+<B>debug <br></B>Run Lyris Server and display debugging information while running.</B><p>
+If you are running Lyris in the foreground, you can toggle debug mode on or off without restarting the server. <p>
+On Windows, you can do this by pressing the ctrl-break key.  <p>
+On Unix, you can do this by sending a USR1 signal to the Lyris process, which you can do with the command: kill -USR1 `cat /etc/lyris.pid`<p>
+<B> </B><p>
+<b>threadtrack <br></B>When you start Lyris in the foreground with the "threadtrack" option on the command line, Lyris will keep track of the current state of every SMTP mail thread. You can view 
+the instant status of all mail sending threads from the server statistics page, where this additional information is appended. This can be informative, and useful in determining what the Lyris SMTP 
+delivery engine is doing. 
+</B><p>
+ <p>
+<B>nomail        <br></B>Run Lyris but do not send any mail.</B><p>
+For example, to start Lyris in "debug" mode with no outgoing mail, you would use the command:<p>
+<font face='Courier New'><ul>lyris start debug nomail<p>
+</ul></font><B> </B><p>
+<B>noscreen <br></B>Run Lyris with no screen output</B><p>
+<B> </B><p>
+<B>nolcp <br></B>Run Lyris with no Lyris Command Protocol service (which runs on port 2020).  The Lyris web interface will not be able to communicate with the Lyris server.</B><p>
+<B> </B><p>
+<b>lcpconsole <br></B>Run Lyris and also display Lyris Command Protocol console.  The console allows the user to directly type commands at the terminal, rather than having to connect via port 
+2020.  Among other things, the console allows the terminal user to <I>shutdown</I> the Lyris server. 
+</I></B><p>
+<B> </B><p>
+<B>noincoming <br></B>Run Lyris but do not run the incoming mail processing service. Incoming mail will not be processed.</B><p>
+<B> </B><p>
+<B>noindexer</B> <br>Run Lyris, but do not run the full text indexing service.  Messages waiting to be full text indexed will not be indexed.</B><p>
+<B> </B><p>
+<b>mailtest</B> <br>Run Lyris, do not actually deliver any email. Lyris will run completely as normal, but during the SMTP transaction will send a RESET and QUIT command right before it is 
+supposed to send the DATA command. This option can be useful to test the load-capacity and stability of a Lyris installation. 
+</B><p>
+<B> </B><p>
+<B>nosmtpserver <br></B>Run Lyris, but do not run the smtp server which receives mail.  No incoming mail will be accepted.</B><p>
+<B> </B><p>
+<B>nonntpserver <br></B>Run Lyris, but do not run the nntp server which allows Newsgroup access to the Lyris mailing lists.</B><p>
+<B> </B><p>
+<B>noscheduler <br></B>Run Lyris, but do not run the scheduled task manager.  Tasks such as digests will not be run.</B><p>
+<B> </B><p>
+<b>nocheck <br></B>Run Lyris Server, but do not check for any TCP/IP conflicts.  When Lyris starts up, it first checks to see if any other programs are using the TCP/IP addresses and ports that 
+Lyris will need to use.  Lyris does this by trying to connect to port 25 (SMTP mail) and port 2020 (Lyris LCP) on all TCP/IP addresses of the machine, or just the TCP/IP addresses Lyris has been 
+configured to use, if the "Multiple TCP/IP Addresses" setting has been used.  If one of the ports Lyris needs is being used, Lyris will display and error message and not load.  If you prefer, you can 
+bypass this test with the <I>nocheck</I> option, and Lyris will start a few seconds faster. 
+</I></B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Statistics.html">Statistics</a><br>
+<li><a href="TheLyriscommandline.html">The Lyris command line</a><br>
+<li><a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+</td><td align=right valign=top>Page 408 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

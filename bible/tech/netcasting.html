@@ -1,0 +1,72 @@
+<html>
+
+<head>
+
+<title>The Bible - Tech - how to broadcast</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+<!--#include virtual="/bible/nav.html" -->
+<blockquote> 
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">Ok - to set up for the broadcast you need to:</p>
+        
+        <p>
+
+<b>1/</b> Open Sorenson - or whatever broadcasting package you are using. Enter the network settings. In our case we set to "Unicast" with the receiver's IP address being that of Llama, our streaming server. Unless you have been given specific ports to use you can just leave the port settings as they are, ie; default. Set buffer delay to 8 seconds which is the minimum that will work.
+<p>
+</p>
+Set all your other options - ie; source input, compression type, publishing details, etc. In the file menu select "Save As" and save these settings. By saving the settings we can open them again at any time and begin broadcasting straight away.
+</p>
+<p>
+<b>2/</b> "Announce" the broadcast by clicking on the "Announce" button. You will be given the choice of either an "annoucement Movie", (a ".mov" file), or an "SDP Text Announcement", (a ".sdp" file). Choose to save as a .sdp file.
+</p>
+<p>
+<b>3/</b> FTP the ".sdp" file to the streaming directory on the streaming server - in our case it is the "/movies" directory on Llama.
+</p>
+<p>
+<b>4/</b> Now we check to see that it is all working - for this we will need a registered version of QuickTime. Click "Broadcast" on Sorenson and then open QuickTime.  Go to "Open URL" in the "File" menu and enter the URL for the ".sdp" file we just uploaded, but leave the ".sdp" suffix off the end. If everything is working QuickTime should open connect to the streaming server and you should be able to hear/see the broadcast.
+</p>
+<p>
+<b>5/</b> Now, still in QuickTime and while the broadcast is playing, save the broadcast as a ".mov" file.
+</p>
+<p>
+<b>6/</b> FTP the ".mov" file to your server - or whatever server is going to host the html page that the broadcast will be on.
+</p>
+<p>
+<b>7/</b> Create an html page for the broadcast. This can be anything but you will need to embed the ".mov" file in it with the "embed" tag. Use code something like the following:
+</p>
+<p>
+		< embed src="my_broadcast.mov" autostart="true" height="16" width="200" />
+</p>
+<p>
+Of course if the ".mov" file and this html page are not in the same server directory you will need to include the file path to the ".mov" file. The 'autostart="true"' will make the broadcast start as soon as the page is opened.
+</p>
+<p>
+<b>8/</b> FTP the html page to the appropriate place.
+</p>
+<p>
+That should be about it. Note that if your are using more than one microphone you will need to have an audio mixing desk to make sure that all the levels are correct and be able to adjust them individually. Likewise if you are using more than one camera you will need a vision mixer.</p>
+
+</font>
+      </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p><font face="Arial, Helvetica, sans-serif"><map name="bible_header_nav.map">
+      <area shape="rect" coords="9,23,152,106" href="/bible/index.html" alt="Home">
+      <area shape="rect" coords="160,107,223,134" href="/bible/ftp/ftp.html" alt="FTP Info">
+      <area shape="rect" coords="238,107,282,134" href="/bible/faq/faq.html" alt="FAQ's">
+      <area shape="rect" coords="298,107,368,134" href="/bible/office/office.html" alt="Office Info">
+      <area shape="rect" coords="388,107,458,134" href="/bible/tech/tech.html" alt="Tech Maps">
+      <area shape="rect" coords="476,107,537,134" href="/bible/general/general.html" alt="General Info">
+      <area shape="rect" coords="553,107,617,134" href="/bible/vce/vce.html" alt="VCe">
+    </map> </font></p>
+</blockquote>
+</body>
+
+</html>

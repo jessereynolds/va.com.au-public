@@ -1,0 +1,127 @@
+<HTML>
+<HEAD><TITLE>How can I extend Lyris with my own programs?</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Email.html">previous</a>] [<a href="HowcanIbeCertainMyEmailMessagesWereDelivered_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>How can I extend Lyris with my own programs?</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+· · <a href="DocBots.html">DocBots</a><br>
+· · <a href="RunningLyris.html">Running Lyris</a><br>
+· · <a href="Email.html">Email</a><br>
+· · · <a href="HowcanIextendLyriswithmyownprograms_.html"><font size=+0><b>How can I extend Lyris with my own programs?</b></font></a><br>
+· · · <a href="HowcanIbeCertainMyEmailMessagesWereDelivered_.html">How can I be Certain My Email Messages Were Delivered?</a><br>
+· · · <a href="WhatEmailCommandsdoesLyrisSupport_.html">What Email Commands does Lyris Support?</a><br>
+· · · <a href="WhyDoesLyrisNotUseSendmail_.html">Why Does Lyris Not Use Sendmail?</a><br>
+· · · <a href="HowdoIsubscribepeopleautomatically_.html">How do I subscribe people automatically?</a><br>
+· · <a href="LyrisAdministration.html">Lyris Administration</a><br>
+· · <a href="WebBrowsers.html">Web Browsers</a><br>
+· · <a href="UsenetNewsgroups.html">Usenet Newsgroups</a><br>
+· · <a href="International.html">International</a><br>
+· · <a href="OtherFAQissues.html">Other FAQ issues</a><br>
+· · <a href="MailingListFeatures.html">Mailing List Features</a><br>
+· · <a href="Perl_LyrisToolkit.html">Perl/Lyris Toolkit</a><br>
+· · <a href="UnixAdministration.html">Unix Administration</a><br>
+· · <a href="Up_Coming.html">Up & Coming</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>How can I extend Lyris with my own programs?</h3>
+Lyris allows you to add your own programs into the Lyris execution stream.  Extensions can be added to action phrases, auto-responders, list postings, and the lyris@ list server 
+address. 
+<p>
+Your scripts can let the normal Lyris execution stream continue, or they can interrupt it.<p>
+For example, you can write an extension that logs each use of an auto-responder.  This would allow you to keep track of when people received information, and you could this information to follow up 
+with them.  Or, perhaps your autoresponder is programmed to send one document to people inside your company, and another document to people outside your company.  In such a case, your program would 
+actually replace the default auto-responder behavior. 
+<p>
+Another use of technology would be to extend the checking Lyris does on list postings.  For example, your script might count the number of greater-than symbols, ("&gt;") which indicate message quoting, 
+and refuse messages postings where the bulk of the posting is a quote of someone else's message. 
+<p>
+To add your own extensions to Lyris, you need to tell Lyris when you want it to run your program.  In the configuration screens for Action Phrases and Auto-Responders, List Settings and Server 
+Settings, there are two fields for extension scripts.  This gives you the option to run a script before the default Lyris action takes place, and to run a script after the action has taken place. 
+<p>
+With an auto-responder extension, your script will be run any time a email message comes in to the auto-responder's email address.  This is similar to adding a program to the sendmail "aliases" file. 
+ 
+<p>
+With an action-phrase extension, your script will be run any time the action phrase is found in the context it is defined for. For example, you could trap for offensive words in a message posting to 
+your list, and your script would be run when the action phrase saw them. Note that because action phrases can be attached to auto-responders, list postings, and the lyris@ address, that multiple 
+scripts can be run. For instance, if you have an action phrase extension, and a auto-responder extension, if the action phrase is found on that auto-responder, it will run, then the auto-responder 
+extension will run. 
+<p>
+With a List extension, your script is run any time a posting is made to the mailing list.  Your can prevent the list posting from being accepted by deleting it before the default action is taken.<p>
+With a lyris@ extension (set in the server configuration page) you can add your own processing to the processing of list server commands which Lyris does. <p>
+You can write your script using any programming language, though we recommend using a language that has access to the Lyris API, such as Perl or C/C++.   When Lyris runs your script, it passes the 
+Incoming Message ID of the message in question through the environment variable MESSAGEID.  You also have the option of specifying the Message ID over the command line, by specifying $MESSAGEID on in 
+your extension command line.  So, for instance, if you are on Windows, and have a Perl script named "lyrext.pl" that you want to run, your command line might be: 
+<p>
+<font face='Courier New'><ul>c:\perl5\bin\perl.exe c:\scripts\lyrext.pl $MESSAGEID<p>
+</ul></font>This runs the Perl interpreter (<I>perl.exe</I>) against your <I>lyrext.pl </I>script, and passes the Incoming Message ID on the command line (as well as over the environment 
+variable MESSAGEID). 
+</I><p>
+Normally, your script will use the Message ID to load the message in question, and perform some action.  By default, when your program exits, Lyris will continue processing the message. However, if 
+you want Lyris to stop processing the message after your script has run, you should delete the Message.  In Perl, this is done with the command <I>&InMailDelete($MessageID); </I> 
+</I><p>
+Your Lyris installation includes a sample extension script, written in perl, with the filename "lyrext.pl".  By default, it is located in your web server's CGI-BIN directory, and in your ~/lyris/web 
+directory.  It is a minimal script that loads the fields for the message in question, displays the fields on the screen, and optionally deletes the message to stop the normal message processing. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Runprogrambeforelyris_.html">Run program before lyris@</a><br>
+<li><a href="Runprogramafterlyris_.html">Run program after lyris@</a><br>
+<li><a href="RunaprogrambeforePhrase.html">Run a program before Phrase</a><br>
+<li><a href="RunaprogramafterPhrase.html">Run a program after Phrase</a><br>
+<li><a href="RunaprogrambeforeAuto_Responder.html">Run a program before Auto-Responder</a><br>
+<li><a href="RunaprogramafterAuto_Responder.html">Run a program after Auto-Responder</a><br>
+<li><a href="RunaprogrambeforePosting.html">Run a program before Posting</a><br>
+<li><a href="RunaprogramafterPosting.html">Run a program after Posting</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+<li><a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+<li><a href="Email.html">Email</a><br>
+</td><td align=right valign=top>Page 519 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

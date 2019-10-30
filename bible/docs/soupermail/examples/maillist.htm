@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Soupermail Mailing List Example</title>
+<style type="text/css">
+<!--
+body {
+  margin: 10px;
+  background: white;
+  color: black;
+}
+-->
+</style>
+</head>
+<body>
+<h3>Hello <output name="maillist_2" type="html">,</h3>
+<p>
+<only if="useform eq 'y'">
+Based on the mailing list data, your email address is 
+<output name="maillist_1" type="html"> and the extra data was 
+<output name="maillist_3" type="html">
+</only>
+<only if="useform ne 'y'">
+Emails were sent based on a file.
+</only>
+</p>
+
+<div>
+-------------------------------------------------------------<br>
+<output name="message" alt="This is an example Soupermail list message" wrap="60" type="html">
+-------------------------------------------------------------<br>
+</div>
+
+<hr>
+Ref: <output name="http_ref" type="html">

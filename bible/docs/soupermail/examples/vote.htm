@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Soupermail Voting with Counters</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Voting with Counters</h1>
+
+<p>
+This example shows you how a simple voting system can be built using
+Soupermail counters. The resulting page will use JavaScript to do some 
+work, so it may not work for everybody.
+</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="vote.con">
+
+<p><b>I think counters are:</b></p>
+<p>
+<input type="radio" name="vote" value="1"> Great<br>
+<input type="radio" name="vote" value="2"> OK<br>
+<input type="radio" name="vote" value="3"> Useless Bloat
+</p>
+
+
+<input type="submit" value="Send Your Vote &gt;">
+</form>
+
+</body>
+</html>
+

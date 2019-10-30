@@ -1,0 +1,97 @@
+<HTML>
+<HEAD><TITLE>Lyris Does Not Respond to Email I Send it</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="ReinstalledWindowsNT_NowLyrisWebInterfaceNoLongerWorks.html">previous</a>] [<a href="FindingNTMemoryLeaks.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Lyris Does Not Respond to Email I Send it</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· · · <a href="ProblemsrunningLyrisWebInterface.html">Problems running Lyris Web Interface</a><br>
+· · · <a href="ProblemsstartingtheLyrisServer.html">Problems starting the Lyris Server</a><br>
+· · · <a href="ProblemswithMultipleTCP_IPAddresses.html">Problems with Multiple TCP/IP Addresses</a><br>
+· · · <a href="ReinstalledWindowsNT_NowLyrisWebInterfaceNoLongerWorks.html">Reinstalled Windows NT, Now Lyris Web Interface No Longer Works</a><br>
+· · · <a href="LyrisDoesNotRespondtoEmailISendit.html"><font size=+0><b>Lyris Does Not Respond to Email I Send it</b></font></a><br>
+· · · <a href="FindingNTMemoryLeaks.html">Finding NT Memory Leaks</a><br>
+· · · <a href="HardDiskDefraggers.html">Hard Disk Defraggers</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Lyris Does Not Respond to Email I Send it</h3>
+If, when you send mail to Lyris, you never receive a response, it is likely that Lyris is not receiving your message. In such a case, it is most likely that your Domain Name Service 
+information is set up incorrectly, and that your mail program is actually sending your mail elsewhere.  
+<p>
+Very often, the DNS for your organization has been set up so that email sent to a specific machine is routed to a mail server rather than to that specific machine.  For instance, the "mail 
+preference" setting for a machine named "alpha.shelby.com" could be set up so that mail to "lyris@alpha.shelby.com" is instead sent to "lyris@mailserver.shelby.com".  In such a case, the mail never 
+gets to alpha.shelby.com (the machine running Lyris) and that, of course, causes problems. 
+<p>
+If you are sure that your DNS is set up correctly, here is how you peek into Lyris to see what it happening to incoming mail.<p>
+If you have a database program that can read FoxPro files (MS Access, for instance), you can look at the "inmail.dbf" table, and all messages that Lyris has received will be there, along with their 
+processing "status". 
+<p>
+Another way is to run Lyris with "debug" on the command line ("lyris debug"). You will then be displayed information as events occur.  Start the Lyris Server, and wait for the startup events to end. 
+Then, mail you message.  If the message gets to Lyris, you will see a bunch of activity for a few seconds as the message comes in and is processed. 
+<p>
+Here is a sample, correctly set up DNS entry.  Notice how "mail exchanger" with the lowest preference (preference = 5) is the machine itself.  This DNS is set up so that any mail to jingram,clark.net 
+is sent directly to jingram.clark.net.  The preference=10 line indicates that if for some reason the preference=5 host is not available (perhaps it is turned off) then mail will be accepted by 
+clarknet.clark.net, who will most likely hold the mail and deliver it to jingram.clark.net once that host is once again reachable. 
+<p>
+<font face='Courier New'>&gt; jingram.clark.net <br>Server:  clark.net <br>Address:  168.143.0.7 <br>jingram.clark.net internet address = 168.143.7.97 <br>jingram.clark.net 
+preference = 5, mail exchanger = jingram.clark.net <br>jingram.clark.net preference = 10, mail exchanger = clarknet.clark.net <br>clark.net       nameserver = sun1.clark.net 
+<br>clark.net       nameserver = icm1.icp.net <br>jingram.clark.net       internet address = 168.143.7.97 <br>clarknet.clark.net      internet address = 168.143.0.2 
+<br>sun1.clark.net  internet address = 198.17.243.2 <br>icm1.icp.net    internet address = 192.94.207.66 
+<p>
+</font><h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Troubleshooting.html">Troubleshooting</a><br>
+</td><td align=right valign=top>Page 491 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

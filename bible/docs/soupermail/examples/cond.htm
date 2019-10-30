@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Soupermail Conditionals</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+<h1>Soupermail Conditions Example</h1>
+
+<p>This example is used to show how conditional statements in config
+files can alter the behaviour of a form.</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="cond.con">
+<input type="hidden" name="dummy" value="this makes sure blank isn't set">
+<input type="checkbox" name="checky" value="yes"> Check me for a happy page
+<br>
+<input type="submit">
+</form>
+
+</body>
+</html>

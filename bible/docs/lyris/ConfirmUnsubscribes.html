@@ -1,0 +1,108 @@
+<HTML>
+<HEAD><TITLE>Confirm Unsubscribes</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="ConfirmSubscribes.html">previous</a>] [<a href="PostingPrivilegesandModeration.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Confirm Unsubscribes</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· · <a href="OverviewofSiteAdministrator.html">Overview of Site Administrator</a><br>
+· · <a href="SiteAdminMenu.html">Site Admin Menu</a><br>
+· · <a href="SiteInfo.html">Site Info</a><br>
+· · <a href="Topics.html">Topics</a><br>
+· · <a href="MailingLists.html">Mailing Lists</a><br>
+· · · <a href="MailingListsFirstPage.html">Mailing Lists First Page</a><br>
+· · · <a href="BasicInformation.html">Basic Information</a><br>
+· · · <a href="World_Wide_WebUrls.html">World-Wide-Web Urls</a><br>
+· · · <a href="HeadersandFooters.html">Headers and Footers</a><br>
+· · · <a href="SecurityforSubscribers.html">Security for Subscribers</a><br>
+· · · <a href="SecurityofListInformation.html">Security of List Information</a><br>
+· · · <a href="Confirmations.html">Confirmations</a><br>
+· · · · <a href="ConfirmSubscribes.html">Confirm Subscribes</a><br>
+· · · · <a href="ConfirmUnsubscribes.html"><font size=+0><b>Confirm Unsubscribes</b></font></a><br>
+· · · <a href="PostingPrivilegesandModeration.html">Posting Privileges and Moderation</a><br>
+· · · <a href="Documents.html">Documents</a><br>
+· · · <a href="Limits.html">Limits</a><br>
+· · · <a href="EmailHeaders.html">Email Headers</a><br>
+· · · <a href="Archives.html">Archives</a><br>
+· · · <a href="ErrorMailHandling.html">Error Mail Handling</a><br>
+· · · <a href="Informational.html">Informational</a><br>
+· · · <a href="ProgrammingExtensionsattheListLevel.html">Programming Extensions at the List Level</a><br>
+· · · <a href="MiscellaneousListConfigSettings.html">Miscellaneous List Config Settings</a><br>
+· · · <a href="Limits_changeableonlybysiteadmin_.html">Limits (changeable only by site admin)</a><br>
+· · <a href="SiteDocuments.html">Site Documents</a><br>
+· · <a href="SiteActionPhrases.html">Site Action Phrases</a><br>
+· · <a href="Auto_Responder.html">Auto-Responder</a><br>
+· · <a href="SitePeople.html">Site People</a><br>
+· · <a href="SiteAdminLog.html">Site Admin Log</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Confirm Unsubscribes</h3>
+This setting determines whether email requests to unsubscribe are immediately acted upon by Lyris, or whether Lyris will send a confirming email message before performing the 
+unsubscribe. 
+<p>
+If a confirming email message is sent, the message will tell the person to reply to the given message if they want to be unsubscribed, or ignore the message if they do not want to be unsubscribe.<p>
+One reason to confirm unsubscribes is that people are sometimes nasty, and will try to unsubscribe people that they do not like.  They can do this by forging an unsubscribe request and sending it on 
+behalf of that person. 
+<p>
+Another reason to confirm unsubscribes is when you are using the "failsafe unsubscribe" mechanism. This mechanism places the recipient's email address at the bottom of every posting, and instructs 
+them to forward any posting to "unsubscribe-listname@&#133;" in order to leave the mailing list.  This works quite well, except it can have a negative effect if someone forwards a 
+posting from your mailing list on to another mailing list, that forwarded message will still have the "failsafe unsubscribe" tag in it, and if some recipient of this forwarded message decides to 
+follow the unsubscribe directions in that message, they will be unsubscribing the original recipient.  For this reason, Lyris defaults to confirming "questionable unsubscribes", such as those that 
+would occur in the above scenario. These are unsubscribe requests where the person being unsubscribed differs from the identity of the person sending the message. 
+<p>
+The three options for Confirming Unsubscribes are to confirm only questionable unsubscribes (this is the default setting), to confirm all unsubscribes, and to never confirm unsubscribes. For 
+announcement lists, we recommend that you use the default setting, and that you do not use the setting that requires confirmation of all unsubscribes, and announcement list members will tend to find 
+this extra step frustrating. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Confirmations.html">Confirmations</a><br>
+</td><td align=right valign=top>Page 239 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

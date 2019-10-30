@@ -1,0 +1,97 @@
+<HTML>
+<HEAD><TITLE>New in 3.0 beta 1 (v2.542)</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Newin3_0beta2_v2_543_.html">previous</a>] [<a href="NewinVersion2_5.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in 3.0 beta 1 (v2.542)</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html">New in 3.0 beta 3 (v2.545)</a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html">New in 3.0 beta 2 (v2.543)</a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html"><font size=+0><b>New in 3.0 beta 1 (v2.542)</b></font></a><br>
+· · · <a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+· · · <a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+· · · <a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in 3.0 beta 1 (v2.542)</h3>
+<B>Features</B></B><p>
+Real-time statistics of mail sending performance. These can be reached from the "statistics" button on the server admin menu. Be sure to click the "reload" button so that you can see statistical 
+changes from one time to another. You will see statistics such as amount of bandwidth used, number of messages sent per minute, etc.  See  <a href="Statistics.html">Statistics</a>. 
+<p>
+The outgoing mail view now shows the number of times a given message has been retried.  See  <a href="OutgoingMail.html">Outgoing Mail</a>.<p>
+<B>Bug fixes</B></B><p>
+If the From: line is overridden in the list configuration, this is now correctly reflected in the message reading page's list of messages. Previously, the override was not used.<p>
+a bug in Solaris multithreading was causing Lyris to occasionally crash under very heavy loads. This has been fixed. <p>
+<B>Improvements to the speed of the web interface</B></B><p>
+improvements to the web interface speed, when Lyris is under heavy load. The database locking scheme now favors high-priority threads (such as the web interface), where previously locks were handed 
+out on a first-come-first-serve basis. Systems with plenty of CPU power will see significant performance enhancements. Low-powered systems will see a performance improvement, but it will not be as 
+significant. 
+<p>
+Lyris for Solaris/Sparc is now using the SmartHeap memory manager, which yields about a 20% performance improvement overall. We are working on using SmartHeap on Windows NT/95, and also on 
+Solaris/Intel. 
+<p>
+Lyris on Unix platforms now "nices" itself to a lower priority (ie: use less CPU time), which results in a performance improvement to the web interface. This change allows processes launched by the 
+web server to finish quicker, resulting in better response time with the web interface. Previously, Lyris was using up most of the machines CPU time, and web interface processes were slowed. 
+Unfortunately, Windows NT does not have this fine-grained control over priorities (only normal, idle or high). However, Windows NT users can achieve similar results my making their web server run at 
+a high priority, using the "pview.exe" program. 
+<p>
+After these changes, the web interface on our UltraSparc 1/140 consistently loads in under two seconds, even when the Lyris server is at its peak load, which currently is 51,000 messages/hour (at a 
+4.5k message size). 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 501 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

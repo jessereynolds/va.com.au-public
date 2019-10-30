@@ -1,0 +1,84 @@
+<HTML>
+<HEAD><TITLE>Windows Services</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="SettingServerOptions.html">previous</a>] [<a href="UnixDaemonOption.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Windows Services</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · · <a href="StartingLyris.html">Starting Lyris</a><br>
+· · · <a href="DatabaseOperations.html">Database Operations</a><br>
+· · · <a href="SettingServerOptions.html">Setting Server Options</a><br>
+· · · <a href="WindowsServices.html"><font size=+0><b>Windows Services</b></font></a><br>
+· · · <a href="UnixDaemonOption.html">Unix Daemon Option</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Windows Services</h3>
+On Windows NT and Windows 95, Lyris can run as a service.  The options for installing and removing the Lyris service are:<p>
+<B>-install   <br></B>Install Lyris as a self-starting Windows NT service.  For Windows NT only.  Lyris will then be listed in the "Services" control panel, as an service automatically 
+started up at boot time.  You can start and stop the Lyris service from the "Services" control panel.  The Lyris service runs in the background, so you will not see if on your desktop.  Note that 
+once the Lyris service is installed, you can start it on the command line with the command "net start lyris".  Similarly, you can stop the Lyris service on the command line with the command "net stop 
+lyris". 
+</B><p>
+<B>-install95   <br></B>Install Lyris as a self-starting Windows 95 service.  For Windows 95 only.  The next time you reboot, Lyris will automatically start up at the Login screen.  It 
+will be running in the foreground, as a normal program.  The advantage of installing Lyris as a Windows 95 service is that if your system accidentally reboots, Lyris will automatically start up 
+again.  If Lyris is running on Windows 95 and is not a service, you need to log in to Windows 95 in order for Lyris to run. 
+</B><p>
+<B>-remove <br></B>If Lyris is currently installed as a Windows NT service, then remove it.</B><p>
+<B>-remove95 <br></B>If Lyris is currently installed as a Windows 95 service, then remove it.</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="TheLyriscommandline.html">The Lyris command line</a><br>
+</td><td align=right valign=top>Page 411 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

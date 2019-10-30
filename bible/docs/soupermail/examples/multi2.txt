@@ -1,0 +1,74 @@
+<html>
+<head>
+
+<!-- Because Soupermail's usually called from the /cgi-bin/
+     directory, relative HTML links can go awry. So, to counter
+     this, here's a BASE element, which uses the URL of the
+     very first form to make sure all relative links are sane. -->
+<base href="<output name="http_referer">">
+
+<title>Soupermail Multipart Form - 2</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Multipart Form - 2</h1>
+
+<p>This page is part <b>two</b> of a three part form. </p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+
+<!-- Here's something cunning. Because we want to keep the
+     configuration paths relative, I'm using the path from the
+     last form's configuration file to specify where to
+     find this form's configuration file. It makes sense if you
+     think about it... honest :) -->
+<input type="hidden" name="SoupermailConf" value="<output
+name="http_config_path">multi2.con">
+
+<!-- Now we want to include the values from the first form. Note that they're
+     of type="escaped", because we don't want any of the stuff to mess up our
+     nice HTML -->
+<input type="hidden" name="your_name" value="<output name="your_name" type="escaped">">
+<input type="hidden" name="comments" value="<output name="comments" type="escaped">">
+
+<!-- Here we keep the original form's URL so we can set later BASE elements
+     correctly. -->
+<input type="hidden" name="original_referer" value="<output name="http_referer">">
+
+<div>How do you rate Soupermail?
+<select name="rating">
+<option>Excellent
+<option>Good
+<option>OKish
+<option>Poor
+<option>Pants
+</select>
+</div>
+
+<p>Your comments on Soupermail:</p>
+<textarea name="soupermail_comments" rows="5" cols="45"></textarea>
+
+<p><input type="submit" value="Next Part &gt;"></p>
+</form>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="multi1.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>This page has been built from a Soupermail template called 
+<code><a href="multi2.txt">multi2.txt</a></code>.
+Look at the template with a text editor, and you'll see some interesting
+use of &lt;output&gt; elements.</p>
+</body>
+</html>
+

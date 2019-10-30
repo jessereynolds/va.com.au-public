@@ -1,0 +1,1 @@
+required: (foo<3 || bar >=2)

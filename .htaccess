@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^newserver.html hosting.shtml [R,L]
+RewriteRule ^index.html index.shtml [R,L]
+RewriteRule ^contact.html contact.shtml [R,L]
+RewriteRule ^vce.html index.shtml [R,L]
+RewriteRule ^current_projects.html index.shtml [R,L]
+RewriteRule ^robocam.html index.shtml [R,L]
+RewriteRule ^webcasts.html index.shtml [R,L]
+RewriteRule ^advisories.html advisories.shtml [R,L]
+RewriteRule ^newserver_thanks.html newserver_thanks.shtml [R,L]
+</IfModule>
+

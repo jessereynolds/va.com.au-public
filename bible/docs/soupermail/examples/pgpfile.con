@@ -1,0 +1,17 @@
+mimeon: yes
+mailto: "$form_Email"
+subject: PGP/File example
+if: enc eq 'no'   then pgpuploads: no
+if: mime ne 'yes' then pgpmime: no
+
+# This is a new feature of soupermail 1.0.8 which lets you
+# select different encryption methods
+if: pgpversion eq 'gpg'  then pgpversion: gpg
+if: pgpversion eq 'pgp2'  then pgpversion: pgp2
+if: pgpversion eq 'pgp5'  then pgpversion: pgp5
+
+# For testing with PGP2, there's an old PGP keyring
+pgpuserid: vittal.aithal@bigfoot.com
+if: pgpversion eq 'pgp2'  then pgpuserid: v@aithal.org
+
+success: pgpfile.txt

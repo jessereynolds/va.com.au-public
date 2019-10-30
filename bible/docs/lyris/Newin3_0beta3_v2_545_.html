@@ -1,0 +1,119 @@
+<HTML>
+<HEAD><TITLE>New in 3.0 beta 3 (v2.545)</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Newin3_0beta4_v2_547_.html">previous</a>] [<a href="Newin3_0beta2_v2_543_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in 3.0 beta 3 (v2.545)</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html"><font size=+0><b>New in 3.0 beta 3 (v2.545)</b></font></a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html">New in 3.0 beta 2 (v2.543)</a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html">New in 3.0 beta 1 (v2.542)</a><br>
+· · · <a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+· · · <a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+· · · <a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in 3.0 beta 3 (v2.545)</h3>
+<B>New Features:</B><p>
+<b></B><B><I>Bounce days: </I></B>You can now change how many days of bounces a user has to cause before being placed on hold, previously this was set to 5 days of bounces. This setting is available in 
+"list info".  See  <a href="BounceReset.html">Bounce Reset</a>. 
+</I></B><p>
+<B><I>Bounce Reset: </I></B>You can now change how many days without bouncing a user has to go before having their bounce count reset.  Previously, this was set so that if a user did not bounce 
+for 5 days, their bounce count was reset. On infrequent announcement lists (say, a posting once a week), the result was that users were never put on hold, because their postings were so infrequent 
+that the bounce counts always were reset.  This setting is available in "list info". See  <a href="BounceDays.html">Bounce Days</a>. 
+</I></B><p>
+<B><I>Server statistics page improved: </I></B>New information on server statistics page: now displays the outgoing message IDs of all the currently sending jobs. A job can be a single response 
+(ie: "you are now subscribed") to a single user, or may be a message to the entire list, as in the case of a list posting.  Some sites may want to use this statistic to increase or decrease the max 
+number of simultaneous jobs. See  <a href="Statistics.html">Statistics</a>. 
+</I></B><p>
+<B><I>DNS caching</I></B>: "platinum plus" customers now have the option of enabling a DNS caching mechanism, which results in a speed increase of 25% to 50% in sending mail. This option is in 
+"server config".  The DNS cache success rate is also displayed in the "statistics" page.  See  <a href="EnableDNSCaching.html">Enable DNS Caching</a>. 
+</I></B><p>
+<B><I>Server logging: </I></B>Added logging of each posting, both for "normal" list postings, and of digests and indexes. This allows sites who want to track usage of their server, and perhaps 
+bill for it, to watch this information.  This is available in the "server admin" menu, under "log".  Note that there currently is no way to empty the log: this will come in the next beta version.  
+See  <a href="ServerAdminLog.html">Server Admin Log</a>. 
+</I></B><p>
+<B><I>Concurrent jobs setting: </I></B>New option in server config to change the maximum concurrent number of jobs. See  <a href="MaxSendJobs.html">Max Send Jobs</a>.</I></B><p>
+<B><I>Dynamic changing of settings</I></B>: changed Lyris so that changes to the current thread and job limit can be changed live, without restarting the server. This makes it much easier to see 
+the impact of configuration changes on mail sending speed and server performance. 
+</I></B><p>
+<B><I>New statistics</I></B>: the SMTP domains currently being sent to are now displayed in the statistics. This enables you to see if certain domains are dominating your mail sending.  See  
+<a href="Statistics.html">Statistics</a>. 
+</I></B><p>
+<B><I>Member Count Page: </I></B>New buttons on the "members" page for reporting the total number of subscribers, as well as a report of the number of new subscriptions per day. See  
+<a href="ObtainMemberCount.html">Obtain Member Count</a>. 
+</I></B><p>
+<B><I>Fundi Fix: </I></B>Lyris now checks for the automated postings from the Fundi anti-spam program, to make sure that they do not make it to the mailing list.</I></B><p>
+<B> </B><p>
+<B>Bugs fixes:</B></B><p>
+Fixed a bug with the feature where Lyris optionally forwards non-lyris mail to another server.  When multiple recipients were specified, only the first recipient was receiving the message<p>
+Fixed a bug in message reading with the NNTP news interface.  Messages contributed via the web interface were being displayed without carriage returns in the News interface.<p>
+Fixed a bug introduced in the previous beta version with dbfastpack, where the packed files were moved incorrectly.<p>
+<B> </B><p>
+<B>Other:</B></B><p>
+The Adobe Acrobat version of the Lyris User's guide has been improved to support Acrobat hypertext links and Acrobat URLs. Now, the table of contents and all cross references are linked, and you can 
+jump to the referred section within Acrobat. 
+<p>
+By default, full text indexing for newly created lists is now off.  <p>
+Changed help@ and info@ responses to come from lyris-admin to prevent mail loops<p>
+Lyris now checks for reverse name definitions on all the TCP/IP addresses it has been told to use, and will refuse to start if reverse name lookup is not defined. Previously, Lyris started anyway, 
+and worked fine. However, because many online services (such as AOL) and ISPs refuse all mail from hosts without reverse name lookups, mail delivery success rates were very low for these 
+misconfigured servers. Now, Lyris will refuse to start if DNS is misconfigured. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 499 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

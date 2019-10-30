@@ -1,0 +1,10 @@
+Sales Query
+-----------
+
+The following sales query was sent by <output name="your_name" alt="anon">
+on <output name="http_date"> <output name="http_time">:
+
+I'm interested in <output name="interest">
+
+
+

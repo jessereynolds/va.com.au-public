@@ -1,0 +1,172 @@
+<HTML>
+<HEAD><TITLE>Server Administrator</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="AboutThisList.html">previous</a>] [<a href="OverviewofServerAdministrator.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Server Administrator</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html"><font size=+0><b>Server Administrator</b></font></a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · · <a href="SitesMenuFirstPage.html">Sites Menu First Page</a><br>
+· · · <a href="CreateSite.html">Create Site</a><br>
+· · · · <a href="SiteName.html">Site Name</a><br>
+· · · · <a href="Host.html">Host</a><br>
+· · · · <a href="SiteDescription.html">Site Description</a><br>
+· · · · <a href="SiteLogo.html">Site Logo</a><br>
+· · · · <a href="SiteURL.html">Site URL</a><br>
+· · · · <a href="SiteAdmin.html">Site Admin</a><br>
+· · · · <a href="Tech.html">Tech</a><br>
+· · · · <a href="Language.html">Language</a><br>
+· · · · <a href="Location.html">Location</a><br>
+· · · · <a href="Address.html">Address</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · · <a href="Activationcodeandadmincontact.html">Activation code and admin contact</a><br>
+· · · · <a href="ActivationCode.html">Activation Code</a><br>
+· · · · <a href="AdminEmailAddress.html">Admin Email Address</a><br>
+· · · <a href="TCP_IPSettings.html">TCP/IP Settings</a><br>
+· · · · <a href="DNSServer.html">DNS Server</a><br>
+· · · · <a href="MultipleTCP_IPaddresses.html">Multiple TCP/IP addresses</a><br>
+· · · · <a href="LyrisURL.html">Lyris URL</a><br>
+· · · <a href="MailReceivingSettings.html">Mail Receiving Settings</a><br>
+· · · · <a href="IncomingFrom_MailRewrites.html">Incoming From: Mail Rewrites</a><br>
+· · · · <a href="IncomingTo_MailRewrites.html">Incoming To: Mail Rewrites</a><br>
+· · · · <a href="SMTPPort.html">SMTP Port</a><br>
+· · · · <a href="BanMailFrom.html">Ban Mail From</a><br>
+· · · · <a href="RemoveLyrisAddresses.html">Remove Lyris Addresses</a><br>
+· · · · <a href="MailReceiveRules.html">Mail Receive Rules</a><br>
+· · · · <a href="MaxMessageSize.html">Max Message Size</a><br>
+· · · · <a href="FastBounceHandling.html">Fast Bounce Handling</a><br>
+· · · · <a href="LoopDetection.html">Loop Detection</a><br>
+· · · · <a href="LoopException.html">Loop Exception</a><br>
+· · · <a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+· · · · <a href="ForwardMail.html">Forward Mail</a><br>
+· · · · <a href="RelayHost.html">Relay Host</a><br>
+· · · · <a href="ForwardingOrders.html">Forwarding Orders</a><br>
+· · · · <a href="DeliverySpeed.html">Delivery Speed</a><br>
+· · · · <a href="MaxSendJobs.html">Max Send Jobs</a><br>
+· · · · <a href="EnableDNSCaching.html">Enable DNS Caching</a><br>
+· · · · <a href="MailDeliveryStatisticsSize.html">Mail Delivery Statistics Size</a><br>
+· · · · <a href="MailDeliveryStatisticsInterval.html">Mail Delivery Statistics Interval</a><br>
+· · · · <a href="In_MemoryProcessing.html">In-Memory Processing</a><br>
+· · · · <a href="EnableLogging.html">Enable Logging</a><br>
+· · · <a href="LyrisCommandProtocol_LCP_Settings.html">Lyris Command Protocol (LCP) Settings</a><br>
+· · · · <a href="LCPHosts.html">LCP Hosts</a><br>
+· · · · <a href="LCPPassword.html">LCP Password</a><br>
+· · · · <a href="LCPPort.html">LCP Port</a><br>
+· · · <a href="ProgrammingExtensionsattheServerLevel.html">Programming Extensions at the Server Level</a><br>
+· · · · <a href="Runprogrambeforelyris_.html">Run program before lyris@</a><br>
+· · · · <a href="Runprogramafterlyris_.html">Run program after lyris@</a><br>
+· · · · <a href="ExtensionsDirectory.html">Extensions Directory</a><br>
+· · · · <a href="DisableExtensions.html">Disable Extensions</a><br>
+· · · <a href="Newsgroups.html">Newsgroups</a><br>
+· · · · <a href="EnableNewsgroups.html">Enable Newsgroups</a><br>
+· · · · <a href="NewsgroupPort.html">Newsgroup Port</a><br>
+· · · <a href="MiscellaneousServerConfigSettings.html">Miscellaneous Server Config Settings</a><br>
+· · · · <a href="Auto_HoldUsers.html">Auto-Hold Users</a><br>
+· · · · <a href="RewritePurge_IdTag.html">Rewrite Purge-Id Tag</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · · <a href="FirstDocumentPage.html">First Document Page</a><br>
+· · · <a href="CreateDocument.html">Create Document</a><br>
+· · · <a href="ASample_Hello_Document.html">A Sample "Hello" Document</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · · <a href="FirstActionPhrasePage.html">First Action Phrase Page</a><br>
+· · · <a href="CreatePhrase.html">Create Phrase</a><br>
+· · · · <a href="Phrase.html">Phrase</a><br>
+· · · · <a href="ResponseDocument.html">Response Document</a><br>
+· · · · <a href="Rule.html">Rule</a><br>
+· · · · <a href="Context.html">Context</a><br>
+· · · · <a href="ReplaceWith.html">Replace With</a><br>
+· · · · <a href="RunaprogrambeforePhrase.html">Run a program before Phrase</a><br>
+· · · · <a href="RunaprogramafterPhrase.html">Run a program after Phrase</a><br>
+· · · · <a href="NotifyWhoofActionPhrase.html">Notify Who of Action Phrase</a><br>
+· · · <a href="Auto_Responders.html">Auto-Responders</a><br>
+· · · <a href="FirstAuto_ResponderPage.html">First Auto-Responder Page</a><br>
+· · · <a href="CreateAuto_Responder.html">Create Auto-Responder</a><br>
+· · · · <a href="Auto_ResponderEmailAddress.html">Auto-Responder Email Address</a><br>
+· · · · <a href="Response.html">Response</a><br>
+· · · · <a href="RunaprogrambeforeAuto_Responder.html">Run a program before Auto-Responder</a><br>
+· · · · <a href="RunaprogramafterAuto_Responder.html">Run a program after Auto-Responder</a><br>
+· · · · <a href="Notify.html">Notify</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · · <a href="FirstPeoplePage.html">First People Page</a><br>
+· · · <a href="CreatePerson.html">Create Person</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · · <a href="View_SortandSelectIncomingMessages.html">View, Sort and Select Incoming Messages</a><br>
+· · · <a href="IncomingMailInformation.html">Incoming Mail Information</a><br>
+· · · <a href="HowlongisIncomingMailSaved_.html">How long is Incoming Mail Saved?</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · · <a href="SelectOutgoingMessages.html">Select Outgoing Messages</a><br>
+· · · <a href="OutgoingMailInformation.html">Outgoing Mail Information</a><br>
+· · · <a href="HowlongisOutgoingMailSaved_.html">How long is Outgoing Mail Saved?</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · · <a href="ViewLogEntry.html">View Log Entry</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Server Administrator</h3>
+<ul><B><a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a></B><p>
+<B><a href="ServerAdminMenu.html">Server Admin Menu</a></B><p>
+<B><a href="SitesMenu.html">Sites Menu</a></B><p>
+<B><a href="ServerConfig.html">Server Config</a></B><p>
+<B><a href="ServerDocuments.html">Server Documents</a></B><p>
+<B><a href="ServerActionPhrases.html">Server Action Phrases</a></B><p>
+<B><a href="ServerPeople.html">Server People</a></B><p>
+<B><a href="Statistics.html">Statistics</a></B><p>
+<B><a href="IncomingMail.html">Incoming Mail</a></B><p>
+<B><a href="OutgoingMail.html">Outgoing Mail</a></B><p>
+<B><a href="ServerAdminLog.html">Server Admin Log</a></B><p>
+<B><a href="ShutdownServer.html">Shutdown Server</a></B><p>
+<B></ul></B><h2><B></h2></B></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="index.html">Table of Contents</a><br>
+</td><td align=right valign=top>Page 90 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

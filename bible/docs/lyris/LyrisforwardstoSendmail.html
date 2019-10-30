@@ -1,0 +1,96 @@
+<HTML>
+<HEAD><TITLE>Lyris forwards to Sendmail</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="SendmailforwardstoLyris.html">previous</a>] [<a href="DisableSendmail.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Lyris forwards to Sendmail</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · · <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+· · · · <a href="UsetwoTCP_IPaddresses.html">Use two TCP/IP addresses</a><br>
+· · · · <a href="SendmailforwardstoLyris.html">Sendmail forwards to Lyris</a><br>
+· · · · <a href="LyrisforwardstoSendmail.html"><font size=+0><b>Lyris forwards to Sendmail</b></font></a><br>
+· · · · <a href="DisableSendmail.html">Disable Sendmail</a><br>
+· · · <a href="HavingPost_OfficecoexistwithLyris.html">Having Post.Office coexist with Lyris</a><br>
+· · · <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+· · · <a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+· · · <a href="HavingNetscapeMailServercoexistwithLyris.html">Having Netscape Mail Server coexist with Lyris</a><br>
+· · · <a href="HavingNotes_DominoCoexistwithLyris.html">Having Notes / Domino Coexist with Lyris</a><br>
+· · · <a href="HavingNTMailCoexistwithLyris.html">Having NTMail Coexist with Lyris</a><br>
+· · · <a href="HavingMicrosoftExchangeCoexistWithLyris.html">Having Microsoft Exchange Coexist With Lyris</a><br>
+· · · <a href="HavingAltaVistaMailCoexistwithLyris.html">Having AltaVista Mail Coexist with Lyris</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Lyris forwards to Sendmail</h3>
+Move sendmail to an alternate port, and inform Lyris to forward non-Lyris bound mail to sendmail.<p>
+The advantage of this approach is that it is very easy to implement.  The disadvantage is that it establishes a dependency of sendmail on Lyris, so it is less reliable.  <p>
+Please note that we do not recommend that you use Lyris as a general purpose mail relay host for relaying outbound mail to the Internet.  Lyris is not optimized for this use, and Lyris' ability to 
+act as a "virtual server" can make successful relaying complicated.  If you need a relay host on your machine, we recommend that you run sendmail and Lyris on separate TCP/IP addresses, or configure 
+sendmail to forward to Lyris, leaving sendmail on port 25. 
+<p>
+To move sendmail to another port, such as port 26, add this line to your /etc/mail/sendmail.cf file:<p>
+<font face='Courier New'><ul>OOPort=26<p>
+</ul></font>This option is explained in the "Options" chapter of the O'Reilly sendmail book.<p>
+You can then install Lyris. Once you have installed Lyris, you need to tell Lyris to forward non-Lyris mail to sendmail.  You can do this from the web interface "Server configuration" page, or with 
+the "forward" command line parameter. For example: 
+<p>
+<font face='Courier New'><ul>lyris forward 127.0.0.1 26<p>
+</ul></font>Lyris will validate your forward rule and reply with "Checking forwarding rule: 127.0.0.1 26" and then "Successfully updated forwarding rule." This example forwarding command tells 
+Lyris to forward non-Lyris mail to port 26 on the local machine ("localhost").  If no SMTP server is running on that TCP/IP / port combination, Lyris will not save your forwarding rule. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+</td><td align=right valign=top>Page 472 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

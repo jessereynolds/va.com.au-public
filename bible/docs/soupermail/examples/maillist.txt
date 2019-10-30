@@ -1,0 +1,12 @@
+Hello <output name="maillist_2">,
+
+Based on the mailing list data, your email address is 
+<output name="maillist_1"> and the extra data was 
+<output name="maillist_3">
+<only if="$maillist_1 contains 'aith'">Hi Aith!</only>
+
+-------------------------------------------------------------
+<output name="message" alt="This is an example Soupermail list message" wrap="60">
+-------------------------------------------------------------
+
+Ref: <output name="http_ref">

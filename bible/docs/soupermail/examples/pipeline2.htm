@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>CGI Pipelining</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>CGI Pipelining</h1>
+
+<p>You should have been redirected to this page by Soupermail, but look at
+the URL. You should see the data you typed in the previous form
+passed through to this page.</p>
+
+<p>If you have JavaScript enabled in your browser, here is what is
+passed through:</p>
+
+<p><b>
+<script language="javascript" type="text/javascript">
+<!--
+document.write(window.location.search);
+//-->
+</script>
+</b></p>
+
+<p>The config option that produced this was:</p>
+
+<pre>
+gotosuccess: "pipeline2.htm?email=$form_Email&name=$form_your_name"
+</pre>
+</body>
+</html>
+

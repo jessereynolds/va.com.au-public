@@ -1,0 +1,122 @@
+<HTML>
+<HEAD><TITLE>Moderate</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Member.html">previous</a>] [<a href="Review.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Moderate</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· · <a href="HowtosendmailtoyourLyrisserver.html">How to send mail to your Lyris server</a><br>
+· · <a href="SendingEmailCommandstoLyris.html">Sending Email Commands to Lyris</a><br>
+· · <a href="Subscribing.html">Subscribing</a><br>
+· · <a href="Unsubscribe.html">Unsubscribe</a><br>
+· · <a href="ChangeMembershipSettings.html">Change Membership Settings</a><br>
+· · <a href="DetermineMembershipSettings.html">Determine Membership Settings</a><br>
+· · <a href="MailingListInformation.html">Mailing List Information</a><br>
+· · <a href="Search.html">Search</a><br>
+· · <a href="HelpDocument.html">Help Document</a><br>
+· · <a href="GetDocuments.html">Get Documents</a><br>
+· · <a href="End.html">End</a><br>
+· · <a href="AdministratorCommands.html">Administrator Commands</a><br>
+· · · <a href="Login.html">Login</a><br>
+· · · <a href="Become.html">Become</a><br>
+· · · <a href="Add.html">Add</a><br>
+· · · <a href="Delete.html">Delete</a><br>
+· · · <a href="Member.html">Member</a><br>
+· · · <a href="Moderate.html"><font size=+0><b>Moderate</b></font></a><br>
+· · · <a href="Review.html">Review</a><br>
+· · · <a href="Send.html">Send</a><br>
+· · · <a href="Which_foradmins_.html">Which (for admins)</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Moderate</h3>
+The moderate command allows you to act upon a moderated message contributed to a mailing list.<p>
+The options for the moderate command are to either approve or reject a contributed message to a moderated mailing list. <p>
+The syntax of the moderate command is:<p>
+<font face='Courier New'><ul>moderate approve moderate-id &#133; <br>moderate reject moderate-id &#133;<p>
+</ul></font>You can specify more than one Moderate  ID on the moderate command line.<p>
+If you are a list administrator set to receive moderated message notifications, then you will receive email notifications of each moderated message.  The notification message will include the 
+moderate command you need to send back to approve or reject the messages.  In addition, if there are any other pending messages, these will also be listed, at the bottom of the notification message, 
+along with commands to approve or reject them. 
+<p>
+<B>Example</B><p>
+<b></B>The following message is an example of a moderated message notification.  The beginning of the message explains the purpose of the message, and at what time (if any) the message will be 
+automatically approved.  Commands for approving or rejecting this message via email are given.  The message in question is then displayed. At the bottom of the email message, the currently pending 
+moderated messages are summarized, and commands for approving or rejecting them in bulk is also given. 
+</B><p>
+<font face='Courier New'><ul>The following message destined for bach has been received. This message requires your approval before it will be sent to the list.<p>
+If you take no action, this message will be automatically approved at midnight tonight.<p>
+---<p>
+To approve this message, send the following two line message to lyris@lyris.shelby.com<p>
+   login (enter your password here) <br>   moderate approve 103<p>
+---<p>
+To reject (delete) this message, send the following two line message to lyris@lyris.shelby.com<p>
+   login (enter your password here) <br>   moderate reject 103<p>
+---<p>
+</ul></font><font face='Courier New'><ul>From: michael@acme.com <br>Subject: Great new CD<p>
+</ul></font><font face='Courier New'><ul> that new recording of the Brandenburg Concerto is really good!<p>
+</ul></font><font face='Courier New'><ul>Michael Smith<p>
+</ul></font><font face='Courier New'><ul>-----------------------------------------------------<p>
+The following moderated messages are currently pending:<p>
+ * Message 100 <br> * Subject: Best recording available?<p>
+ * Message 102 <br> * Subject: My new piano<p>
+ * Message 103 <br> * Subject: Great new CD<p>
+---<p>
+To approve these messages, send the following two line message to lyris@lyris.shelby.com<p>
+   login (enter your password here) <br>   moderate approve 100 102 103<p>
+---<p>
+To reject (delete) these messages, send the following two line message to lyris@lyris.shelby.com<p>
+   login (enter your password here) <br>   moderate reject 100 102 103<p>
+</ul></font><h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="AdministratorCommands.html">Administrator Commands</a><br>
+<li><a href="ModeratedMessages.html">Moderated Messages</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+</td><td align=right valign=top>Page 70 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

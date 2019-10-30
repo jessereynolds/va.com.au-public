@@ -1,0 +1,35 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>GPG Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+<body>
+
+<h1>Thank you <output name="Email"> for sending your address.</h1>
+
+<p>
+You should recieve a default soupermail email sent to <output name="Email">.
+However, it will be in the form of a <output name="gpg" sub="GPG" alt="PGP">
+email message encrypted to vittal.aithal@bigfoot.com. But you should get 
+the basic idea.
+</p>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="pgpgpg.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="pgpgpg.txt">pgpgpg.txt</a>.
+</p>
+</body>
+</html>

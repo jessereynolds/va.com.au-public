@@ -1,0 +1,99 @@
+<HTML>
+<HEAD><TITLE>How do I make a Mailing List which sends to several Mailing lists?</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="OneWayMailingLists.html">previous</a>] [<a href="HowdoIaddaCancelBottomymailinglist_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>How do I make a Mailing List which sends to several Mailing lists?</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+· · <a href="DocBots.html">DocBots</a><br>
+· · <a href="RunningLyris.html">Running Lyris</a><br>
+· · <a href="Email.html">Email</a><br>
+· · <a href="LyrisAdministration.html">Lyris Administration</a><br>
+· · <a href="WebBrowsers.html">Web Browsers</a><br>
+· · <a href="UsenetNewsgroups.html">Usenet Newsgroups</a><br>
+· · <a href="International.html">International</a><br>
+· · <a href="OtherFAQissues.html">Other FAQ issues</a><br>
+· · <a href="MailingListFeatures.html">Mailing List Features</a><br>
+· · · <a href="HowcanImakeaprivatelist_.html">How can I make a private list?</a><br>
+· · · <a href="HowcanImakeamoderatedlist_.html">How can I make a moderated list?</a><br>
+· · · <a href="HowcanMembersExpireafteracertaintimeperiod_.html">How can Members Expire after a certain time period?</a><br>
+· · · <a href="HowdoIapprovemoderatedmessagesinbulk_.html">How do I approve moderated messages in bulk?</a><br>
+· · · <a href="OneWayMailingLists.html">One Way Mailing Lists</a><br>
+· · · <a href="HowdoImakeaMailingListwhichsendstoseveralMailinglists_.html"><font size=+0><b>How do I make a Mailing List which sends to several Mailing lists?</b></font></a><br>
+· · · <a href="HowdoIaddaCancelBottomymailinglist_.html">How do I add a CancelBot to my mailing list?</a><br>
+· · · <a href="WhatHappenstoBadMailAddresses_.html">What Happens to Bad Mail Addresses?</a><br>
+· · · <a href="WhataboutMIMEDigests_.html">What about MIME Digests?</a><br>
+· · · <a href="HowTouseLyrisExtensions.html">How To use Lyris Extensions</a><br>
+· · · <a href="HowLyrisDecidesWhotoUnsubscribe.html">How Lyris Decides Who to Unsubscribe</a><br>
+· · <a href="Perl_LyrisToolkit.html">Perl/Lyris Toolkit</a><br>
+· · <a href="UnixAdministration.html">Unix Administration</a><br>
+· · <a href="Up_Coming.html">Up & Coming</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>How do I make a Mailing List which sends to several Mailing lists?</h3>
+<font face='Courier New'><ul>I am trying to make several distribution lists. We have (5) different groups of e-mail addresses we want to send information to, but often we send the same message to 
+all of them. I was thinking of making those 5 lists and subscribe the relevant addresses to each of them, and then make a "umbrella-list" that had 5 members; the other lists (with "real" members). 
+However, Lyris will not let me have one list belong to another Lyris list: it refuses to distribute the mail. 
+<p>
+</ul></font>That's right, Lyris will not allow one Lyris mailing list to receive mail from another Lyris mailing list. The reason for this is to prevent mail loops: if two automated programs 
+start trading mail, it is possible to have a mail loop, as the two programs exchange messages. There are other technical reasons for this as well, such as avoiding confusions when bounces occur. 
+<p>
+Instead, the correct way to have an "umbrella list", where sending mail to one address automatically distributes it to several other lists, is to use a "forwarding order".  A Lyris forwarding order 
+takes any mail it gets at the defined address, and forwards it the address(es) you specify.  
+<p>
+For example, if you have two lists named "sports" and "food", you could make a forwarding order called "sportsfood" which forwards anything it receives onto both "sports" and "food".  <p>
+You create a forwarding order from the "server config" page of the server admin menu.  To create the above forwarding order, for a hostname named "lyris.net", you would type:<p>
+<font face='Courier New'><ul>sportsfood@lyris.net sports@lyris.net,food@lyris.net<p>
+</ul></font>For more information, see  <a href="ForwardingOrders.html">Forwarding Orders</a>.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailingListFeatures.html">Mailing List Features</a><br>
+</td><td align=right valign=top>Page 545 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

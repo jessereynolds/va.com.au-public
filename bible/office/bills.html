@@ -1,0 +1,165 @@
+<html>
+
+<head>
+
+<title>The Bible - Office - scanning bills</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+<!--#include virtual="/bible/nav.html" -->
+<blockquote> 
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td>
+        <font face="Arial, Helvetica, sans-serif"><p>
+How Scan and Name Images for the VA Accounts Intranet Site
+</p>
+<p>
+Draft Specification for File Naming and Structure of Scanned Financial Documents on the VA Intranet
+</p>
+<p>
+v0.1 Jesse Reynolds 19 September 2000<br />
+
+v0.2 Jesse Reynolds 19 September 2000
+</p>
+<p>
+
+Image formats
+</p>
+<p>
+
+Each scanned bill or statement should be saved in two files, one at high res, one at low res, as follows:
+</p>
+<p>
+High Res (filenameb.gif), is a 256 colour gif file, at 144dpi. It is produced as follows:<br />
+</p>
+<p>
+1. scan original at 144dpi full colour scan (RGB)<br />
+2. convert to indexed colour using Selective, 256 colours, Diffusion Dithering<br />
+3. save as gif file (non interlaced)<br />
+</p>
+<p>
+Low Res (filename.gif), is an 8 colour, greyscale (no colour), gif file at 72dpi:<br />
+</p>
+<p>
+1. open original scan (144dpi, full colour RGB)<br />
+2. convert to greyscale<br />
+3. convert to indexed colour, 8 colours, selective, dithering<br />
+4. save as gif file (non interlaced)<br />
+</p>
+<p>
+Remember that whenever you resize an image to make sure you've put the colour mode into either "RGB" or "Greyscale" before you resample the image.
+</p>
+<p>
+Scanned Bill Filename Convention:<br />
+
+company[-account]_YYYYMMDD.ext<br />
+</p>
+<p>
+where company is the name of the company,<br />
+-account is an identifier for the account if we have many with this company, eg vodafone we have -jdr and -apc<br />
+-date is the date of issue of the bill in reverse format, year month day<br />
+ext is the filename extension, eg .gif<br />
+
+</p>
+<p>
+
+Scanned Bank Statement Filename Convention:<br />
+
+banksa_pagenum_date.gif<br />
+</p>
+<p>
+note that the date should be the the last day of the statement period. Eg for statement 206, which covers 26.8.00 to 1.9.00 the filename would be:<br />
+
+banksa_p206_20000901.gif (and the b (big) version too)<br />
+</p>
+<p>
+VA Universal Document ID Numbers:<br />
+</p>
+<p>
+Before scanning images make sure to write the file name, including the Document ID Number, on the image to be scanned. 
+The document number will take to form of: <br />
+
+				vadocXXXXXX<br />
+
+where the X¹s are numbers. For example the fifty-first document to be scanned will be:   vadoc000051
+</p>
+<p>
+When naming a document it is not necessary to put in all the 0¹s. <br />
+For example: <br />
+
+		chubb_20000921_51.03b.gif<br />
+
+where the vadoc number is vadoc000051 and the page number is 3.<br />
+</p>
+<p>
+So, when scanning page one of the above document you would write chubb_20000921_51.01b on the first page, chubb_20000921_51.02b on the second page and so on.
+</p>
+<p>
+Site to be published to:<br />
+
+http://accounts.va.com.au/internal/<br />
+
+ftp host: accounts.va.com.au<br />
+ftp user: accounts<br />
+</p>
+<p>
+Structure of site:<br />
+</p>
+<p>
+
+internal/<br />
+
+  1998-1999/
+
+  1999-2000/............................................previous fin year files<br />
+
+  2000-2001/............................................current fin year files<br />
+
+    invoices/..............................................outgoing invoices, mostly in pdf format<br />
+
+    bills/.....................................................incoming invoices, mostly in gif format<br />
+
+
+      vodafone-jr_20000919.gif..................example jesse's vodafone bill (72dpi)<br />
+      vodafone-jr_20000919b.gif................example bill large (144dpi)<br />
+
+      telstra-adl_20000701.gif<br />
+      telstra-adl_20000701b.gif<br />
+
+      chubb_ 20000914.gif<br />
+      chubb_ 20000914b.gif<br />
+
+    statements/<br />
+
+    banksa-cheque-act-stm/<br />
+      banksa_p206_20000921.gif<br />
+      banksa_p206_20000921b.gif <br />
+
+    banksa-merchant-stm/<br />
+      merchstm_20000922.gif<br />
+      merchstm_20000922b.gif<br />        
+        
+        </p>
+        </font>
+        
+        <p>&nbsp;</p>
+      </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p><font face="Arial, Helvetica, sans-serif"><map name="bible_header_nav.map">
+      <area shape="rect" coords="9,23,152,106" href="/bible/index.html" alt="Home">
+      <area shape="rect" coords="160,107,223,134" href="/bible/ftp/ftp.html" alt="FTP Info">
+      <area shape="rect" coords="238,107,282,134" href="/bible/faq/faq.html" alt="FAQ's">
+      <area shape="rect" coords="298,107,368,134" href="/bible/office/office.html" alt="Office Info">
+      <area shape="rect" coords="388,107,458,134" href="/bible/tech/tech.html" alt="Tech Maps">
+      <area shape="rect" coords="476,107,537,134" href="/bible/general/general.html" alt="General Info">
+      <area shape="rect" coords="553,107,617,134" href="/bible/vce/vce.html" alt="VCe">
+    </map> </font></p>
+</blockquote>
+</body>
+
+</html>

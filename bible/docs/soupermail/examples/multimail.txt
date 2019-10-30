@@ -1,0 +1,16 @@
+These are the results of the Multipart form you submitted:
+
+Your Name: <output name="your_name" type="unescaped">
+
+Your Random Thoughts:
+<output name="comments" indent="           " type="unescaped">
+
+You thought Soupermail was: <output name="rating" type="unescaped"> because:
+<output name="soupermail_comments" type="unescaped">
+
+
+This mail was sent to: <output name="Email">
+
+
+Bye
+

@@ -1,0 +1,37 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Mailing List Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+<body>
+
+<h1>Mailing List Example</h2>
+
+<only if="useform eq 'y'">
+<p>You should have sent a mailing list message based on this data:</p>
+<pre><output name="mailfield" type="html">
+</pre>
+</only>
+<only if="useform ne 'y'">
+<p>Emails were sent out to the addresses in <a href="maillist.csv">maillist.csv</a>.
+</only>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="maillist.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="maillistok.txt">maillistok.txt</a>.
+</p>
+</body>
+</html>

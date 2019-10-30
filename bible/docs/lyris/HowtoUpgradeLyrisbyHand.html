@@ -1,0 +1,91 @@
+<HTML>
+<HEAD><TITLE>How to Upgrade Lyris by Hand</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HowtoInstallLyrisbyHand.html">previous</a>] [<a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>How to Upgrade Lyris by Hand</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · · <a href="BasicUnixInstallationInstructions.html">Basic Unix Installation Instructions</a><br>
+· · · <a href="AfterInstallingLyrisonUnix.html">After Installing Lyris on Unix</a><br>
+· · · <a href="GettingHelp.html">Getting Help</a><br>
+· · · <a href="HowtoInstallLyrisbyHand.html">How to Install Lyris by Hand</a><br>
+· · · <a href="HowtoUpgradeLyrisbyHand.html"><font size=+0><b>How to Upgrade Lyris by Hand</b></font></a><br>
+· · · <a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">How to Install the Web Interface on a separate machine</a><br>
+· · · <a href="IfLyrisWillNotRun.html">If Lyris Will Not Run</a><br>
+· · · <a href="UnixDirectoryPermissionsNeeded.html">Unix Directory Permissions Needed</a><br>
+· · · <a href="MakingyourUnixMailServerandLyriscoexist.html">Making your Unix Mail Server and Lyris coexist</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>How to Upgrade Lyris by Hand</h3>
+If you do not want to use the "install_lyris" script to upgrade your existing Lyris installation, you can follow these steps to upgrade it by hand.<p>
+1) make a backup your Lyris directory before starting the upgrade.<p>
+2) copy the contents of the installation 'bin' directory to the 'bin' directory of your Lyris installation<p>
+3) Copy the files in ~/lyris/perl/lib to your Perl library directory that is often /usr/local/lib/perl5 - if you need to determine your Perl library directory, you can run "perl perl-libdirs.pl" 
+that is located in the ~/lyris/perl/bin/ directory. 
+<p>
+4) Copy the files in the ~/lyris/cgi directory to the "cgi-bin" directory on your web server.  This directory should already exist, and is <I>not</I> located in your HTML document directory. It is 
+a separate directory your  web server maintains for running CGI scripts. 
+</I><p>
+5) run "~/lyris/bin/lyris dbupgrade" to upgrade your Lyris databases to the current version<p>
+6) run "~/lyris/bin/lyris start" to run Lyris in the foreground or run "~/lyris/bin/lyris -bd" to run Lyris in the background<p>
+7) send mail to lyris@your-server to make sure that Lyris is answering email<p>
+8) cd to your web server's CGI directory.  Run "./lyris.pl". You should see a page full of HTML displayed. <p>
+9) With a web browser, go to the URL http://localhost/cgi-bin/lyris.pl  The Lyris web interface should appear.<p>
+ that's all! Lyris should now be upgraded on your system!<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+</td><td align=right valign=top>Page 462 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

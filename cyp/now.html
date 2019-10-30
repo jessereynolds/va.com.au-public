@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 2.0 Mac">
+  <TITLE>Cerveza y Putas</TITLE>
+  <SCRIPT language="javascript">
+
+<!-- hide javascript from old browsers
+
+// WAXON/OFF BUTT SET
+// this set of scripts implements automatic buttons for Netscape3+
+// and MSIE 4+.  buttons must follow the following guidelines
+//
+// see also: http://www.va.com.au/afringe for a version of his script which
+//           implements a click butt in addition to mouse overs.
+//
+// naming:   all buttons need an 'on' and 'off' state, reflecting
+//           whether the mouse is on or off the button.
+//           the on and off states must be the same filetype (ie gif or jpg)
+//           different buttons may be different fle types however.
+//
+// use:      name your images and call onLoad="prewax();return true;" from
+//           within the body tag. see the example button below.
+//
+// credits:  this code was written by dave sag (dave@va.com.au) July 1997
+//           it is based on Mark King's (mark.king@va.com.au) original
+//           waxon/off script set.
+//           if you use this code please email us and let us know.
+//
+// disclaimer: Neither Dave Sag, Mark King, Virtual Artists or Ampersand Internet
+//             make any warranty as to the usefullness or accuracy of this code and
+//             accept no liability for its use, or from incidents arising from its use.
+//
+// contacts:   Virtual Artists Pty Ltd   http://www.va.com.au    va@va.com.au
+//             Dave Sag                  http://dave.va.com.au   dave@va.com.au
+//             Mark King                 http://mark.va.com.au   mark.king@va.com.au
+//
+// history:    last modified 12 Aug 1997 by dave Sag
+//             now works for any images as long as they end in _off.{jpg|gif} and _on.{jpg|gif}
+//             no ned for the image name to match the src location.
+//             works propely with non local images and images outside of a graphics folder
+
+function butt_type (butt_name){
+                  if( document[butt_name].src.indexOf(".jpg",1)>1) return ".jpg";
+                  else return ".gif";
+                  }
+
+function waxon (butt_name) {
+        if(document.images) {
+                var tempt = document[butt_name].src.indexOf("_off",1)
+                document[butt_name].src=document[butt_name].src.substring(0,tempt)+"_on"+butt_type(butt_name);
+        }
+}
+
+
+function waxoff (butt_name) {
+        if(document.images) {
+                var tempt = document[butt_name].src.indexOf("_on",1)
+                document[butt_name].src=document[butt_name].src.substring(0,tempt)+"_off"+butt_type(butt_name);
+        }
+}
+
+function clickety_click (butt_name) {
+        if(document.images) {
+                var tempt = document[butt_name].src.indexOf("_on",1)
+                document[butt_name].src=document[butt_name].src.substring(0,tempt)+"_click"+butt_type(butt_name);
+        }
+}
+
+function statuson (text) {
+        window.status=text;
+        if(parseInt(navigator.appVersion.substring(0,1))<3) {
+        setTimeout("statusoff()",2000);
+        }
+}
+
+function statusoff () {
+        window.status="";
+}
+
+
+function prewax () {
+  if(document.images) {
+      on_butts = new Array ();
+//      click_butts = new Array();
+      for (var i=0;i<document.images.length;i++){
+        var tempt = document.images[i].src.indexOf("_off",1)
+        if (tempt>0) {
+      on_butts[i] = new Image();
+//      click_butts[i] = new Image();
+      var butt_name = document.images[i].name;
+      on_butts[i].src = document.images[i].src.substring(0,tempt)+"_on"+butt_type(butt_name);
+//      click_butts[i].src = document.images[i].src.substring(0,tempt)+"_click"+butt_type(butt_name);
+      }
+    }
+  }
+}
+
+//Javascript Ends -->
+
+
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#ea7121" onLoad="prewax();return true;" LINK="#663300">
+
+<P><CENTER><IMG SRC="graphics/title.gif" WIDTH="400" HEIGHT="80" ALIGN=
+"BOTTOM" NATURALSIZEFLAG="3"></CENTER></P>
+
+<BLOCKQUOTE>
+  <P><CENTER><FONT SIZE=+1>Australia's premier Spanish language Mexican punk
+  band</FONT></CENTER></P>
+  <H1><CENTER><FONT COLOR="#96142C" SIZE=+4>Chilli con Carnage Tour 1997</FONT></CENTER></H1>
+</BLOCKQUOTE>
+
+<P><CENTER><IMG SRC="graphics/photo_cyp.jpg" WIDTH="440" HEIGHT="264" ALIGN=
+"BOTTOM" NATURALSIZEFLAG="3"></CENTER></P>
+
+<BLOCKQUOTE>
+  <P><CENTER><B><FONT SIZE=+4>Cerveza y Putas</FONT></B><FONT SIZE=+3><BR>
+  play <B>the Boardroom</B>, Belconnen, ACT,<BR>
+  on <B>Saturday 30 August</B><BR>
+  with <B>No Strings Attached</B> and <B>Buttnugget</B>.</FONT></CENTER></P>
+</BLOCKQUOTE>
+
+<P><CENTER><TABLE BORDER="0" CELLSPACING="5" CELLPADDING="0">
+<TR>
+<TD ALIGN="CENTER"><A HREF="early.html" onMouseOver="waxon('button1');
+						statuson('Cerveza y Putaus\' first press release.');
+						return true;" onMouseOut="waxoff('button1');
+						statusoff();
+						return true;"><IMG SRC="graphics/button1_off.gif" NAME="button1" 
+WIDTH="85" HEIGHT="78" BORDER="0" NATURALSIZEFLAG="0" ALIGN="BOTTOM"></A></TD>
+<TD ALIGN="CENTER"><A HREF="home.html" onMouseOver="waxon('button2');
+						statuson('Cerveza y Putas\' Australian Tour.');
+						return true;" onMouseOut="waxoff('button2');
+						statusoff();
+						return true;"><IMG SRC="graphics/button2_off.gif" NAME="button2" 
+WIDTH="85" HEIGHT="78" BORDER="0" NATURALSIZEFLAG="0" ALIGN="BOTTOM"></A></TD>
+<TD ALIGN="CENTER"><A HREF="critic.html" onMouseOver="waxon('button3');
+						statuson('Cerveza y Putaus\' indie rock credibility has been established.');
+						return true;" onMouseOut="waxoff('button3');
+						statusoff();
+						return true;"><IMG SRC="graphics/button3_off.gif" NAME="button3" 
+WIDTH="85" HEIGHT="78" BORDER="0" NATURALSIZEFLAG="0" ALIGN="BOTTOM"></A></TD>
+<TD ALIGN="CENTER"><A HREF="band.html" onMouseOver="waxon('button4');
+						statuson('phots of the band.');
+						return true;" onMouseOut="waxoff('button4');
+						statusoff();
+						return true;"><IMG SRC="graphics/button4_off.gif" NAME="button4" 
+WIDTH="85" HEIGHT="78" BORDER="0" NATURALSIZEFLAG="0" ALIGN="BOTTOM"></A></TD></TR>
+<TR>
+<TD NOWRAP ALIGN="CENTER" VALIGN="TOP"><FONT SIZE=-1><A HREF="early.html" onMouseOver="waxon('button1');
+								statuson('Cerveza y Putas\' first press release.');
+								return true;" onMouseOut="waxoff('button1');
+								statusoff();
+								return true;">The Early Days</A></FONT></TD>
+<TD NOWRAP ALIGN="CENTER" VALIGN="TOP"><FONT SIZE=-1><A HREF="home.html" onMouseOver="waxon('button2');
+								statuson('Cerveza y Putas\' Australian Tour.');
+								return true;" onMouseOut="waxoff('button2');
+								statusoff();
+								return true;">home</A></FONT></TD>
+<TD NOWRAP ALIGN="CENTER" VALIGN="TOP"><FONT SIZE=-1><A HREF="critic.html" onMouseOver="waxon('button3');
+								statuson('Cerveza y Putaus\' indie rock credibility has been established.');
+								return true;" onMouseOut="waxoff('button3');
+								statusoff();
+								return true;">A Critical<BR>
+Perspective</A></FONT></TD>
+<TD NOWRAP ALIGN="CENTER" VALIGN="TOP"><FONT SIZE=-1><A HREF="band.html" onMouseOver="waxon('button4');
+								statuson('phots of the band.');
+								return true;" onMouseOut="waxoff('button4');
+								statusoff();
+								return true;">Nuestro<BR>
+Propio Animal</A></FONT></TD></TR>
+</TABLE>
+<HR></CENTER></P>
+
+<BLOCKQUOTE>
+  <P><CENTER><TT>site design, scripting and shockwave audio by <A HREF="http://www.va.com.au/"
+  TARGET="_blank">virtual artists</A> and paul champion. hosted by <A HREF=
+  "http://www.va.com.au/" TARGET="_blank">virtual artists</A>.</TT></CENTER></BLOCKQUOTE>
+</BODY>
+</HTML>

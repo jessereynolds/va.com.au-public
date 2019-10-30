@@ -1,0 +1,78 @@
+<html>
+
+<head>
+
+<title>The Bible - VCe rebooting</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+
+<!--#include virtual="/bible/nav.html" -->
+
+<blockquote> 
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">How to reboot the various VCe's</font></p>
+        
+        <p>
+        
+        <table width="100%" border="0" cellspacing="15" cellpadding="0">
+        <tr valign="top">
+        	<td align="center"><b>Step</b></td><td align="left"><b>Learnscope</b></td><td align="left"><b>Fringe</b></td><td align="left"><b>noise</b></td>
+        </tr>
+        <tr>
+        	<td colspan="4"><hr></td>
+        </tr>
+        <tr valign="top">
+        	<td align="center">[1]</td><td align="left">restart Speedo</td><td align="left">restart Faith</td><td align="left">restart Noisy</td>
+        </tr>
+        <tr>
+        	<td colspan="4"><hr></td>
+        </tr>
+        <tr valign="top">
+        	<td align="center">[2]</td><td align="left">login to Flea and su to root then cd to /root</td><td align="left">login to Jezabel and su to root</td><td>login to Scissor and su to root</td>
+        </tr>
+        <tr>
+        	<td colspan="4"><hr></td>
+        </tr>
+        <tr valign="top">
+        	<td align="center">[3]</td><td align="left">ping Speedo</td><td align="left">ping Faith (but not from Jezabel)</td><td align="left">ping Noisy</td>
+        </tr>
+        <tr>
+        	<td colspan="4"><hr></td>
+        </tr>
+        <tr valign="top">
+        	<td align="center">[4]</td><td align="left">wait for a response</td><td align="left">wait for a response</td><td align="left">wait for a response</td>
+        </tr>
+        <tr>
+        	<td colspan="4"><hr></td>
+        </tr>
+        <tr align="center" valign="top">
+        	<td align="center">[5]</td><td align="left">restart tomcat with ./resart_ls.sh</td><td align="left">restart tomcat with ./restart_afringe.sh</td><td align="left">restart tomcat with ./restart_noise.sh</td>
+        </tr>
+        <tr>
+        	<td colspan="4"><hr></td>
+        </tr>
+        <tr valign="top">
+        	<td align="center">[6]</td><td align="left">check site (front page and login)</td><td align="left">check site (front page and login)</td><td align="left">check site (front page and login)</td>
+        </tr>
+        <tr>
+        	<td colspan="4"><hr></td>
+        </tr>
+        
+        </p>
+        
+      </td>
+    </tr>
+  </table>
+  
+</blockquote>
+
+</body>
+
+</html>

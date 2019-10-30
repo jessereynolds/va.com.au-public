@@ -1,0 +1,116 @@
+<html>
+<head>
+<base href="<output name="base" altvar="http_referer">">
+<title>Soupermail Looping Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body bgcolor="white" text="black">
+<h1>Looping in Templates</h1>
+
+<p>This page shows the use of &lt;loop&gt; 
+blocks in a template.</p>
+
+<p>A simple loop that counts from one to ten:<br>
+<b>&lt;loop name="loop1" start="1" end="10"&gt;
+@loop1@ &lt;/loop&gt;</b><br>
+<loop name="loop1" start="1" end="10">
+@loop1@ </loop>
+</p>
+
+<hr>
+<p>The same loop, backwards:<br>
+<b>&lt;loop name="loop1" end="1" start="10" step="-1"&gt;
+@loop1@ &lt;/loop&gt;</b><br>
+<loop name="loop1" end="1" start="10" step="-1">
+@loop1@ </loop>
+</p>
+
+<hr>
+<p>A loop, but with a step:<br>
+<b>&lt;loop name="loop2" start="1" end="10" step="0.7"&gt;
+@loop2@ &lt;/loop&gt;</b><br>
+<loop name="loop2" start="1" end="10" step="0.7">
+@loop2@ </loop>
+</p>
+
+<hr>
+
+<only if="!dorows">
+<p>Nested loops that print a multiplication table:<br>
+&lt;table border="1" cellpadding="3" cellspacing="0"&gt;<br>
+<b>&lt;loop start="1" end="10" name="y"&gt;</b><br>
+&lt;tr&gt;<br>
+&lt;td&gt;&lt;input type="checkbox" name="row" checked="checked" value="<b>@y@</b>"&gt;&lt;/td&gt;<br>
+<b>&lt;loop start="1" end="10" name="x"&gt;</b><br>
+&lt;td&gt;&lt;output name="SoupermailConf" math="<b>@x@ * @y@</b>"&gt;&lt;/td&gt;<br>
+<b>&lt;/loop&gt;</b><br>
+&lt;/tr&gt;<br>
+<b>&lt;/loop&gt;</b><br>
+&lt;/table&gt;
+</p>
+
+<p>Notice how the values @x@ and @y@ are expanded in the loop BEFORE
+the &lt;output&gt; element is used. This means you can use the
+@<i>name</i>@ value to specify form fields that contain numbers.</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="<output name="http_config_path">looping.con">
+<input type="hidden" name="dorows" value="1">
+<input type="hidden" name="base" value="<output name="http_referer">">
+<table border="1" cellpadding="3" cellspacing="0">
+<loop start="1" end="10" name="y">
+<tr>
+<td><input type="checkbox" name="row" checked="checked" value="@y@"></td>
+<loop start="1" end="10" name="x">
+<td width="9%"><output name="SoupermailConf" math="@x@ * @y@"></td>
+</loop>
+</tr>
+</loop>
+</table>
+<input type="submit" value="Show Selected Rows Only">
+</form>
+</only>
+
+<only if="dorows">
+<p>These are the rows (<output name="row" list="text" delim=",">)
+that you selected on the previous form. This shows how you
+can loop on a form field with multiple values.<br>
+&lt;table border="1" cellpadding="3" cellspacing="0"&gt;<br>
+<b>&lt;loop name="y" <font color="red">field="row"</font>&gt;</b><br>
+&lt;tr&gt;<br>
+<b>&lt;loop start="1" end="10" name="x"&gt;</b><br>
+&lt;td width="10%"&gt;&lt;output name="SoupermailConf" math="<b>@x@ * @y@</b>"&gt;&lt;/td&gt;<br>
+<b>&lt;/loop&gt;</b><br>
+&lt;/tr&gt;<br>
+<b>&lt;/loop&gt;</b><br>
+&lt;/table&gt;
+</p>
+<table border="1" cellpadding="3" cellspacing="0">
+<loop name="y" field="row">
+<tr>
+<loop start="1" end="10" name="x">
+<td width="10%"><output name="SoupermailConf" math="@x@ * @y@"></td>
+</loop>
+</tr>
+</loop>
+</table>
+</only>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="looping.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="looping.txt">looping.txt</a>.</p>
+</body>
+</html>

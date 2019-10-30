@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Soupermail Dynamic Filenames</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Dynamic Filenames</h1>
+
+<p>This page will demonstrate how a ref value can be used to dynamically
+alter the fileto config option.
+</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="reftest.con">
+
+Your Name: <input type="text" name="your_name" size="15"> <p>
+Save the data encrypted? <input type="checkbox" name="encrypt" value="yes"><br>
+Encrypt with: <select name="pgpversion">
+<option value="gpg">GNUPG</option>
+<option value="pgp2">PGP 2</option>
+<option value="pgp5">PGP 5</option>
+</select><br>
+Remember, to use encryption, you should have set the 
+<code>$pgpSet</code> variable in soupermail.pl.
+
+<p>
+
+<input type="submit" value="Send &gt;">
+</form>
+
+</body>
+</html>
+

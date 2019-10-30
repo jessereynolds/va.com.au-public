@@ -1,0 +1,43 @@
+<html>
+<head>
+<base href="<output name="ref">">
+<title>Database example, part 2 (delete)</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>Database example, part 2 (delete)</h1>
+
+<p>This form is used to delete an entry from the table
+<b>testac</b>.
+</p>
+
+<div>
+<form method="post" action="/cgi-bin/soupermail.pl">
+Delete ID: <output name="delid" type="html">?<br>
+<input type="hidden" name="SoupermailConf" value="<output name="http_config_path" post="dbi3b.con">">
+<input type="hidden" name="ref" value="<output name="ref" type="html">">
+<input type="hidden" name="delid" value="<output name="delid" type="html">">
+<input type="submit" value="Delete">
+</form>
+</div>
+
+<p>
+Return <a href="/cgi-bin/soupermail.pl?SoupermailConf=<output name="http_config_path" post="dbi.con" type="escaped">&ref=<output name="ref" type="escaped">">to the first database example</a>.
+Return <a href="index.htm">to the examples page</a>.</p>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="dbi2.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="dbi2b.txt">dbi2b.txt</a>.</p>
+</body>
+</html>

@@ -1,0 +1,3 @@
+SoupermailConf = reftest.con
+enc = pgp
+your_name = vittal aithal

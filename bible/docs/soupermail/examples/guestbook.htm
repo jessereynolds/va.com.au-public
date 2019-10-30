@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Soupermail Guestbook</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Guestbook</h1>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="guestbook.con">
+
+Your name: <input type="text" name="name" size="20"><br>
+Your email: <input type="text" name="Email" size="40"><br>
+Leave a message:<br>
+<textarea name="message" rows="10" cols="45" wrap="virtual"></textarea><p>
+
+Send confirmation email? <input type="checkbox" name="confirm" value="yes"><br>
+Clear old guestbook entries? <input type="checkbox" name="clearold" value="yes"><p>
+
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+

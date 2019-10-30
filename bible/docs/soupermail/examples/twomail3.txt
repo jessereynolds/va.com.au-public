@@ -1,0 +1,7 @@
+Thank You<output name="your_name" pre=" ">,
+
+Information on Grommets:
+-----------------------
+
+Unlike a Winnet, a Grommet is a little plastic eyelet used to protect
+tubes, or its something used in ear surgery.

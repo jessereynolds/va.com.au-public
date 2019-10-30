@@ -1,0 +1,116 @@
+<HTML>
+<HEAD><TITLE>Incoming Mail Information</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="View_SortandSelectIncomingMessages.html">previous</a>] [<a href="HowlongisIncomingMailSaved_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Incoming Mail Information</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · · <a href="View_SortandSelectIncomingMessages.html">View, Sort and Select Incoming Messages</a><br>
+· · · <a href="IncomingMailInformation.html"><font size=+0><b>Incoming Mail Information</b></font></a><br>
+· · · <a href="HowlongisIncomingMailSaved_.html">How long is Incoming Mail Saved?</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Incoming Mail Information</h3>
+On the first <I>Incoming Mail </I>web page, the following pieces of information are given for each message:</I><p>
+<B>ID <br></B>The unique message identifier that Lyris automatically assigns to each incoming mail message. Lyris uses this to track each message.  </B><p>
+<B>Date <br></B>The date on which Lyris received this message.</B><p>
+<B>From <br></B>The email address who sent this message.</B><p>
+<B>To <br></B>The name of the local user that this message was addressed to.</B><p>
+<B>Status <br></B>The current processing status of this message. "Done" means that this message has been fully processed. "New" means Lyris has not yet processed this message. Every 
+incoming mail message is automatically processed. 
+</B><p>
+If many messages are labeled as "new", this is an indication that your Lyris server is extremely busy.  Someone might be sending you a great deal of mail (perhaps that is an error on their part), or 
+perhaps your Lyris server is underpowered for the tasks you are assigning it (more memory should be added). 
+<p>
+Usually, Lyris is able to keep up with the incoming mail flow, and there should be very few incoming mail messages in the "new" status.<p>
+<B>List <br></B>If this incoming mail message referred to a particular mailing list, what mailing list was it.  For example, if someone asked to subscribe or unsubscribe from your mailing 
+list, change their settings, or send a post to your list, it will be marked as such.  
+</B><p>
+For security reasons, administrator commands related to a particular list are labeled as "listname-admin" and are not allowed to be seen by list administrators -- only the server administrator is 
+allowed to see these. This is a security precaution, so that a list administrator cannot see the login passwords of other administrators (who might have more security than they do) 
+<p>
+<B>Subject <br></B>The Subject: line of the email message.</B><p>
+If you click the <I>View Selected Message </I>button, all the information about the message are displayed. In addition to the above fields, the following fields are also given:</I><p>
+<B>Header <br></B>The complete message header of this email message.  </B><p>
+<B>Body <br></B>The complete body of this email message. Note that this is the raw text of the message, and is does not do any decoding of MIME, Uuencoded attachments, Printed-Quotable, or 
+any other kind of encoding. This is the message exactly as it is sent over the Internet. 
+</B><p>
+For this reason, you may see unfamiliar characters and codes that your email program normally translates for you.  Lyris does not decode these for you on this page because we want to be able to see 
+exactly what was sent, without trying to shield you from the reality of the email message. 
+<p>
+<B>Transaction Report <br></B>This field shows you detailed information about the processing status of this message.  Each step that occurred to this message is displayed, along with a 
+date/time stamp. This Transaction Report is extremely helpful in tracking down the cause of problems. 
+</B><p>
+Here is a sample transaction report:<p>
+<font face='Courier New'><ul>Mon, 07 Sep 1998 20:09:17 <br>- List posting had incoming mail ID: 20<p>
+Mon, 07 Sep 1998 20:09:21 <br>- Preparing to send to 1 recipients.<p>
+Mon, 07 Sep 1998 20:09:26 <br>- Successfully sent to 1 out of 1 recipients (100%) in 5 seconds<p>
+Mon, 07 Sep 1998 20:09:26 <br>- Done<p>
+</ul></font><B>Sent by Email <br></B>A "yes" or "no" value, indicating whether this message was received by email (or via News that is treated the same way), or via the Web Interface 
+(or the Perl API). 
+</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="IncomingMail.html">Incoming Mail</a><br>
+<li><a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+</td><td align=right valign=top>Page 180 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

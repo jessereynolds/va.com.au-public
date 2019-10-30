@@ -1,0 +1,7 @@
+# Final configuration file for the multipart form
+# example.
+
+required: Email
+mailto: "$form_Email"
+mailtemplate: multimail.txt
+gotosuccess: multidone.htm

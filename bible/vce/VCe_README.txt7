@@ -1,0 +1,393 @@
+VCe 2.0 README
+
+Current Version: 2.0a88
+Last Modified: 4 October 2001
+Maintained By: Jesse Reynolds, jesse@va.com.au
+
+This is a very minimal README for now. Note that Jesse got slack and didn't write any version history from 2.0a1 to 2.0a55, sorry about that. 
+
+
+-----------------------------------------------------------------------------
+WHAT IS IT?:
+-----------------------------------------------------------------------------
+
+The VCe (Virtual Community Engine) is a relational database driven application server aka content management system. Version 2 works with Cocoon XML Publishing Engine to further separate out style, logic, and content. 
+
+It is developed by Virtual Artists Pty Ltd, Adelaide Australia, beginning it's life in 1995. It was originally the concept of Dave Sag and Jesse Reynolds (VA). VCe2 concepts are due to Jesse Reynolds and Jo Bourne, with many thanks to Dave for nudging us in the direction of Cocoon and XML.
+ 
+
+-----------------------------------------------------------------------------
+INSTALLATION:
+-----------------------------------------------------------------------------
+
+You should be able to simply double-click on the file "VCE generic 2.0a57.comp" and have the VCe start up. You will be asked where the data file is, select the file "vce2_generic.data". 
+
+You will be asked a series of questions, most of which can be left as they are. Some will be more self-explanatory than others.
+
+You should see the three windows once the VCe has started up (two log windows and a old VA VCe picture in the custom window). 
+
+Change a few settings before doing much else. This is done by choosing "Edit Setting" from the "Site Admin" menu. Note that you may need to click on the "Custom" window if none of the menu's work. The first thing you should edit is the setting "super_domain" which should be the hostname of your macintosh VCe server, or it's IP address if you don't have a hostname configured for it. Everything else can then be configured from the superzone web interface. Note that you can enter the first part of a setting name and a list will be produced of all settings that match, eg try entereing "super" in the Edit Setting menu.
+
+Check that the web server has started up by going to (something like):
+
+http://yourmac.yourcompany.dom/
+
+which should load the dummy index.html file located in the webroot folder. Now try getting the VCe to send back some processes responses (ie not coming from flat files on your filesystem) with the following:
+
+http://yourmac.yourcompany.dom/vcegen.acgi$ping
+http://yourmac.yourcompany.dom/vcegen.acgi$whoami
+
+Now try logging in as the superuser, to the so called "superzone". you'll need the super_passwd that was set in the initial setup:
+
+http://yourmac.yourcompany.dom/vcegen.acgi$growth_frames
+
+If this works you'll get the superzone, which will allow you to check out the status page, and edit any of the core pages, chunks, and settings in your new VCe driven site. 
+
+Check out the database map in the docs folder within the webroot folder. 
+
+Cocoon:
+
+You'll now need to configure your cocoon to access the VCe, and configure the VCe so that it's rendering out xml files and ftp'ing them ont your cocoon server. I'm not going to detail how to do that here, instead please email support@vce.net and a VA consultant will be in touch to help you out. :-)
+
+
+
+
+-----------------------------------------------------------------------------
+Version History:
+-----------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------
+2.0a88
+4 October 2001
+
+Fixed a stupid blunder in the Purchases table, the field "name" was set to unique! Thus it produced an error -9998, which is "duplicated key" every time you tried to create a second purchase with a blank name, or otherwise duplicate name. DUH!
+
+
+-----------------------------------------------------------------------------
+2.0a87
+3 October 2001
+
+Don't have to be a superuser anymore to use the <_apply_to_one ..._> and <_apply_to_many ..._> tags, but do have to be logged in as a Member. 
+
+Fixed sequence numbers such that we only create a non-zero offset if there are no records in the database on startup. 
+
+
+-----------------------------------------------------------------------------
+2.0a86
+3 October 2001
+
+Extended the <_eval ..._> tag to now support multiply and divide, in addition to the addition and subtraction already supported. 
+
+Added new math tags, <_round number|decimals_>, <_trunc number|decimals_>, and <_int number_>. 'round' will round 'number' by the number of 'decimals' specified. trunc is similar, only it will only ever round down, eg:
+<_trunc 45.67|1_> -> "45.6". 'int' does a truncate with an implied zero decimal points, it only returning the integer part of the number, eg:
+<_int 45.67_> -> "45".
+
+
+-----------------------------------------------------------------------------
+2.0a85
+2 October 2001
+
+Added field "exInvoiceNumber" to Purchases. 
+
+
+-----------------------------------------------------------------------------
+2.0a84
+29 September 2001
+
+Fixed a bug in the setup / order code, introduced in a83, where nothing would be selected if no filters were sent from cocoon (as actually filters of value "null" would be sent thanks to Cocoon). 
+
+
+-----------------------------------------------------------------------------
+2.0a83
+27 September 2001
+
+Added Tuple Searching capability to the Order / Setup code. You can now specify the name of a tuple in the filter1Field, filter2Field and filter3Field. (!!!)
+
+Fixed a bug that meant that filterBO was not being included in links created by the pager tag. 
+
+Changed the behaviour of the Order / Setup code such that it assumes filterBO is "and" if not specified, instead of "or". 
+
+
+-----------------------------------------------------------------------------
+2.0a82
+19 September 2001
+
+Fixes some issues with Rank calculation.
+
+
+-----------------------------------------------------------------------------
+2.0a81
+19 September 2001
+
+Added a max number of links for the pager tag to return. This is by default 15, which can be overridden on a site-wide basis with the setting "pager_max_links_default". Also, you can supply an optional parameter to the pager tag with specifies an alternative maximum per instance, eg <_pager 15_>. Note that if the parameter doesn't resolve to a number then it is ignored and the site default is used instead. 
+
+Changed the type of all the rank fields from Long Integer to Real, as the algorithm used to set ranks (same as used in sort weighted) results in real numbers so granularity was being lost. 
+
+Added Purchases and Payments tables, for basic financial book-keeping.
+
+Changed the names of some fields in Performances: changed "theTime" to "startTime", changed "theDate" to "startDate", and added "endTime". 
+
+Added new tag <_limit ..._>. This tag is a replacement for <_constrain ..._> and is more rigid with it's rules. NOTE that this is not yet functional!!!
+Examples: 
+  <_limit [Members]blurb|words=10|lines=1_> - this will cut the field off after the 10th word, or at the end of the first line, whichever comes first.
+  <_limit [Members]blurb|lines=1_> - this will cut the field off at the end of the first line, with no limit on the number of words or characters. 
+  <_limit [Members]blurb|chars=80|lines=1_> - this will cut the field off after the 80th character (including spaces) or at the end of the first line, whichever comes first. the number of words is ignored.
+  <_limit [Members]blurb|lines=3|chars=200|words=50_> - this will cut the field off after the third line, or after the 200th character, or after the 50th word, whichever comes first. 
+
+Added the field postcodeIntl to Members, as a String of up to 40 chars long. This is because US and UK and probably other countries use postcodes that are much longer than the australian ones, and include non-numeric characters, such as letters and hyphins. [Members]postcode remains as an Integer (max val is 32,576) so one can search on australian postcode ranges. 
+
+Increased the lenghth of the [StoryTypes]smallName field from 20 to 80 chars. 
+
+
+
+-----------------------------------------------------------------------------
+2.0a80
+13 September 2001
+
+Added a tupleSet field into Groups which is a relation to [TupleSets]id, so you can now add tuples to Groups.
+
+Added the first few Multi tables, which will be used for multi-typing, and will also be used to replace the current sub-table based [Members]secGroups. eg [StoryTypesMulti] is a table with one to many relations to both [Stories] and [StoryTypes]. 
+
+
+
+-----------------------------------------------------------------------------
+2.0a79
+10 September 2001
+
+Added the following fields to Groups: ph, ph2, ph3, fax, contact, email (all alpha-80)
+
+Added "set ranks" function, which goes through all weightable tables and sets the new rank field of each record, according to the same forumula used in sort_weighted. Note that if the activeDays field is zero, then 0.1 is assumed, in order to give a very large value. This is performed during the daily render process each night, and also is callable with the superuser only page $fix-ranks
+
+
+
+-----------------------------------------------------------------------------
+2.0a75-78
+6 September 2001
+
+Got a bit slack with updating the readme, but here's what was added in that week...
+
+A whole bunch more fields to Events and Performances, including price1..price10 in Events, and priceCat1...priceCat10. 
+
+Altered setup_order -  added null token to get around bug in IE where it won't send through an input field if it's value is "", the token is: "Xvehxlw2pec7hd2qzlvX", and is interpreted as being empty.
+
+Added automatic resequencing, which in retrospect could be probablematic, and will likely be altered in a future version. The feature was added so that you can start the ID numbers "at 1 again" if you've deleted all records of that table and then reboot. How it works... when the VCe starts up now, it looks at the greatest ID number of each table, and compares it to the sequence number. If the numbers are different, it calculates and offset, which it applies to the sequence number to work out the ID Numbers of each new record. The possible problem with this, is that if you delete, say, the record with the highest ID number, and it had records in other tables related to it, then a new record which may inherit the old ID will be wrongly related to other pre-existing records. .... So the likely fix will be to ONLY alter the offset if there are actually no records in the table at all. 
+
+
+
+-----------------------------------------------------------------------------
+2.0a74
+29 August 2001
+
+Added better handling of startup errors, in particular if a plugin can't load or there's another startup problem, then you're still able to quit the VCe. Previously you couldn't quit in that situation without restarting the machine or doing a 'force quit'. 
+
+a73 also seemed to be compiled badly, as it wouldn't load the plugins when run up on a server. 
+
+
+-----------------------------------------------------------------------------
+2.0a73
+29 August 2001
+
+Wrote an action "fix-members-owner" which goes through all Members who have an empty owner field and sets it to the creator field if that is not null, or the ID field otherwise. You have to have authenticated as Superuser before you can call this action page.
+
+
+-----------------------------------------------------------------------------
+2.0a72
+29 August 2001
+
+Fixed bug introduced in a70 that meant update_Members page got <variable1> = 0, rather than the ID number of the Member just edited. 
+
+
+-----------------------------------------------------------------------------
+2.0a71
+26 August 2001
+
+WebCT integration complete. 
+
+-----------------------------------------------------------------------------
+2.0a70
+24 August 2001
+
+added fields "owner" and "group" to Members. The value is copied from the member's creator if it exists, otherwise the member's id, if owner is empty. This occurs when the record is being assessed for read or write permission by the current user. 
+
+Fixed some problems with the extra fields to venues not working properly, as there were longer than the previously supported 17 characters. The code now can deal with 
+
+
+-----------------------------------------------------------------------------
+2.0a69
+23 August 2001
+
+Added fields to Events table: status6 ... status10
+
+Added fields to Venues, too many to mention, mostly to do with contact details, postal address, capacity, disability access, etc. 
+
+Added field to Members table: event, which has a relation to [Events]id.
+
+Fixed the <_age_years date_> tag so that it it calculates ages properly. (!)
+
+Added the begginings of the code to interface with WebCT servers for the creation and updating of users in WebCT as they are created and updated in the VCe. 
+
+
+-----------------------------------------------------------------------------
+2.0a68
+20 August 2001
+
+Added text cleaning to <my_name>, <my_fname>, <my_sname>, and <my_uname> (ie converting ampersands to their unicode escape etc.
+
+Added web function $fix-current which goes through every table and sets the current flag based on the values for pubDate activeDays, and the current date.
+
+Can now filter on booleans, dates, times, and numbers, in any filter position...
+
+Rewrote the 'parse setup' procedure, so that you can now specify filters in any of position 1, 2, or 3, and the same for orderings. Previously if you missed out filter 1 then subsequent filters would be ignored, returning everything. 
+
+Made a fix to the make current procedure so that it will now properly make all current items otherRead=TRUE if the setting "current_is_public" is created and has value TRUE.
+
+
+-----------------------------------------------------------------------------
+2.0a67
+20 August 2001
+
+Fixed the sort weighted bug, should now work for all non-type tables. 
+
+Removed NetLink plugin from plugins folder, and removed all calls to NetLink procedures (*yay*).
+
+Installed various Deep Sky Technologies componenets, including BASh, TCP Deux, and HTTP Client Deux. (see http://www.deepskytech.com for more details on what these do). Note that this involves changing the version of the ITK v2.0.4 plugin to their version, which has stubs for v2.5 methods not supported in 2.0.4, so the version of ITK in your plugins folder needs to be updated with the new version. Also, give new plugin-like things need to be in your plugins folder, they are: 4D Pack (4dp_v671), Affix_BASh, Affix_HTTPc_Deux, Affix_TCP_Deux, and ic_s671 (Internet Commands stubs). So the complete list of things that should be in your plugins folder is now:
+
+	4dp_v671
+	ACI_Pack
+	Affix_BASh
+	Affix_HTTPc_Deux
+	Affix_TCP_Deux
+	FilePack
+	ic_s671
+	itkp_v204
+
+A few other things as well I think...
+
+-----------------------------------------------------------------------------
+2.0a66
+27 July 2001
+
+Fixed the "current" bug, where things would become uncurrent a day late. (Yet to be tested).
+
+Fixed the cutoff problem in the sort weighted tag, eg <_sort_weighted Members|6_> - if you included a cutoff the VCe would return an error 53 (indice out of range error)
+
+Added the ability to use "mailfrom" and "mailbcc" fields in "submit and mail" pages, in order to specify a custom email From: header. Note that Bcc: is not yet fully implemented (need to check the SMTP RFC for Bcc and add to smtp send mail)
+
+
+----------------------------------------------------------------------------
+2.0a65
+15 July 2001
+
+Altered the quit procedure such that if the log process has died it can still quit successfully (!). 
+
+Altered the 'new agent' procedure such that you can now specify an optional 5th parameter, which is the label to give the new process. This was done so that the log agent process can be more easily identified by the quit procedure to see if it's still running or not. Also, I have removed the stacksize from the process label when leaving new agent to create it's own process label, as it was chopping off anyway on some processes. 
+
+
+
+-----------------------------------------------------------------------------
+2.0a64
+15 July 2001
+
+Fixed the date bug introduced with a60. Date fields split into three separate input fields for day month and year, and where the month was of the form "Jan" etc, were not working. If they used the form "01" etc they would have worked. 
+
+Changed the type of the fields status1, status2,... status5 from Integer to String 80 in the Events, Venues and Members tables. 
+
+Added spare1, spare2, ... spare5, type String 80, to the Media table.
+
+
+
+-----------------------------------------------------------------------------
+2.0a63
+29 June 2001
+
+It seems the automatic history logging feature introduced in a62 does not work. However I have make changes which should now mean it works properly. 
+
+I have made a minor alt to the debug logging (blurting) in http_Master, and smtp send mail. 
+
+I have made some fixes to the tuple tags as they were referencing the old "tuple set" field name, rather than the new VCe "tupleSet" field name. This would have affected <_select_similar ..._>, <_select_matching .._>, <_new_tuple_set ..._> and possibly some others. 
+
+
+
+-----------------------------------------------------------------------------
+2.0a62
+27 June 2001
+
+Added automatic history logging. Now all tables with the history field will have it automatically updated with a timestamp including the person that's just edited the thing. You can include a history field in edit forms as well, and this text will be included in the latest timestamp. the new timestamp gets added to the top of the history field. Note that the history field is a text field with a max length of 32k characters. I believe the oldest history entries will be lost as you go over 32k characters but this needs to be tested. ;-)
+
+
+-----------------------------------------------------------------------------
+2.0a61
+27 June 2001
+
+Added the fields status1, status2, status3, status4, and status5 to Events, Venues, and Members.
+
+
+-----------------------------------------------------------------------------
+2.0a60
+25 June 2001
+
+Fixed a bug introduced in a58 where the receiving of dates started ignoring months in the format "Jan", which the <_popup date_> tag generates. :-)
+
+
+
+-----------------------------------------------------------------------------
+2.0a59
+25 June 2001
+
+Hopefully have now really fixed the <_age_years ..._> tag. In a58 the age_years tag started returning nothing even for valid ages. It should now be fixed.
+
+if tag and testing for fields equal to search_less... I believe I have now fixed the very weird selection bug where the if tag would give the wrong result when testing for a particular field value of the current selected record, where that value is the same as the search_less value, and where there is at least one name=value pair after the search_less value. eg, if you go to the URL:
+   http://vce.yourdomain.dom/vcegen.acgi$tester_members?17302&name=value
+and then tested to see if [Members]id=17302 with the if tag as follows:
+   <_if [Members]id=17302_>OOPS<_/if [Members]id=17302_>
+Then you would get the wrong result if 17302 was in fact selected. 
+This was being caused by the if tag evaluating the 17302 as a form field name and it therefore replacing it with the value of this form field, which of course is null, and then testing if 17302="" which is of course false. I have fixed this by altering the detection of a form field such that it specifically decides it is not a form field if it is the same as search_less. (The VCe 4D  procedure I edited was "is it form").
+
+
+-----------------------------------------------------------------------------
+2.0a58
+24 June 2001
+
+Date popups in forms are now required to have 1 or 2 chars in the _day field, 1 or 2 chars in the _month field, and exactly 4 chars in the _year field, or the new date will not be saved. 
+
+<_age_years ..._> now returns a number between 0 and 150 (in text form) if the age calculation results in an age between 0 and 150. Negative years are not allowed and return nothing, as to ages over 150. 
+
+<_extract_tuple_value ..._> and <_display_tuple_value ..._> - made a very small alteration to 'extract tuple' and 'parse tuples' which means there's now no duplication of 'clean html' when using <_display_tuple_value ...>. This should not affect the functionality of the VCe in any way. ('clean html' is the VCe engine internal procedure which converts & to &#038; and cleans some other special characters, including double quotes etc)
+
+<_popup priority..._> can now be given a table name. <_popup priority_> used to assume the Stories table, but now that we have added the priority field to most VCe tables, we need to also extend this tag. So now you can go either <_popup priority|table_name_> (where table_name is a valid VCe table) or <_popup priority_> which is the same as <_popup priority|Stories_>.
+
+Hopefully now fixed the ReallyTheType bug. This feature should now work properly. 
+You can use an input field of name "ReallyTheType" to save a value to a field called "type" as a workaround for Cocoon, which doesn't allow input fields to be called "type" unfortunately.
+
+
+-----------------------------------------------------------------------------
+2.0a57
+22 June 2001
+
+Fixed the render bug introduced in a56. 
+
+Added the following text fields to all used tables: moreInfo, notes, history. Note that history will be used in the future by the VCe to store brief info about all updates to a record. 
+
+Fixed <_table_type ..._> and <_table_of_type ...> - Stories, StoryTypes, Media, and MediaTypes were returning table names beginning with a lowercase character, which is wrong and of course cocoon was having problems with it. 
+
+Order Variables are now available in swap tags, ie orderTable, howMany, pageNumber, filter1Term, filter1Method, filter1Field, order1Field, order1Direction, etc. 
+
+Fixed <_pager ..._>'s text limit, it now sends out each page entry one by one instead of building them all up into a text variable and spitting them out in one go (which was hitting 4d's 32k text var limit
+
+<_popup dob_> no contains nothing in the year field if the date was already blank, whereas we used to put "19" in the year, which resulted in dates such as "1 Jan 2019" - not the best. 
+
+Sticky debug_mode fixed. There was a bug where if debug_mode was set to on when the VCe started up then you it wouldn't go off if you changed the setting to "off". This is now fixed. 
+
+
+-----------------------------------------------------------------------------
+2.0a56
+19 June 2001
+
+In this release I attempted to address the issue Tim was having where some table selections were not being cleared between each page when doing a rerender_all. However this introduced a nasty bug which broke rendering of more than one page at a time. 
+
+Double quotes in text. In <_field ...> and <_field_clean ...> We now convert all double quotes to single quotes within valid HTML tags, and all other double quotes are converted to their unicode escape. This is to avoid cocoon having problems with things like:
+<input name="thing" value="hey i'm really "stupid"">
+
+Pager now passes verb instead of orderVerb so that you can send edit, remove, display etc as verbs for the order pages. 
+

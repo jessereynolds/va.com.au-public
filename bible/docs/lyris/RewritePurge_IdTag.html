@@ -1,0 +1,105 @@
+<HTML>
+<HEAD><TITLE>Rewrite Purge-Id Tag</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Auto_HoldUsers.html">previous</a>] [<a href="ServerDocuments.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Rewrite Purge-Id Tag</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · · <a href="Activationcodeandadmincontact.html">Activation code and admin contact</a><br>
+· · · <a href="TCP_IPSettings.html">TCP/IP Settings</a><br>
+· · · <a href="MailReceivingSettings.html">Mail Receiving Settings</a><br>
+· · · <a href="MailDeliverySettings.html">Mail Delivery Settings</a><br>
+· · · <a href="LyrisCommandProtocol_LCP_Settings.html">Lyris Command Protocol (LCP) Settings</a><br>
+· · · <a href="ProgrammingExtensionsattheServerLevel.html">Programming Extensions at the Server Level</a><br>
+· · · <a href="Newsgroups.html">Newsgroups</a><br>
+· · · <a href="MiscellaneousServerConfigSettings.html">Miscellaneous Server Config Settings</a><br>
+· · · · <a href="Auto_HoldUsers.html">Auto-Hold Users</a><br>
+· · · · <a href="RewritePurge_IdTag.html"><font size=+0><b>Rewrite Purge-Id Tag</b></font></a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Rewrite Purge-Id Tag</h3>
+In Lyris version 2.5x, a footer was by default appended to list postings which included the recipient's email address in square brackets, like so: [email@somewhere.com].  The 
+instructions for unsubscribing in that version was to forward a posting to the unsubscribe address, where Lyris would read this [email@somewhere.com] and unsubscribe the correct person 
+automatically. 
+<p>
+As of v3.0, this method of unsubscribing is obsolete, but still provided for backwards compatibility.  In v3.0, each recipient has their own private unsubscribe address that looks like this: 
+unsubscribe-jazztalk-34234P@lyris.net.  
+<p>
+With version 2.5x, if someone replied to a message on a list, and included their [email@somewhere.com] tag, Lyris needed to remove the square brackets around the email address. If Lyris did not, 
+then a message would be posted to the list with the original recipient's [email@somewhere.com] in it, followed by the new recipient's [email@somewhere.com] address. Then, when people would try to 
+unsubscribe, they might inadvertently unsubscribe the wrong person.  
+<p>
+For this reason, Lyris looks for [email@somewhere.com] in the body of messages and automatically removes the square brackets.  As of v3.0 this behavior is no longer needed, but people who created 
+their lists using version 2.5x often still have the old unsubscribe directions, and so Lyris needs to continue this behavior. 
+<p>
+If you are only using the new unsubscribe mechanism, and not including the [email@somewhere.com] footer in the bottom of list postings, then you can safely disable the "Rewrite Purge-Id Tag" so 
+that Lyris does not rewrite the body of messages where [email@somewhere.com] is detected. 
+<p>
+Note: in rare cases a message is posted with an email address in square brackets that was not created with Lyris, and in that case, Lyris still removes the square brackets. This can be confusing to 
+the list members, and so this option can disable the Lyris behavior. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MiscellaneousServerConfigSettings.html">Miscellaneous Server Config Settings</a><br>
+<li><a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+</td><td align=right valign=top>Page 150 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

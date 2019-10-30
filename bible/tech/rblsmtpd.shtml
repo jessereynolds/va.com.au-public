@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+<title>The Bible - RBLSMTPD</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+
+<!--#include virtual="/bible/nav.html" -->
+
+<blockquote> 
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">rblsmtpd </font></p>
+        
+        <p>&nbsp;</p>
+<br>        
+RBLSMTPD
+<br><br>
+To permit a SMTP server connection without checking against RBL 
+add to the tcp.smtp rules (in the case of VA is /usr/local/vpopmail/etc/tcp.smtp)
+<br><br>
+123.122.121.:allow,RBLSMTPD=""
+<br>
+Above will allow 123.122.121.0/24 ip address range RBL free sending.
+<br><br>
+Allow a client to relay
+<br>
+123.123.123.123:allow,RELAYCLIENT=""
+<br>
+Above will allow only 123.123.123.123 ip address to Relay though the system
+<br><br>
+Allow a client to relay and RBL without checking
+<br>
+123.123.123.123:allow,RELAYCLIENT="",RBLSMTPD=""
+
+      </td>
+    </tr>
+  </table>
+  
+</blockquote>
+
+</body>
+
+</html>

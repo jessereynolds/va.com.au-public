@@ -1,0 +1,18 @@
+# This is a simple example of using counters in a 
+# config file.
+
+# The use of the blank template is useful here, because we're
+# not actually sending any data in the form.
+gotoblank : "counter2.txt?counter=$counter_1&ref=${form_SoupermailConf}"
+
+# Set up the counterfile
+counter1file : counters/counter2
+
+# Do stuff with the counter on a blank return
+counter1onblank: yes
+
+# increase the counter by 1 (this is the default anyway)
+counter1step: 1
+
+# use the counter in the reference number
+ref: ref%counter_1%-%yyyy%-%mmm%-%dd%

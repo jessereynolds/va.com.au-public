@@ -1,0 +1,46 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>File Saving Results</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>File Saving Results</h1>
+
+<p>The values you just sent should have been placed in
+<a href="counters/fileto.txt">counters/fileto.txt</a>
+</p>
+
+<p>Some things to notice about the file template 
+<a href="filetotpl.txt">filetotpl.txt</a>:</p>
+
+<ul>
+<li>This is making a comma separated file suitable for reading into Excel.
+<li>I am doubling up quote marks using the <b>charmap</b> attribute.
+<li>Values from the form's textarea have newlines removed using the
+<b>newline</b> attribute.
+<li>There's a newline character at the end of the template to make
+new extries appear on a new line.
+<li>The multiple values of the checkboxes are joined together by commas using
+the <b>list</b> and <b>delim</b> attributes.
+</ul>
+
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="fileto.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="fileto.txt">fileto.txt</a>.</p>
+</body>
+</html>

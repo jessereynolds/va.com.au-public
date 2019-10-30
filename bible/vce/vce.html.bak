@@ -1,0 +1,41 @@
+<html>
+
+<head>
+
+<title>The Bible - VCe</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+<p><font face="Verdana, Arial, Helvetica, sans-serif"><img src="/bible/bible_header.gif" width="709" height="142" border="0" usemap="#bible_header_nav.map"></font></p>
+<blockquote> 
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">all about the good old vce </font></p>
+        
+        <p>wanna see <a href="vce_general.html">general punter guff</a> about the vce?</p>
+        <p>wanna see <a href="VCe2_Structure_2.0a69.pdf">a pdf diagram</a> of the vce's current structure?<br>
+        (look out - it's a whopper!)</p>
+        <p>so far jesse has made 7 vce readme's and here they all are:<br><a href="VCe_README.txt1">#1 - 09.07.01</a>.....<a href="VCe_README.txt2">#2 - 16.07.01</a>.....<a href="VCe_README.txt3">#3 - 20.08.01</a>......<a href="VCe_README.txt4">#4 - 23.08.01</a>.....<br>
+        <a href="VCe_README.txt5">#5 - 13.09.01</a>.....<a href="VCe_README.txt6">#6 - 27.09.01</a>.....<a href="VCe_README.txt7">#7 - 04.10.01</a>.....<a href="VCe_README.txt8">#8 - 20.11.01</a><br>
+ 
+        </p>
+      </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p><font face="Arial, Helvetica, sans-serif"><map name="bible_header_nav.map">
+      <area shape="rect" coords="9,23,152,106" href="/bible/index.html" alt="Home">
+      <area shape="rect" coords="160,107,223,134" href="/bible/ftp/ftp.html" alt="FTP Info">
+      <area shape="rect" coords="238,107,282,134" href="/bible/faq/faq.html" alt="FAQ's">
+      <area shape="rect" coords="298,107,368,134" href="/bible/office/office.html" alt="Office Info">
+      <area shape="rect" coords="388,107,458,134" href="/bible/tech/tech.html" alt="Tech Maps">
+      <area shape="rect" coords="476,107,537,134" href="/bible/general/general.html" alt="General Info">
+      <area shape="rect" coords="553,107,617,134" href="/bible/vce/vce.html" alt="VCe">
+    </map> </font></p>
+</blockquote>
+</body>
+
+</html>

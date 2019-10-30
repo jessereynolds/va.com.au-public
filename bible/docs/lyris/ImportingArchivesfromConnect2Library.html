@@ -1,0 +1,80 @@
+<HTML>
+<HEAD><TITLE>Importing Archives from Connect2Library</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="ImportingMailingListArchives.html">previous</a>] [<a href="Troubleshooting.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Importing Archives from Connect2Library</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · · <a href="ImportingEmailAddresses.html">Importing Email Addresses</a><br>
+· · · <a href="ImportingMailingListArchives.html">Importing Mailing List Archives</a><br>
+· · · <a href="ImportingArchivesfromConnect2Library.html"><font size=+0><b>Importing Archives from Connect2Library</b></font></a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Importing Archives from Connect2Library</h3>
+Lyris comes with a program, named "imp-c2l.pl" to import mailing list archives from the DOS-based list server program named "Connect2Library".<p>
+Each message is stored one after another in a file, with a long list of dashes separating each messages.  You can import as many mail files as you have.<p>
+The messages will be full text indexed and appear in Lyris as old messages, as if they had been created in Lyris.  They can be searched from the Lyris Web Interface as well as by email.<p>
+You run this program from the command line.  To run it you need to specify the mailing list name, and the names of the text files you want to import.  For example:<p>
+<font face='Courier New'><ul>perl imp-c2l.pl jazztalk 02-1997.msg <br>perl imp-c2l.pl jazztalk 0297.msg 0397.msg 0497.msg <br>perl imp-c2l.pl jazztalk *.msg<p>
+</ul></font>You can specify as many text files to import as you like.<p>
+This program is available in the "extra" section of our FTP site, at:<p>
+<font face='Courier New'><ul>ftp://ftp.lyris.com/extra/<p>
+</ul></font>Once you download imp-c2l.pl, you should copy it to your CGI directory,  which is the same directory where "lyris.pl" is located on your web server.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+</td><td align=right valign=top>Page 485 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

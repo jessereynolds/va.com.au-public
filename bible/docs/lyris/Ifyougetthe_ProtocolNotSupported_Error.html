@@ -1,0 +1,95 @@
+<HTML>
+<HEAD><TITLE>If you get the "Protocol Not Supported" Error</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">previous</a>] [<a href="IfLyrisWillNotRun.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>If you get the "Protocol Not Supported" Error</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · · <a href="BasicUnixInstallationInstructions.html">Basic Unix Installation Instructions</a><br>
+· · · <a href="AfterInstallingLyrisonUnix.html">After Installing Lyris on Unix</a><br>
+· · · <a href="GettingHelp.html">Getting Help</a><br>
+· · · <a href="HowtoInstallLyrisbyHand.html">How to Install Lyris by Hand</a><br>
+· · · <a href="HowtoUpgradeLyrisbyHand.html">How to Upgrade Lyris by Hand</a><br>
+· · · <a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">How to Install the Web Interface on a separate machine</a><br>
+· · · · <a href="Ifyougetthe_ProtocolNotSupported_Error.html"><font size=+0><b>If you get the "Protocol Not Supported" Error</b></font></a><br>
+· · · <a href="IfLyrisWillNotRun.html">If Lyris Will Not Run</a><br>
+· · · <a href="UnixDirectoryPermissionsNeeded.html">Unix Directory Permissions Needed</a><br>
+· · · <a href="MakingyourUnixMailServerandLyriscoexist.html">Making your Unix Mail Server and Lyris coexist</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>If you get the "Protocol Not Supported" Error</h3>
+If running "perl lyris.pl" gives you this error:<p>
+<font face='Courier New'><ul># perl lyris.pl <br>Content-type: text/html<p>
+create socket failed: Protocol not supported <br>Died at lyrislib.pl line 183.<p>
+</ul></font> then it is likely that you copied by hand the "lyrislib.pl" to/from a Solaris machine, and that you need to make a slight modification to it to have it work on your system.<p>
+TCP/IP sockets on Solaris have slightly different values than on other platforms that is why the "lyrislib.pl" file must be changed if it comes from or to a Solaris system. When we ship the Lyris for 
+a particular platform, we provide the correct values. However, if you copy the lyrislib.pl file by hand, you might not have the right values. 
+<p>
+To fix this problem open up the "lyrislib.pl" file in a text editor, and around line 120, you will see lines that say:<p>
+<font face='Courier New'><ul>################# <br># SOLARIS socket values <br>$lyris::AF_INET  = 2; <br>$lyris::SOCK_STREAM  = 2;<p>
+################# <br># WINDOWS (and most others) socket values <br>#$lyris::AF_INET = 2; <br>#$lyris::SOCK_STREAM = 1;<p>
+</ul></font>if you are on a Solaris system, make sure that the top lines are the ones without the pound sign in front of each line, (which is how it is displayed above). If you are on a 
+non-Solaris system, make sure that the bottom values do no have pound signs, but that the Solaris ones do, as in 
+<p>
+<font face='Courier New'><ul>################# <br># SOLARIS socket values <br>#$lyris::AF_INET  = 2; <br>#$lyris::SOCK_STREAM  = 2;<p>
+################# <br># WINDOWS (and most others) socket values <br>$lyris::AF_INET = 2; <br>$lyris::SOCK_STREAM = 1;<p>
+</ul></font>save the file, and run "perl lyris.pl".  If you still get the "protocol not supported" error, then it is likely that you have more than one copy of "lyrislib.pl" on your system. 
+Make sure you that the other copies have this patch as well. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="HowtoInstalltheWebInterfaceonaseparatemachine.html">How to Install the Web Interface on a separate machine</a><br>
+</td><td align=right valign=top>Page 464 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

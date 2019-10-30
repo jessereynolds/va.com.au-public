@@ -1,0 +1,29 @@
+# Set up the format for the reference number
+# This is the date and a counter value
+ref: %yyyy%%mmm%%dd%-%counter_1%
+
+# Set up where the counter data's coming from, and
+# when it gets updated
+counter1file: counters/reftest.txt
+counter1onsuccess: yes
+
+# Set up where to save the file to. The fileto used has
+# variable replacement, but formats can also be used directly,
+# so the following line is equally valid
+# fileto: counters/reftest/%yyyy%%mmm%%dd%-%counter_1%.txt
+fileto: "counters/reftest/$http_ref.txt"
+
+# Make sure we can read the file from the web
+filereadable: yes
+
+# Go to the followon page
+success: reftest.txt
+
+# For security, data in files can be encrypted
+if: encrypt eq "yes" then filepgpuserid: vittal.aithal@bigfoot.com
+if: pgpversion eq "gpg"  then pgpversion: gpg
+if: pgpversion eq "pgp2" then pgpversion: pgp2
+if: pgpversion eq "pgp5" then pgpversion: pgp5
+
+# i've got a pgp2 key for v@aithal.org - the pgp2 can't handle the other key
+if: pgpversion eq "pgp2" then filepgpuserid: v@aithal.org

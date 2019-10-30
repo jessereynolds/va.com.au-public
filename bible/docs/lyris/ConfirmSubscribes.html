@@ -1,0 +1,109 @@
+<HTML>
+<HEAD><TITLE>Confirm Subscribes</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Confirmations.html">previous</a>] [<a href="ConfirmUnsubscribes.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Confirm Subscribes</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· · <a href="OverviewofSiteAdministrator.html">Overview of Site Administrator</a><br>
+· · <a href="SiteAdminMenu.html">Site Admin Menu</a><br>
+· · <a href="SiteInfo.html">Site Info</a><br>
+· · <a href="Topics.html">Topics</a><br>
+· · <a href="MailingLists.html">Mailing Lists</a><br>
+· · · <a href="MailingListsFirstPage.html">Mailing Lists First Page</a><br>
+· · · <a href="BasicInformation.html">Basic Information</a><br>
+· · · <a href="World_Wide_WebUrls.html">World-Wide-Web Urls</a><br>
+· · · <a href="HeadersandFooters.html">Headers and Footers</a><br>
+· · · <a href="SecurityforSubscribers.html">Security for Subscribers</a><br>
+· · · <a href="SecurityofListInformation.html">Security of List Information</a><br>
+· · · <a href="Confirmations.html">Confirmations</a><br>
+· · · · <a href="ConfirmSubscribes.html"><font size=+0><b>Confirm Subscribes</b></font></a><br>
+· · · · <a href="ConfirmUnsubscribes.html">Confirm Unsubscribes</a><br>
+· · · <a href="PostingPrivilegesandModeration.html">Posting Privileges and Moderation</a><br>
+· · · <a href="Documents.html">Documents</a><br>
+· · · <a href="Limits.html">Limits</a><br>
+· · · <a href="EmailHeaders.html">Email Headers</a><br>
+· · · <a href="Archives.html">Archives</a><br>
+· · · <a href="ErrorMailHandling.html">Error Mail Handling</a><br>
+· · · <a href="Informational.html">Informational</a><br>
+· · · <a href="ProgrammingExtensionsattheListLevel.html">Programming Extensions at the List Level</a><br>
+· · · <a href="MiscellaneousListConfigSettings.html">Miscellaneous List Config Settings</a><br>
+· · · <a href="Limits_changeableonlybysiteadmin_.html">Limits (changeable only by site admin)</a><br>
+· · <a href="SiteDocuments.html">Site Documents</a><br>
+· · <a href="SiteActionPhrases.html">Site Action Phrases</a><br>
+· · <a href="Auto_Responder.html">Auto-Responder</a><br>
+· · <a href="SitePeople.html">Site People</a><br>
+· · <a href="SiteAdminLog.html">Site Admin Log</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Confirm Subscribes</h3>
+(optional) Defines whether new members receive a confirmation request when joining the mailing list.  The confirmation request will be an email message telling the person that they have 
+requested to join this mailing list, and the person will have to respond to the confirmation message in order to become a full member.  The new member's status will be set to <I>confirm</I> until 
+the confirmation response is received, and the person will not receive mail from the mailing list until the confirmation is received.  
+</I><p>
+Confirmation serves several purposes.  It is quite common for people to mistype their email address when subscribing to a mailing list using the Lyris Web Interface.  Without confirmation, the Lyris 
+Server would waste effort trying to send mail to this incorrect address. 
+<p>
+Another need for confirmation is to counter a common form of Electronic Terrorism.  The Terrorist will sign someone they wish to harm to many mailing lists (perhaps several hundred), and that person 
+will then be flooded with unwanted electronic mail, such that they will be unable to accomplish any work with that email address.  If that person's email server is not perfectly configured, the act 
+may crash the person's email server, use vast qualities of Internet bandwidth, or prohibit other people sharing the email server from receiving their email.  
+<p>
+The Confirmation feature blocks this form of Electronic Terrorism.  If the Terrorist subscribes someone to 100 Lyris mailing lists (all with <I>Confirm </I>set to <I>Yes</I>), the person will 
+receive 100 confirmation messages, but no more mail after that.  If the person does not respond to the subscription confirmation messages (as they should not), their memberships will not be 
+activated.  
+</I><p>
+We highly recommend that all Open mailing lists use the Confirm feature, as this form of Electronic Terrorism is quite common, and is very bothersome to the victim.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Confirmations.html">Confirmations</a><br>
+<li><a href="PurgeUnconfirmed.html">Purge Unconfirmed</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+</td><td align=right valign=top>Page 238 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

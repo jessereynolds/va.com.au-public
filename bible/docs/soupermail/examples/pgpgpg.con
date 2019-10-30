@@ -1,0 +1,29 @@
+# The line below ensures that an email address has been given
+required : Email
+
+# The line below specifies a template to use upon success
+success  : pgpgpg.txt
+
+# The line below lets Soupermail know who to send the message
+# to. Its actually the value of the Email field from the form
+mailto   : "$form_Email"
+
+# this sets the subject of the email
+subject: "This is a test using PGP"
+
+# This is a user to encrypt to in the pubring keyring
+pgpuserid: vittal.aithal@bigfoot.com
+
+# See what type of encryption to use
+if : (pgpversion eq 'gpg') then pgpversion : gpg
+if : (pgpversion eq 'gpg') then subject : "This is a test using GPG"
+if : (pgpversion eq 'pgp2') then pgpversion : pgp2
+if : (pgpversion eq 'pgp2') then pgpuserid : v@aithal.org
+if : (pgpversion eq 'pgp5') then pgpversion : pgp5
+
+# See if we should use canonical PGP mode
+if : pgptextmode then pgptextmode : yes
+
+# See whether to send the message in PGP/MIME format
+unless: (pgpmime) then pgpmime: no
+

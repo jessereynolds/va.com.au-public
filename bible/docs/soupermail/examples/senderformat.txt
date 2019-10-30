@@ -1,0 +1,8 @@
+Test Text formatted Mail
+------------------------
+
+
+Thanks <output name="Email">
+
+You should see this as a nicely formatted Text email.
+

@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+<title>The Bible - template</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+
+<!--#include virtual="/bible/nav.html" -->
+
+<blockquote> 
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif"><u>To Make a New Email Account:</u></font></p>
+        
+        <p>Login to polly.va.com.au and su to root</p>
+        <p>Type the command "vadduser &lt;the new email address&gt;"<br />
+        eg: "vadduser jesse@va.com.au"</p>
+        <p><u>Additional Options:</u></p>
+        <p>vadduser: (or) usage: [options] email_address [passwd]
+		options:<br />
+		-v (print the version)<br />
+        -q quota_in_bytes (sets the users quota)<br />
+        -s (don't rebuild the vpasswd.cdb file, faster for large sites)<br />
+        -c comment (sets the gecos comment field)<br />
+        -a (sets the account to use APOP, default is POP)<br /></p>
+        <p>eg: to both create an account and give it a quota that's different from the default, currently 6mb<br />
+        do: "vadduser -q 10000000 jesse@va.com.au"</p>
+        <p>This will create an email account with a quota of 10Mb.</p>
+        <p>That's it - you're done! Don't forget to logout...</p>        
+      </td>
+    </tr>
+  </table>
+  
+</blockquote>
+
+</body>
+
+</html>

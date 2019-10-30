@@ -1,0 +1,18 @@
+# This is a configuration file showing you how to use
+# sendertemplate to set up auto-responses
+
+# First, we need to ensure we're got their email address
+required: Email
+
+mailto: "$form_Email"
+mailtemplate: twomail1.txt
+if : (interest eq "Winnets") then sendertemplate: twomail2.txt
+if : (interest eq "Grommets") then sendertemplate: twomail3.txt
+
+subject: This is sent to mailto
+
+senderfrom: vittal.aithal@bigfoot.com
+senderreplyto: vittal.aithal@bigfoot.com
+sendersubject: This is sent back to the form's submitter
+
+success: twomail.txt

@@ -1,0 +1,167 @@
+<HTML>
+<HEAD><TITLE>Technical information about the ODBC Driver</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="TestingtheLyrisODBCDriver.html">previous</a>] [<a href="InstallingandUpgrading.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Technical information about the ODBC Driver</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· · <a href="NTAuthenticationOption.html">NT Authentication Option</a><br>
+· · <a href="LyrisODBCDriver.html">Lyris ODBC Driver</a><br>
+· · · <a href="LyrisODBCIntroduction.html">Lyris ODBC Introduction</a><br>
+· · · <a href="InstallingtheLyrisODBCdriver.html">Installing the Lyris ODBC driver</a><br>
+· · · <a href="ConfiguringtheLyrisODBCDriver.html">Configuring the Lyris ODBC Driver</a><br>
+· · · <a href="TestingtheLyrisODBCDriver.html">Testing the Lyris ODBC Driver</a><br>
+· · · <a href="TechnicalinformationabouttheODBCDriver.html"><font size=+0><b>Technical information about the ODBC Driver</b></font></a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Technical information about the ODBC Driver</h3>
+The following technical information is available for the driver:<p>
+ <p>
+<B>Field Mappings:</B><p>
+<B></B>The supported SQL data types map to the underlying data types as follows:</B><p>
+SQL_CHAR - Character <br>SQL_LONGVARCHAR - Memo <br>SQL_DECIMAL - Numeric, Float <br>SQL_BIT - Logical <br>SQL_DATE - Date<p>
+ <p>
+<B>Technical Limitations: </B><p>
+<B></B>- Only ODBC Minimum+ Level SQL is supported. See below for a  complete listing of supported SQL grammar.</B><p>
+- Only SQL_CHAR, SQL_LONGVARCHAR, SQL_DECIMAL, SQL_BIT, and  SQL_DATE are supported.<p>
+- Column and table names are not case-sensitive, string data comparisons are case sensitive.<p>
+- Transactions are not currently supported.<p>
+- Driver is for Windows 95 or Windows NT only. NT 3.51 and NT 4 are supported.<p>
+- Qualifiers and owners are not allowed on databases, tables, etc.<p>
+ <p>
+<B>SQL Specification</B><p>
+<B></B>The following is an exact description of the SQL commands supported by the Lyris ODBC Driver.<B></B><p>
+<b></B>      statement ::= CREATE create | DROP drop | SELECT select orderby  <br>                  | INSERT insert | DELETE delete | UPDATE update  <br>                  | passthroughSQL 
+ <br> 	 <br>      passthroughSQL ::= any statement supported by the backend 
+</B><p>
+      create ::= TABLE tablename ( createcols )  <br>               | INDEX indexname ON tablename ( indexcolumns ) <p>
+      indexcolumns ::= indexcolumn | indexcolumn , indexcolumns <p>
+      indexcolumn ::= columnname asc <p>
+      createcols ::= createcol , createcols | createcol <p>
+      createcol ::= columnname datatype | columnname datatype ( integer )  <br>                  | columnname datatype ( integer , integer ) <p>
+      drop ::= TABLE tablename | INDEX indexname <p>
+      select ::= selectcols FROM tablelist where groupby having <p>
+      delete ::= FROM tablename where <p>
+      insert ::= INTO tablename insertvals <p>
+      update ::= tablename SET setlist where <p>
+      setlist ::= set | setlist , set <p>
+      set ::= columnname = NULL | columnname = expression <p>
+      insertvals ::= ( columnlist ) VALUES ( valuelist )  <br>                   | VALUES ( valuelist )  <br>                   | ( columnlist ) VALUES ( SELECT select )  
+<br>                   | VALUES ( SELECT select ) 
+<p>
+      columnlist ::= columnname , columnlist | columnname <p>
+      valuelist ::= NULL , valuelist | expression , valuelist  <br>                  | expression | NULL  <p>
+      selectcols ::= selectallcols * | selectallcols selectlist <p>
+      selectallcols ::= | ALL | DISTINCT <p>
+      selectlist ::= selectlistitem , selectlist | selectlistitem <p>
+      selectlistitem ::= expression | expression aliasname  <br>                       | expression AS aliasname <p>
+      where ::= | WHERE boolean <p>
+      having ::= | HAVING boolean <p>
+      boolean ::= and | and OR boolean <p>
+      and ::= not | not AND and <p>
+      not ::= comparison | NOT comparison <p>
+      comparison ::= ( boolean ) | colref IS NULL | colref IS NOT NULL  <br>                   | expression LIKE pattern | expression NOT LIKE pattern  <br>                   | 
+expression IN ( valuelist )  <br>                   | expression NOT IN ( valuelist )  <br>                   | expression op expression | EXISTS ( SELECT select )  <br>    
+               | expression op selectop ( SELECT select )  <br>                   | expression IN ( SELECT select )  <br>                   | expression NOT IN ( SELECT select ) 
+<p>
+      selectop ::= | ALL | ANY <p>
+      op ::= &gt; | &gt;= | &lt; | &lt;= | = | &lt;&gt; <p>
+      pattern ::= string | ? | USER <p>
+      expression ::= expression + times | expression - times | times <p>
+      times ::= times * neg | times / neg | neg <p>
+      neg ::= term | + term | - term <p>
+      term ::= ( expression ) | colref | simpleterm | aggterm | scalar <p>
+      scalar ::= scalarescape | scalarshorthand <p>
+      scalarescape ::= --*(VENDOR(MICROSOFT),PRODUCT(ODBC) FN fn )*-- <p>
+      scalarshorthand ::= { FN fn } <p>
+      fn ::= functionname ( valuelist ) | functionname ( ) <p>
+      aggterm ::= COUNT ( * ) | AVG ( expression ) | MAX ( expression )  <br>                | MIN ( expression ) | SUM ( expression ) <p>
+      simpleterm ::= string | realnumber | ? | USER | date | time | timestamp <p>
+      groupby ::= | GROUP BY groupbyterms <p>
+      groupbyterms ::= colref | colref , groupbyterms <p>
+      orderby ::= | ORDER BY orderbyterms <p>
+      orderbyterms ::= orderbyterm | orderbyterm , orderbyterms <p>
+      orderbyterm ::= colref asc | integer asc <p>
+      asc ::= | ASC | DESC <p>
+      colref ::= aliasname . columnname | columnname <p>
+      tablelist ::= tablelistitem , tablelist | tablelistitem <p>
+      tablelistitem ::= tableref | outerjoin <p>
+      outerjoin ::= ojescape | ojshorthand <p>
+      ojescape ::= --*(VENDOR(MICROSOFT),PRODUCT(ODBC) OJ oj )*-- <p>
+      ojshorthand ::= { OJ oj } <p>
+      oj ::= tableref LEFT OUTER JOIN tableref ON boolean  <br>           | tableref LEFT OUTER JOIN oj ON boolean <p>
+      tableref ::= tablename | tablename aliasname <p>
+      indexname ::= identifier <p>
+      functionname ::= identifier <p>
+      tablename ::= identifier <p>
+      datatype ::= identifier <p>
+      columnname ::= identifier <p>
+      aliasname ::= identifier <p>
+      identifier ::= an identifier  <br>      (identifiers containing spaces must be enclosed in double quotes) <p>
+      string ::= a string (enclosed in single quotes) <p>
+      realnumber ::= a non-negative real number (including E notation) <p>
+      integer ::= a non-negative integer <p>
+      date ::= dateescape | dateshorthand <p>
+      dateescape ::= --*(VENDOR(MICROSOFT),PRODUCT(ODBC) d dateval )*-- <p>
+      dateshorthand ::= { d dateval } <p>
+      dateval ::= a date in yyyy-mm-dd format in single quotes  <br>      (for example, '1996-02-05') <p>
+      time ::= timeescape | timeshorthand <p>
+      timeescape ::= --*(VENDOR(MICROSOFT),PRODUCT(ODBC) t timeval )*-- <p>
+      timeshorthand ::= { t timeval } <p>
+      time ::= a time in hh:mm:ss format in single quotes  <br>      (for example, '10:19:48') <p>
+      timestamp ::= timestampescape | timestampshorthand <p>
+      timestampescape ::= --*(VENDOR(MICROSOFT), <br>                          PRODUCT(ODBC) ts timestampval )*-- <p>
+      timestampshorthand ::= { ts timestampval } <p>
+      timestampval ::= a timestamp in yyyy-mm-dd hh:mm:ss[.ffffff] format in  <br>                       single quotes (for example, '1996-02-05 10:19:48.529') <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="LyrisODBCDriver.html">Lyris ODBC Driver</a><br>
+</td><td align=right valign=top>Page 442 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

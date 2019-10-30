@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Soupermail PGP File Upload Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail PGP File Upload Example</h1>
+
+<p>This page is shows how you can control how file uploads are
+encrypted in messages.
+</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl" enctype="multipart/form-data">
+<input type="hidden" name="SoupermailConf" value="pgpfile.con">
+
+<div>
+Email to:<input type="text" name="Email" size="15"> (required)<br>
+File #1: <input type="file" name="file1"><br>
+File #2: <input type="file" name="file2"><br>
+Encrypt uploads? (yes <input type="radio" name="enc" value="y" checked="checked">) 
+(no <input type="radio" name="enc" value="no">)<br>
+Encryption: <select name="pgpversion">
+<option value="gpg">GNU Privacy Guard</option>
+<option value="pgp2">PGP 2.6.3i</option>
+<option value="pgp5">PGP 5.0i</option>
+</select><br>
+Use PGP/MIME: <input type="checkbox" name="mime" checked="checked" value="yes"><br>
+</div>
+
+
+<input type="submit" value="Send &gt;">
+</form>
+
+</body>
+</html>
+

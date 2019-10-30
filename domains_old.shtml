@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Virtual Artists : Domain Names</title>
+
+<!--#include virtual="chunks/head_styles.html" -->
+<link rel="stylesheet" href="styles/rs_style.css" type="text/css">
+<script language=javascript src="js/rs_dit.js" type="text/javascript"></script>
+<script language="JavaScript">
+<!--
+function LoadiFrames() {
+   OpenIFrame('PriceList','/cgi-bin/domain_pricing.pl',1);
+   OpenIFrame('PriceList1','/cgi-bin/domain_pricing.pl?ProductType=1',1)
+   OpenIFrame('PriceList2','/cgi-bin/domain_pricing.pl?ProductType=2',1)
+   OpenIFrame('PriceList3','/cgi-bin/domain_pricing.pl?ProductType=3',1)
+}
+//-->
+</script>
+
+</head>
+ 
+<!-- <body bgcolor="#FFFFFF" background="images/grey_bg.gif"> -->
+
+<body onLoad="javascript:LoadiFrames();" onUnload="javascript: ClosePopUp();">
+
+<!--#include virtual="chunks/nav_top.html" -->
+
+	<div id="primary">
+	<div class="inside" id="domains">
+
+
+<h1>Domain Names</h1>
+
+<ul>
+  <li><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_renew.pl',1); return false">Renew</a></li>
+  <li><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_transfer.pl',1); return false">Transfer</a></li>
+  <li><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_login.pl',1); return false">Manage</a></li>
+  <li><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_order.pl',1); return false">Bulk Domain Search</a></li>
+  <li><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_whois.pl',1); return false">Whois</a></li>
+  <li><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_password.pl',1); return false">Forgot Password</a></li>
+
+</ul>
+<br class="clear"/>
+
+<h2>Register a New Domain</h2>
+
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+
+  <tr> 
+    <td width="30%">Search for a Domain</td>
+    <td width="70%"> 
+      <form name="Search" method="get" onSubmit="OpenPopUp('/cgi-bin/domain_order.pl',1,this); return false">
+        <input type="text" name="DomainName" maxlength="64">
+<select name="Extension">
+<option value="">--- All ---</option>
+<option value="1" selected="true">.com</option>
+<option value="2">.net</option>
+<option value="3">.org</option>
+<option value="8">.biz</option>
+<option value="7">.info</option>
+<option value="11">.com.au</option>
+<option value="12">.net.au</option>
+<option value="13">.org.au</option>
+<option value="14">.asn.au</option>
+<option value="15">.id.au</option>
+<option value="10">.co.uk</option>
+<option value="9">.org.uk</option>
+<option value="16">.co.nz</option>
+<option value="17">.ac.nz</option>
+<option value="18">.gen.nz</option>
+<option value="19">.geek.nz</option>
+<option value="20">.maori.nz</option>
+<option value="21">.net.nz</option>
+<option value="22">.org.nz</option>
+<option value="23">.school.nz</option>
+<option value="24">.cn</option>
+<option value="25">.tv</option>
+<option value="5">.cc</option>
+<option value="6">.name</option>
+<option value="35">.mobi</option>
+<option value="37">.asia</option>
+<option value="38">.hk</option>
+<option value="42">.com.my</option>
+<option value="43">.net.my</option>
+<option value="44">.org.my</option>
+<option value="46">.vn</option>
+<option value="47">.com.vn</option>
+<option value="48">.net.vn</option>
+<option value="49">.biz.vn</option>
+<option value="50">.org.vn</option>
+<option value="51">.info.vn</option>
+<option value="52">.name.vn</option>
+<option value="53">.sg</option>
+<option value="59">.ph</option>
+<option value="60">.com.ph</option>
+<option value="61">.net.ph</option>
+<option value="62">.org.ph</option>
+<option value="63">.jp</option>
+<option value="64">.in</option>
+<option value="65">.co.in</option>
+<option value="66">.kr</option>
+<option value="67">.co.kr</option>
+<option value="68">.tw</option>
+<option value="69">.md</option>
+</select>
+
+        <input type="submit" name="Next" value="Search">
+        <input type="hidden" name="Step" value="-1">
+      </form>
+    </td>
+  </tr>
+  </table>
+
+
+<p>
+We are a provider of domain name registration, renewal and transfers, through our reseller agreement with Distribute.IT Pty Ltd, an accredited ICANN and auDA registrar. We can provide DNS registration services at very reasonable rates, for example:
+
+<ul>
+<li>.com - $19 / yr</li>
+<li>.net - $16 / yr</li>
+<li>.org - $19 / yr</li>
+<li>.biz - $19 / yr</li>
+<li>.info - $19 / yr</li>
+<li>.com.au - $44 / 2 yrs</li>
+<li>.net.au - $44 / 2 yrs</li>
+<li>.org.au - $29 / 2 yrs</li>
+<li>.asn.au - $29 / 2 yrs</li>
+</ul>
+
+All prices are in Australian Dollars (AUD) and are inclusive of GST. Please use the domain search above to see if your preferred domain name is available. 
+</p>
+
+
+
+  
+  <table width="100%" border="0" cellspacing="2" cellpadding="2">
+
+<h2>Domain Management</h2>
+
+  <tr> 
+    <td width="30%">Domain Management Login</td>
+    <td width="70%"> 
+      <form name="Manage" method="get" onSubmit="OpenPopUp('/cgi-bin/domain_login.pl',1, this); return false">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td width="22%" align="right">Domain Name: </td>
+            <td width="78%"> 
+              <input type="text" name="Domain" maxlength="64">
+            </td>
+          </tr>
+          <tr> 
+            <td width="22%" align="right">User ID: </td>
+            <td width="78%"> 
+              <input type="text" name="UserId" maxlength="64">
+            </td>
+          </tr>
+          <tr> 
+            <td width="22%" align="right">Password: </td>
+            <td width="78%"> 
+              <input type="password" name="Password" maxlength="64">
+            </td>
+          </tr>
+          <tr> 
+            <td width="22%" align="right">&nbsp;</td>
+            <td width="78%"> 
+              <input type="submit" name="Login" value="Manage">
+            </td>
+          </tr>
+        </table>
+      </form>
+    </td>
+  </tr>
+</table>
+<br>
+<!-- 
+<p>Reseller Menu System</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="33%"><b>Menu Link</b></td>
+    <td width="67%"><b>Example</b></td>
+  </tr>
+  <tr> 
+    <td width="33%">Search Domain</td>
+    <td width="67%"><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_order.pl',1); return false">Check 
+      Domain Availability</a></td>
+  </tr>
+  <tr> 
+    <td width="33%">Renew Domain</td>
+    <td width="67%"><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_renew.pl',1); return false">Renew 
+      Domain</a></td>
+  </tr>
+  <tr> 
+    <td width="33%">Transfer Domain</td>
+    <td width="67%"><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_transfer.pl',1); return false">Transfer 
+      Domain</a></td>
+  </tr>
+  <tr> 
+    <td width="33%">Manage Domain Login</td>
+    <td width="67%"><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_login.pl',1); return false">Login</a></td>
+  </tr>
+  <tr> 
+    <td width="33%">Manage Domain Logout</td>
+    <td width="67%"><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/logout.pl'); return false">Logout</a></td>
+  </tr>
+  <tr> 
+    <td width="33%">Domain Price List</td>
+    <td width="67%"><a href="#" onClick="javascript: OpenPopUp('/cgi-bin/domain_pricing.pl',1); return false">Price 
+      List</a></td>
+  </tr>
+</table>
+ -->
+
+
+<!-- 
+<p><b>Current Window:</b></p>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="30%"><b>Type of access</b></td>
+    <td width="70%"><b>Example</b></td>
+  </tr>
+  <tr> 
+    <td width="30%"> Domain Availability (link)</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_order.pl',1); return false">Check
+      Domain Availability</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Search for a Domain (form)</td>
+    <td width="70%"> 
+      <form name="Search" method="get" onSubmit="OpenPage('/cgi-bin/domain_order.pl',1,this); return false">
+        <input type="text" name="DomainName" maxlength="64">
+        <select name="Extension">
+          <option value="">~~- All ~~-</option>
+          <option value="11" >.com.au</option>
+          <option value="12" >.net.au</option>
+          <option value="13" >.org.au</option>
+          <option value="14" >.asb.au</option>
+          <option value="15" >.id.au</option>
+          <option value="1" >.com</option>
+          <option value="2" >.net</option>
+          <option value="3" >.org</option>
+          <option value="5" >.cc</option>
+          <option value="9" >.org.uk</option>
+          <option value="10" >.co.uk</option>
+          <option value="8" >.biz</option>
+          <option value="7" >.info</option>
+          <option value="24" >.cn</option>
+          <option value="16" >.co.nz</option>
+          <option value="17" >.ac.nz</option>
+          <option value="18" >.gen.nz</option>
+          <option value="19" >.geek.nz</option>
+          <option value="20" >.maori.nz</option>
+          <option value="21" >.net.nz</option>
+          <option value="22" >.org.nz</option>
+          <option value="23" >.school.nz</option>
+          <option value="25" >.tv</option>
+          <option value="35" >.mobi</option>
+        </select>
+        <input type="submit" name="Next" value="Search">
+        <input type="hidden" name="Step" value="-1">
+      </form>
+    </td>
+  </tr>
+  <tr> 
+    <td width="30%">Renew Domain (link)</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_renew.pl',1); return false">Renew
+      Domain</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Transfer Domain (link)</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_transfer.pl',1); return false">Transfer
+      Domain</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Manage Domain (link)</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_login.pl',1); return false">Manage
+      Domain</a></td>
+  </tr>
+  <tr>
+    <td width="30%">WhoIs (link)</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_whois.pl',1); return false">Whois</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Manage Domain Login (form)</td>
+    <td width="70%"> 
+      <form name="Manage" method="get" onSubmit="OpenPage('/cgi-bin/domain_login.pl',1, this); return false">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td width="22%" align="right">Domain Name: </td>
+            <td width="78%"> 
+              <input type="text" name="Domain" maxlength="64">
+            </td>
+          </tr>
+          <tr> 
+            <td width="22%" align="right">User ID: </td>
+            <td width="78%"> 
+              <input type="text" name="UserId" maxlength="64">
+            </td>
+          </tr>
+          <tr> 
+            <td width="22%" align="right">Password: </td>
+            <td width="78%"> 
+              <input type="password" name="Password" maxlength="64">
+            </td>
+          </tr>
+          <tr> 
+            <td width="22%" align="right">&nbsp;</td>
+            <td width="78%"> 
+              <input type="submit" name="Login" value="Manage">
+            </td>
+          </tr>
+        </table>
+      </form>
+    </td>
+  </tr>
+  <tr> 
+    <td width="30%">Forgot Password (link)</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_password.pl',1); return false">Forgot
+      Password</a></td>
+  </tr>
+</table>
+<br>
+<p>Reseller Menu System</p>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="30%"><b>Menu Link</b></td>
+    <td width="70%"><b>Example</b></td>
+  </tr>
+  <tr> 
+    <td width="30%">Search Domain</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_order.pl',1); return false">Check 
+      Domain Availability</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Renew Domain</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_renew.pl',1); return false">Renew 
+      Domain</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Transfer Domain</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_transfer.pl',1); return false">Transfer 
+      Domain</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Manage Domain Login</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_login.pl',1); return false">Login</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Manage Domain Logout</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/logout.pl'); return false">Logout</a></td>
+  </tr>
+  <tr> 
+    <td width="30%">Price List</td>
+    <td width="70%"><a href="#" onClick="javascript: OpenPage('/cgi-bin/domain_pricing.pl',1); return false">Price 
+      List</a></td>
+  </tr>
+</table>
+ -->
+
+<!-- 
+        </td>
+      </tr>
+    </table>
+ -->
+
+<p>
+We are a domain name reseller of <a href="http://www.distributeit.com.au/">Distribute.IT Pty Ltd</a>. 
+</p>
+
+</div>
+</div>
+
+<!--#include virtual="chunks/footer.html" -->

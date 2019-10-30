@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+<title>The Bible - template</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+
+<!--#include virtual="/bible/nav.html" -->
+
+<blockquote> 
+
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">all about something</font></p>
+        
+        <p>&nbsp;</p>
+        
+HOW THE tcp.smtp rules work with vpopmail courier-imap and tcpserver.<br> 
+<br><br>
+vpopmail, courier-imap and tcpserver use tcprules to determine if a SMTP<br> 
+server/client can send mail to us or rely through us.<br>
+
+well actually tcpserver does, vpopmail and courier-imap update the file for<br> 
+clients that have successfully authenticated either an imap, imapssl, pop3 <br>
+or pop3ssl login.<br>
+vpopmail and courier-imap both update the file /usr/local/vpopmail/etc/open-smtp<br>
+there is a mechanism within vpopmail that updates the tcprules from this file<br>
+and tcp.smtp file (which is located in the same directory.) tcp.smtp file is not<br>
+edited by any application and is present so permanant additions can be made <br>
+to the rules.<br>
+<br><br>
+the open-smtp file is flushed every hour by a script called by cron and <br>
+all clients that have not authenticated within this time are once again<br> 
+not allowed relay.<br>
+<br><br>
+the line from crontab is:<br> 
+2 * * * * /usr/local/vpopmail/bin/clearopensmtp 2>&1 >/dev/null<br>
+      </td>
+    </tr>
+  </table>
+</blockquote>
+</body>
+</html>

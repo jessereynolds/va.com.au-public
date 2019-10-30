@@ -1,0 +1,7 @@
+Thank You<output name="your_name" pre=" ">,
+
+Information on Winnets:
+----------------------
+
+A Winnet is a mythical thing. Our sales person will be contacting you
+to ask if you're still interested.

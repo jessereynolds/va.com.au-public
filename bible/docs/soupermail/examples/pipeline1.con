@@ -1,0 +1,6 @@
+mailto: "$form_Email"
+if: forreal then mailto: "$mailto, vittal.aithal@bigfoot.com"
+required: rating
+required: Email
+gotosuccess: "pipelineres.htm?rating=${form_rating}"
+if: forreal then gotosuccess: "http://cgi-resources.com/rate/index.cgi?referer=http://soupermail.sourceforge.net&link_code=02559&category_link=Programs+and+Scripts/Perl/Form+Processing/&link_name=Soupermail&rating=${form_rating}"

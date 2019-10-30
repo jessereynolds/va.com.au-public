@@ -1,0 +1,11 @@
+# Set where to go on success
+success: fileto.txt
+
+# Where to save thing to
+fileto: counters/fileto.txt
+
+# what format to use for file entries
+filetemplate: filetotpl.txt
+
+# make sure we can read the fie from a browser
+filereadable: yes

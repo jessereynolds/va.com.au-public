@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>Soupermail Examples</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body bgcolor="white" text="black">
+
+<h1>Soupermail Examples</h1>
+
+<h2>Basic Usage</h2>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="basic.con">
+Your Email Address: <input type="text" name="Email" size="20">
+<input type="submit" value="Send!">
+</form>
+
+<h2>Using Templates</h2>
+
+<ul>
+<li><a href="/cgi-bin/soupermail.pl?SoupermailConf=cgivars.con">CGI Variables in Templates</a>
+<li><a href="/cgi-bin/soupermail.pl?SoupermailConf=formats.con">Formats in Templates</a>
+<li><a href="testform.htm">Using output elements</a>.
+<li><a href="/cgi-bin/soupermail.pl?SoupermailConf=looping.con">Looping in Templates</a>
+<li><a href="multi1.htm">Making Multipart Forms</a>.
+<li><a href="sendaform.htm">Sending a prefilled HTML form</a>.
+<li><a href="cond.htm">Config Conditional Statements</a>.
+<li><a href="conds.htm">Template Conditional Statements</a>.
+<li><a href="twomail.htm">Sender Templates</a>.
+</ul>
+
+<h2>Mailing Examples</h2>
+<ul>
+<li><a href="bcc.htm">Using Blind Carbon Copy</a>
+<li><a href="attachment.htm">Sender Attachments</a>.
+</ul>
+
+<h2>Using Cookies</h2>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="cookie.con">
+Enter some stuff: <input type="text" size="20" maxlength="20" name="stuff">
+<input type="submit" value="Make Cookie!">
+</form>
+
+<h2>File Upload</h2>
+
+<p>Submit this form with a file, and see how Soupermail handles email
+attachments.</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl" enctype="multipart/form-data">
+<input type="hidden" name="SoupermailConf" value="upload.con">
+Your File: <input type="file" name="myfile">
+<br>
+Your Email Address: <input type="text" name="Email" size="20">
+<input type="submit" value="Send!">
+</form>
+
+<h2>Using Counters</h2>
+<p>Note: These counter examples will write data into the <code>counters</code>
+subdirectory of this example section. They won't work unless that directory
+is writable by the webserver.</p>
+<ul>
+<li><a href="/cgi-bin/soupermail.pl?SoupermailConf=counter1.con">A basic counter</a>.
+<li><a href="vote.htm">Using Soupermail to collect votes</a>.
+</ul>
+
+<h2>Saving to a file</h2>
+
+<p>Note: These file examples will write data into the <code>counters</code>
+subdirectory of this example section. They won't work unless that directory
+is writable by the webserver.</p>
+<ul>
+<li><a href="fileto.htm">Saving to a CSV file</a>.
+<li><a href="guestbook.htm">A simple guestbook</a>.
+<li><a href="reftest.htm">Dynamic Filenames</a>.
+</ul>
+
+<h2>Email Encryption Using PGP or GPG</h2>
+<p>This example assumes that you have set up soupermail to use either GPG
+(<a href="http://www.gnupg.org/">GNU Privacy Guard</a>) 
+or PGP (<a href="http://www.pgpi.org/">Pretty Good Privacy</a>).
+If you try using PGP when you've set Soupermail up to use GPG 
+(or vice-versa) don't expect it to work.</p>
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="pgpgpg.con">
+Your email address: <input type="text" name="Email" size="20">
+<br>
+<input type="checkbox" name="pgpmime" value="1" checked> Use PGP/MIME?<br>
+<input type="checkbox" name="pgptextmode" value="1"> Use PGP Textmode?<br>
+<br>
+Use
+<select name="pgpversion">
+<option value="gpg">GNU Privacy Guard</option>
+<option value="pgp2">PGP 2</option>
+<option value="pgp5">PGP 5</option>
+</select> for encryption.
+<br>
+<input type="submit" value="Submit">
+</form>
+
+<p>The example below shows a more complex use of PGP in conjunction
+with Soupermail's file upload facility.</p>
+<ul>
+<li><a href="pgpfile.htm">PGP encrypting files</a>
+</ul>
+
+<h2>Sending HTML Mail</h2>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="senderformat.con">
+Your Email Address: <input type="text" name="Email" size="20">
+<input type="submit" value="Send!">
+</form>
+
+<h2>Generating PDF documents</h2>
+
+<ul>
+<li><a href="senderpdf.htm">Generating PDFs for email and the browser</a>.
+</ul>
+
+<h2>Pipelining</h2>
+
+<ul>
+<li><a href="pipeline1.htm">Send me a comment and rate the script</a>
+</ul>
+
+<h2>Return MIME types</h2>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="makesvg.con">
+Enter some text to put into an SVG 
+file: <input type="text" name="svgtext" size="20">
+<input type="submit" value="Make SVG">
+</form>
+
+<h2>Mailing Lists</h2>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+
+<input type="hidden" name="SoupermailConf" value="maillist.con">
+The field below contains an example set of lines that could go into
+a mailing list file. Each line consists of an email address, a name,
+and some other text data, separated by commas.<br>
+
+<textarea name="mailfield" rows="5" cols="70">name1@example.net,Name,hello
+name2.lastname@example.com,"Mr Name","hello, this is ""wierd"""</textarea>
+<br>
+
+<textarea name="message" rows="5" cols="40" wrap="virtual">Enter your message to the mailing list here</textarea>
+
+<p>As you can see from the default data above, entries are separated by commas, and,
+where you want to include commas in your data, you quote the entry. Quotes must
+be 'doubled up'.
+</p>
+Use form data? <input type="checkbox" name="useform" value="y" checked="checked"><br>
+
+<input type="submit" value="Send to mailing list">
+
+</form>
+<h2>Database support</h2>
+
+<p>The following example is used to query the an example 
+<a href="http://www.mysql.org/">MySQL</a> database table. Unless you have the
+database and table running with the a user called <b>test</b> and password
+<b>testpassword</b> set up, this won't work.</p>
+
+<p>The whole example shows how Soupermail can query and update a database
+table.</p>
+
+<ul>
+<li><a href="/cgi-bin/soupermail.pl?SoupermailConf=/examples/dbi.con">Querying a database</a>
+</ul>
+
+</body>
+</html>

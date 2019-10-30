@@ -1,0 +1,114 @@
+<HTML>
+<HEAD><TITLE>Having NTMail Coexist with Lyris</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="HavingNotes_DominoCoexistwithLyris.html">previous</a>] [<a href="HavingMicrosoftExchangeCoexistWithLyris.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Having NTMail Coexist with Lyris</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · · <a href="HavingSendmailcoexistwithLyris.html">Having Sendmail coexist with Lyris</a><br>
+· · · <a href="HavingPost_OfficecoexistwithLyris.html">Having Post.Office coexist with Lyris</a><br>
+· · · <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+· · · <a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+· · · <a href="HavingNetscapeMailServercoexistwithLyris.html">Having Netscape Mail Server coexist with Lyris</a><br>
+· · · <a href="HavingNotes_DominoCoexistwithLyris.html">Having Notes / Domino Coexist with Lyris</a><br>
+· · · <a href="HavingNTMailCoexistwithLyris.html"><font size=+0><b>Having NTMail Coexist with Lyris</b></font></a><br>
+· · · <a href="HavingMicrosoftExchangeCoexistWithLyris.html">Having Microsoft Exchange Coexist With Lyris</a><br>
+· · · <a href="HavingAltaVistaMailCoexistwithLyris.html">Having AltaVista Mail Coexist with Lyris</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Having NTMail Coexist with Lyris</h3>
+The way to have NTMail coexist with Lyris is to have NTMail listen to another port besides port 25 (the SMTP mail default port), let Lyris listen on port 25, then tell Lyris to forward 
+non-Lyris mail on to NTMail. 
+<p>
+Here are the steps to have NTMail and Lyris coexist:<p>
+1) Install Lyris, then make sure that Lyris is not currently running.<p>
+2) Create an 'A' record in your DNS, which is an alternate name for the current machine.  The mail that should be accepted by Lyris will be sent to this address.  All mail delivered to Lyris which 
+does not have this name will be forwarded by Lyris on to NTMail. 
+<p>
+For example, if your machine is currently called "mail" in your DNS, add an other entry below it that has the same data, but with a new name, as in:<p>
+<font face='Courier New'><ul>mail   IN A 207.105.6.2  ; the original host name <br>lyris  IN A 207.105.6.2  ; the new "alias" host name<p>
+</ul></font>After this change, restart your DNS server.<p>
+2) Use the registry editor (regedt32.exe) to move NTMail port 26.  The key you want to change is located at<p>
+<font face='Courier New'><ul>HKEY_LOCAL_MACHINE\Software\InternetShopper\Mail\Parameters\PortSMTPReceive<p>
+</ul></font>change this value from "25" to "26"<p>
+The NTMail reference manual documents this option as:<p>
+<font face='Courier New'><ul>This parameter defines which port the SMTP server will listen to when accepting email.  The Internet Standard is to use port 25, but you may wish to run another mail server on the 
+same machine and have it direct mail to NTMail at this new port. 
+<p>
+</ul></font>3) Restart NTMail.<p>
+4) Start your Lyris server in the foreground, by clicking the "Run Lyris Server Now" icon.<p>
+5) Go to the Lyris web interface with your web browser. Log in as a server administrator, and go to the "server config" page.  <p>
+On the server config web page, find the field that says "forward mail:". Type this in the forward mail field:<p>
+<font face='Courier New'><ul>127.0.0.1 26<p>
+</ul></font>This instructs Lyris to forward non-Lyris mail to port 26, where NTMail is listening.<p>
+Now, find the field named "Mail Receive Rules".  Type the name (or names) of the host names that Lyris should accept mail for.  Any mail that comes in for Lyris which is not addressed to these hosts 
+will automatically be forwarded to NTMail.  
+<p>
+For example, if your machine was called "mail.mycorp.com" and you made an alias for it (in step 2) called "lyris.mycorp.com", then in the "Lyris host names" field enter this data:<p>
+<font face='Courier New'><ul>@lyris.mycorp.com<p>
+</ul></font>If you have multiple names for your Lyris server, which Lyris should answer, enter each of them here, separated by a carriage return.  This means that all mail addressed to 
+"@lyris.mycorp.com" will be accepted and processed by Lyris, and any mail not addressed to "@lyris.mycorp.com" will be forwarded to NTMail. 
+<p>
+6) Type "shutdown" on your Lyris server console. Wait for Lyris to shutdown, then start it again, by clicking the "Run Lyris Server Now" icon.<p>
+7) Start your mail program, and send mail to lyris@ your Lyris host name. For example, if your Lyris alias is "lyris.mycorp.com", send mail to "lyris@lyris.mycorp.com".  A minute or two after sending 
+your message, Lyris should have sent you a response back.  Now, send a test message to a user on your NTMail Server to make sure that is working. 
+<p>
+You are done!<p>
+For more information, see <a href="SMTPPort.html">SMTP Port</a> and  <a href="MailReceiveRules.html">Mail Receive Rules</a>.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+</td><td align=right valign=top>Page 479 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

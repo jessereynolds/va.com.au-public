@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Soupermail BCC example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail BCC Example</h1>
+
+<p>This page is shows how you can set a BCC email address up in the
+config file.
+</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="bcc.con">
+
+Your Name: <input type="text" name="your_name" size="15"> (required)<p>
+Email to send to : <input type="text" name="email1" size="15"> (required)<p>
+Email to BCC to : <input type="text" name="email2" size="15"> (required)<p>
+
+<p>
+
+<input type="submit" value="Send &gt;">
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail Dynamic Filenames</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Dynamic Filenames</h1>
+
+The reference number is <output name="http_ref"><br>
+The Counter 1 is <output name="counter_1"><br>
+This means, the data has been written to
+<a href="counters/reftest/<output
+name="http_ref">.txt">counters/reftest/<output name="http_ref">.txt</a><br>
+
+<p>Return <a href="index.htm">to the examples page</a>.
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="reftest.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>This page has been built from a Soupermail template called 
+<code><a href="reftest.txt">reftest.txt</a></code>.
+</p>
+</body>
+</html>
+

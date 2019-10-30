@@ -1,0 +1,102 @@
+<HTML>
+<HEAD><TITLE>Web Interface Access</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Visibilityoftheexistenceofthemailinglist.html">previous</a>] [<a href="OverviewofLyrisPostingSecurity.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Web Interface Access</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · · <a href="Accesstothelistarchives.html">Access to the list archives</a><br>
+· · · <a href="Accesstothelistofmembers.html">Access to the list of members</a><br>
+· · · <a href="AccesstoSubscribetotheMailingList.html">Access to Subscribe to the Mailing List</a><br>
+· · · <a href="Stepstorestrictfalseimpersonations.html">Steps to restrict false impersonations</a><br>
+· · · <a href="SecurityFeaturesforPostingMessages.html">Security Features for Posting Messages</a><br>
+· · · <a href="Accesstounsubscribeandchangesettings.html">Access to unsubscribe and change settings</a><br>
+· · · <a href="Visibilityoftheexistenceofthemailinglist.html">Visibility of the existence of the mailing list</a><br>
+· · · <a href="WebInterfaceAccess.html"><font size=+0><b>Web Interface Access</b></font></a><br>
+· · · <a href="OverviewofLyrisPostingSecurity.html">Overview of Lyris Posting Security</a><br>
+· · · <a href="SecurityConsiderationsoftheFrom_field.html">Security Considerations of the From: field</a><br>
+· · · <a href="SecurityRecommendationsforAnnouncementlists.html">Security Recommendations for Announcement lists</a><br>
+· · · <a href="HowLyrisDeterminestheIdentityofthePersonPosting.html">How Lyris Determines the Identity of the Person Posting</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Web Interface Access</h3>
+Lyris supports a number of features for controlling access to the Lyris web interface. These features are:<p>
+<B><I>name/password access <br></I></B>Both the user and administrator portions of the Lyris web interface require a username and password. In the case of members, the username is always 
+the email address.  For administrators, a password is required, while for users, the list administrator can decide whether passwords should be used at all, should be optional, or should be required. 
+</I></B><p>
+<B><I>visitors <br></I></B>The Lyris web interface supports the concept of a "visitor", which is a person who is not a member of the mailing list, but should nonetheless be given access 
+to read the archives of the mailing list.  "Visitors: yes/no" is a list administrator controlled setting, on a list-by-list basis. 
+</I></B><p>
+<B><I>http <br></I></B>The Lyris web interface is a standard CGI script, and supports being run from within a secure web server, using SSL encryption.  Doing this prevents the 
+possibility of "packet sniffing" by outsiders who are trying to determine your passwords. 
+</I></B><p>
+<B><I>admin= <br></I></B>You can specify the TCP/IP addresses who are allowed to access the Admin portion of the Lyris web interface. If the person connecting is not in the TCP/IP 
+addresses specified (or range of TCP/IP addresses specified), the "admin" button does not appear, and they are not allowed to the admin login page if they try to use the direct URL. 
+</I></B><p>
+<B><I>user= <br></I></B>You can specify the TCP/IP addresses who are allowed to access the user portion of the Lyris web interface. If the person connecting is not in the TCP/IP 
+addresses specified (or range of TCP/IP addresses specified), the web interface gives them a "you are not allowed" message and does not display any pages. 
+</I></B><p>
+<B><I>custom web interface <br></I></B>The Lyris web interface is written in Perl, and the complete source code is included. You are welcome to change the Lyris web interface to suit 
+your needs. No royalties are paid to us, and no permission need be requested of us in order to do this.  Some people write just a few pages for subscribing and unsubscribing, and do not show their 
+"public" users that the Lyris web interface even exists. 
+</I></B><p>
+<B><I>separate web interfaces <br></I></B>You can install two copies of the Lyris web interface, using separate script names, separate virtual servers, or even separate machines.  By 
+using the user=, admin= and "custom web interface" features described above, your users will only see the features that you want them to see. 
+</I></B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+</td><td align=right valign=top>Page 394 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

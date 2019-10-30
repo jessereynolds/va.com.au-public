@@ -1,0 +1,28 @@
+<html>
+<head>
+<base href="<output name="http_host" pre="http://" type="html"><output name="http_config_path" type="escapedhtml">">
+<title>Test HTML formatted Mail</title>
+<style type="text/css">
+<!--
+
+body { margin-left: 5%; margin-right: 5%; width: 100%;
+       background: #ffffff; text: black;
+       font-face: Verdana, Helvetica, sans-serif
+}
+
+-->
+</style>
+</head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<h1>Test HTML Formatted Mail</h1>
+
+<p>Thanks <output name="Email"></p>
+
+<p>You should see this as a nicely formatted HTML email.</p>
+
+<p><img src="<output pre="http://" name="http_host" type="html"><output name="http_config_path" type="html">made.gif" alt="Made With Soupermail"><p>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>CGI Pipelining</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>CGI Pipelining</h1>
+
+<p>This page will demonstrate pipelining Soupermail with other
+web applications.
+</p>
+
+<p>The form below will POST the form data to Soupermail, which will then
+redirect your browser to another page. However, it will also pass the
+form variables on the URL of redirection page.
+</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<p style="color:red">If you really want to email me and put the
+rating up check this box <input type="checkbox" name="forreal">
+
+<input type="hidden" name="SoupermailConf" value="pipeline1.con"></p>
+
+<p>Your Name: <input type="text" name="your_name" size="15"> <br>
+Your Email: <input type="text" name="Email" size="15"> (required)</p>
+<p>I think Soupermail is...</p>
+<textarea name="comments" rows="5" cols="50"></textarea>
+<p>
+... so I'm giving it a <a href="http://www.cgi-resources.com/">CGI
+Resources</a> rating of...
+<select name="rating">
+<option value="">--</option>
+<option>10</option>
+<option>9</option>
+<option>8</option>
+<option>7</option>
+<option>6</option>
+<option>5</option>
+<option>4</option>
+<option>3</option>
+<option>2</option>
+<option>1</option>
+</select>
+<br>
+
+
+<input type="submit" value="Pipeline &gt;">
+</p>
+</form>
+
+</body>
+</html>
+

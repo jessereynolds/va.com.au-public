@@ -1,0 +1,43 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Test Form Failure</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>Test Form Failed</h1>
+
+<p>The form could not be submitted, because some of the fields failed their
+data validation. The offending fields were:</p>
+
+<ul>
+<output name="num1" data="isnotnumber" sub="<li>(a) " alt="">
+<output name="num1" data="isnotnumber" post=" is not a number" alt="">
+<output name="num2" data="isnotinteger" sub="<li>(b) " alt="">
+<output name="num2" data="isnotinteger" post=" is not an integer" alt="">
+<output name="mail" data="isnotemail" sub="<li>(c) " alt="">
+<output name="mail" data="isnotemail" post="  is not an email address" alt="">
+<output name="cc" data="isnotcreditcard" sub="<li>(d) " alt="">
+<output name="cc" data="isnotcreditcard" post=" is not a credit card number" alt="">
+</ul>
+
+
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="testform.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="testformfail.txt">testformfail.txt</a>.</p>
+</body>
+</html>

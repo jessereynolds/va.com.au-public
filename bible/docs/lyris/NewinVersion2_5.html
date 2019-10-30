@@ -1,0 +1,304 @@
+<HTML>
+<HEAD><TITLE>New in Version 2.5</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Newin3_0beta1_v2_542_.html">previous</a>] [<a href="NewinVersion2_0.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in Version 2.5</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html">New in 3.0 beta 3 (v2.545)</a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html">New in 3.0 beta 2 (v2.543)</a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html">New in 3.0 beta 1 (v2.542)</a><br>
+· · · <a href="NewinVersion2_5.html"><font size=+0><b>New in Version 2.5</b></font></a><br>
+· · · <a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+· · · <a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in Version 2.5</h3>
+The Lyris MultiView List Server is now available that offers full Newsgroup access (reading, posting, searching, all fully secure) to Lyris mailing lists.  To access a group, use a URL 
+of the form news://server-name/list-name  The Lyris List Server has this capability in a demonstration form, so you can evaluate it and decide whether you want to upgrade.  See  
+<a href="AvailableasaNewsgroup.html">Available as a Newsgroup</a>. 
+<p>
+Added many sorting, selecting and paging features to the "View Members" Web Interface page.  You can now view subsets of your members, sort them by various criteria, and page through your membership 
+list at will.  See  <a href="FirstMembersPage.html">First Members Page</a>. 
+<p>
+The interface for reading messages has been heavily reworked. Messages are now threaded by subject, with the most recent discussion threads at the top of the window, and 200 messages are displayed at 
+a time.  Messages can also be displayed sorted by date or by author, at the choice of the reader.  See  <a href="ReadandSearchMessages.html">Read and Search Messages</a>. 
+<p>
+New failsafe unsubscribe mechanism.  By default, newly created lists have a list footer that explains how to unsubscribe, in a manner that always works, even if the original post was forwarded to 
+another email address.  See  <a href="LyrisMailMerge.html">How can I use the Mail merge feature?</a>. 
+<p>
+With cross-posting, option to insure that members of multiple lists only receive one copy of cross-posted messages.  This is especially useful when multiple announcement lists are created for various 
+subtopics: members no longer receive several copies of the postings.  See  <a href="CrosspostingandDuplicates.html">Crossposting and Duplicates</a>. 
+<p>
+Mail merge support was greatly expanded, with the ability to mail merge all list postings, and about 60 new merge fields added.  This makes custom messaging much more powerful.  See  
+<a href="LyrisMailMerge.html">How can I use the Mail merge feature?</a>. 
+<p>
+Expanded the number of email address formats supported by the "create many members" page and the "imp-user.pl" program.  Now fully supports all RFC822 addresses, as well as subscriber formats from 
+other list servers.  See <a href="FirstMembersPage.html">First Members Page</a> and  <a href="ImportingEmailAddresses.html">Importing Email Addresses</a>. Also, a program for importing ListProc ".subscribers" files is available. 
+See  <a href="ImportingEmailAddresses.html">Importing Email Addresses</a>. 
+<p>
+Extensions mechanism, so that you can embed your own programs (usually in Perl, but not necessarily) to modify Lyris's behavior, add functionality, add commands, log and notify, and write 
+email-enabled applications.  See  <a href="HowcanIextendLyriswithmyownprograms_.html">How can I extend Lyris with my own programs?</a>. 
+<p>
+A "Platinum plus" version of Lyris is now available. This version requires more memory from your system (40mb recommended) to increase mail delivery speed by about twice. See 
+http://www.lyris.com/sales.html for information. 
+<p>
+Feature to define email address forwarding orders, so that email sent to a defined Lyris address is forwarded to some other email address.  See  <a href="ForwardingOrders.html">Forwarding Orders</a>.<p>
+Option to automatically delete members who have been held, expired, not confirmed or not approved, after a given number of days in this state.  See  <a href="PurgeHeld.html">Purge Held</a>,  <a href="PurgeUnconfirmed.html">Purge Unconfirmed</a> 
+,  <a href="PurgeUnapproved.html">Purge Unapproved</a>, and  <a href="PurgeExpired.html">Purge Expired</a>. 
+<p>
+Option to send a periodic document to members on hold. You can choose the document, the frequency of the reminders, and the duration of the reminder period.  See  <a href="HeldNotifyDays.html">Held Notify Days</a>, 
+and  <a href="HeldDocument.html">Held Document</a>. 
+<p>
+Option to allow or disallow cross-posting on a list.  See  <a href="AllowCrossposting.html">Allow Crossposting</a>.<p>
+Option to allow or disallow duplicate message postings on a list.  See  <a href="AllowDuplicatePosting.html">Allow Duplicate Posting</a>.<p>
+When you create a mailing list, it will default to having a list footer that explains how to unsubscribe from your mailing list. This footer uses the new mail merge tags.  See <a href="LyrisMailMerge.html">How can I use the Mail merge feature?</a> 
+ or  <a href="Messagefooter.html">Message footer</a>. 
+<p>
+Email notifications when Action Phrases or Auto-responders are used.  See <a href="CreatePhrase.html">Create Phrase</a> or  <a href="CreateAuto_Responder.html">Create Auto-Responder</a>.<p>
+The "lyr-stop.pl" program was added. It gives you a command-line method for shutting down your Lyris server. See  <a href="HowdoIshutdowntheLyrisServer_.html">How do I shut down the Lyris Server?</a>.<p>
+The "lyr-exp.pl" program was added.  It gives you a way to export the archives stored in Lyris to a standard text archive format.  See  <a href="HowdoIexportmyListArchives_.html">How do I export my List Archives?</a> 
+. 
+<p>
+On Unix, the current Lyris process ID is saved to /tmp/lyris.pid.  See  <a href="HowdoIshutdowntheLyrisServer_.html">How do I shut down the Lyris Server?</a>.<p>
+Added "norepro" membership option, so that members can opt to not receive their own posts.  See  <a href="ChangeMembershipSettings.html">Change Membership Settings</a>, <a href="JoinMailingList.html">Join Mailing List</a> and  
+<a href="Repro.html">Repro</a>. 
+<p>
+The full text indexer now correctly does not index email attachments, only the message text is indexed. This significantly reduces the size of the full text index on mailing lists with many 
+attachments.  See  <a href="ReadandSearchMessages.html">Read and Search Messages</a>. 
+<p>
+The message searching and message reading buttons appear only when appropriate, now that you have the option of disabling both message archives, and full text indexing.  See  
+<a href="ReadandSearchMessages.html">Read and Search Messages</a>. 
+<p>
+Stronger protection from spammers and Internet-terrorists: mail delivered to Lyris that isn't addressed to a valid Lyris email address is rejected before it is even accepted.  This helps prevent 
+"flood" attacks, and communicates to spammers the fact that Lyris will not relay their mail for them. 
+<p>
+Digests and index mailings now can have headers and footers, and these can be defined separately from general list postings, so that a different header or footer can be used.  See 
+<a href="DigestHeader.html">Digest Header</a> or  <a href="DigestFooter.html">Digest Footer</a>. 
+<p>
+Added lyris.plc option to have the Lyris Web Interface require a Full Name when users try to subscribe.   <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a>.<p>
+Added "clone" buttons to all menus, such as documents, members, lists, sites, etc. This allows you to make a copy of an existing object, creating a new object.  See, for example,  <a href="Members.html">Members</a>.<p>
+Added several buttons to jump directly to "site admin", "list admin" and to "enter list" from various menus, so that it is easier to move between Lyris menus without having to log back in again.<p>
+Bounce reports to list administrators are much more detailed, include a SMTP transaction log, as well as instructions for deleting the user immediately.  See  <a href="ErrorMail.html">Error Mail</a>.<p>
+The "query" command now gives complete information about your membership settings, in plain English.  See  <a href="DetermineMembershipSettings.html">Determine Membership Settings</a>.<p>
+Added "forget your password?" option to the "enter mailing list page".  See  <a href="EnterMailingList.html">Enter Mailing List</a>.<p>
+New option to mark individual users as "never hold this member, no matter how much mail they bounce".  See  <a href="HoldUser.html">Hold User</a>.<p>
+Option to disable the Newsgroups (news:// interface to Lyris mailing lists), both on a server-wide and a list-by-list basis.  See <a href="AvailableasaNewsgroup.html">Available as a Newsgroup</a> and  
+<a href="EnableNewsgroups.html">Enable Newsgroups</a>. 
+<p>
+Option to move Newsgroups support to another TCP/IP port, in case there is a TCP/IP conflict.  See  <a href="NewsgroupPort.html">Newsgroup Port</a>.<p>
+Full text searching of Newsgroups is supported, with multiple AND word matching, as well as NOT word matching. Currently, the only Newsgroup browser that supports this feature, is Netscape 4.  See  
+<a href="AvailableasaNewsgroup.html">Available as a Newsgroup</a>. 
+<p>
+For high-security lists, the option to automatically reject all email submissions, so that submissions must be made via the Lyris web interface, or with a Perl script.  See  
+<a href="RejectEmailSubmissions.html">Reject Email Submissions</a>. 
+<p>
+Option to automatically send a document to users who are being created through the web interface. This is one way to let them know that they have been added to a new mailing list.  See  
+<a href="SendHelloMessage.html">Send Hello Message</a>. 
+<p>
+Added email command for members to change their email address.  This allows a member to change their membership to use a different email address. To do this, use the "set listname email=YYY" command 
+sent to the lyris@ address.  A notification message is sent to the old address.  See  <a href="ChangeMembershipSettings.html">Change Membership Settings</a>. 
+<p>
+The administrator email command, "delete" now allows you to specify as many email addresses as you want to delete at one time. Previously, the "delete" command only let you delete one member at a 
+time.  See  <a href="Delete.html">Delete</a>. 
+<p>
+Added "comment" and "userid" fields for each member.  Now, each member can have this information associated with them. The "comment" field can contain any information about the user, and the userid 
+field is meant to store a "key" for that user, that you can define. For example, it might be used to store the "customer number" of a member on a technical support mailing list.  Also, extra commands 
+were added to set these fields over email with the set command. These are: "set listname comment=YYY" and "set listname userid=YYY"  See  <a href="ChangeMembershipSettings.html">Change Membership Settings</a>. 
+<p>
+Option for list admins to require new subscriber's names.  You can set your list so that subscription applications using the web either a) do not ask for the person's name b) require the person's 
+name c) the person's name is optional.  See  <a href="AskSubscribersforName.html">Ask Subscribers for Name</a>. 
+<p>
+Options for list admins to require new subscribers to define a personal password, to not have a personal passwords at all, or to leave personal passwords optional.  See  
+<a href="AskSubscribersforPassword.html">Ask Subscribers for Password</a>. 
+<p>
+When creating or editing members as a list administrator, you can now type "random" as the users' password, and Lyris will assign a unique, random 6 digit numeric password to each member.  See  
+<a href="MemberPassword.html">Member Password</a>. 
+<p>
+Added "oldpw=" option to the set password email command. Previously, you could only set your password via email if you did not previously have a password. Now, if you currently have a password, you 
+can change it by specifying the old password, and then the new password. For example, "set jazztalk oldpw=orange pw=apple". See  <a href="PasswordSetting.html">Password Setting</a>. 
+<p>
+Added a "Date:" mail merge field that allows you to specify the current date and time in your postings (and in the header or footer) with complete control over how the date and time are displayed.  
+See  <a href="DateField.html">Date Field</a>. 
+<p>
+Several improvements to the "not in&#133;" options for Action Phrases. For example, you can now create action phrases that act on any message not From: a person.  One such use of this 
+is to notify the administrator of any attempted postings to their mailing list, and present a copy of the attempted posting (with the "notify" feature) See <a href="CreatePhrase.html">Create Phrase</a> on. 
+<p>
+Added "dbfastpack" command line parameter that compresses the disk space in the vital databases. This option is much faster than the more thorough "dbpack" but retrieves almost as much disk space.  
+See  <a href="TheLyriscommandline.html">The Lyris command line</a>. 
+<p>
+Added new options to the "review" command. You can now "review listname full" to get a listing of all the member of a mailing list, and the settings for each member. You can also "review listname 
+names" to get a list of member email address, and their names.  See  <a href="Review.html">Review</a>. 
+<p>
+Option for the Server Administrator to disable the "Lyris Extensions" feature for the entire server. For security reasons, some administrators may not want this feature to be available.  See  
+<a href="DisableExtensions.html">Disable Extensions</a>. 
+<p>
+Time-based licenses of Lyris are now available.  We now offer full-featured 30 day evaluation licenses of Lyris, in addition to the regular, unlimited-time, 200 member free Lyris license.<p>
+Lyris now has a mechanism where a listing of "globally available" lists on a server is given to us (the developers of Lyris), and we will soon be offering a list of all Lyris mailing list at 
+http://www.lyris.net/ as well as at http://www.liszt.com/ and http://tile.net/.  The listing of Globally Visible Lyris mailing lists will be publicly available, so that your mailing lists are 
+promoted on all the major search engines. 
+<p>
+Added unsubscribe confirmation, as well as list admin control over how this works. By default, unsubscribes only require confirmation by the user if the address being unsubscribed is not the same as 
+the address from which the member is emailing.  The list administrator can choose to require confirmation from all unsubscribes, never require confirmation, or only require confirmation when the 
+unsubscribe is "suspicious".   
+<p>
+New Server Administrator option to set the directory in which all Lyris extensions must be located.  This enhances the security of the Lyris Extension mechanism.  See  
+<a href="ExtensionsDirectory.html">Extensions Directory</a>. 
+<p>
+New "banned" feature allows the list administrator to ban certain users from joining or posting messages. The "banned" feature also has a "not" option that allows you to ban everyone except those 
+that match the criteria. For example, the <I>banned</I> option "@aol.com" will ban all AOL users from joining your mailing list.  The <I>banned </I>option "~@mycompany.com" will ban all users 
+from joining except those who have "@mycompany.com" in their email address.  Members who are "banned" are not outright rejected, but are set in a "private" state, so that their membership requires 
+administrator approval in order to become activated.  Besides keeping out trouble-makers, the banned feature is useful for corporate discussion groups, because you can leave your mailing list "open" 
+so that people from your company can join, but people from the outside who try to join will be subject to administrator approval. 
+</I><p>
+Added a "go to" button on the "View Members" web interface page that lets you jump directly to a specific email address in your member list, or to a specific letter in the alphabet.  This is very 
+useful in large lists, in that it makes it much easier to find a specific member for editing.  See  <a href="FirstMembersPage.html">First Members Page</a>. 
+<p>
+Option for list administrators to disallow all subscription requests by email. This is useful if you want to require members to use the web interface subscription form that might require them to 
+enter more information (such as a name and password, for instance).  See  <a href="AllowJoiningbyEmail.html">Allow Joining by Email</a>. 
+<p>
+Added new Lyris Command Protocol command: MemberWhatLists tells you what mailing lists an email address is a member of. This is useful for sites developing a custom web interface, and who want 
+members to be able to edit their settings on multiple mailing lists at one time. 
+<p>
+List administrators are no longer allowed to unsubscribe by email, they are required to unsubscribe using the web interface, or by removing themselves with the "delete" command.  This was done for 
+security reasons, to prevent malicious users from harassing a mailing list owner, by trying to unsubscribe them. 
+<p>
+Added new mail merge tag: "nameemail" combines the user's name and email address in one field.  If the name is not available, only the email address is given.  See  <a href="MemberFields.html">Member Fields</a>.<p>
+Support for importing Compuserve-style email addresses. Addresses of the type "71640,3005" and "Robert Myers 103303,1207" are automatically converted to Internet-style email addresses, and the name 
+is correctly understood.  See  <a href="FirstMembersPage.html">First Members Page</a>. 
+<p>
+New button allows cloning of an entire mailing list, and of all its members (and all their settings) in one step.  See  <a href="MailingListsFirstPage.html">Mailing Lists First Page</a>.<p>
+Better support for multiple TCP/IP addresses. Previously, Lyris listened for incoming connections on the TCP/IP addresses it was told to, but outgoing connections were automatically made on the last 
+TCP/IP address on the system. Now, outgoing connections are made on the first TCP/IP address of the system that Lyris has been allowed to use.  See  <a href="MultipleTCP_IPaddresses.html">Multiple TCP/IP addresses</a> 
+. 
+<p>
+The Lyris default "thank you for subscribing" and "you have been unsubscribed" are no longer sent if the administrator has replaced them with their own documents.<p>
+New list admin option to disable all membership options, such as "digest", "index", "acknowledgement", and others. On announcement lists, these options are not relevant, and so the list administrator 
+can choose to de-activate them.  The web interface will not show the options, and the email commands for them will be refused.  See  <a href="RestrictMemberOptions.html">Restrict Member Options</a>. 
+<p>
+Email forwarding orders can now be sent to any number of people. This is useful in defining an "alias" for multiple mailing lists, and also for defining a "group" of users who should receive specific 
+mail (for example, a group of salespeople).  See  <a href="ForwardingOrders.html">Forwarding Orders</a>. 
+<p>
+Ability to ban all incoming mail from: a given person. The server administrator, in the server configuration page, can define email addresses who are not allowed to send mail to this server.  The 
+mail will be rejected during the SMTP mail transaction, and will not be saved or processed by Lyris.  This is particularly useful if someone decides to mail bomb your Lyris server: you can reject any 
+mail from that person. See  <a href="BanMailFrom.html">Ban Mail From</a>. 
+<p>
+Ability to remove addresses which Lyris listens to.  By default, Lyris accepts and responds to email on a wide variety of email addresses. For example, mail sent to help@&#133; will 
+automatically return help information.  This feature allows you remove addresses that Lyris responds to.  See  <a href="RemoveLyrisAddresses.html">Remove Lyris Addresses</a>. 
+<p>
+Web interface pages with many features now are now grouped by type of feature that makes finding the feature you want much easier, and reduces visual clutter on the page.<p>
+Added web interface pages for looking at incoming and outgoing email.  Both list administrators and server administrators can now look at all the mail which has been received by Lyris, as well as all 
+the mail previously sent or being sent by Lyris.  Various filtering and sorting options are given.  This allows administrators to track down the exact email messages they have questions about, for 
+example, if a member of a mailing list complains to the administrator that their message was rejected, the list administrator can now easily look that message up.  When looking at outgoing mail, the 
+list administrator can see the current progress of each posting, such as who has received it, who has not, when Lyris will retry sending the message to those who have not received it, and various 
+other information.  See <a href="IncomingMail.html">Incoming Mail</a> and  <a href="OutgoingMail.html">Outgoing Mail</a>. 
+<p>
+Added "Security of Member List" option so that the list administrator can choose to allow only admins, members, or anyone to obtain the listing of members of the mailing list. This controls the 
+security of the "review" command. Previously, the "review" command only returned the member list if you were a list administrator. Now, it can be set to return the member list for others as well.  
+See  <a href="SecurityofMemberList.html">Security of Member List</a>. 
+<p>
+Added an option to replace matched text in messages where an action phrase is found. This feature allows you to create a "posting password" which only allows posts which have that password, and the 
+password is then removed from the message. Also, posts can be rejected which do not have a particular Received: line, or anything else that is noteworthy.  The matched text is then changed to 
+something else, yielding a very secure posting configuration, with minimal effort.  See  <a href="ReplaceWith.html">Replace With</a>. 
+<p>
+Topics can now be hidden, and all mailing lists under that topic are also hidden.  See  <a href="HideTopic.html">Hide Topic</a>.<p>
+Added option to hide a mailing list. It is then not visible in the Lyris web interface menus, or in the "list" command.  See  <a href="Hide.html">Hide</a>.<p>
+Enhanced the "unsubscribe" command so that an email address to unsubscribe can be given. If the email address to unsubscribe is different from the one making the request, a unsubscribe confirmation 
+is requested.  See  <a href="Unsubscribe.html">Unsubscribe</a>. 
+<p>
+Added support for the draft-standard List-Help mail headers, with an option to add or remove them.  See  <a href="List_HelpHeaders.html">List-Help Headers</a>.<p>
+Added option to define rules for what mail Lyris should accept and process. This allows Lyris to sit in front of another mail server: Lyris can be told exactly what mail to accept itself, and Lyris 
+will pass forward all other mail.  This allows Lyris to flawlessly coexist with Microsoft Exchange and Netscape Mail Server.  See  <a href="MailReceiveRules.html">Mail Receive Rules</a>. 
+<p>
+Added options to add HTML headers and footers to all the Lyris Web Interface pages, so you can add banners, copyrights, toolbars, etc.  Rotating of several alternative banners is also supported.  See 
+ <a href="WebInterfaceHeaderandFooter.html">Web Interface Header and Footer</a>. 
+<p>
+The archive import program, "imp-arc.pl", can now accept any number of import files at once, by specifying them on the command line. You can use a wildcard filename to specify multiple files.  
+Previously, you had to specify each file to import, one at a time.  See  <a href="ImportingEmailAddresses.html">Importing Email Addresses</a>. 
+<p>
+Created a program to import archives from the DOS based list server program "Connect2Library".  Users of Connect2Library who are moving to Lyris can now import their mailing list archives.  See  
+<a href="ImportingArchivesfromConnect2Library.html">Importing Archives from Connect2Library</a>. 
+<p>
+Added an option in the "view outgoing mail" page to view only the messages that Lyris is currently trying to send.  See  <a href="SelectOutgoingMessages.html">Select Outgoing Messages</a>.<p>
+The "review" command no longer gives any information to non-members if the "Allow Info" setting is set to no. Previously, the review command gave very basic information.  See 
+<a href="MailingListInformation.html">Mailing List Information</a> and  <a href="AllowInfo.html">Allow Info</a>. 
+<p>
+Added support for importing members from the NTList listserver program.  You can use the Lyris web interface or the command line program.  See <a href="FirstMembersPage.html">First Members Page</a> and  
+<a href="ImportingEmailAddresses.html">Importing Email Addresses</a>. 
+<p>
+Added basic mail merge support to Lyris Documents. For example, the "Hello" document can now include "member" mail merge tags.  See  <a href="MemberFields.html">Member Fields</a>.<p>
+Added the ability to redefine the Lyris graphics in the Lyris Web Interface.  See <a href="LyrisFaceGraphic.html">Lyris Face Graphic</a> and <a href="LyrisLogoGraphic.html">Lyris Logo Graphic</a> and  <a href="LyrisHomeButton.html">Lyris Home Button</a> 
+. 
+<p>
+After editing or creating a document, you are now given a optional button to immediately go back and re-edit the document, in addition to being shown exactly what the document will look like in 
+email. Previously, you always went back to the main menu. 
+<p>
+After editing or creating a member, you are now given an optional button to go back to the members page, or back to the list admin page.  Previously, you always went back to the main menu.<p>
+Added server configuration option to move the Lyris Command Protocol port from 2020 to another port.  This would only be necessary if there were a TCP/IP port conflict.  See  <a href="LCPPort.html">LCP Port</a>.<p>
+Added nntpport and lcpport command line commands for setting the LCP port number (default is 2020), and the NNTP port number (default is 119).  See  <a href="SettingServerOptions.html">Setting Server Options</a>.<p>
+Fixed problem with unsubscribe tags caused by Microsoft Mail. MS Mail adds [SMTP:] around the From: address, which makes it look very similar to the unsubscribe tag, such as 
+[email@somewhere.com].  Lyris now knows about this and correctly deals with it. 
+<p>
+Added a button to "create new message" from the main message reading page. Previously, this button was not available on this page, but was available on the individual message reading page, and on the 
+main user menu.  
+<p>
+A "list admin" button now appears in the main user menu of a mailing list if the current user is also a list administrator. This makes it easier to move back and forth between the user menu and the 
+list admin menu.  
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 502 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

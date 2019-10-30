@@ -1,0 +1,25 @@
+# Set up the database connection stuff
+sqlname: dbi:mysql:database=test;hostname=localhost
+sqluser: test
+sqlpassword: testpassword
+
+# Make sure we're got some good data
+isinteger: id
+
+# Lets make sure that we're not trying to squeeze too much
+# data into a field that can only take a little bit (64 characters).
+# If the field's too big, make an imaginary field required to force a failure
+if: title longerthan 64 then required: longerthanproblem
+failure: dbi2.txt
+
+# Make the first update on the database
+sqlbind1: "$form_title"
+sqlbind2: "$form_id"
+sqlrun1: update testac set object_title = ? where object_id = ?
+
+# Now, get the information back, so we can check on the success
+sqlbind1: "$form_id"
+sqlrun2: select object_title from testac where object_id = ?
+
+# Go to the success page
+success: dbi3.txt

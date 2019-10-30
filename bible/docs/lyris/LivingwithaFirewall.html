@@ -1,0 +1,94 @@
+<HTML>
+<HEAD><TITLE>Living with a Firewall</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="InstallingtheWebInterfaceonaseparateWebServer.html">previous</a>] [<a href="InstallingLyrisonUnix.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Living with a Firewall</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · · <a href="MovingaLyrisInstallationtoaNewMachine.html">Moving a Lyris Installation to a New Machine</a><br>
+· · · <a href="InstallingLyrisasaWindowsService.html">Installing Lyris as a Windows Service</a><br>
+· · · <a href="DoIneedamailserverinordertorunLyris_.html">Do I need a mail server in order to run Lyris?</a><br>
+· · · <a href="WhatistheTCP_IPcheckfor_.html">What is the TCP/IP check for?</a><br>
+· · · <a href="Problem_NTsetupexitsduringtheTCP_IPcheck.html">Problem: NT setup exits during the TCP/IP check</a><br>
+· · · <a href="InstallingtheWebInterfaceonaseparateWebServer.html">Installing the Web Interface on a separate Web Server</a><br>
+· · · <a href="LivingwithaFirewall.html"><font size=+0><b>Living with a Firewall</b></font></a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Living with a Firewall</h3>
+Many organizations employ a TCP/IP firewall, so that machines inside the firewall are not allowed to receive direct incoming connections. In such a setup, Lyris is disallowed from 
+directly receiving email, and your site setup must be modified so that Lyris can receive mail through your firewall, using a method that works with your security policy. 
+<p>
+In a typical setup, there are two machines to think about:<p>
+  mail.company.com (the firewall server that can receive mail) <br>  lyris.company.com (the Lyris server)<p>
+What you want to do is set up <I>lyris.company.com</I> in your external DNS (what the rest of the world sees) so that mail addressed to <I>lyris.company.com</I> actually gets delivered to 
+<I>mail.company.com</I>.  In DNS talk, this means: 
+</I><p>
+<font face='Courier New'>   lyris.company.com    IN MX    10 mail.company.com <p>
+</font>Then, your firewall needs to see <I>lyris.company.com</I> in the RCPT TO name of each email message it receives and forward this mail internally (inside your firewall) to 
+<I>lyris.company.com</I>.  We know of at least two ways of doing this: 
+</I><p>
+1) set up an internal DNS entry for <I>lyris.company.com</I> to receive its own mail, so that the internal DNS for <I>lyris.company.com</I> looks different from the external DNS. Many firewalls 
+will see this internal DNS entry and automatically do the forwarding.  If your firewall is smart in this way, all you need to do is make this DNS change.  This kind of internal/external DNS 
+configuration setup is quite common with firewalls, and works well. The outside world only sees the firewall from your because of your external DNS setup, but the firewall knows how your internal 
+network works, and makes sure everything gets forwarded correctly. 
+</I><p>
+2) another option is to set up a forwarding rule on your firewall so that your firewall (<I>mail.company.com</I>) knows to forward mail it receives which is addressed to <I>lyris.company.com</I> 
+on to Lyris (at <I>lyris.company.com</I>).  This is sometimes a "sendmail" configuration option, or an option built into the user interface of your firewall software. 
+</I><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="InstallingLyris.html">Installing Lyris</a><br>
+</td><td align=right valign=top>Page 451 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

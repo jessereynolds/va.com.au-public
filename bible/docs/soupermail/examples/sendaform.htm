@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Soupermail Send A Form</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Send A Form</h1>
+
+<p>
+This page demonstrates how you can send a HTML form via email pre-filled
+with other form data.
+</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="sendaform.con">
+
+Your Name: <input type="text" name="your_name" size="15"> (required)<p>
+Your Email: <input name="Email" type="text" size="15"> (required)<p>
+Your Request:
+<textarea name="request" rows="5" cols="30" wrap="virtual"></textarea><p>
+
+Your request is: 
+<select name="priority">
+<option>
+<option value="urgent">Urgent
+<option value="medium">Medium
+<option value="low">Low
+</select>
+<p>
+Do you want this form sent as HTML to you: 
+(<input type="radio" name="ashtml" value="yes"> Yes)
+(<input type="radio" name="ashtml" value="no" checked> No)
+
+<p>
+
+<input type="submit" value="Send Form">
+</form>
+
+</body>
+</html>
+

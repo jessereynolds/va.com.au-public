@@ -1,0 +1,95 @@
+<HTML>
+<HEAD><TITLE>TCP/IP Addresses of Lyris Users</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="TCP_IPAddressesofLyrisAdmins.html">previous</a>] [<a href="DisableHelpintheWebInterface.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>TCP/IP Addresses of Lyris Users</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· · · <a href="DefaultSite.html">Default Site</a><br>
+· · · <a href="TCP_IPAddressofLyrisServer.html">TCP/IP Address of Lyris Server</a><br>
+· · · <a href="TCP_IPPortofLyrisServer.html">TCP/IP Port of Lyris Server</a><br>
+· · · <a href="TCP_IPSocketConnectionRetries.html">TCP/IP Socket Connection Retries</a><br>
+· · · <a href="TemporaryDirectory.html">Temporary Directory</a><br>
+· · · <a href="LocationofLyrisWebInterfaceGraphics.html">Location of Lyris Web Interface Graphics</a><br>
+· · · <a href="DebuggingMode.html">Debugging Mode</a><br>
+· · · <a href="LCPPasswordSetting.html">LCP Password Setting</a><br>
+· · · <a href="TCP_IPAddressesofLyrisAdmins.html">TCP/IP Addresses of Lyris Admins</a><br>
+· · · <a href="TCP_IPAddressesofLyrisUsers.html"><font size=+0><b>TCP/IP Addresses of Lyris Users</b></font></a><br>
+· · · <a href="DisableHelpintheWebInterface.html">Disable Help in the Web Interface</a><br>
+· · · <a href="LocationofWebInterfaceHelpFiles.html">Location of Web Interface Help Files</a><br>
+· · · <a href="LyrisUnavailableMessage.html">Lyris Unavailable Message</a><br>
+· · · <a href="_HoststheFollowing__messagetext.html">"Hosts the Following…" message text</a><br>
+· · · <a href="WebInterfaceHeaderandFooter.html">Web Interface Header and Footer</a><br>
+· · · <a href="LyrisFaceGraphic.html">Lyris Face Graphic</a><br>
+· · · <a href="LyrisLogoGraphic.html">Lyris Logo Graphic</a><br>
+· · · <a href="LyrisHomeButton.html">Lyris Home Button</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>TCP/IP Addresses of Lyris Users</h3>
+<B>user_ip=</B></B><p>
+If specified, this defines a mask for TCP/IP addresses that are allowed to access the user menu.  If undefined, all users are allowed to see the user menu.<p>
+For example, if you have a Lyris Server which is internal to your company, and outsides should not be able to access it, then you can set user_ip to be a mask for the TCP/IP addresses in your 
+company.  See the "admin_ip" parameter for more information about masks. 
+<p>
+If a TCP/IP address matches the "admin_ip" parameter, it automatically has access to the user menus as well.<p>
+You can specify as many user_ip address as you like.  The following example would allow access to TCP/IP addresses beginning with 193.158.17.* and 198.15.* as well as to the specific address 
+194.204.17.2 
+<p>
+<font face='Courier New'><ul>user_ip=193.158.17. <br>user_ip=194.204.17.2 <br>user_ip=198.15.<p>
+</ul></font><h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+</td><td align=right valign=top>Page 423 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

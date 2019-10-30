@@ -1,0 +1,131 @@
+<HTML>
+<HEAD><TITLE>Access to unsubscribe and change settings</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="AnonymousPostings.html">previous</a>] [<a href="Visibilityoftheexistenceofthemailinglist.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Access to unsubscribe and change settings</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · · <a href="Accesstothelistarchives.html">Access to the list archives</a><br>
+· · · <a href="Accesstothelistofmembers.html">Access to the list of members</a><br>
+· · · <a href="AccesstoSubscribetotheMailingList.html">Access to Subscribe to the Mailing List</a><br>
+· · · <a href="Stepstorestrictfalseimpersonations.html">Steps to restrict false impersonations</a><br>
+· · · <a href="SecurityFeaturesforPostingMessages.html">Security Features for Posting Messages</a><br>
+· · · <a href="Accesstounsubscribeandchangesettings.html"><font size=+0><b>Access to unsubscribe and change settings</b></font></a><br>
+· · · <a href="Visibilityoftheexistenceofthemailinglist.html">Visibility of the existence of the mailing list</a><br>
+· · · <a href="WebInterfaceAccess.html">Web Interface Access</a><br>
+· · · <a href="OverviewofLyrisPostingSecurity.html">Overview of Lyris Posting Security</a><br>
+· · · <a href="SecurityConsiderationsoftheFrom_field.html">Security Considerations of the From: field</a><br>
+· · · <a href="SecurityRecommendationsforAnnouncementlists.html">Security Recommendations for Announcement lists</a><br>
+· · · <a href="HowLyrisDeterminestheIdentityofthePersonPosting.html">How Lyris Determines the Identity of the Person Posting</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Access to unsubscribe and change settings</h3>
+A member can change their settings and unsubscribe using the Lyris web interface.  This web interface account requires the email address and password for access.  <p>
+On most mailing lists, in order to make things simple, users do not have a password, and only need their email address in order to access the Lyris web interface. This means that if someone knows 
+another person's email address, that they can log into the Lyris web interface as that person, and then act on their behalf.  In practice, this problem occurs rarely, but you may nonetheless want to 
+prevent this security breach. 
+<p>
+The simplest way to prevent this is to require passwords on your mailing list. As the list administrator, you can set your mailing list up to require that every member have a password.  After this is 
+set, emailed-in subscription requests are assigned a random password, and notified of it.  Subscription requests from the Lyris web interface require that the person fill in a choice for their 
+password.  Once passwords are used, it is much more difficult for a malicious person to effect other people's subscriptions.  For added security, you can use a secure web server (using SSL) or 
+restrict web interface access using your web server's security measures (ie: an additional name/password combination, or a TCP/IP address block).  Lyris also supports TCP/IP address blocks for both 
+the user and admin portions of the web interface, so you can optionally lock out the web interface from any TCP/IP address that is not pre-approved. 
+<p>
+Lyris supports unsubscribing by email.  The simplest way to unsubscribe from a Lyris mailing list is to send email to the unsubscribe address which Lyris custom-makes for each member.  For example, 
+if you are on a mailing list called "jazztalk", the unsubscribe address that Lyris displays for you might be: 
+<p>
+<font face='Courier New'><ul>leave-jazztalk-4323P@lyris.net<p>
+</ul></font>Only member 4323 will see this address.  When email comes into Lyris with this address, Lyris will unsubscribe that member.  The final "P" on the address is a "check character".  
+This means that if someone malicious changes the number to something else, say "4000", by mailing to "leave-jazztalk-4000P@lyris.net", that Lyris will see that this number has been tampered with, 
+because "P" is not the correct "check character" for the number "4000".  In this case, Lyris will interpret the message is if it were sent to "leave-jazztalk@lyris.net", and unsubscribe the sender of 
+the message. 
+<p>
+Lyris has three levels of unsubscribe confirmations. An unsubscribe confirmation is an additional step that Lyris takes when someone tries to unsubscribe -- instead of immediately unsubscribing the 
+person, Lyris sends an unsubscribe confirmation email message to the email address of the member. The member then receives the email message, and follows the instructions (which involve replying to 
+the message) in order to be unsubscribed. 
+<p>
+By default, all Lyris mailing lists are set to confirm "suspicious" unsubscribes.  By "suspicious", we mean an unsubscribe request where something does not look right about it. For example, if the 
+MAIL FROM (ie: Return-Path:), or the From: do not match address of the member being unsubscribed, Lyris believes the unsubscribe to be "suspicious" and issues a confirmation to the unsubscribe. 
+<p>
+As a list administrator, you can also choose to never have unsubscribe confirmations, or to confirm all unsubscribes. You might want to never confirm unsubscribes on an announcement list, where 
+members are not aware of each other, and thus cannot try to maliciously unsubscribe each other.  On a close-knit discussion group, where all the members should stay on the mailing list, you might 
+want to confirm all unsubscribes. 
+<p>
+Note that identification of the email address to unsubscribe is a major problem with most other list servers.  For example, if you subscribe to a mailing list with the email address "bob@acme.com", 
+and then a corporate mail system change causes your email address to become "bob@mail.acme.com", most list servers will not be able to automatically unsubscribe you, because they will not know that 
+you are the same person in both cases.  
+<p>
+Some list servers, such as majordomo, let you specify another email address to unsubscribe. This approach solves the immediate problem of not being able to unsubscribe, but has several major 
+problems. First, it is a major security hole to allow anyone to be able to unsubscribe any other email address they please. Secondly, this solution presumes that the person realizes that their email 
+address has changed in this subtle way, and knows enough about the list server to issue this modified unsubscribe command. Some list servers work around this second problem by allowing people to 
+obtain the list of members, to see if some previous email address of theirs is on it. Of course, this solution is also a security hole, since it allows anyone to obtain your member list.  
+<p>
+The Lyris approach, of per-member unsubscribe addresses, with a check-character, does not suffer from any of these security flaws, requires no special knowledge on the part of the member, and works 
+very well. 
+<p>
+The per-member unsubscribe address is implemented in Lyris as a mail merge tag, so that each member receives a unique email message, customized for their membership. By default, this tag is inserted 
+in the header of each outgoing message, and is also defined in the default footer. You can remove either tag, as you wish, though we recommend that for infrequent announcement lists, you ought to 
+leave the unsubscribe directions in the footer. 
+<p>
+As far as changing settings by email are concerned, Lyris does not do a confirmation message when a setting has been changed. However, Lyris does send a notification email message to the email 
+address of the member, letting them know that their settings have been changed. This is generally effective in preventing security problems, as changing other people's settings is not a common type 
+of security breach. 
+<p>
+ <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+</td><td align=right valign=top>Page 392 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

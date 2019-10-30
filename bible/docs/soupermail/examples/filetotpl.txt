@@ -1,0 +1,2 @@
+"<output name="some_text" charmap='",""'>","<output name="text_box" newline="none" charmap='",""'>","<output name="checks" list="text" delim="," charmap='",""' case="upper">","<output name="num1" charmap='",""'>","<output name="num2" charmap='",""'>","<output name="http_time">","<output name="http_date">","<output name="http_remote_addr">"
+

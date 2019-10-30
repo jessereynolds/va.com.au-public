@@ -1,0 +1,90 @@
+<HTML>
+<HEAD><TITLE>Incoming Mail fields</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="EmailAddressfields.html">previous</a>] [<a href="DateField.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Incoming Mail fields</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · · · <a href="RecipientFields.html">Recipient Fields</a><br>
+· · · · <a href="MemberFields.html">Member Fields</a><br>
+· · · · <a href="Listfields.html">List fields</a><br>
+· · · · <a href="Sitefields.html">Site fields</a><br>
+· · · · <a href="EmailAddressfields.html">Email Address fields</a><br>
+· · · · <a href="IncomingMailfields.html"><font size=+0><b>Incoming Mail fields</b></font></a><br>
+· · · · <a href="DateField.html">Date Field</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Incoming Mail fields</h3>
+The following fields apply to list postings, are substitute in the values from the currently active posting.  They all pull their values from information in the incoming mail message 
+(i.e.: the message being posted). 
+<p>
+<B>inmail.messageid <br></B>The Lyris message-ID of the message being posted.</B><p>
+<B>inmail.hdrfromspc <br></B>The value of the "From " field in this message. This is the value passed via the MAIL FROM:&lt;&gt; command during the SMTP transaction.</B><p>
+<B>inmail.hdrfrom <br></B>The value of the "From:" header in this message.</B><p>
+<B>inmail.hdrto <br></B>The value of the "To:" header in this message.  </B><p>
+<B>inmail.hdrdate <br></B>The value of the "Date:" header in this message.</B><p>
+<B>inmail.hdrsubject <br></B>The value of the "Subject:" header in this message.</B><p>
+<B>inmail.hdrall <br></B>The complete header in this message.</B><p>
+<B>inmail.to <br></B>The actual recipient of this message. This is the value passed via the RCPT TO:&lt;&gt; command during the SMTP transaction.</B><p>
+<B>inmail.byemail <br></B>Whether or not this incoming message was received by email (or by NNTP). If the message was received through the web interface, this value will be "no", otherwise 
+it will be "yes". 
+</B><p>
+<B>inmail.body <br></B>The full body of the incoming mail message (does not include the header)</B><p>
+<B>inmail.bodyquoted <br></B>The full body of the incoming mail message (does not include the header), with each line quoted with a "&gt; " character.</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+</td><td align=right valign=top>Page 405 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

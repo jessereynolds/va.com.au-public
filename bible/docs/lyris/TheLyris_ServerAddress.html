@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE>The Lyris@ Server Address</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="SendingEmailCommandstoLyris.html">previous</a>] [<a href="Listname_request_commands.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>The Lyris@ Server Address</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· · <a href="HowtosendmailtoyourLyrisserver.html">How to send mail to your Lyris server</a><br>
+· · <a href="SendingEmailCommandstoLyris.html">Sending Email Commands to Lyris</a><br>
+· · · <a href="TheLyris_ServerAddress.html"><font size=+0><b>The Lyris@ Server Address</b></font></a><br>
+· · · <a href="Listname_request_commands.html">Listname-request@ commands</a><br>
+· · · <a href="Command_ListnameandListname_Command.html">Command-Listname and Listname-Command</a><br>
+· · · <a href="Command_addresses.html">Command@ addresses</a><br>
+· · · <a href="MultipleCommandsinamessage.html">Multiple Commands in a message</a><br>
+· · · <a href="HowInvalidCommandsareHandled.html">How Invalid Commands are Handled</a><br>
+· · · <a href="HowLyrissendsmailbacktoyou.html">How Lyris sends mail back to you</a><br>
+· · · <a href="TheLineContinuationCharacter.html">The Line Continuation Character</a><br>
+· · <a href="Subscribing.html">Subscribing</a><br>
+· · <a href="Unsubscribe.html">Unsubscribe</a><br>
+· · <a href="ChangeMembershipSettings.html">Change Membership Settings</a><br>
+· · <a href="DetermineMembershipSettings.html">Determine Membership Settings</a><br>
+· · <a href="MailingListInformation.html">Mailing List Information</a><br>
+· · <a href="Search.html">Search</a><br>
+· · <a href="HelpDocument.html">Help Document</a><br>
+· · <a href="GetDocuments.html">Get Documents</a><br>
+· · <a href="End.html">End</a><br>
+· · <a href="AdministratorCommands.html">Administrator Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>The Lyris@ Server Address</h3>
+To send a command to Lyris, you can issue the commands in an email message to the lyris@ address on your server.  Lyris will understands commands entered on the subject line and in the 
+body of the message.  Multiple commands can be issued, each on separate line. 
+<p>
+To determine the Lyris Server address for your Site, take the host name you created for that Site, and prepend "lyris@" to it.  For example, if your Site's host name is <I>minerva.acme.com</I>, 
+your Lyris Server address is <I>lyris@minerva.acme.com</I>. 
+</I><p>
+With Lyris, you have the option of several different kinds of command syntaxes.  Wherever possible, Lyris was made to be compatible with the command syntaxes of other list server programs, so that 
+users can use the command they are familiar with, and are not required to learn something new. 
+<p>
+Lyris will accept mail at the following addresses and understand the mail as list server commands:<p>
+<font face='Courier New'><ul>lyris@hostname <br>list@hostname <br>lists@hostname <br>listserver@hostname <br>listname-request@hostname<p>
+</ul></font>The last format, <I>listname</I>-request@hostname deserves special attention.  </I><p>
+In addition, you can define addition Lyris@ address by using the Incoming Mail Rewrite feature to rewrite an address to be Lyris@. For instance, you can specify that "mailing-lists@" be rewritten as 
+"lyris@", and this would allow people to send Lyris commands to "mailing-lists@your.hostname.com". 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="SendingEmailCommandstoLyris.html">Sending Email Commands to Lyris</a><br>
+<li><a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+</td><td align=right valign=top>Page 28 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

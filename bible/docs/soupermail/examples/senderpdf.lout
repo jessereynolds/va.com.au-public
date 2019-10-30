@@ -1,0 +1,50 @@
+@SysInclude { doc }
+def @WebLink left label right url
+{
+   {
+      "["
+       "/Rect    [ 0 0 xsize ysize ]"
+       "/Action  << /Subtype /URI /URI ("url") >>"
+       "/Border  [0 0 36]"
+       "/Color   [.929 .658 .439]"
+       "/Subtype /Link"
+       "/ANN pdfmark"
+   }@Graphic{^/0.1f {|0.1f label |0.1f} /0.1f}
+}
+
+
+@Doc @Text @Begin
+
+@Display @Heading { Lout and Soupermail }
+
+@LP { Hello @B{ <output name="Email" altvar="name"> } }
+
+@LP { }
+
+@LP { Your Message was: }
+
+@LP { }
+
+5d @Rotate @ShadowBox margin { 0.5c } {
+15c @Wide {
+lines @Break darkcyan @Colour { <output name="message"> } 
+}}
+
+@LP { }
+@LP { }
+
+@FullWidthRule
+
+@RightDisplay { Look, I've included a graphic with an EPS file.
+
+2.5c @Wide @Scale @IncludeGraphic senderpdf.eps
+
+}
+
+@LP { }
+@LP { }
+ 
+{Made with Soupermail}@WebLink{"http://soupermail.sourceforge.net/"}
+
+@FullWidthRule
+@End @Text

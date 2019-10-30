@@ -1,0 +1,55 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail Counter Example</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body bgcolor="white" text="black">
+<h1>Counters Example</h1>
+
+<p>This page shows the simple use of a counter. The counter starts at 1 and
+will wrap around at 5. As you should see, the value for the counter used
+by the reference number and the <code>counter_1</code> is the same.
+</p>
+
+<div align="center">
+<table border="1" width="90%">
+
+<tr>
+<th>OUTPUT Element</th>
+<th>Template Results</th>
+</tr>
+
+<tr>
+<td>&lt;output name="counter_1" alt="&lt;br&gt;"&gt;</td>
+<td><output name="counter_1" alt="<br>"></td>
+</tr>
+
+<tr>
+<td>&lt;output name="http_ref" alt="&lt;br&gt;"&gt;</td>
+<td><output name="http_ref" alt="<br>"></td>
+</tr>
+
+</table>
+</div>
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="counter1.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is
+<a href="cgivars.txt">counter1.txt</a>.</p>
+</body>
+</html>

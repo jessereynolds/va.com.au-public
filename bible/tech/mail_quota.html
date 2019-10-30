@@ -1,0 +1,130 @@
+<html>
+
+<head>
+
+<title>The Bible - template</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" background="/bible/grey_bg.gif">
+<!--#include virtual="/bible/nav.html" -->
+<blockquote> 
+  <table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td>
+        <p><font face="Arial, Helvetica, sans-serif">
+        
+        
+        <b>How to check and change email quotas at VA, on the qmail server:</b><br>
+        by Jesse Reynolds, 23.10.01
+</p>
+<p>
+First, log in to the mail host, polly.va.com.au, and su to root, then:
+</p>
+<p>
+<u>
+Checking a quota:
+</u>
+</p>
+<p>
+<tt>
+# vuserinfo &lt;email_address&gt;
+</tt>
+</p>
+<p>
+eg: <tt># vuserinfo jesse@va.com.au</tt>
+</p>
+<p>
+<u>
+Setting a quota:
+</u>
+</p>
+<p>
+<tt>
+# vsetuserquota &lt;email_address&gt; &lt;size_in_bytes&gt;
+</tt>
+</p>
+<p>
+eg to set jesse's quota to 10Mb:
+</p>
+<p>
+<tt>
+# vsetuserquota jesse@va.com.au 10000000
+</tt>
+</p>
+<p>
+Note you should check the quota with vuserinfo after setting it to check that the change was successful.
+</p>
+<p>
+<u>
+Checking Disk Usage:
+</u>
+</p>
+<p>
+This is a little more complicated. What we do here is first find the directory that the user's email is stored in, then use the du command to find out how much data is in that directory, so:
+</p>
+<p>
+<tt>
+# vuserinfo &lt;email_address&gt;
+</tt>
+</p>
+<p>
+look in the output for the line "dir: ..." and copy the directory, then:
+</p>
+<p>
+<tt>
+# du -sk &lt;dir&gt;
+</tt>
+</p>
+<p>
+this will give you the usage in Kb.
+</p>
+<p>
+eg:
+</p>
+<p>
+<tt>
+bash-2.04# vuserinfo jesse@va.com.au<br>
+name:   jesse<br>
+passwd: XUCzolxycDHLc<br>
+uid:    1<br>
+gid:    0<br>
+        all services available<br>
+gecos:  jesse reynolds<br>
+dir:    |/usr/local/vpopmail/domains/va.com.au/jesse|<br>
+quota:  10000000<br>
+</p>
+<p>
+bash-2.04# du -sk /usr/local/vpopmail/domains/va.com.au/jesse<br>
+3917    /usr/local/vpopmail/domains/va.com.au/jesse
+</tt>
+</p>
+<p>
+This shows that my directory is consuming nearly 4Mb on the server. (Shit, I must have some of those bad attachments in my mailbox, could be time to use Eudora's check special command to remove everything from the server...)
+
+        
+        
+        
+        
+        
+        </font></p>
+        
+       
+      </td>
+    </tr>
+  </table>
+
+  <p><font face="Arial, Helvetica, sans-serif"><map name="bible_header_nav.map">
+      <area shape="rect" coords="9,23,152,106" href="/bible/index.html" alt="Home">
+      <area shape="rect" coords="160,107,223,134" href="/bible/ftp/ftp.html" alt="FTP Info">
+      <area shape="rect" coords="238,107,282,134" href="/bible/faq/faq.html" alt="FAQ's">
+      <area shape="rect" coords="298,107,368,134" href="/bible/office/office.html" alt="Office Info">
+      <area shape="rect" coords="388,107,458,134" href="/bible/tech/tech.html" alt="Tech Maps">
+      <area shape="rect" coords="476,107,537,134" href="/bible/general/general.html" alt="General Info">
+      <area shape="rect" coords="553,107,617,134" href="/bible/vce/vce.html" alt="VCe">
+    </map> </font></p>
+</blockquote>
+</body>
+
+</html>

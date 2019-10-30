@@ -1,0 +1,108 @@
+<HTML>
+<HEAD><TITLE>Overview of Lyris Posting Security</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="WebInterfaceAccess.html">previous</a>] [<a href="SecurityConsiderationsoftheFrom_field.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Overview of Lyris Posting Security</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · · <a href="Accesstothelistarchives.html">Access to the list archives</a><br>
+· · · <a href="Accesstothelistofmembers.html">Access to the list of members</a><br>
+· · · <a href="AccesstoSubscribetotheMailingList.html">Access to Subscribe to the Mailing List</a><br>
+· · · <a href="Stepstorestrictfalseimpersonations.html">Steps to restrict false impersonations</a><br>
+· · · <a href="SecurityFeaturesforPostingMessages.html">Security Features for Posting Messages</a><br>
+· · · <a href="Accesstounsubscribeandchangesettings.html">Access to unsubscribe and change settings</a><br>
+· · · <a href="Visibilityoftheexistenceofthemailinglist.html">Visibility of the existence of the mailing list</a><br>
+· · · <a href="WebInterfaceAccess.html">Web Interface Access</a><br>
+· · · <a href="OverviewofLyrisPostingSecurity.html"><font size=+0><b>Overview of Lyris Posting Security</b></font></a><br>
+· · · <a href="SecurityConsiderationsoftheFrom_field.html">Security Considerations of the From: field</a><br>
+· · · <a href="SecurityRecommendationsforAnnouncementlists.html">Security Recommendations for Announcement lists</a><br>
+· · · <a href="HowLyrisDeterminestheIdentityofthePersonPosting.html">How Lyris Determines the Identity of the Person Posting</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Overview of Lyris Posting Security</h3>
+This document covers the various techniques for implementing posting security with Lyris: that is, only letting the messages through to your list that you want distributed.<p>
+<B>Available posting security methods</B><p>
+<B></B>Here is a list of all the different posting security techniques available in Lyris. You can one technique, or many, to achieve the combination of security and ease of use that you desire.  </B><p>
+This document is intended as an overview. A more complete listing of every security feature for posting is available at the section titled  <a href="SecurityFeaturesforPostingMessages.html">Security Features for Posting Messages</a> 
+. 
+<p>
+1) Only members that are list administrators can post.  Messages from others are automatically rejected.  See  <a href="AdminSend.html">Admin Send</a>.<p>
+2) all messages are moderated: all messages to be sent are stored in a "to be moderated" area, and either must be approved from the web interface, or by a list moderator, who receives a 
+request-to-approve email message from Lyris for every posting.  See  <a href="Moderated.html">Moderated</a>. 
+<p>
+3) some members are moderated: set your list to "number moderated" and then set your list settings to define how many approvals new members need before they can post unmoderated.  You can choose to 
+always moderate members, and then edit specific members who "number of approvals needed" is zero, so that they can post unapproved.  See <a href="Moderated.html">Moderated</a> and  <a href="NumberofApprovals.html">Number of Approvals</a> 
+. 
+<p>
+4) By default non-members cannot post to a mailing list. This can be disabled, to allow non-members to post.  If new member moderating is on, the postings from the non-members are treated as new 
+member postings, and are moderated.  
+<p>
+5) action phrases only allow postings from certain domains -- for example, only people whose email addresses have the text "@shelby.com" in their From: address are allowed through.  See  
+<a href="ServerActionPhrases.html">Server Action Phrases</a>. 
+<p>
+6) password based posting: all postings to the mailing list must have a secret password somewhere in the message, or they are refused.  The secret password is removed from the message before it is 
+posted.  There is a built-in feature to offer this feature in the List Settings (as of version 2.548) or you can use  <a href="ServerActionPhrases.html">Server Action Phrases</a>. 
+<p>
+7) secret code posting: all postings to the mailing list must have some code in them, or they are otherwise refused. For example, if your email program automatically puts a X-Organization: header in 
+all the messages you send out, you could refuse all messages that do not have this header in them.  For added security, you can have Lyris change this matched text to something else, for instance 
+changing: "Organization: Shelby Group Ltd." to "Organization: Shelby Group" (ie: removing the "Ltd.").  See  <a href="ServerActionPhrases.html">Server Action Phrases</a>. 
+<p>
+8) disallow email posting entirely, and require all postings to be contributed through the web interface.  See  <a href="RejectEmailSubmissions.html">Reject Email Submissions</a>.<p>
+9) Ban certain members or groups of members (ie: names or domains) from joining or posting to the mailing list. <p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+</td><td align=right valign=top>Page 395 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

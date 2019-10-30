@@ -1,0 +1,340 @@
+
+/*
+
+$Id: sqwebmail.css,v 1.17 2001/05/23 04:46:39 mrsam Exp $
+
+Copyright 2001 Double Precision, Inc.  See COPYING for
+distribution information.
+
+*/
+
+
+/* Default: bg.gif background image (white default), black text */
+
+A:link {color: #000033}
+A:visited {color: #000033}
+A:active {color: #000033}
+
+BODY { background-color: #EEEEEE;
+color: #000000;
+background-image: url(bg.gif);
+}
+
+
+/* blue box at the top of every page, with the page title and E-mail addr */
+ 
+.pagetitle { background-color: #CCCCCC; }
+
+.pagetitle TH { padding: 8pt; color: #3937A5; font-size: 200%; }
+.pagetitle TD { padding: 8pt; color: #000000; font-size: 90%; }
+
+/* Left menubar */
+
+.menu, .menu2 { background-color: #CCCCCC; }
+
+.menu table { border-style: double; border-width: 4px; padding: 0px; width: 100% }
+
+.menu2 td { border-style: double; border-width: 4px; padding: 0px; }
+
+.menu a, .menu2 a { text-decoration: none; }
+
+/************************* List of folders *****************************/
+
+   /* Light yellow background color */
+
+.folderlist { background-color: #CCCCCC; }
+
+   /* List of folders header - yellow "Folder/# messages" on blue. */
+
+.folderlist-header { background-color: #CCCCCC; color: #000000 }
+
+   /* Background colors for entries for subfolders and parent folder dirs */
+
+.folderparentdir { background-color: #CCDDDD }
+
+.foldersubdir { background-color: #CCDDDD }
+
+  /* Background color for unsubscribed shared folder */
+
+.folderunsubscribed { background-color: #DDDD80 }
+
+  /* Unread messages count */
+
+.subfolderlistunread, .folderlistunread { color: #800000; font-size: 90% }
+
+  /* Total messages count */
+
+.subfoldercnt, .foldercnt { color: #000000 }
+
+  /* A link to an actual folder */
+
+.folderlink:link, .folderlink:visited { }
+.folderlink:active { background-color: white; }
+
+	/* sent message */
+
+.sentmsg { color: #008000 }
+
+/***************************** Folder contents ***********************/
+
+	/* Folder index header #1 - next page/prev page */
+
+.folder-index-background { background-color: #000000; }
+.folder-nextprev-background { background-color: #000000; }
+.folder-nextprev-buttons TR TD { background-color: #DDDDDD }
+
+	/* Main folder index header - light yellow text on dark blue */
+
+.folder-index-header { background-color: #CCCCCC; color: #000033 }
+
+	/* Alternating background colors in the folder index */
+
+.folder-index-bg-1 { background-color: #EEEEEE }
+.folder-index-bg-2 { background-color: #DDDDDD }
+
+	/* styles applied to read and unread messages */
+
+.read-message, .read-message a { }
+.unread-message, .unread-message a { }
+
+/*
+** The following styles apply to individual fields of each message
+** in the folder index
+*/
+
+.message-number { }
+.message-status { }
+.message-date { }
+.message-from { }
+.message-subject { }
+.message-size { }
+
+/***************************** Message ******************************/
+
+.folder-move-background { background-color: #DDDDDD }
+
+.message-menu-background { background-color: #000000 }
+
+.message-menu-button { background-color: #DDDDDD }
+.message-menu-button a {text-decoration: none; }
+
+.message-x-of-y { background-color: #000000; color: #CCCCCC }
+
+/* message-rfc822-header style applies to the header portion */
+
+.message-rfc822-header { }
+
+/* message-rfc822-header-name style applies to the header name only */
+
+.message-rfc822-header-name { }
+
+/* message-rfc822-header-contents style applies to the header contents only */
+
+.message-rfc822-header-contents { }
+
+/* Addresses in from/to header */
+
+.message-rfc822-header-address { }
+
+/* message-text-plain applies to text/plain content */
+
+.message-text-plain { }
+
+/*
+** Additional styles applied to http and mailto links parsed in text/plain
+** content.
+*/
+
+.message-text-plain-http-link { }
+.message-text-plain-mailto-link { }
+
+/* Background for text/html notice */
+
+.message-text-html-notice { background-color: #EEEEEE }
+
+.message-charset-notice { background-color: #EEEEEE }
+
+/* Background for key import prompt */
+
+.message-application-pgpkeys { background-color: #DDDDDD; text-decoration: none; }
+
+/* GPG status border and message */
+
+.message-gpg { background-color: #FFFFFF }
+.message-gpg-good { background-color: #008000 }
+,nessage-gpg-good-text tt pre { color: #008000 }
+.message-gpg-bad { background-color: #EE0000 }
+.message-gpg-bad-text tt pre { color: #EE0000 }
+
+/* Notice that this message contains gpg-encoded content */
+
+.message-gpg-notice { }
+
+/* Notice that this message contains unsupported gpg-encoded content */
+
+.message-gpg-unsupported { color: #800000 }
+
+/* "Importing keys" */
+
+.message-gpg-importing { }
+
+/* Link to download or display an attachment */
+
+.message-download-attachment { background-color: #DDDDDD; }
+.message-attachment-header { font-family: courier; }
+.message-attachment-link { text-decoration: none; }
+
+/***************************** Encryption Settings *******************/
+
+.gpgerroutput { color: #C00000 }
+
+/* General background color, default text color */
+
+.gpgbackground { background-color: #DDDDDD; color: #000000 }
+
+/* Additional styles that can be applied to the titles */
+
+.gpgpublickeytitle { }
+.gpgprivatekeytitle { }
+.gpgsignkeytitle { }
+.gpgdefaulttitle { }
+.gpgcreatetitle { }
+
+/* Color of the horizontal bars that separate listed keys */
+
+.gpgpubkeys { background-color: #000000 }
+.gpgseckeys { background-color: #000000 }
+
+/* Colors of listed keys - black on medium gray */
+
+.gpgpubkey { background-color: #D0D0D0; color: #000000 }
+.gpgseckey { background-color: #D0D0D0; color: #000000 }
+
+.gpgcreate { background-color: #EEEEEE; color: #505000 }
+
+/***************************** Create Message ************************/
+
+	/* Color of the preview box */
+.preview { background-color: #FFFFFF; }
+
+	/* Color of the new message box */
+.new-message-box { background-color: #DDDDDD; }
+
+	/* The following style is applied to the From/To/Cc/Bcc... headers */
+
+.new-message-header { color: #000000 }
+
+	/* If necessary, individual styles are available too */
+
+.new-message-header-headerfrom { }
+.new-message-header-addressbook { }
+.new-message-header-headerto { }
+.new-message-header-headercc { }
+.new-message-header-headerbcc { }
+.new-message-header-headerreply-to { }
+.new-message-header-headersubject { }
+.new-message-header-message { }
+
+/***************************** Attachments *************************/
+
+	/* Header line, yellow on blue */
+
+.attachments-header { background-color: #1010C0; color: #ffff00 }
+
+	/* Main attachment window, black on yellow */
+
+.attachments-main { background-color: #ffff80; color: #000000 }
+
+/***************************** Check spelling **************************/
+
+/*
+** The text excerpt window.  Light green background, blue text, red
+** misspelled word.
+*/
+
+.spellcheck-background { background-color: #CCCCCC }
+
+.spellcheck-excerpt { background-color: gray; color: #FF0000 }
+
+.spellcheck-excerpt B { color: #FF9966 }
+
+	/* Main spell check window -- black on light yellow */
+
+.spellcheck-main { background-color: #CCCCDD; color: #000000 }
+
+	/* Continue/Finish background color */
+
+.spellcheck-continue { background-color: #eeeeee }
+
+	/* "Spell check completed" - actually in newmsg.html */
+
+.spellcheckdone { color: #608060 }
+
+/************** Quick Nickname Add *****************/
+
+.quickadd { background-color: #dddddd; color: #000000 }
+
+/************** Initial LDAP search window ****************/
+
+	/* Address Book search - black on light gray */
+
+.addressbook { background-color: #dddddd; color: #000000 }
+
+	/* Additional style applied to the name of the addressbook entry */
+
+.nicktitle { }
+
+	/* Additional styles that can be applied to addressbook content */
+.nickname { }
+.nickaddr { }
+
+/******** Initial LDAP lookup window ***********/
+
+.ldaplist { background-color: #eeeeee; color: #000000 }
+
+.ldaplist-title { color: #000080; }
+
+.ldaplist-name { color: #004000; }
+.ldaplist-ldapurl { color: #000080; }
+
+	/* Add new LDAP address book */
+
+.ldaplist-add-title { }
+.ldaplist-add-fields { }
+
+/******** LDAP search results **********/
+
+.ldapsearch { background-color: #dddddd; color: #000000 }
+
+/* Additional styles that can be applied to the name, address, and misc
+portion of each returned entry */
+
+.ldapsearch-name { }
+.ldapsearch-addr { }
+.ldapsearch-misc { }
+
+/********* Mail filters/autoresponder ***********/
+
+.mailfilter { background-color: #eeeeee; color: #000000 }
+
+.mailfilter-title { font-size: 125% }
+
+/***************************** Miscellaneous *************************/
+
+/* An error message */
+
+.error { color: #C00000; font-size: 150% }
+
+/* Boxes with a black border */
+
+.box-outer, .box-small-outer { background-color: #000000 }
+
+.box-outer { width: 100% }
+.box-outer tbody tr td { padding: 8; }
+
+.box-white-outer { width: 100%; background-color: #FFFFFF }
+
+/* Yellow-orange box on the login screen, create new folder, etc... */
+
+.special-box { background-color: #000000; }
+.special-box tbody tr td table { background-color: #CCCCCC; margin: 0px; padding: 4px; }

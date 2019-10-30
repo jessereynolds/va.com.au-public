@@ -1,0 +1,11 @@
+# Make sure they've put in something that looks right
+required: your_name && email1 && email2
+
+# This is the email to BCC the message to
+bcc: "$form_email2"
+
+# This is the email to send the message to 
+mailto: "$form_email1"
+
+# The success template to show once the message is sent
+success: bccok.txt

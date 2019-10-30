@@ -1,0 +1,115 @@
+<HTML>
+<HEAD><TITLE>Member Fields</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="RecipientFields.html">previous</a>] [<a href="Listfields.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Member Fields</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · · · <a href="RecipientFields.html">Recipient Fields</a><br>
+· · · · <a href="MemberFields.html"><font size=+0><b>Member Fields</b></font></a><br>
+· · · · <a href="Listfields.html">List fields</a><br>
+· · · · <a href="Sitefields.html">Site fields</a><br>
+· · · · <a href="EmailAddressfields.html">Email Address fields</a><br>
+· · · · <a href="IncomingMailfields.html">Incoming Mail fields</a><br>
+· · · · <a href="DateField.html">Date Field</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Member Fields</h3>
+The following "member" attributes are extracted from the person posting a message to a list.  To substitute attributes from the person receiving a message (the recipient) see the 
+Recip.XXX mail merge fields. 
+<p>
+<B>member.nameemail</B> <br>The full name and email address of this member. For example, you might want each posting to your list to have a header which identifies the original author, as 
+in: 
+</B><p>
+<font face='Courier New'><ul>From: $subst('member.nameemail')<p>
+</ul></font>If a full name is not available, Lyris will only put the email address.  <p>
+For example:<p>
+<font face='Courier New'><ul>Bob Smith &lt;bob@somewhere.com&gt;<p>
+</ul></font>or if no name is available:<p>
+<font face='Courier New'><ul>bob@somewhere.com<B></B><p>
+<B></B></ul></font><B>member.emailaddr <br></B>The email address of this member.</B><p>
+<B>member.fullname</B> <br>The full name of this member. For example, you might want each posting to your list to have a header which identifies the original author, as in:</B><p>
+This message was written by $subst('member.fullname')<p>
+<B>member.password <br></B>The password of this member. In general, you would not want to include this in a list posting, since everyone who received the message would see the password. 
+However, this field is useful in documents, such as the "hello" document, to inform the user of their password. 
+</B><p>
+<B>member.memberid <br></B>The ID of this member, example: "3456"</B><p>
+<B>member.list <br></B>The name of the mailing list this member belongs to.  </B><p>
+<B>member.receiveack <br></B>Whether or not this member receives acknowledgements of their postings.</B><p>
+<B>member.subtype <br></B>The type of subscription this member has.</B><p>
+<B>member.expiredate <br></B>The date (if any) that this member's subscription expires.</B><p>
+<B>member.datejoined <br></B>The date that this member joined this mailing list.</B><p>
+<B>member.numbounces <br></B>The number of bounces this member has produced in recent days.</B><p>
+<B>member.datebounce <br></B>The date of the most recent bounce received from this member.</B><p>
+<B>member.islistadm <br></B>Whether or not this member is a list administrator.</B><p>
+<B>member.confirmdat <br></B>The date (if any) that this member confirmed their membership. Only applies to lists where "confirm membership: yes" is set.</B><p>
+<B>member.notifyerr <br></B>Whether or not this member receives error mail notifications (i.e.: bounce reports).</B><p>
+<B>member.dateheld <br></B>If this member is held, what date they were held on.</B><p>
+<B>member.webenv <br></B>If this member subscribed using the Lyris web interface, the environment variables (such as browser type, TCP/IP address, referrer, etc) that were active at that 
+time. 
+</B><p>
+<B>member.norepro <br></B>Whether or not this member receives copies of their own postings.</B><p>
+<B>member.cleanauto <br></B>Whether or not this member will be automatically held if they bounce too much mail.</B><p>
+<B>member.subtopics <br></B>The subtopics that this member belongs to (this feature is currently inactive).</B><p>
+<B>member.comments <br></B>The comments that this member has.</B><p>
+<B>member.additional <br></B>The additional information this member has.  This field is not used by Lyris, and is meant for user-defined data of any type.</B><p>
+<B>member.userid <br></B>The userid information this member has.  This field is not used by Lyris, and is meant for user-defined data of any type.</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+<li><a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+</td><td align=right valign=top>Page 401 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,34 @@
+# Set up the database connection stuff
+sqlname: dbi:mysql:database=test;hostname=localhost
+sqluser: test
+sqlpassword: testpassword
+
+# Check to see if the id is a proper integer
+# If its not, bounce the user back to the entry form
+# It is important this check goes BEFORE the SQL commands,
+# as it stops them from running if 'id' is not an integer.
+isinteger: id
+if: title longerthan 64 then required: longerthanproblem
+failure: dbi2a.txt
+
+# Be careful, and see if we're actually updating a field
+sqlbind1: "$form_id"
+sqlrun1: select object_id from testac where object_id = ?
+
+# Set up the values that'll be used. NOTE! the bind order number is important!
+# notice how the insert statement is careful to get them in the correct order
+sqlbind1: "$form_title"
+sqlbind2: "$form_id"
+
+# we got a value for the initial check, so this is an update
+if: $sql_1_1_1 then sqlrun2: update testac set object_title = ? where object_id = ?
+
+# no value was found, so this is an insert
+unless: $sql_1_1_1 then sqlrun2: insert into testac (object_title, object_id) values (?, ?)
+
+# Now do a final check on the insert/update
+sqlbind1: "$form_id"
+sqlrun3: select object_id, object_title from testac where object_id = ?
+
+# Go to the success page
+success: dbi3a.txt

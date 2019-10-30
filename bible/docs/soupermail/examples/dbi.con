@@ -1,0 +1,6 @@
+sqlname: dbi:mysql:database=test;hostname=localhost
+sqluser: test
+sqlpassword: testpassword
+sqlrun1: select object_id, object_title from testac order by object_id asc
+blank: dbi.txt
+success: dbi.txt

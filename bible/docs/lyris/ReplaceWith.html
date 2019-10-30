@@ -1,0 +1,114 @@
+<HTML>
+<HEAD><TITLE>Replace With</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Context.html">previous</a>] [<a href="RunaprogrambeforePhrase.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Replace With</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· · <a href="OverviewofServerAdministrator.html">Overview of Server Administrator</a><br>
+· · <a href="ServerAdminMenu.html">Server Admin Menu</a><br>
+· · <a href="SitesMenu.html">Sites Menu</a><br>
+· · <a href="ServerConfig.html">Server Config</a><br>
+· · <a href="ServerDocuments.html">Server Documents</a><br>
+· · <a href="ServerActionPhrases.html">Server Action Phrases</a><br>
+· · · <a href="FirstActionPhrasePage.html">First Action Phrase Page</a><br>
+· · · <a href="CreatePhrase.html">Create Phrase</a><br>
+· · · · <a href="Phrase.html">Phrase</a><br>
+· · · · <a href="ResponseDocument.html">Response Document</a><br>
+· · · · <a href="Rule.html">Rule</a><br>
+· · · · <a href="Context.html">Context</a><br>
+· · · · <a href="ReplaceWith.html"><font size=+0><b>Replace With</b></font></a><br>
+· · · · <a href="RunaprogrambeforePhrase.html">Run a program before Phrase</a><br>
+· · · · <a href="RunaprogramafterPhrase.html">Run a program after Phrase</a><br>
+· · · · <a href="NotifyWhoofActionPhrase.html">Notify Who of Action Phrase</a><br>
+· · · <a href="Auto_Responders.html">Auto-Responders</a><br>
+· · · <a href="FirstAuto_ResponderPage.html">First Auto-Responder Page</a><br>
+· · · <a href="CreateAuto_Responder.html">Create Auto-Responder</a><br>
+· · <a href="ServerPeople.html">Server People</a><br>
+· · <a href="Statistics.html">Statistics</a><br>
+· · <a href="IncomingMail.html">Incoming Mail</a><br>
+· · <a href="OutgoingMail.html">Outgoing Mail</a><br>
+· · <a href="ServerAdminLog.html">Server Admin Log</a><br>
+· · <a href="ShutdownServer.html">Shutdown Server</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Replace With</h3>
+(optional) Replace any matched text with this text.<p>
+This option is extremely useful for announcements lists, as it can be used to provide transparent posting security, so that only you are allowed to send to your mailing list, with 100% security, 
+no-one else is able to, and you do not have to do anything special once it is set up.  
+<p>
+For example, you can create an action phrase which refuses any postings that do not have your signature line in them, and which changes your signature in a subtle way, perhaps changing a comma to a 
+semicolon, so that the action phrase which allows posts is no longer present..  
+<p>
+Or, if you are using a particular version of a mail program, which adds its own header to every message (example: "X-Mailer: MS Mail 3.412") you can set your list up to refuse any message that 
+doesn't have a particular characteristic.   Another use is to require a certain password to be included in every posting, and all postings without that password are rejected. 
+<p>
+If you do not use the "Replace With" feature, then the key phrase, which allowed the message to go through, is visible in your postings.  Thus, it is possible that someone would take your example 
+message, change a few things, and attempt to forge the message as if it came from you. Because the key phrase is visible in the posted message, someone can exploit this. This is unlikely, but it is 
+possible.  There are some malfunctioning mail server programs which take locally undeliverable mail and return it in such a way that it looks exactly like the original post  Lyris almost always 
+catches this problem (because they have headers in them that Lyris added to catch this), but the same technique is possible by someone who is dishonest. 
+<p>
+The "Replace With" feature allows you to change (or erase) the key phrase which allowed your message to be posted. Say, for example, that you set your action phrase to refuse all postings which do 
+not contain "X-Mailer: MS Mail 3.412" in their header.  Messages that are accepted should change this key phrase to have a slight difference, say: "X-Mailer: MS Mail 3.413". There is no way for 
+others to know that the "2" changed to a "3", and hence no way for them to bypass your security.  
+<p>
+Other headers can be used as well. For example, have the action phrase be a particular "Received" header, which indicates from where the message came from.  Set your action phrase to look for a 
+Received: header that only your internal network would generate, set your action phrase to refuse messages which do not have this Received: line, and then slightly alter the Received: line so that 
+others do not know what the key is to get in. 
+<p>
+This feature can also be used to implement password based posting, which means that any contribution which does not have the posting password is refused.  For example, set your action phrase to 
+refuse any posting which does not contain the word "open sesame", then set the action phrase to Replace With a space (" "), thus erasing the password.  
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="CreatePhrase.html">Create Phrase</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+</td><td align=right valign=top>Page 162 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,7 @@
+body { background: white; color: black; 
+       margin-left: 5%; margin-right: 5%;
+       font-size: 10pt;}
+.egcon { background: black; color: #ccffcc }
+th { background: #dedede; text-align: left }
+h1 { color: #333366; text-decoration: underline; font-size: 12pt; }
+h2 { color: #333366; font-size: 11pt; font-weight: bold; }

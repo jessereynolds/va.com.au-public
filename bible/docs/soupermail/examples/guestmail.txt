@@ -1,0 +1,6 @@
+Thanks for adding to the guestbook.
+
+You can see your guestbook entry by going to:
+http://<output name="http_host"><output name="http_host" altvar="http_server_name" sub=""><output name="http_host" altvar="http_server_port" pre=":" sub=""><output name="http_config_path">counters/guestbook.htm#<output name="http_ref">
+
+

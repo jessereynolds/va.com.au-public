@@ -1,0 +1,106 @@
+<HTML>
+<HEAD><TITLE>Setting Server Options</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="DatabaseOperations.html">previous</a>] [<a href="WindowsServices.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Setting Server Options</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · · <a href="StartingLyris.html">Starting Lyris</a><br>
+· · · <a href="DatabaseOperations.html">Database Operations</a><br>
+· · · <a href="SettingServerOptions.html"><font size=+0><b>Setting Server Options</b></font></a><br>
+· · · <a href="WindowsServices.html">Windows Services</a><br>
+· · · <a href="UnixDaemonOption.html">Unix Daemon Option</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Setting Server Options</h3>
+The following command line parameters let you set Lyris configuration options. All these parameters can be changed from the "Server Configuration" Web Interface page. The command line 
+versions are included for convenience.  For more information, see  <a href="ServerConfig.html">Server Config</a>. 
+<p>
+<B> </B><p>
+<B>activate <br></B>Set Lyris activation code Number to that specified on the command line.  </B><p>
+<B> </B><p>
+<B>dns  <br></B>Set Domain Name Server to the TCP/IP address specified on the command line.   <a href="DNSServer.html">DNS Server</a>.</B><p>
+<B> </B><p>
+<B>email <br></B>Sets the email address of the administrator of this Lyris server.</B><p>
+<B> </B><p>
+<B>forward </B> <br>Set mail forwarding rule to "ip-address port".  See  <a href="ForwardMail.html">Forward Mail</a>.</B><p>
+<B> </B><p>
+<B>lcp  <br></B>Add the TCP/IP address specified on the command line to the list of allowed LCP hosts.  </B><p>
+<B> </B><p>
+<B>lcpport <br></B>Sets the TCP/IP port that Lyris accepts incoming LCP connections on.  The default is 2020.  See  <a href="LCPPort.html">LCP Port</a>.</B><p>
+<B> </B><p>
+<B>lcppass <br></B>Sets the password that the LCP protocol uses to log into this Lyris server. </B><p>
+Note: you must change the password= line of the lyris.plc file to match this password, if you do change it.<p>
+<B> </B><p>
+<B>tcpip <br></B>Specifies the TCP/IP addresses that this Lyris server is allowed to use.  See  <a href="MultipleTCP_IPaddresses.html">Multiple TCP/IP addresses</a>.</B><p>
+<B> </B><p>
+<B>gettcpip <br></B>Specifies the TCP/IP address that you should use when you register your serial number to obtain an activation code.</B><p>
+<B> </B><p>
+<B>url  <br></B>Set URL that goes to Lyris Web Interface.  See  <a href="LyrisURL.html">Lyris URL</a>.</B><p>
+<B> </B><p>
+<B>version <br></B>Displays the version of Lyris that are running.</B><p>
+<B> </B><p>
+<B>help <br></B>Displays the command line help.</B><p>
+<B> </B><p>
+<B>smtpport <br></B>Sets the TCP/IP port that Lyris accepts incoming SMTP connections on. The default is 25.  See  <a href="SMTPPort.html">SMTP Port</a>.</B><p>
+<B> </B><p>
+<B>nntpport <br></B>Sets the TCP/IP port that Lyris accepts incoming NNTP connections on.  The default is 119.  See  <a href="NewsgroupPort.html">Newsgroup Port</a>.</B><p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="TheLyriscommandline.html">The Lyris command line</a><br>
+<li><a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+</td><td align=right valign=top>Page 410 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

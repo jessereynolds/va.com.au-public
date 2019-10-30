@@ -1,0 +1,21 @@
+@SysInclude { doc }
+@Doc @Text @Begin
+
+@Display @Heading { Lout and Soupermail }
+
+@LP { Hello @B{ <output name="Email"> } }
+
+@LP { Your Message }
+@LP { }
+
+10c @Wide @CurveBox {
+lines @Break darkcyan @Colour { <output name="message"> } 
+}
+
+@LP { }
+
+@FullWidthRule
+
+@LP { This message was sent to the mailto: person }
+
+@End @Text

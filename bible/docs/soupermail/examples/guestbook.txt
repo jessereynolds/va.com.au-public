@@ -1,0 +1,51 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail Guestbook</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+<h1>Soupermail Guestbook</h1>
+
+<p>Thanks for your entry into the <a
+href="counters/guestbook.htm">Guestbook</a>.
+</p>
+
+<p>The guestbook is made of a number of templates:</p>
+
+<dl>
+<dt>The header placed at the start of the guestbook
+<dd><a href="guesthead.txt">guesthead.txt</a>
+<dt>The footer placed at the end of the guestbook
+<dd><a href="guestfoot.txt">guestfoot.txt</a>
+<dt>The template for an entry
+<dd><a href="guesttpl.txt">guesttpl.txt</a>
+<dt>The template for the confirmation email
+<dd><a href="guestmail.txt">guestmail.txt</a>
+</dl>
+
+<p>Notice how the values used in the guesttpl.txt template use the
+<b>html</b> attribute. Also notice that the <b>newline</b> attribute
+is used to convert linebreaks in the form's textarea field to HTML
+linebreaks.
+</p>
+
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="guestbook.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is <a href="guestbook.txt">guestbook.txt</a>.</p>
+</body>
+</html>

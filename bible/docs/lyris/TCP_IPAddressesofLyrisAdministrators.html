@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>TCP/IP Addresses of Lyris Administrators</TITLE></HEAD>
+<BODY>
+<body bgcolor="#ffffff" text="#606060" link="#008cc3" vlink="#003c73" alink="#ffffff"><a href="http://www.lyris.com"><img align=right width=125 height=40 border=0 src="llogos.gif" alt="Lyris"></a><p><a href="index1.html"></a><p>
+<h2>     TCP/IP Addresses of Lyris Administrators<p>
+</h2><B>admin_ip=</B><p>
+<b></B>This parameter specifies the TCP/IP address mask of computers that are allowed to login as administrators.  Adding this setting will remove the "admin" link from the web interface for anyone whose 
+TCP/IP address does not match 
+</B><p>
+Administrators always have to give a name and password to login, and this provides a reasonable level of security.  If the admin_ip parameter is undefined, then any user can get the "Administrator 
+Login" screen and try to login.  However, without a valid username and password, they will not be able to access administrator functions. 
+<p>
+The admin_ip parameter provides additional security, by displaying the "Administrator Login" menu only to approved TCP/IP addresses.  Other users will not even see the "admin" menu choice.<p>
+This parameter is a mask, meaning that it specifies a pattern to look for.  For example, if you specify "207.105.6.", then any user with a TCP/IP addresses beginning with "207.105.6." will see the 
+admin menu.  
+<p>
+This parameter allows you to restrict administrator access to TCP/IP addresses within your company.<p>
+You can specify as many admin_ip address as you like.  The following example would allow admin menu access to TCP/IP addresses beginning with 193.158.17.* and 198.15.* as well as to the specific 
+address 194.204.17.2 
+<p>
+<font face='Courier New'><ul>admin_ip=193.158.17. <br>admin_ip=194.204.17.2 <br>admin_ip=198.15.<p>
+</ul></font><h2><B></h2></B><p>
+<B></B></B><p>
+<img border=0 src="beige2.gif"><p><a href="index.html"><img src="./contents.gif" border=0 alt=Contents></a><a href="sitemap.html"><img src="sitemap.gif" border=0></a><a href="LCPPassword2.html"><img src="./previous.gif" border=0 alt=Previous></a><a href="TCP_IPAddressesofLyrisUsers.html"><img src="./next.gif" border=0 alt=Next></a><p>
+</BODY></HTML>

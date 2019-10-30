@@ -1,0 +1,97 @@
+<HTML>
+<HEAD><TITLE>Installing the Web Interface on a separate Web Server</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Problem_NTsetupexitsduringtheTCP_IPcheck.html">previous</a>] [<a href="LivingwithaFirewall.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Installing the Web Interface on a separate Web Server</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · · <a href="MovingaLyrisInstallationtoaNewMachine.html">Moving a Lyris Installation to a New Machine</a><br>
+· · · <a href="InstallingLyrisasaWindowsService.html">Installing Lyris as a Windows Service</a><br>
+· · · <a href="DoIneedamailserverinordertorunLyris_.html">Do I need a mail server in order to run Lyris?</a><br>
+· · · <a href="WhatistheTCP_IPcheckfor_.html">What is the TCP/IP check for?</a><br>
+· · · <a href="Problem_NTsetupexitsduringtheTCP_IPcheck.html">Problem: NT setup exits during the TCP/IP check</a><br>
+· · · <a href="InstallingtheWebInterfaceonaseparateWebServer.html"><font size=+0><b>Installing the Web Interface on a separate Web Server</b></font></a><br>
+· · · <a href="LivingwithaFirewall.html">Living with a Firewall</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Installing the Web Interface on a separate Web Server</h3>
+The Lyris Web Interface does not need to run on the same computer as the Lyris Server.  The Lyris Web Interface is a standard CGI script, and uses TCP/IP to communicate with the Lyris 
+server, so it can be moved to any machine running a CGI capable web server. 
+<p>
+The easiest way to do this is to install Lyris on the web server,. but not actually run the Lyris server.  You can then go to steps 4 and 5 below.<p>
+If you want to do a manual installation of the Lyris Web Interface on a Web server, follow these steps:<p>
+1) On windows and OS/2, copy the contents of \lyris\web to your Web Server's CGI directory. On Unix, copy the contents of \lyris\cgi to your Web Server's CGI directory.<p>
+2) copy the contents of \lyris\graphics to a \lyris directory off of your Web Server's document directory.  For instance, if your web server document directory is c:\inetpub\docs, copy the files to 
+c:\inetpub\docs\lyris 
+<p>
+3) install Perl on the web server, if you do not yet have it.  For Windows: copy the contents of \lyris\perl to c:\perl on your web server machine, and run perlinst.bat. Alternatively, download the 
+Perl installation program from www.activeware.com. For OS/2: copy the contents of \lyris\perl to c:\perl on your web server machine, then copy \lyris\emx\bin to \os2 and \lyris\emx\dll to \os2\dll.  
+On Unix, perform the full Perl build and installation as explained at www.perl.org.  If you already have perl running on this machine, run "perl -v" to make sure that you are running Perl version 
+5.003 or newer. 
+<p>
+4) modify the file named lyris.plc in your CGI directory.  In that file, you will find a line which says: "server_ip_address=127.0.0.1", change the IP address to the IP address of your Lyris server.  
+See  <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a>. 
+<p>
+5) finally, you need to tell your Lyris server that the IP address of your web server has the security approval to run the Lyris Command Protocol.  To do this, go to the command line, and enter: 
+"lyris.exe lcp 207.105.6.2", substituting the IP address of your Web Server for the IP address given there. 
+<p>
+6) test the web interface by opening up a command window, going to your CGI directory, and typing "perl lyris.pl". You should see a screen full of HTML appear. At this point, the web interface should 
+be available on your web server. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="InstallingLyris.html">Installing Lyris</a><br>
+</td><td align=right valign=top>Page 450 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

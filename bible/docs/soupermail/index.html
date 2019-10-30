@@ -1,0 +1,2236 @@
+<HTML>
+<HEAD>
+<TITLE>Soupermail - a generic CGI WWW form handler written in Perl</TITLE>
+<style type="text/css">
+<!--
+body {
+  background: white;
+  color: black;
+  font-family: arial, helvetica, sans-serif;
+}
+
+blockquote.example {
+  border: thin red solid;
+  padding: 5px;
+  color: #000066;
+}
+-->
+</style>
+<LINK REV="made" HREF="mailto:vittal.aithal@bigfoot.com">
+</HEAD>
+
+<BODY background="#ffffff" text="#000000">
+
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">NAME</A></LI>
+	<LI><A HREF="#synopsis">SYNOPSIS</A></LI>
+	<LI><A HREF="#description">DESCRIPTION</A></LI>
+	<LI><A HREF="#restricted form fields">RESTRICTED FORM FIELDS</A></LI>
+	<LI><A HREF="#configuration files">CONFIGURATION FILES</A></LI>
+	<LI><A HREF="#conditional statements">CONDITIONAL STATEMENTS</A></LI>
+	<UL>
+
+		<LI><A HREF="#boolean expressions">Boolean Expressions</A></LI>
+	</UL>
+
+	<LI><A HREF="#templates">TEMPLATES</A></LI>
+	<UL>
+
+		<LI><A HREF="#attributes for output">Attributes for output</A></LI>
+		<LI><A HREF="#ssi like includes">SSI Like Includes</A></LI>
+	</UL>
+
+	<LI><A HREF="#cgi variables">CGI VARIABLES</A></LI>
+	<LI><A HREF="#formats">FORMATS</A></LI>
+	<LI><A HREF="#counters">COUNTERS</A></LI>
+	<LI><A HREF="#cookies">COOKIES</A></LI>
+	<LI><A HREF="#using pgp">USING PGP</A></LI>
+	<LI><A HREF="#making pdfs">MAKING PDFs</A></LI>
+	<LI><A HREF="#mailing lists">MAILING LISTS</A></LI>
+	<LI><A HREF="#pipelining">PIPELINING</A></LI>
+	<LI><A HREF="#database support">DATABASE SUPPORT</A></LI>
+	<LI><A HREF="#private roots">PRIVATE ROOTS</A></LI>
+	<LI><A HREF="#security">SECURITY</A></LI>
+	<LI><A HREF="#requirements">REQUIREMENTS</A></LI>
+	<LI><A HREF="#examples">EXAMPLES</A></LI>
+	<LI><A HREF="#author">AUTHOR</A></LI>
+	<LI><A HREF="#credits">CREDITS</A></LI>
+	<LI><A HREF="#history">HISTORY</A></LI>
+	<LI><A HREF="#bugs">BUGS</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">NAME</A></H1>
+<P>Soupermail - a generic CGI WWW form handler written in Perl</P>
+<P>
+<HR>
+<H1><A NAME="synopsis">SYNOPSIS</A></H1>
+<P>&lt;form method="post" action="/cgi-bin/soupermail.pl"&gt;</P>
+<P>
+<HR>
+<H1><A NAME="description">DESCRIPTION</A></H1>
+<P>Soupermail is a generic HTML form handling script designed to provide a
+high degree of control over a form's behaviour and output. It provides the 
+following features:</P>
+<UL>
+<LI><STRONG><A NAME="item_Email_the_contents_of_a_form_to_one_or_more_email_">Email the contents of a form to one or more email addresses</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Expire_a_form_based_on_the_date">Expire a form based on the date</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Handle_blank_forms_intelligently">Handle blank forms intelligently</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Limited_conditional_control_based_on_the_form%27s_">Limited conditional control based on the form's contents</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_HTML_and_text_templates">HTML and text templates</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Copy_the_form_email_to_the_form%27s_sender">Copy the form email to the form's sender</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_emails">PGP encrypt resulting emails (requires PGP 2, 5 or GNUPG installed)</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Write_the_contents_of_a_form_to_a_file">Write the contents of a form to a file</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Write_the_encrypted_contents_of_a_form_to_a_file">Write the encrypted contents of a form to a file</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Generate_a_unique_reference_number_for_each_submis">Generate a unique reference number for each submission</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Set_certain_form_fields_as_required">Set certain form fields as required</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Word_wrap_resulting_emails">Word wrap resulting emails</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Handle_file_uploads%2C_and_send_them_on_as_MIME_at">Handle file uploads, and send them on as MIME attachments</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Access_CGI_variables_through_templates">Access CGI variables through templates</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Set_cookies_and_display_cookies_by_using_templates">Set cookies and display cookies by using templates</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Send_the_form%27s_submitter_a_formatted_reply">Send the form's submitter a formatted reply</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Set_any_number_of_counter_files_up_on_the_server">Set any number of counter files up on the server</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Send_mail_as_HTML_and%2For_plain_text">Send mail as HTML and/or plain text</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Act_as_a_frontend_for_PDF_generation_with_Lout_and">Act as a frontend for PDF generation with Lout and GhostScript</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Attach_files_to_outgoing_emails">Attach files to outgoing emails</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Validate_form_fields">Validate form fields</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Send_customised_emails_to_lists_of_email_addresses">Send customised emails to lists of email addresses</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_browser">Return any mime type back to the browser (eg. XML)</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_Read_and_write_from_SQL_databases">Read and write from SQL databases</A></STRONG><BR>
+
+</UL>
+<P>Soupermail can be used to handle single standalone forms, or generate and
+control complex multipart forms.</P>
+<P>
+<HR>
+<H1><A NAME="restricted form fields">RESTRICTED FORM FIELDS</A></H1>
+<P>Soupermail assumes some form fields have special meanings. These field names
+ARE CASE SENSITIVE. The following is a list of such fields:</P>
+<DL>
+<DT><strong><A NAME="item_Email">Email</a></strong><BR>
+<DD>
+Assumed to be the email address of the form's sender. Needed if the email is to
+be copied to the sender, or you are using a <STRONG>sendertemplate</STRONG>. When Soupermail
+sends and email back, it will use the value of this field as the email's From:
+address.
+
+<DT><strong><A NAME="item_SoupermailConf">SoupermailConf</a></strong><BR>
+<DD>
+This is a path to the configuration file that controls soupermail. The path
+can either be relative to the location of the form, or an absolute path
+from the webserver's root. If you are using soupermail to generate multipart
+forms, it is recommended that you use absolute paths.
+</DL>
+<P>
+<HR>
+<H1><A NAME="configuration files">CONFIGURATION FILES</A></H1>
+<P>Soupermail is controlled on a per form basis by using <STRONG>configuration files</STRONG>.
+Each form handled by soupermail must have an associated configuration file.</P>
+<P>The location of the file is passed to soupermail through the PATH_INFO CGI
+variable, or by using 'SoupermailConf' as a form parameter. 
+The PATH_INFO is set by providing a path after the call to soupermail
+in the &lt;form&gt; element of the HTML page.</P>
+<DL>
+<DT><STRONG><A NAME="item_eg%2E">eg.</A></STRONG><BR>
+<DD>
+If a form has a configuration file in <EM>/forms/config.txt</EM>, the form
+should call soupermail with
+<P>&lt;<CODE>form method=&quot;post&quot; action=&quot;/cgi-bin/soupermail.pl/forms/config.txt&quot;</CODE>&gt;</P>
+<P>or as a form variable with:</P>
+<P>&lt;<CODE>input type=&quot;hidden&quot; name=&quot;SoupermailConf&quot; value=&quot;/forms/config.txt&quot;</CODE>&gt;</P>
+</DL>
+<P>The <STRONG>second</STRONG> method of supplying the config file is recommended. People 
+running under a cgiwrapped environment will have problems with the first 
+method, and even worse, the IIS webserver defaults to not supporting 
+the PATH_INFO method.</P>
+<P>The path to the configuration file must be relative to the web server's 
+root directory. Do not use URLs or absolute paths to the configuration file.</P>
+<P>The format for a configuration file is a series of configuration
+statements of the form:</P>
+<P><CODE>name : value</CODE></P>
+<P>or</P>
+<P><CODE>if : condition then name : value</CODE></P>
+<P>or</P>
+<P><CODE>unless : condition then name : value</CODE></P>
+<P>If a badly phrased or incorrect configuration file is passed to soupermail,
+it will complain, so always check your soupermail configurations carefully.</P>
+<P>Valid <EM>names</EM> for the configuration file are:</P>
+<DL>
+<DT><strong><A NAME="item__7bit">    7bit</a></strong><BR>
+<DD>
+This can be set to <STRONG>yes</STRONG> or <STRONG>no</STRONG>. If its <STRONG>yes</STRONG>, then email is sent 
+out encoded as quoted printable characters (i.e. 7bit safe). By default though,
+email is sent out as 8bit, and its assumed the mailservers in the
+transmission route will handle the 8bit conversions. You should only
+need to alter this if you are experiencing character corruption in your
+emails.
+
+<DT><strong><A NAME="item_alphasort">alphasort</a></strong><BR>
+<DD>
+Set to <STRONG>yes</STRONG> or <STRONG>no</STRONG>. When email is sent without a <A HREF="#item_mailtemplate"><CODE>mailtemplate</CODE></A>, 
+the form fields are displayed in the email in alphabetical order.
+Setting this value to <STRONG>no</STRONG> does not sort the fields, and returns them 
+in the same order that the browser sent them.
+
+<DT><strong><A NAME="item_attachmentX">attachment<EM>X</EM></a></strong><BR>
+<DD>
+Files can be attached to email sent with <A HREF="#item_sendertemplate"><CODE>sendertemplate</CODE></A> and 
+<A HREF="#item_htmlsendertemplate"><CODE>htmlsendertemplate</CODE></A>. <STRONG><EM>X</EM></STRONG> is a number identifying the attachment.
+<P>See also <A HREF="#item_listattachmentX"><CODE>listattachmentX</CODE></A></P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>attachment1 : /forms/download/myfile.pdf
+attachment3 : file2.doc</pre></DL>
+<DT><strong><A NAME="item_attachmentXmime">attachment<EM>X</EM>mime</a></strong><BR>
+<DD>
+Since Soupermail doesn't know about MIME types, you may want to set a
+specific MIME type for an attachment so receiving mail clients know how
+to deal with them. By default, Soupermail sends text attachments as
+<STRONG>text/plain</STRONG> and binary attachments as <STRONG>application/octet-stream</STRONG>.
+<P>See also <A HREF="#item_listattachmentXmime"><CODE>listattachmentXmime</CODE></A></P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>attachment2 : /wordfile.doc
+attachment2mime : application/x-msword
+attachment5 : /forms/download/myfile.pdf
+attachment5mime : application/pdf</pre></DL>
+<DT><strong><A NAME="item_bcc">bcc</a></strong><BR>
+<DD>
+This is a comma separated list of email addresses to blind carbon copy on
+the email sent to the <A HREF="#item_mailto"><CODE>mailto</CODE></A> addresses. See also <A HREF="#item_senderbcc"><CODE>senderbcc</CODE></A>.
+
+<DT><strong><A NAME="item_blank">blank</a></strong><BR>
+<DD>
+A template file to return to the user if they submitted a blank form.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>blank : /forms/config/blank.tpl</CODE>
+</DL>
+<DT><strong><A NAME="item_blankmime">blankmime</a></strong><BR>
+<DD>
+The MIME type that's returned to the browser for the <A HREF="#item_blank"><CODE>blank</CODE></A> template. Also
+see <A HREF="#item_successmime"><CODE>successmime</CODE></A>, <A HREF="#item_expiresmime"><CODE>expiresmime</CODE></A> and <A HREF="#item_failuremime"><CODE>failuremime</CODE></A>.
+
+<DT><strong><A NAME="item_cgiwrappers">cgiwrappers</a></strong><BR>
+<DD>
+Set to <STRONG>yes</STRONG> or <STRONG>no</STRONG>.
+If you are running Soupermail in a CGI wrappers type environment, where 
+Soupermail's running with its owner's permissions rather than the webserver's
+permissions, setting cgiwrappers to <STRONG>yes</STRONG> will make the
+<A HREF="#item_filereadable"><CODE>filereadable</CODE></A> config command actually work.
+
+<DT><strong><A NAME="item_cookie%5B123456789%5Ddomain">cookie[123456789]domain</a></strong><BR>
+<DD>
+This specifies the domain name that the cookie will be sent to. By default,
+no domain is specified for a cookie. See the section on <EM>COOKIES</EM> for
+more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>cookie1domain : myhost.domainname.com</CODE>
+<P>Will only send cookie1 to pages on the myhost.domainname.com webserver. See
+the section on <EM>COOKIES</EM> for more information.</P>
+</DL>
+<DT><strong><A NAME="item_cookie%5B123456789%5Dexpires">cookie[123456789]expires</a></strong><BR>
+<DD>
+A date or time format indicating when one of the nine available cookies
+expires. Allowable formats can be relative. eg. <STRONG>+1h</STRONG> means one hour from
+now, <STRONG>-2d</STRONG> means 2 days ago. The time periods allowable are s = second, 
+m = minute, h = hour, d = day, M = month, y = year.
+<P>Absolute dates and times can also be specified.</P>
+<P>See the section on <EM>COOKIES</EM> for more information.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>cookie1expires : 1-4-1999 12:00:00</CODE>
+<P>will expire the first cookie at midday on 1 April 1999.</P>
+<P><CODE>cookie2expires : +1M</CODE></P>
+<P>will expire the second cookie one month from when the form was submitted</P>
+</DL>
+<P>By default, cookies expire 24 hours from when they were set.</P>
+<DT><strong><A NAME="item_cookie%5B123456789%5Dname">cookie[123456789]name</a></strong><BR>
+<DD>
+This sets the name of one of the nine available cookies to a value. See the
+section on <EM>COOKIES</EM> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>cookie1name: zippy</CODE>
+<P>sets the first cookie's name to 'zippy'</P>
+</DL>
+<DT><strong><A NAME="item_cookie%5B123456789%5Dpath">cookie[123456789]path</a></strong><BR>
+<DD>
+This specifies which pathnames a cookie will be sent to. By default, this
+will be to the location where soupermail is stored. See the section on
+<EM>COOKIES</EM> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>cookie3path : /products</CODE>
+<P>Would only send cookie 3 to pages below the /products directory of a website.</P>
+</DL>
+<DT><strong><A NAME="item_cookie%5B123456789%5Dsecure">cookie[123456789]secure</a></strong><BR>
+<DD>
+This is a yes or no value that specifies whether a cookie will be sent over
+all connections, or just secure SSL connections. See the section on 
+<EM>COOKIES</EM> for more information.
+
+<DT><strong><A NAME="item_cookie%5B123456789%5Dvalue">cookie[123456789]value</a></strong><BR>
+<DD>
+This sets the value of one of the nine available cookies. See the section
+on <EM>COOKIES</EM> for more information.
+
+<DT><strong><A NAME="item_cookieonblank">cookieonblank</a></strong><BR>
+<DD>
+If set to yes, this will send cookies when a blank form is detected.
+
+<DT><strong><A NAME="item_cookieonexpires">cookieonexpires</a></strong><BR>
+<DD>
+When set to yes, this will send cookies when a submission past an
+expires date is sent.
+
+<DT><strong><A NAME="item_cookieonfailure">cookieonfailure</a></strong><BR>
+<DD>
+When this is set to yes, cookies will be sent out even if the form
+has been considered a failure.
+
+<DT><strong><A NAME="item_cookieonsuccess">cookieonsuccess</a></strong><BR>
+<DD>
+When set to yes, cookies are sent out when the form is considered a
+success. This is the default behaviour.
+
+<DT><strong><A NAME="item_counterXfile">counter<EM>X</EM>file</a></strong><BR>
+<DD>
+Each counter is stored on the webserver in a single file. The file simply
+contains a number and should be specified in a directory that's writable by
+the webserver. When a counterfile line is read into the config file, the
+counter's value is made available for later use in the config file. See
+<EM>COUNTERS</EM> for more information.
+
+<DT><strong><A NAME="item_counterXonblank">counter<EM>X</EM>onblank</a></strong><BR>
+<DD>
+If set to <CODE>yes</CODE>, this specifies that counter <EM>X</EM> will be incremented
+if a blank form is submitted.
+
+<DT><strong><A NAME="item_counterXonexpires">counter<EM>X</EM>onexpires</a></strong><BR>
+<DD>
+If set to <CODE>yes</CODE> this specifies that counter <EM>X</EM> will be incremented
+if the form is submitted after its expiry date.
+
+<DT><strong><A NAME="item_counterXonfailure">counter<EM>X</EM>onfailure</a></strong><BR>
+<DD>
+If set to <CODE>yes</CODE> this specifies that counter <EM>X</EM> will be incremented
+if the form is missing required fields.
+
+<DT><strong><A NAME="item_counterXonsuccess">counter<EM>X</EM>onsuccess</a></strong><BR>
+<DD>
+If set to <CODE>yes</CODE> this specifies that counter <EM>X</EM> will be incremented
+if the form is submitted successfully. The default is to increase the counter
+by is 1.
+
+<DT><strong><A NAME="item_counterXstep">counter<EM>X</EM>step</a></strong><BR>
+<DD>
+This is a positive integer value that specifies how much counter <EM>X</EM>
+should be increased by.
+
+<DT><strong><A NAME="item_encodesubjects">encodesubjects</a></strong><BR>
+<DD>
+By default, the Subject line of emails is assumed to be 7bit ASCII. However,
+if you are sending non-ASCII characters, and have set the <A HREF="#item_mailcharset"><CODE>mailcharset</CODE></A>
+option, then Subject lines are encoded as described in RFC 2047.
+
+<DT><strong><A NAME="item_error">error</a></strong><BR>
+<DD>
+This is an error message that you can generate and that becomes available
+to use in the config file and templates as <A HREF="#item_http_config_error"><CODE>http_config_error</CODE></A>. If an
+error is set, SQL commands will not run, and Soupermail will run in a
+failure mode.
+
+<DT><strong><A NAME="item_expires">expires</a></strong><BR>
+<DD>
+A date of the format dd-mm-yyyy after which the form cannot be submitted
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>expires : 24-12-1998</CODE>
+</DL>
+<P>This means the form would not be submittable after the 24st of December 1998</P>
+<DT><strong><A NAME="item_expiresmime">expiresmime</a></strong><BR>
+<DD>
+The MIME type to return to the browser when <A HREF="#item_expirestemplate"><CODE>expirestemplate</CODE></A> is sent
+out. See also <A HREF="#item_successmime"><CODE>successmime</CODE></A>, <A HREF="#item_blankmime"><CODE>blankmime</CODE></A> and <A HREF="#item_failuremime"><CODE>failuremime</CODE></A>.
+
+<DT><strong><A NAME="item_expirestemplate">expirestemplate</a></strong><BR>
+<DD>
+A template file to use if the form has been submitted after its <STRONG>expires</STRONG>
+date. See the section on <EM>TEMPLATES</EM> for more information.
+
+<DT><strong><A NAME="item_failure">failure</a></strong><BR>
+<DD>
+A template to return to the user if they have not completed all the required
+fields of a form. See the section on <EM>TEMPLATES</EM> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>failure : /forms/config/bad.tpl</CODE>
+</DL>
+<DT><strong><A NAME="item_failuremime">failuremime</a></strong><BR>
+<DD>
+The MIME type to return to the browser when the <A HREF="#item_failure"><CODE>failure</CODE></A> template is sent
+out. See also <A HREF="#item_successmime"><CODE>successmime</CODE></A>, <A HREF="#item_blankmime"><CODE>blankmime</CODE></A> and <A HREF="#item_expiresmime"><CODE>expiresmime</CODE></A>.
+
+<DT><strong><A NAME="item_fileattop">fileattop</a></strong><BR>
+<DD>
+When writing the contents of a form to a file, new data is usually placed
+at the end of the file. By setting <A HREF="#item_fileattop"><CODE>fileattop</CODE></A>, new data can be written
+at the start of the file (although after any specified header).
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>fileattop : yes</CODE>
+</DL>
+<DT><strong><A NAME="item_filebackupformat">filebackupformat</a></strong><BR>
+<DD>
+This specifies a filename for backup files to be written into if a soupermail
+generated file will grow over a <A HREF="#item_filemaxbytes"><CODE>filemaxbytes</CODE></A> limit.
+<P>The value for this can include formatting codes as listed in the
+<EM>FORMATS</EM> section of this document. This lets you generate a number of backups
+with a very fine level of detail.</P>
+<P>The value specified in <A HREF="#item_filereadable"><CODE>filereadable</CODE></A> will affect any backup files generated.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>filebackupformat: /files/backup.txt</CODE>
+<P>would always backup the file to /files/backup.txt</P>
+<P><CODE>filebackupformat: /files/%yyyy%%mmm%%dd%backup.txt</CODE></P>
+<P>would backup to /files/19980801backup.txt on 1 August 1998.</P>
+</DL>
+<DT><strong><A NAME="item_filemaxbytes">filemaxbytes</a></strong><BR>
+<DD>
+This specifies the maximum size a soupermail generated file can grow to in
+bytes. If a new addition would cause the generated file to grow over
+<A HREF="#item_filemaxbytes"><CODE>filemaxbytes</CODE></A>, then the file will be cleared of all other entries.
+<P>If you would like to save backup copies of the file, rather than simply
+deleting it, specify a <A HREF="#item_filebackupformat"><CODE>filebackupformat</CODE></A> as described above.</P>
+<P>To force a deletion after each entry, set the filemaxbytes to 1. Note that
+setting it to 0 (zero), effectively resets filemaxbytes, and so has no
+effect.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>filemaxbytes: 10000</CODE>
+</DL>
+<DT><strong><A NAME="item_filepgpuserid">filepgpuserid</a></strong><BR>
+<DD>
+If you want to store the data from a form encrypted, you can use
+<A HREF="#item_filepgpuserid"><CODE>filepgpuserid</CODE></A> to securely store data.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>filepgpuserid: vittal.aithal@bigfoot.com</CODE>
+<P>Will store data encrypted for <A HREF="mailto:vittal.aithal@bigfoot.com">vittal.aithal@bigfoot.com</A></P>
+</DL>
+<DT><strong><A NAME="item_filereadable">filereadable</a></strong><BR>
+<DD>
+When writing form data to a file, the file is usually kept unreadable by the 
+webserver. By setting <A HREF="#item_filereadable"><CODE>filereadable</CODE></A>, the file can be made readable by the
+webserver.
+<P>Note that this only affects people reading the file from a web browser, it
+does not secure the file from other types of access (eg. from FTP or through
+the filesystem). So, don't go storing credit card numbers in a file unless
+you're damn sure that your machine's secure.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>filereadable : yes</CODE>
+</DL>
+<DT><strong><A NAME="item_filetemplate">filetemplate</a></strong><BR>
+<DD>
+A template file which determines how a set of form data should be written to 
+the file specified by <A HREF="#item_fileto"><CODE>fileto</CODE></A>. See the section on <EM>TEMPLATES</EM> for more 
+information.
+
+<DT><strong><A NAME="item_fileto">fileto</a></strong><BR>
+<DD>
+The filename that the contents of a form should be written to. The path is
+either relative to the location of the configuration file or an absolute
+path from the web server's root.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>fileto : output/out.txt</CODE>
+</DL>
+<P>If no <A HREF="#item_filetemplate"><CODE>filetemplate</CODE></A> is given, the output form a form is written as a series
+of lines matching:</P>
+<P><CODE>name = value[,value ...]</CODE></P>
+<P>Where a form field has multiple values, these are listed separated by commas.</P>
+<DT><strong><A NAME="item_footings">footings</a></strong><BR>
+<DD>
+This is a plain text file that can be placed at the end of files specified by
+<A HREF="#item_fileto"><CODE>fileto</CODE></A>.
+
+<DT><strong><A NAME="item_gotoblank">gotoblank</a></strong><BR>
+<DD>
+A URL for a page to redirect the user to if their form entry was blank. Unlike
+the <A HREF="#item_blank"><CODE>blank</CODE></A> field, the file is not a template, and so should not contain
+&lt;output&gt; elements. CGI variable replacement can be used in the value of <A HREF="#item_gotoblank"><CODE>gotoblank</CODE></A> to achieve <EM>PIPELINING</EM>.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>gotoblank : http://myserver/errors/blank.htm</CODE>
+</DL>
+<DT><strong><A NAME="item_gotoexpires">gotoexpires</a></strong><BR>
+<DD>
+A URL for a page to redirect to if the form has past its <A HREF="#item_expires"><CODE>expires</CODE></A> date.
+CGI variable replacement can be used in the value of <A HREF="#item_gotoexpires"><CODE>gotoexpires</CODE></A> to achieve <EM>PIPELINING</EM>.
+
+<DT><strong><A NAME="item_gotofailure">gotofailure</a></strong><BR>
+<DD>
+A URL for a page to redirect the user to if their form entry did not contain
+all the required fields. Unlike the <A HREF="#item_failure"><CODE>failure</CODE></A> entry, this is not a template
+and should not contain &lt;output&gt; elements. CGI variable replacement 
+can be used in the value of <A HREF="#item_gotofailure"><CODE>gotofailure</CODE></A> to achieve <EM>PIPELINING</EM>.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>gotofailure : http://myserver/errors/failed.htm</CODE>
+</DL>
+<DT><strong><A NAME="item_gotosuccess">gotosuccess</a></strong><BR>
+<DD>
+A URL for a page to redirect the user to if their form entry was successfully
+completed. Unlike the <A HREF="#item_success"><CODE>success</CODE></A> field, this is not a template and should
+not contain &lt;output&gt; elements. CGI variable replacement can be 
+used in the value of <A HREF="#item_gotosuccess"><CODE>gotosuccess</CODE></A> to achieve <EM>PIPELINING</EM>.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>gotosuccess : http://myserver/forms/success.htm</CODE>
+</DL>
+<DT><strong><A NAME="item_gnupg">gnupg</a></strong><BR>
+<DD>
+It is possible to use the GNU Privacy Guard program rather than PGP. If you
+do use it, then set <A HREF="#item_gnupg"><CODE>gnupg</CODE></A> to yes in your configuration. If you do not,
+then Soupermail will assume encryption is using PGP. This command is now
+deprecated in favour of <A HREF="#item_pgpversion"><CODE>pgpversion</CODE></A>.
+
+<DT><strong><A NAME="item_headings">headings</a></strong><BR>
+<DD>
+This is a plain text file that can be placed at the start of files specified
+by <A HREF="#item_fileto"><CODE>fileto</CODE></A>.
+
+<DT><strong><A NAME="item_htmllisttemplate">htmllisttemplate</a></strong><BR>
+<DD>
+The HTML email template to use for the <A HREF="#mailing lists">MAILING LISTS</A> function. This
+and/or a <A HREF="#item_listtemplate"><CODE>listtemplate</CODE></A> must be used for mailing lists to work.
+
+<DT><strong><A NAME="item_htmlmailtemplate">htmlmailtemplate</a></strong><BR>
+<DD>
+This option allows you to send mail formatted in HTML. Only the HTML
+is sent, images are not encoded or sent. All relative links from the HTML
+will be from the location of the config file on the server.
+Probably the best thing to do with HTML templates is use absolute URLs
+for images and suchlike.
+<P>If you specify both <A HREF="#item_htmlmailtemplate"><CODE>htmlmailtemplate</CODE></A> and <A HREF="#item_mailtemplate"><CODE>mailtemplate</CODE></A> a mixed
+text and HTML message is generated. This will allow people who don't have
+HTML capable mail clients to read your mail.</P>
+
+<DT><strong><A NAME="item_htmlsendertemplate">htmlsendertemplate</a></strong><BR>
+<DD>
+In the same way as <A HREF="#item_htmlmailtemplate"><CODE>htmlmailtemplate</CODE></A> is sent to the <A HREF="#item_mailto"><CODE>mailto</CODE></A> address, this
+template is used when sending mail to the submitter of the form. It behaves
+in the same way as <A HREF="#item_htmlmailtemplate"><CODE>htmlmailtemplate</CODE></A> when it comes to link handling.
+
+<DT><strong><A NAME="item_ignore">ignore</a></strong><BR>
+<DD>
+If your HTML forms contain hidden fields, you can <A HREF="#item_ignore"><CODE>ignore</CODE></A> them so that
+you can check for situations where the user doesn't complete any fields. Only
+one form field can be specified on an ignore line. Use multiple ignore lines
+if you wish to ignore more than one field. The soupermail special form
+variable <A HREF="#item_SoupermailConf"><CODE>SoupermailConf</CODE></A> is ignored automatically.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>ignore : hidden1
+ignore : hidden2</pre><P>This would ignore the values of fields 'hidden1' and 'hidden2' 
+when determining if a form was left blank.</P>
+</DL>
+<DT><strong><A NAME="item_if">if</a></strong><BR>
+<DD>
+A conditional statement used to set configuration values based on the user's
+form input. See the section on <A HREF="#conditional statements">CONDITIONAL STATEMENTS</A> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : (division eq 'Accounts') then mailto : accounts@mycompany.com</CODE>
+<P>This would set <A HREF="#item_mailto"><CODE>mailto</CODE></A> to <A HREF="mailto:accounts@mycompany.com">accounts@mycompany.com</A> if the form contained
+a field called 'division' and its value was 'Accounts'.</P>
+</DL>
+<DT><strong><A NAME="item_iscreditcard">iscreditcard</a></strong><BR>
+<DD>
+This is used to validate a form field to see if its a credit card number.
+The check performed is a basic Luhn checksum, and doesn't check card
+ranges.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+If you have a field called 'creditc' in your form, and want to validate it,
+use:
+<P><CODE>iscreditcard: creditc</CODE></P>
+</DL>
+<P>If the validation fails, the <A HREF="#item_failure"><CODE>failure</CODE></A> template is activated. Validation will
+not fail if the field is left blank.</P>
+<DT><strong><A NAME="item_isemail">isemail</a></strong><BR>
+<DD>
+This is used to validate a form field is an email address. If the validation 
+fails, the failure template is activated.
+
+<DT><strong><A NAME="item_isinteger">isinteger</a></strong><BR>
+<DD>
+This is used to validate a form field is an integer. If the validation fails, 
+the failure template is activated.
+
+<DT><strong><A NAME="item_isnumber">isnumber</a></strong><BR>
+<DD>
+Behaves in the same way as the isinteger option, and validates a form field 
+as a number.
+
+<DT><strong><A NAME="item_isnotcreditcard">isnotcreditcard</a></strong><BR>
+<DD>
+Used to check is a form field is NOT a credit card number.
+
+<DT><strong><A NAME="item_isnotemail">isnotemail</a></strong><BR>
+<DD>
+Used to check is a form field is NOT an email address.
+
+<DT><strong><A NAME="item_isnotinteger">isnotinteger</a></strong><BR>
+<DD>
+Used to check is a form field is NOT an integer.
+
+<DT><strong><A NAME="item_isnotnumber">isnotnumber</a></strong><BR>
+<DD>
+Used to check is a form field is NOT a number.
+
+<DT><strong><A NAME="item_listattachmentX">listattachment<EM>X</EM></a></strong><BR>
+<DD>
+This defines an attachment that is sent from the server to each mail
+sent to the mailing list. Its syntax is the same as that of
+<A HREF="#item_attachmentX"><CODE>attachmentX</CODE></A>.
+
+<DT><strong><A NAME="item_listattachmentXmime">listattachment<EM>X</EM>mime</a></strong><BR>
+<DD>
+This is the MIME type for an attachment sent to the mailing list.
+See <A HREF="#item_attachmentXmime"><CODE>attachmentXmime</CODE></A> for the syntax.
+
+<DT><strong><A NAME="item_listbase">listbase</a></strong><BR>
+<DD>
+When HTML email is sent to a mailing list, Soupermail inserts a
+Content-Location email header based on the submitting form's URL. Use this
+option to modify it for your own needs. Similar to <A HREF="#item_senderbase"><CODE>senderbase</CODE></A> and
+<A HREF="#item_mailbase"><CODE>mailbase</CODE></A>.
+
+<DT><strong><A NAME="item_listfrom">listfrom</a></strong><BR>
+<DD>
+The email address to use in the From: field for emails sent out using 
+Soupermail's <A HREF="#mailing lists">MAILING LISTS</A> function.
+
+<DT><strong><A NAME="item_listformfield">listformfield</a></strong><BR>
+<DD>
+Sometimes, you may want to send emails to a mailing list
+sent to the form through a form field. This config command says
+which form field contains this data.
+
+<DT><strong><A NAME="item_listprecedence">listprecedence</a></strong><BR>
+<DD>
+When email is sent out with Soupermail's <A HREF="#mailing lists">MAILING LISTS</A> function, the
+Precedence mail header is set to prevent mail loops. It can take one
+of three possible values; <STRONG>list</STRONG>, <STRONG>junk</STRONG> and <STRONG>bulk</STRONG>. By default, the
+Precedence value is <STRONG>list</STRONG>.
+
+<DT><strong><A NAME="item_listreplyto">listreplyto</a></strong><BR>
+<DD>
+The email address to use in the Reply-To: field for emails sent out using 
+Soupermail's <A HREF="#mailing lists">MAILING LISTS</A> function.
+
+<DT><strong><A NAME="item_listsql">listsql</a></strong><BR>
+<DD>
+The data for a mailing list can be pulled from a SQL database as long as
+the <A HREF="#item_sqlname"><CODE>sqlname</CODE></A>, <A HREF="#item_sqluser"><CODE>sqluser</CODE></A>, <A HREF="#item_sqlpassword"><CODE>sqlpassword</CODE></A> and appropriate <CODE>sqlbind</CODE>
+values have been set. <A HREF="#item_listsql"><CODE>listsql</CODE></A> is an SQL command in the 
+same format
+as <A HREF="#item_sqlrunX"><CODE>sqlrunX</CODE></A> commands.
+<P>The data returned from the SQL statement must have the user's email
+address as the first column.</P>
+
+<DT><strong><A NAME="item_listsubject">listsubject</a></strong><BR>
+<DD>
+The Subject: line to be used for emails sent out using the 
+<A HREF="#mailing lists">MAILING LISTS</A> function.
+
+<DT><strong><A NAME="item_listtemplate">listtemplate</a></strong><BR>
+<DD>
+The plain text message template to use for the <A HREF="#mailing lists">MAILING LISTS</A>
+function. This and/or a <A HREF="#item_htmllisttemplate"><CODE>htmllisttemplate</CODE></A> must be specified for a
+mailing list to work.
+
+<DT><strong><A NAME="item_mailbase">mailbase</a></strong><BR>
+<DD>
+When HTML email is sent to the <A HREF="#item_mailto"><CODE>mailto</CODE></A> address, Soupermail inserts a
+Content-Location email header based on the submitting form's URL. Use this
+option to modify it for your own needs. Similar to <A HREF="#item_senderbase"><CODE>senderbase</CODE></A> and
+<A HREF="#item_listbase"><CODE>listbase</CODE></A>.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>mailbase : http://www.example.com/graphics/</CODE>
+</DL>
+<DT><strong><A NAME="item_mailcharset">mailcharset</a></strong><BR>
+<DD>
+This defines the character set to send email as. It defaults to iso-8859-1.
+
+<DT><strong><A NAME="item_maillist">maillist</a></strong><BR>
+<DD>
+This option is the location for a <A HREF="#mailing lists">MAILING LISTS</A> file.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>maillist : /forms/config/mynames.csv</CODE>
+</DL>
+<DT><strong><A NAME="item_mailtemplate">mailtemplate</a></strong><BR>
+<DD>
+A template file to use when formatting the outgoing email. See the section 
+on <EM>TEMPLATES</EM> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>mailtemplate : /forms/config/mail.tpl</CODE>
+</DL>
+<DT><strong><A NAME="item_mailto">mailto</a></strong><BR>
+<DD>
+A comma separated list of email addresses to send the results of the email to.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>mailto : rod@mycompany.com, jane@othercompany.com, freddy@mycompany.com</CODE>
+</DL>
+<DT><strong><A NAME="item_mimeon">mimeon</a></strong><BR>
+<DD>
+When set, Soupermail will allow file uploads from web browsers using RFC1867
+and will attach the uploaded files as MIME attachments on resulting emails.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>mimeon : yes</CODE>
+<P>This would allow MIME attachments to be sent.</P>
+</DL>
+<DT><strong><A NAME="item_nofilecr">nofilecr</a></strong><BR>
+<DD>
+When saving results to a file, it is sometimes useful to remove newline
+characters from the results. Setting <A HREF="#item_nofilecr"><CODE>nofilecr</CODE></A> will do this.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>nofilecr : yes</CODE>
+<P>This would remove newline characters from fields written to a file.</P>
+</DL>
+<DT><strong><A NAME="item_nomailfooter">nomailfooter</a></strong><BR>
+<DD>
+Do not display the hostname and IP address details at the foot of each 
+outgoing email.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>nomailfooter : yes</CODE>
+</DL>
+<DT><strong><A NAME="item_pdftemplate">pdftemplate</a></strong><BR>
+<DD>
+This is a lout template file that will be processed into a PDF and returned 
+to the browser. If you want to use this option, don't specify a <A HREF="#item_success"><CODE>success</CODE></A> 
+template in your config file. See the <A HREF="#making pdfs">MAKING PDFs</A> section for more
+details.
+
+<DT><strong><A NAME="item_pdfmailtemplate">pdfmailtemplate</a></strong><BR>
+<DD>
+This is a lout template file that will be processed into a PDF and returned 
+to the <A HREF="#item_mailto"><CODE>mailto</CODE></A> email recipient as an email attachment. It can be used 
+in conjunction with <A HREF="#item_mailtemplate"><CODE>mailtemplate</CODE></A> and <A HREF="#item_htmlmailtemplate"><CODE>htmlmailtemplate</CODE></A>.
+
+<DT><strong><A NAME="item_pdfsendertemplate">pdfsendertemplate</a></strong><BR>
+<DD>
+This is a lout template file that will be processed into a PDF and returned 
+to the email address given in the <STRONG>Email</STRONG> form field. It can be used 
+in conjunction with <A HREF="#item_sendertemplate"><CODE>sendertemplate</CODE></A> and <A HREF="#item_htmlsendertemplate"><CODE>htmlsendertemplate</CODE></A>.
+
+<DT><strong><A NAME="item_pgpmime">pgpmime</a></strong><BR>
+<DD>
+By default, Soupermail will send PGP messages as a multipart/encrypted MIME
+message (as per RFC 2015). However, not all PGP mail plugins recognise 
+this format (eg, the Pegasus mail PGP plugin). Setting pgpmime to <STRONG>no</STRONG> 
+will not encapsulate the PGP message in MIME headers.
+
+<DT><strong><A NAME="item_pgppdfs">pgppdfs</a></strong><BR>
+<DD>
+If set to 'no', then PDF's generated with Soupermail are NOT encrypted when
+sent. Instead, they are attached to the encrypted content of the email.
+The default behaviour is to encrypt PDFs.
+
+<DT><strong><A NAME="item_pgpport">pgpport</a></strong><BR>
+<DD>
+This is the port number of a HTTP PGP 5 keyserver. The default port is
+11371. The hostname for the server is specified with <STRONG>pgpserver</STRONG> below.
+See the section on <A HREF="#using pgp">USING PGP</A> for more information.
+
+<DT><strong><A NAME="item_pgpserver">pgpserver</a></strong><BR>
+<DD>
+This is the hostname of a HTTP PGP 5 keyserver to get PGP keys from.
+See the section on <A HREF="#using pgp">USING PGP</A> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>pgpserver : pgpkeys.mit.edu</CODE>
+</DL>
+<DT><strong><A NAME="item_pgpuploads">pgpuploads</a></strong><BR>
+<DD>
+If set to 'no', then uploaded files are NOT encrypted when
+sent. Instead, they are attached to the encrypted content of the email.
+The default behaviour is to encrypt uploaded files.
+
+<DT><strong><A NAME="item_pgpuserid">pgpuserid</a></strong><BR>
+<DD>
+A user in the public keyring which outgoing email should be encrypted for.
+See the section on <A HREF="#using pgp">USING PGP</A> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>pgpuserid : bungle@mycompany.com</CODE>
+</DL>
+<DT><strong><A NAME="item_pgpversion">pgpversion</a></strong><BR>
+<DD>
+From version 1.0.8, this is the prefered mechanism for selecting the
+type of encryption to use. Values for this can currently be
+'gpg', 'pgp2' and 'pgp5'. By using this field, future versions of PGP and
+GNUPG can be supported.
+
+<DT><strong><A NAME="item_ref">ref</a></strong><BR>
+<DD>
+A format for a reference number to be generated and used as the
+<EM>http_ref</EM> CGI variable. See the sections on <A HREF="#cgi variables">CGI VARIABLES</A> and 
+<EM>FORMATS</EM> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>ref : REF%yy%%mmm%%dd%%rrrr%</CODE>
+<P>This may generate a reference like: REF9704016364 on April 1 1997</P>
+</DL>
+<DT><strong><A NAME="item_replyto">replyto</a></strong><BR>
+<DD>
+An email address that will be used in the Reply-To: mail header.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>replyto : zippy@mycompany.com</CODE>
+</DL>
+<DT><strong><A NAME="item_required">required</a></strong><BR>
+<DD>
+A boolean expression which determines which form fields must be completed. 
+The entry is composed of field names separated by &amp;&amp; (AND) and || (OR) 
+operators. See the section on <A HREF="#boolean expressions">Boolean Expressions</A> for more details.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>required : ((name &amp;&amp; address) || telephone)</CODE>
+<P>The above expression requires either the fields name and address to be 
+completed, or the field telephone to be completed.</P>
+</DL>
+<DT><strong><A NAME="item_returntosender">returntosender</a></strong><BR>
+<DD>
+This will CC the sender of the form a copy of the email message sent as a 
+result of the form. This requires the form to have a field called Email (case
+sensitive), which is assumed to be the sender's email address.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>returntosender : yes</CODE>
+</DL>
+<DT><strong><A NAME="item_senderbase">senderbase</a></strong><BR>
+<DD>
+When HTML email is sent to the submitter of a form, Soupermail inserts a
+Content-Location email header based on the submitting form's URL. Use this
+option to modify it for your own needs. Similar to <A HREF="#item_listbase"><CODE>listbase</CODE></A> and
+<A HREF="#item_mailbase"><CODE>mailbase</CODE></A>.
+
+<DT><strong><A NAME="item_senderbcc">senderbcc</a></strong><BR>
+<DD>
+This is a comma separated list of email addresses to blind carbon copy on
+the email sent to the form's sender when a <A HREF="#item_sendertemplate"><CODE>sendertemplate</CODE></A> is specified.
+See also <A HREF="#item_bcc"><CODE>bcc</CODE></A>.
+
+<DT><strong><A NAME="item_senderfrom">senderfrom</a></strong><BR>
+<DD>
+When using a <A HREF="#item_sendertemplate"><CODE>sendertemplate</CODE></A>, the email address used in the email back to
+the form's sender is set to this. The preferred order email addresses are 
+chosen for the sender's From field is:
+<UL>
+<LI><STRONG>senderfrom</STRONG><BR>
+
+<LI><STRONG><A NAME="item_senderreplyto">senderreplyto</A></STRONG><BR>
+
+<LI><STRONG>mailto</STRONG><BR>
+
+<LI><STRONG>replyto</STRONG><BR>
+
+<LI><STRONG><A NAME="item_sender%27s_email_address">sender's email address</A></STRONG><BR>
+
+</UL>
+<P>This field is useful if you need an auto-reply function from your form, but
+don't want to obviously expose the mailto address directly to the sender of
+a form.</P>
+<DT><STRONG><STRONG>senderreplyto</STRONG></STRONG><BR>
+<DD>
+An email address that will be used in the Reply-To: mail header for mails
+sent with the <A HREF="#item_sendertemplate"><CODE>sendertemplate</CODE></A> config option.
+
+<DT><strong><A NAME="item_sendersubject">sendersubject</a></strong><BR>
+<DD>
+Used in conjunction with <A HREF="#item_sendertemplate"><CODE>sendertemplate</CODE></A>, this is a subject line only to
+be used in email messages send directly back to the form's submitter. If its
+not set, the subject line set with the <A HREF="#item_subject"><CODE>subject</CODE></A> config line is used.
+
+<DT><strong><A NAME="item_sendertemplate">sendertemplate</a></strong><BR>
+<DD>
+This is a template file for an email to be sent back to whoever submitted
+the form. It takes the email address to send this to from the <STRONG>Email</STRONG>
+form variable. The From field of the email is set to either the <A HREF="#item_mailto"><CODE>mailto</CODE></A>
+or <A HREF="#item_replyto"><CODE>replyto</CODE></A> configuration values. See the section on <EM>TEMPLATES</EM> for
+more information.
+
+<DT><strong><A NAME="item_setcounterX">setcounter<EM>X</EM></a></strong><BR>
+<DD>
+This sets the value of a counter prior to any templates being filled based
+on the counter's onsuccess, onfailure, onblank and onexpires config
+values.
+
+<DT><strong><A NAME="item_sqlbindX">sqlbind<EM>X</EM></a></strong><BR>
+<DD>
+Using the <CODE>sqlbind</CODE> command allows you to specify a variable that will 
+be used in the next SQL statement specified by a <A HREF="#item_sqlrunX"><CODE>sqlrunX</CODE></A> command.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>sqlbind2: "$form_second_field"
+sqlrun1: SELECT * FROM TABLE WHERE field1 = ? AND field2 = ?</pre>
+<P>In this example, the value of the form field "second_field" is
+used to replace the second question-mark value in the SQL statement.</P>
+</DL>
+<P>Binding does all the character escaping needed by the SQL, so there
+is no need to enclose strings in single quotes.</P>
+<DT><strong><A NAME="item_sqlname">sqlname</a></strong><BR>
+<DD>
+This is the DBI name for the next database connection you will use.
+You can use multiple connections during the course of a config file.
+The format for the name is the normal DBI format.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>sqlname: dbi:mysql:database=test;host=mysql.example.net</CODE>
+</DL>
+<DT><strong><A NAME="item_sqlpassword">sqlpassword</a></strong><BR>
+<DD>
+This is the connection password that will be used for the next SQL
+command run in the config file. Usually used with <A HREF="#item_sqluser"><CODE>sqluser</CODE></A>.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>sqlpassword: my_random_password</CODE>
+</DL>
+<DT><strong><A NAME="item_sqlrunX">sqlrun<EM>X</EM></a></strong><BR>
+<DD>
+Multiple SQL statements can be executed in a config file, and
+each statement is defined by a <A HREF="#item_sqlrunX"><CODE>sqlrunX</CODE></A> command. Statements are
+executed in the order they are seen in the config file, working from
+top to bottom.
+<P>The number at the end of the <A HREF="#item_sqlrunX"><CODE>sqlrunX</CODE></A> name is used to
+identify the results of the command for later use in the config
+file and in templates.</P>
+<P>Variables that you want to use in your SQL command that come from 
+form, cookie or counter data must be passed in by <EM>binding</EM> the
+values. Binding involves using a question-mark character to represent
+a variable, and setting a <CODE>sqlbind</CODE> command to indicate something to
+use.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>sqlbind1: &quot;$form_name&quot;
+sqlrun1: SELECT id FROM users WHERE name LIKE ?</pre>
+<P>The bind command attaches the value of the form field to the first
+question-mark in the next SQL statement. In this case, if the
+value of the form field 'name' was 'fred', then the SQL command
+would become:</P>
+<P><CODE>SELECT id FROM users WHERE name LIKE 'fred'</CODE></P>
+</DL>
+<P>For security reasons SQL commands will not run if there are 
+required, or invalid field types.</P>
+<DT><strong><A NAME="item_sqluser">sqluser</a></strong><BR>
+<DD>
+This is the username to use when connecting for the next SQL statement.
+Usually used with <A HREF="#item_sqlpassword"><CODE>sqlpassword</CODE></A>.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>sqluser: root</CODE>
+</DL>
+<DT><strong><A NAME="item_subject">subject</a></strong><BR>
+<DD>
+A subject line to use on resulting emails.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>subject : This is a feedback email</CODE>
+</DL>
+<DT><strong><A NAME="item_success">success</a></strong><BR>
+<DD>
+A template file to return through the web browser if the form was correctly
+submitted. See the section on <EM>TEMPLATES</EM> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>success : /forms/config/success.tpl</CODE>
+</DL>
+<DT><strong><A NAME="item_successmime">successmime</a></strong><BR>
+<DD>
+This allows you to specify a specific MIME type for the data returned
+back to the browser by the <A HREF="#item_success"><CODE>success</CODE></A> template. Values given here should
+be of the form <CODE>word/word</CODE>. Its related to the <A HREF="#item_failuremime"><CODE>failuremime</CODE></A>,
+<A HREF="#item_blankmime"><CODE>blankmime</CODE></A> and <A HREF="#item_expiresmime"><CODE>expiresmime</CODE></A> config commands.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>successmime : text/xml; charset=utf8</CODE>
+</DL>
+<DT><strong><A NAME="item_unless">unless</a></strong><BR>
+<DD>
+This has an identical format to the <A HREF="#item_if"><CODE>if</CODE></A> command, but performs the opposite
+of what the <A HREF="#item_if"><CODE>if</CODE></A> tests do. Using this, you can check for when values are not
+set. See the section on <A HREF="#conditional statements">CONDITIONAL STATEMENTS</A> for more information.
+
+<DT><strong><A NAME="item_wrap">wrap</a></strong><BR>
+<DD>
+The number of characters to wrap the soupermail emails to.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>wrap : 60</CODE>
+</DL>
+</DL>
+<P>Sometimes it is useful to concatenate some of the configuration values, for
+instance where you need to specify more that one <A HREF="#item_mailto"><CODE>mailto</CODE></A> recipient based
+on the user's input. In order to do this, you can use the following variables
+in you configuration files:</P>
+<DL>
+<DT><strong><A NAME="item_%24mailto">$mailto</a></strong><BR>
+<DD>
+This is the current value of <A HREF="#item_mailto"><CODE>mailto</CODE></A> in the configuration. This will be
+expanded to the value when the configuration is parsed.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>mailto : rod@mycompany.com
+mailto : "$mailto, jane@mycompany.com"</pre><P>This example initially sets <A HREF="#item_mailto"><CODE>mailto</CODE></A> to <A HREF="mailto:rod@mycompany.com.">rod@mycompany.com.</A> Then it sets
+<A HREF="#item_mailto"><CODE>mailto</CODE></A> to <A HREF="mailto:rod@mycompany.com,">rod@mycompany.com,</A> <A HREF="mailto:jane@mycompany.com.">jane@mycompany.com.</A> Notice that the expansion
+occurs only if the value is enclosed in double quotes (").</P>
+</DL>
+<DT><strong><A NAME="item_%24subject">$subject</a></strong><BR>
+<DD>
+This is used to get the current value of <A HREF="#item_subject"><CODE>subject</CODE></A>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>subject : Feedback of type - 
+if (feedtype eq 'comment') then subject : "$subject Comment"
+if (feedtype eq 'problem') then subject : "$subject Problem"</pre><P>This example changes the <A HREF="#item_subject"><CODE>subject</CODE></A> based on a field in the original form 
+called 'feedtype'.</P>
+</DL>
+<DT><strong><A NAME="item_%24replyto">$replyto</a></strong><BR>
+<DD>
+This is used to get the current value of the <A HREF="#item_replyto"><CODE>replyto</CODE></A> field.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>replyto : management@mycompany.com
+if : (interested has 'rod') then replyto : "$replyto, rod@mycompany.com"
+if : (interested has 'jane') then replyto : "$replyto, jane@mycompany.com"
+if : (interested has 'freddy') then replyto : "$replyto, freddy@mycompany.com"
+</pre><P>If the form contained a set of checkboxes all called 'interested' with the
+values of 'rod', 'jane' and 'freddy', this configuration will add the email
+addresses of rod, jane and freddy depending upon which checkboxes were set
+by the user.</P>
+</DL>
+<DT><strong><A NAME="item_CGI_variables">CGI variables</a></strong><BR>
+<DD>
+It is possible to use all of the <A HREF="#cgi variables">CGI VARIABLES</A> listed below 
+by placing a '$' character before their name.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>$http_user_agent</CODE>
+<P>will return the web browser name.</P>
+</DL>
+<DT><strong><A NAME="item_Form_Variables">Form Variables</a></strong><BR>
+<DD>
+It is possible to use any value from a form by placing '$form_' before the
+form variable's name.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+If a form has a field called 'TheirName', then the following could be used in
+the configuration file:
+<P><CODE>Subject: &quot;Form response from $form_TheirName&quot;</CODE></P>
+</DL>
+<DT><strong><A NAME="item_Cookie_Variables">Cookie Variables</a></strong><BR>
+<DD>
+In the same way as its possible to use form variables, cookie variables can
+be inserted by putting '$cookie_' before the cookie's name.
+See the section on <EM>COOKIES</EM> for more information.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>Subject: &quot;The cookie named Bungle has value $cookie_Bungle&quot;</CODE>
+</DL>
+</DL>
+<P>Replacements can only be used when setting the subject, mailto, replyto,
+reference number and cookie value fields.</P>
+<P>Replacement value will only be used when they are enclosed in double-quotes.
+So, the following will NOT work:</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+Subject: This is a non-working mail to $mailto
+</DL>
+<P>However, this will work:</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+Subject: "This is a working mail to $mailto"
+</DL>
+<P>
+<HR>
+<H1><A NAME="conditional statements">CONDITIONAL STATEMENTS</A></H1>
+<P>Conditional statements in configuration files allow you to control the
+configuration of a form based on the user's form input, values from a
+users cookies or any of the http_ variables. A conditional
+statement is made up of a boolean expression followed by a configuration
+statement.</P>
+<DL>
+<DT><STRONG><A NAME="item_ie%2E">ie.</A></STRONG><BR>
+<DD>
+<CODE>if : boolean_expression then configuration_statement</CODE>
+<P>or</P>
+<P><CODE>unless : boolean_expression then configuration_statement</CODE></P>
+</DL>
+<P>The only configuration statement disallowed in a conditional statement is
+another if or unless.</P>
+<P>Conditional statements are executed in the same order that they appear in
+the configuration file.</P>
+<P>
+<H2><A NAME="boolean expressions">Boolean Expressions</A></H2>
+<P>A boolean expression is something that can either be true or false. If it's
+true, then the configuration statement is set, otherwise it isn't.</P>
+<P>The simplest boolean expression is just the name of a form field. If the form
+field was completed by the user, then the boolean is true.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+If you have a form that contains and input field called 'name' and you want to
+set the <A HREF="#item_subject"><CODE>subject</CODE></A> line based on this name being set, you could use the
+following configuration statements:
+<pre>subject : They haven't set their name
+if : name then subject : They have set their name!</pre><P>Initially, subject is set to 'They haven't set their name'. However, if the
+'name' field is completed on the form, the conditional statement is
+activated and the subject is reset to 'They have set their name!'.</P>
+</DL>
+<P>If you want to check on cookies, prefix the cookie's name with $cookie_. So,
+if you wanted to test if the user had sent a cookie called "MyName", use
+a condition like this:</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if: $cookie_MyName then Subject: &quot;Cookie MyName was set to $cookie_MyName&quot;</CODE>
+</DL>
+<P>Boolean expressions in soupermail use three basic operators, AND (&amp;&amp;), 
+OR (||) and NOT (!). An expression with an AND in will be true if 
+BOTH of the things around the AND are true. An expression with an OR 
+in will be true if one or more of the things around the OR is true.
+An expression preceded by a NOT will be true if the thing following 
+it is false.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<EM>x</EM> &amp;&amp; <EM>y</EM> will be true if <EM>x</EM> is true and <EM>y</EM> is true
+<P><EM>x</EM> || <EM>y</EM> will be true if <EM>x</EM> is true or <EM>y</EM> is true</P>
+<P><EM>x</EM> &amp;&amp; <EM>y</EM> || <EM>z</EM> will be true if <EM>x</EM> and <EM>y</EM> are both true, or 
+<EM>x</EM> is true.</P>
+<P>!<EM>x</EM> will be true if <EM>x</EM> is false.</P>
+</DL>
+<P>Boolean expressions can contain any number of smaller boolean expressions.
+To make life easy, you can group these with brackets "(" and ")".</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+You have a form containing the fields 'name', 'address', 'telephone', 'fax' and
+'Email'. You want to know that name has been filled in and that they have
+supplied an address or telephone or email. The following boolean expression
+could be used:
+<P><CODE> name &amp;&amp; (address || telephone || Email)</CODE></P>
+<P>Notice the use of brackets, to enclose the ORs. If the brackets were missed 
+out, the expression would have meant the user must complete their 
+name and address, or their telephone, or their email; or as a boolean 
+expression:</P>
+<P><CODE>(name &amp;&amp; address) || telephone || Email</CODE></P>
+<P>This is because AND is considered to be more important than OR.</P>
+</DL>
+<P>If you have form fields that contain spaces, you can still use them in boolean
+expressions, but you must enclose them in double quotes (").</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+You have a form containing:
+<P>&lt;input type="text" name="First Name"&gt;</P>
+<P>Any boolean expression using this field name must use it quoted:</P>
+<P><CODE>&quot;First Name&quot;</CODE></P>
+</DL>
+<P>Other operators available in boolean expressions are:</P>
+<DL>
+<DT><strong><A NAME="item_%3D%3D">==</a></strong><BR>
+<DD>
+Numerical equality
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : age == 45 then subject : You are 45</CODE>
+</DL>
+<DT><strong><A NAME="item_%21%3D">!=</a></strong><BR>
+<DD>
+Numerical inequality
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : age != 50 then subject : You are NOT 50</CODE>
+</DL>
+<DT><strong><A NAME="item_%3C%3D">&lt;=</a></strong><BR>
+<DD>
+Numerically less than or equal to
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : age </CODE>&lt;<CODE>= 50 then subject : You are younger than 51</CODE>
+</DL>
+<DT><strong><A NAME="item_%3E%3D">&gt;=</a></strong><BR>
+<DD>
+Numerically greater than or equal to
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : age </CODE>&gt;<CODE>= 50 then subject : You are older than 49</CODE>
+</DL>
+<DT><strong><A NAME="item_%3C">&lt;</a></strong><BR>
+<DD>
+Numerically less than
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : age &lt; 50 then subject : You are younger than 50</CODE>
+</DL>
+<DT><strong><A NAME="item_%3E">&gt;</a></strong><BR>
+<DD>
+Numerically greater than
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : age &gt; 50 then subject : You are older than 50</CODE>
+</DL>
+<DT><strong><A NAME="item_eq">eq</a></strong><BR>
+<DD>
+String equality
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : name eq 'Humphry' then subject : You are called Humphry</CODE>
+</DL>
+<DT><strong><A NAME="item_ne">ne</a></strong><BR>
+<DD>
+String inequality
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : name ne 'Humphry' then subject : You are NOT called Humphry</CODE>
+</DL>
+<DT><strong><A NAME="item_le">le</a></strong><BR>
+<DD>
+String less than or equal to
+
+<DT><strong><A NAME="item_ge">ge</a></strong><BR>
+<DD>
+String greater than or equal to
+
+<DT><strong><A NAME="item_lt">lt</a></strong><BR>
+<DD>
+String less than
+
+<DT><strong><A NAME="item_gt">gt</a></strong><BR>
+<DD>
+String greater than
+
+<DT><strong><A NAME="item_has">has</a></strong><BR>
+<DD>
+A string value is equal to something in a multivalue field
+
+<DT><strong><A NAME="item_hasnt">hasnt</a></strong><BR>
+<DD>
+A string value is not equal to something in a multivalue field
+
+<DT><strong><A NAME="item_contains">contains</a></strong><BR>
+<DD>
+A string value exists inside, or is equal to another value. It is 
+case-insensitive.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : name contains 'on' then subject: Your name contains the letters on</CODE>
+<P>The above example would match names such as "Ron" or "Donna".</P>
+</DL>
+<DT><strong><A NAME="item_longerthan">longerthan</a></strong><BR>
+<DD>
+Returns true if the value to the left is made of more characters
+than the value to the right.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : name longerthan 5 then subject: Your name has more than 5 characters</CODE>
+</DL>
+<DT><strong><A NAME="item_shorterthan">shorterthan</a></strong><BR>
+<DD>
+Returns true if the value to the left is made of less characters
+than the value to the right.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>if : name shorterthan 5 then subject: Your name has less than 5 characters</CODE>
+</DL>
+</DL>
+<P>
+<HR>
+<H1><A NAME="templates">TEMPLATES</A></H1>
+<P>Soupermail uses a series of templates specified by the configuration file to
+control the output, either to the screen, a file or to email. All the
+template locations should be specified relative to the location of the
+configuration file, as absolute paths (things starting with a '/' character)
+from the web server's root, or as private paths (things starting with
+a '~' character). The basis for a template are the 
+HTML-like elements called &lt;output&gt;, &lt;only&gt; and
+&lt;loop&gt;.</P>
+<P>Templates can be used for emails, files and pages returned to the browser.
+Templates returned to the browser can be given different MIME types, meaning
+you can return things like WML for WAP sites.</P>
+<P>When sending HTML email templates, you can set the base for images embedded in
+the email with the <A HREF="#item_listbase"><CODE>listbase</CODE></A>, <A HREF="#item_mailbase"><CODE>mailbase</CODE></A> and <A HREF="#item_senderbase"><CODE>senderbase</CODE></A> commands.</P>
+<P>The &lt;only&gt; element defines a block in a template to use if its
+<STRONG>if</STRONG> attribute is matched. The <STRONG>if</STRONG> attribute should contain a boolean
+expression. See <A HREF="#boolean expressions">Boolean Expressions</A> for more information about
+what the <STRONG>if</STRONG> attribute can contain.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+&lt;only if="month == 12"&gt;
+<P>Its December, so here's December's calendar:</P>
+<P>&lt;!--#include virtual="dec.txt"--&gt;</P>
+<P>&lt;/only&gt;</P>
+</DL>
+<P>&lt;only&gt; elements cannot be nested, but they can contain any number of
+&lt;output&gt; elements and includes.</P>
+<P>&lt;loop&gt; elements allow one part of a template to be repeated multiple
+times. Using loops, you can repeat a section of template a fixed number of
+times, or loop through the values of form field.</P>
+<P>Loops can take five attributes:</P>
+<DL>
+<DT><STRONG><A NAME="item_start">start</A></STRONG><BR>
+<DD>
+If you need to control when a loop starts, the start attribute sets
+the initial value of the loop. This can be any number.
+
+<DT><STRONG><A NAME="item_end">end</A></STRONG><BR>
+<DD>
+This is the final value of the loop. It can be any number. If the value of
+end is greater than the value of start, the loop counts forward in steps
+of one. If the value of end is less than the value of start, the loop counts
+backward in steps of minus one.
+
+<DT><STRONG><A NAME="item_name">name</A></STRONG><BR>
+<DD>
+Each time Soupermail goes through a loop, you can take the current value
+of the loop, and use it in the template. To get the value, you need to
+refer to it by the loop's name.
+<P>To get the value out, surround the loop's name by @ characters inside
+the loop block.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>&lt;loop name="loopvalue" start="1" end="5"&gt;
+@loopvalue@
+&lt;/loop&gt;</pre><P>This loop will return '1 2 3 4 5'.</P>
+</DL>
+<DT><STRONG><A NAME="item_step">step</A></STRONG><BR>
+<DD>
+The default step in loops between the start and end values is one.
+With the step attribute, you can change this value. Step can take
+any number as a value.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>&lt;loop name="loopvalue" start="1" end="5" step="2"&gt;
+@loopvalue@
+&lt;/loop&gt;</pre><P>This loop will return '1 3 5'.</P>
+</DL>
+<DT><STRONG><A NAME="item_field">field</A></STRONG><BR>
+<DD>
+When you need to use a loop to run through the multiple values
+of a form field the field attribute is used to specify which
+field to loop with.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+If you have a SELECT element in your form like this:
+<pre>&lt;select multiple="multiple" name="multiselect"&gt;
+&lt;option&gt;value one
+&lt;option&gt;another value
+&lt;option&gt;yet another value
+&lt;/select&gt;</pre><P>you can use the following loop to get the values:</P>
+<pre>&lt;loop name="selectfield" field="multiselect"&gt;
+One of the values is @selectfield@
+&lt;/loop&gt;</pre></DL>
+</DL>
+<P>The &lt;output&gt; element can be considered as analogous to the HTML 
+&lt;input&gt; element.</P>
+<P>Where an &lt;output&gt; element appears in a template, Soupermail 
+replaces it with some appropriate text. The value of the replacement 
+text depends upon the attributes specified in the &lt;output&gt; element.</P>
+<P>
+<H2><A NAME="attributes for output">Attributes for output</A></H2>
+<P>The following is a list of attributes that can be placed in template
+&lt;output&gt; elements.</P>
+<DL>
+<DT><strong><A NAME="item_alt">alt</a></strong><BR>
+<DD>
+This field is alternative text to replace the &lt;output&gt; element 
+with, if the field name wasn't filled in on the original form.
+
+<DT><strong><A NAME="item_altvar">altvar</a></strong><BR>
+<DD>
+Usually, the value of the <A HREF="#item_name"><CODE>name</CODE></A> attribute is replaced in the
+&lt;output&gt; element. However, using <A HREF="#item_altvar"><CODE>altvar</CODE></A>, another variable
+can be used if <A HREF="#item_name"><CODE>name</CODE></A> hasn't a value.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+Supposing you have a field called 'month' that you want to default to the
+current month if it's not filled in in the form. The following could be
+used:
+<P>&lt;output name="month" altvar="http_date" format="%mmm%"&gt;</P>
+</DL>
+<DT><strong><A NAME="item_case">case</a></strong><BR>
+<DD>
+This can take the values of <STRONG>upper</STRONG> or <STRONG>lower</STRONG> and will upcase or 
+downcase the thing returned by the output element.
+
+<DT><strong><A NAME="item_charmap">charmap</a></strong><BR>
+<DD>
+Sometimes, you need to change one character in a string to another; for 
+instance, escaping quote marks when saving a CSV file. The <A HREF="#item_charmap"><CODE>charmap</CODE></A> 
+attribute allows a character to be changed to a string (or removed). The
+format for the <A HREF="#item_charmap"><CODE>charmap</CODE></A> attribute should be the character to change,
+followed by a comma, followed by the string to change it to.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+To double up quote marks for a CSV file, use something like:
+<P>&lt;output name="fieldname" charmap='",""'&gt;</P>
+<P>To remove all occurrences of the letter 'a':</P>
+<P>&lt;output name="fieldname" charmap="a,"&gt;</P>
+<P>To turn underscores into hyphens:</P>
+<P>&lt;output name="fieldname" charmap="_,-"&gt;</P>
+</DL>
+<DT><strong><A NAME="item_data">data</a></strong><BR>
+<DD>
+This is used to check the type of data in the form field. The <A HREF="#item_data"><CODE>data</CODE></A> attribute
+can have the following values: <STRONG>number</STRONG>, <STRONG>notnumber</STRONG>, <STRONG>integer</STRONG>,
+<STRONG>notinteger</STRONG>, <STRONG>email</STRONG>, <STRONG>notemail</STRONG>, <STRONG>creditcard</STRONG>, <STRONG>notcreditcard</STRONG>
+<P>If the check fails, then the output element will return its <A HREF="#item_alt"><CODE>alt</CODE></A> value.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+Here are some examples for a form field, 'foo', with a value of 6.5:
+<P>&lt;output name="foo" data="number" alt="fail" sub="pass"&gt; = pass</P>
+<P>&lt;output name="foo" data="integer" alt="fail" sub="pass"&gt; = fail</P>
+<P>&lt;output name="foo" data="notnumber" alt="fail" sub="pass"&gt; = fail</P>
+<P>&lt;output name="foo" data="notinteger" alt="fail" sub="pass"&gt; = pass</P>
+<P>&lt;output name="foo" data="email" alt="fail" sub="pass"&gt; = fail</P>
+</DL>
+<P>The credit card check is a simple LUHN checksum that makes sure the number
+given looks like a credit card number. It does not mean the number is a real
+card number, or that there's any money in the account.</P>
+<DT><strong><A NAME="item_delim">delim</a></strong><BR>
+<DD>
+A text string to display between items in a text <A HREF="#item_list"><CODE>list</CODE></A>.
+
+<DT><strong><A NAME="item_format">format</a></strong><BR>
+<DD>
+A format to specify how certain variables are formatted when displayed. Only 
+applies to http_time, http_date and http_ref.
+
+<DT><strong><A NAME="item_indent">indent</a></strong><BR>
+<DD>
+This is a string to indent the substituted text with. Its mainly useful
+for email templates, where you may want to indent the contents of an HTML
+textarea element.
+
+<DT><strong><A NAME="item_list">list</a></strong><BR>
+<DD>
+When an &lt;output&gt; element is replaced by a multivalued form field, 
+Soupermail's default behavior is to output a HTML &lt;ul&gt; list, or 
+text list. By setting the <A HREF="#item_list"><CODE>list</CODE></A> attribute to ul|ol|menu|dir|text, a 
+specific type of HTML list can be achieved. The text value will return a 
+non-HTML text list. The format of this text list can be controlled by the 
+<A HREF="#item_delim"><CODE>delim</CODE></A> attribute.
+
+<DT><strong><A NAME="item_math">math</a></strong><BR>
+<DD>
+You can use simple maths expressions using this attribute. You can use
+form, cookie and http values in the <A HREF="#item_math"><CODE>math</CODE></A> expression, and they will be
+replaced before the expression is evaluated. Values that are undefined or
+non-numeric are replaced by zero. If the <A HREF="#item_name"><CODE>name</CODE></A> attribute is multi-valued,
+the <A HREF="#item_math"><CODE>math</CODE></A> expression is evalued for each value.
+<P>The following are the maths operators available:</P>
+<DL>
+<DT><STRONG><A NAME="item_%2B">+</A></STRONG><BR>
+<DD>
+addition
+
+<DT><STRONG><A NAME="item_%2D">-</A></STRONG><BR>
+<DD>
+subtraction
+
+<DT><STRONG><A NAME="item__%2A"><CODE>   *</CODE></A></STRONG><BR>
+<DD>
+multiplication
+
+<DT><STRONG><A NAME="item_%2F">/</A></STRONG><BR>
+<DD>
+division
+
+<DT><STRONG><A NAME="item_sum"><CODE>sum()</CODE></A></STRONG><BR>
+<DD>
+summation of a multiple valued field
+
+<DT><STRONG><A NAME="item_count"><CODE>count()</CODE></A></STRONG><BR>
+<DD>
+count of a multiple valued field
+</DL>
+<p>
+To add two fields together:</P>
+<P>&lt;output name="field1" math="field1 + field2"&gt;</P>
+<P>To calculate an average of a number of fields:</P>
+<P>&lt;output name="field1" math="(field1 + field2 + field3) / 3"&gt;
+</P>
+
+<DT><strong><A NAME="item_name2">name</a></strong><BR>
+<dd>This should correspond to a field name from the HTML form, a CGI 
+Variable available from Soupermail a cookie name, a counter value,
+a mailing list value or a SQL value. 
+<a href="#cgi variables">CGI variables</a> start with 'http_', counter values
+start wit 'counter_', cookie values start
+with 'cookie_', mailing list values start with 'mailist_' and SQL values 
+start 'sql_'. This field is case-sensitive.
+
+<DT><strong><A NAME="item_newline">newline</a></strong><BR>
+<DD>
+This allows newlines to be represented as either HTML or removed from the
+value. If <A HREF="#item_newline"><CODE>newline</CODE></A> has the value <STRONG>html</STRONG>, then newline characters
+are converted to &lt;br&gt; tags. If it has the value of <STRONG>none</STRONG>, then
+newline characters are replaced by spaces. If it has a value of
+<STRONG>unchanged</STRONG> then newlines are left as is. The value of <STRONG>paragraphs</STRONG>
+replaces breaks of more than 2 newlines with only 2 newlines - useful
+for formatting plain text entries.
+
+<DT><strong><A NAME="item_post">post</a></strong><BR>
+<DD>
+This is text to be post-pended to the value of the field name if the
+field was set in the original form. It isn't used with the <A HREF="#item_alt"><CODE>alt</CODE></A> or <A HREF="#item_sub"><CODE>sub</CODE></A>
+attributes. For multivalue entries, the <A HREF="#item_post"><CODE>post</CODE></A> section is placed after each
+list item.
+
+<DT><strong><A NAME="item_pre">pre</a></strong><BR>
+<DD>
+This is text to be pre-pended to the value of the field name if the field 
+name was set in the original form. It isn't used with the <A HREF="#item_alt"><CODE>alt</CODE></A> or 
+<A HREF="#item_sub"><CODE>sub</CODE></A> attributes. For multivalue entries, the <A HREF="#item_pre"><CODE>pre</CODE></A> section is placed 
+before each list item.
+
+<DT><strong><A NAME="item_precision">precision</a></strong><BR>
+<DD>
+Used in conjunction with the <A HREF="#item_math"><CODE>math</CODE></A> attribute, this value is the number of
+decimal places to display numbers to.
+
+<DT><strong><A NAME="item_sub">sub</a></strong><BR>
+<DD>
+This is text to replace the output field with if the field is set in the 
+original form.
+
+<DT><strong><A NAME="item_subvar">subvar</a></strong><BR>
+<DD>
+This is similar to the <A HREF="#item_altvar"><CODE>altvar</CODE></A> attribute, but comes into play when the
+variable set be the <A HREF="#item_name"><CODE>name</CODE></A> attribute has a value.
+
+<DT><strong><A NAME="item_timeoffset">timeoffset</a></strong><BR>
+<DD>
+This is used for providing a time offset when outputting 
+<STRONG>http_time</STRONG> and <STRONG>http_date</STRONG> values. Values should be of the form:
+<P><CODE>[+|-]</CODE><EM>num</EM><CODE>[smhdMy]</CODE></P>
+<P>Where, the initial plus and minus indicate the direction of the offset,
+<EM>num</EM> represents how much to offset by, and <CODE>s</CODE> indicates an offset in
+seconds, <CODE>m</CODE> an offset in minutes, <CODE>h</CODE> an offset in hours, <CODE>d</CODE> an
+offset in days, <CODE>M</CODE> an offset in months and <CODE>y</CODE> an offset in years.</P>
+
+<DT><strong><A NAME="item_type">type</a></strong><BR>
+<DD>
+If type is set, it can be one of <STRONG>escaped</STRONG>, <STRONG>unescaped</STRONG>, <STRONG>html</STRONG> or
+<STRONG>unescapedhtml</STRONG>. Escaping output tags is useful if you want to pass 
+form values between forms in hidden form fields. Escaped output tags 
+are URL encoded, so characters such as &lt; and " don't appear. 
+When you want to get the user's original values, use the <STRONG>unescaped</STRONG> 
+or <STRONG>unescapedhtml</STRONG> types in an output tag. The <STRONG>html</STRONG> type is useful
+for displaying values in HTML templates where a user may have typed in
+HTML characters such as &lt; or &gt;.
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+If you have a field like this:
+<P>&lt;input type="text" name="val"&gt;</P>
+<P>and this in a template:</P>
+<P>&lt;input type=hidden name=val value="&lt;output name="val"&gt;"&gt;</P>
+<P>and the user's typed something like this into the field:</P>
+<P><STRONG>The "sum" is &gt; than the "parts"</STRONG></P>
+<P>If you don't escape the output tag, you get broken HTML like this:</P>
+<P>&lt;input type=hidden name=val value="The "sum" is &gt; than the "parts""&gt;</P>
+<P>However, if you used &lt;output name="val" type="html"&gt;, you'd get:</P>
+<P>&lt;input type=hidden name=val value="The &amp;amp;#34;sum&amp;amp;#34; is &amp;#62; than the &amp;amp;#34;parts&amp;amp;#34;"&gt;</P>
+<P>which is HTML safe.</P>
+</DL>
+<DT><strong><A NAME="item_value">value</a></strong><BR>
+<DD>
+Usually, if the thing set by <A HREF="#item_name"><CODE>name</CODE></A> has a value, it is returned by the
+&lt;output&gt; element. However, if <A HREF="#item_value"><CODE>value</CODE></A> is set, it is only returned
+if its value equals that of <STRONG>value</STRONG>. The <A HREF="#item_alt"><CODE>alt</CODE></A> attribute will become active
+if the values do not match and the <A HREF="#item_sub"><CODE>sub</CODE></A> attribute will become active if
+they do match. This may sound pretty daft, but its
+useful for regenerating drop down lists in multipart forms. See the
+Multipart form example that comes with Soupermail.
+
+<DT><strong><A NAME="item_valuevar">valuevar</a></strong><BR>
+<DD>
+Similar to the <A HREF="#item_value"><CODE>value</CODE></A> attribute, but affects the use of <A HREF="#item_altvar"><CODE>altvar</CODE></A> and
+<A HREF="#item_subvar"><CODE>subvar</CODE></A> replacement.
+
+<DT><STRONG><STRONG>wrap</STRONG></STRONG><BR>
+<DD>
+An integer specifying how many characters to wrap the output value to.
+Wrapping occurs after any maths, charmap or HTML conversions have
+been applied to the value, but before the PRE and POST attributes take
+effect. This attribute is useful for formatting HTML textarea elements.
+</DL>
+<P>
+<H2><A NAME="ssi like includes">SSI Like Includes</A></H2>
+<P>Server Side Includes (SSI) are a means of dropping one file into another
+before sending a page onto the user's browser. Soupermail can provide a basic
+inclusion mechanism using the same syntax as normal SSI directives. Soupermail
+will only handle &lt;!--#include virtual="..."--&gt; type includes, #exec
+is too much of a processing burden. The path can either be an absolute path
+from the server's root, or a path relative to the location of the config
+file.</P>
+<P>If you are putting the include into a HTML page, and don't want characters
+like &lt; to be specially treated by the browser, then you should put the
+type="html" attribute in the include call: 
+&lt;!--#include virtual="..." type="html"--&gt;. ALWAYS do this if
+you do not trust the source of the include.</P>
+<P>
+<HR>
+<H1><A NAME="cgi variables">CGI VARIABLES</A></H1>
+<P>CGI variables are set by the web server, and in some specific cases, Soupermail.
+These names should not be used as field names in your HTML forms.</P>
+<DL>
+<DT><strong><A NAME="item_counter_X">counter_<EM>X</EM></a></strong><BR>
+<DD>
+The value of the counter named <EM>X</EM>
+
+<DT><strong><A NAME="item_http_time">http_time</a></strong><BR>
+<DD>
+The time at the web server.
+
+<DT><strong><A NAME="item_http_date">http_date</a></strong><BR>
+<DD>
+The date at the web server.
+
+<DT><strong><A NAME="item_http_referer">http_referer</a></strong><BR>
+<DD>
+The URL of the calling form.
+
+<DT><strong><A NAME="item_http_remote_host">http_remote_host</a></strong><BR>
+<DD>
+The hostname of the person sending the form.
+
+<DT><strong><A NAME="item_http_remote_addr">http_remote_addr</a></strong><BR>
+<DD>
+The IP address of the person sending the form.
+
+<DT><strong><A NAME="item_http_server_name">http_server_name</a></strong><BR>
+<DD>
+The name of the webserver.
+
+<DT><strong><A NAME="item_http_server_port">http_server_port</a></strong><BR>
+<DD>
+The port number the webserver is listening on.
+
+<DT><strong><A NAME="item_http_user_agent">http_user_agent</a></strong><BR>
+<DD>
+The type of browser used to send the form.
+
+<DT><strong><A NAME="item_http_ref">http_ref</a></strong><BR>
+<DD>
+A soupermail generated reference number.
+
+<DT><strong><A NAME="item_http_remote_user">http_remote_user</a></strong><BR>
+<DD>
+The username if the form was password protected.
+
+<DT><strong><A NAME="item_http_remote_ident">http_remote_ident</a></strong><BR>
+<DD>
+Not sure, but some browsers set it.
+
+<DT><strong><A NAME="item_http_host">http_host</a></strong><BR>
+<DD>
+The server name the browser thinks its at.
+
+<DT><strong><A NAME="item_http_from">http_from</a></strong><BR>
+<DD>
+A browser specific variable
+
+<DT><strong><A NAME="item_http_config_error">http_config_error</a></strong><BR>
+<DD>
+The last error message set in the config file with the 
+<A HREF="#item_error"><CODE>error</CODE></A> config command.
+
+<DT><strong><A NAME="item_http_config_path">http_config_path</a></strong><BR>
+<DD>
+The path from the web server's root to the configuration file
+that was used to generate the page. This can be very useful
+when generating multipart forms, where you want to keep your
+directory structure portable by using relative links.
+
+<DT><strong><A NAME="item_maillist_X">maillist_<EM>X</EM></a></strong><BR>
+<DD>
+This is a value from the current <CODE>mailist</CODE> line of data. <EM>X</EM> is the
+column number of the data to use. Columns start at one (the email
+address). See <A HREF="#mailing lists">MAILING LISTS</A> for more information.
+</DL>
+<P>
+<HR>
+<H1><A NAME="formats">FORMATS</A></H1>
+<P>Formats allow the http_time, http_date and http_ref variables to be controlled.
+A format is a one line string containing the following substrings. When the 
+&lt;output&gt; element is expanded, the substrings are expanded into the 
+following:</P>
+<DL>
+<DT><strong><A NAME="item_%yyyy%">%yyyy%</a></strong><BR>
+<DD>
+A 4 digit year (eg. 1997)
+
+<DT><strong><A NAME="item_%yy%">%yy%</a></strong><BR>
+<DD>
+A two digit year (eg. 97)
+
+<DT><strong><A NAME="item_%mmmm%">%mmmm%</a></strong><BR>
+<DD>
+A three letter month code (eg. Jan)
+
+<DT><strong><A NAME="item_%mmm%">%mmm%</a></strong><BR>
+<DD>
+A two digit month code
+
+<DT><strong><A NAME="item_%ddd%">%ddd%</a></strong><BR>
+<DD>
+A three letter day code (eg. Mon)
+
+<DT><strong><A NAME="item_%dd%">%dd%</a></strong><BR>
+<DD>
+A two digit day code (eg. 28)
+
+<DT><strong><A NAME="item_%hhhh%">%hhhh%</a></strong><BR>
+<DD>
+A 2 digit 24 hour (eg. 13)
+
+<DT><strong><A NAME="item_%hh%">%hh%</a></strong><BR>
+<DD>
+A 2 digit hour (eg. 03)
+
+<DT><strong><A NAME="item_%mm%">%mm%</a></strong><BR>
+<DD>
+A 2 digit minute (eg. 23)
+
+<DT><strong><A NAME="item_%ss%">%ss%</a></strong><BR>
+<DD>
+A 2 digit second (eg. 06)
+
+<DT><strong><A NAME="item_%ampm%">%ampm%</a></strong><BR>
+<DD>
+Either 'am' or 'pm' depending on what the time is.
+
+<DT><strong><A NAME="item_%epoch%">%epoch%</a></strong><BR>
+<DD>
+Return the epoch time for your system. On UNIX, this is the number of seconds
+since 00:00:00, 01/01/1970.
+
+<DT><strong><A NAME="item_%r...%">%r...%</a></strong><BR>
+<DD>
+A random number. The length of the random number is determined by the 
+number of r's in the format. The maximum number of r's is 12. eg. %rrr% returns
+a value between 0 and 999.
+
+<DT><strong><A NAME="item_%c...%">%c...%</a></strong><BR>
+<DD>
+This is a formatting command used to break a number into a series of
+space delimited blocks. The number of <STRONG>c</STRONG> characters given determines
+how many characters to use before a space.
+<DL>
+<DT><STRONG><A NAME="item_eg%2E%2C_to_format_a_credit_card_number">eg., to format a credit card number</A></STRONG><BR>
+<DD>
+use <CODE>format=&quot;%cccc%&quot;</CODE> which would give you something like:
+<P><CODE>1234 5678 9876 5432</CODE></P>
+<P><CODE>format=&quot;%ccc%&quot;</CODE> would give you:</P>
+<P><CODE>123 456 789 876 543 2</CODE></P>
+</DL>
+<P>Non-numeric characters are removed from the value.</P>
+<DT><strong><A NAME="item_%counter_X%">%counter_<EM>X</EM>%</a></strong><BR>
+<DD>
+This is the value of a config file specified counter. The value used is
+calculated <STRONG>after</STRONG> any increments or sets are performed on the counter, so
+it will be the same value that appears in templates. The value of <EM>X</EM> is
+the counter number needed. eg. %counter_3%
+</DL>
+<P>
+<HR>
+<H1><A NAME="counters">COUNTERS</A></H1>
+<P>Counters are a way of storing and reading the number of times Soupermail has
+done something. They are specified in the configuration file, and you can have
+any number of them in use. In their simplest guise, you can use them to count
+how many people have submitted a form. More complex uses include setting
+the maximum number of times a form's submitted, online voting systems
+and renaming the filenames form information is saved to.</P>
+<P>The behaviour of counters can be slightly odd for the unwary. Firstly, they
+are always defined in the config file, but simply declaring a counter file
+does not mean it gets updated, its value just becomes available for the config
+file and for templates. To update a counter, an onsuccess, onfailure, onblank
+or onexpires setting for the counter must be set.</P>
+<P>Secondly, the value returned by a counter in the config file is the value
+stored in the counter file BEFORE any increments have been performed on the
+counter, however, the value returned in templates and the http_ref value
+are set AFTER increments have been applied to the counter.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>mailto: cookiemonster@example.org
+counter1file: counters/count1.txt
+counter1onsuccess: yes
+if : ("$counter_1" == 10) then setcounter1 : 1
+if : ("$counter_1" == 10) then mailto : thecount@example.net
+</pre><P>The above example would result in counter1 being set to 1 and the mailto
+address set to <A HREF="mailto:thecount@example.net">thecount@example.net</A> whenever the counter reached 10.
+Note that even though the 
+<CODE>setcounter1</CODE> is set in the config file, it does not have an immediate
+effect, and does not prevent the second <A HREF="#item_if"><CODE>if</CODE></A> statement being used.</P>
+</DL>
+<P>
+<HR>
+<H1><A NAME="cookies">COOKIES</A></H1>
+<P>Cookies were introduced in Netscape Navigator 2.0. They are a means of 
+storing information on the user's browser even after they've turned off their
+computer. Soupermail allows up to nine cookies to be set, each cookie holding
+at most 516 characters worth of data, and with a cookie name less than 50
+characters long. The restriction on the cookie size and number of cookies
+is mainly out of politeness, because its not considered nice to flood users
+with cookies.</P>
+<P>More information on cookies can be found at 
+<A HREF="http://home.netscape.com/eng/mozilla/3.0/handbook/javascript/index.html">http://home.netscape.com/eng/mozilla/3.0/handbook/javascript/index.html</A></P>
+<P>
+<HR>
+<H1><A NAME="using pgp">USING PGP</A></H1>
+<P>PGP is a means of encrypting text through a public key and decrypting through
+a private key. Using PGP, Soupermail can send secure encrypted email over
+an insecure Internet.</P>
+<P>To use PGP, you will need to place a public keyring (pubring.pkr for
+PGP 5, pubring.pgp for PGP 2.6.3 or pubring.gpg for GPG) in the 
+directory where your form's configuration file is located. In your
+configuration file, set <STRONG>pgpuserid</STRONG> to be a user in the pubring keyring.
+When soupermail generates an email, it will encrypt the message using the
+public key of the given user. By default, this version of Soupermail 
+assumes that GPG is being used.</P>
+<P>As of Soupermail 1.0.3, GNU Privacy Guard (GPG) is supported as an alternative
+to using PGP. Using GPG rather than PGP differs only in that the public
+keyring file is called pubring.gpg.  The <A HREF="#item_pgpversion"><CODE>pgpversion</CODE></A> config option must be set
+to choose between the different encryption methods. See the GPG documentation 
+for more information.</P>
+<P>If you have problems using PGP or GPG, make sure your webserver has the ability
+to run the scripts - some server installations may not give the nobody user
+rights for this. Generating a debug file is the best diagnostic option.</P>
+<P>Versions of Soupermail greater than 1.0.8 have support for PGP 5.0i and 2.6.3i
+(I've only tested the international versions so people using US versions may
+have different results).</P>
+<P>You can also specify a PGP keyserver in the configuration file. If specified,
+the PGP encryption will look on the key server for encryption keys.
+<STRONG>THE PGP KEYSERVER CODE IS EXPERIMENTAL AND HASN'T BEEN TESTED! USE AT YOUR
+OWN RISK!</STRONG></P>
+<P>For more information on PGP, please look at <A HREF="http://www.pgpi.org/">http://www.pgpi.org/</A></P>
+<P>For more information on GPG, please look at <A HREF="http://www.gnupg.org/">http://www.gnupg.org/</A></P>
+<P>
+<HR>
+<H1><A NAME="making pdfs">MAKING PDFs</A></H1>
+<P>From version 1.0.7, Soupermail can generate Adobe PDF files by hooking up to
+lout and ghostscript.</P>
+<P>Lout is a nifty document formatting language, which is used to generate 
+postscript files. Ghostscript is a postscript processor which can generate 
+PDF files (amongst other things).</P>
+<P>To use this feature, you're going to have to look into how lout templates work.
+Its a powerful language, so spend some time delving though the documentation 
+that comes with lout. Basically, Soupermail hooks into lout by allowing 
+you to use &lt;output&gt; elements in lout templates. Soupermail reads 
+the lout templates you specify with the <A HREF="#item_pdftemplate"><CODE>pdftemplate</CODE></A> config options, fills 
+in the &lt;output&gt; elements, then passes this on to lout and 
+ghostscript to handle. The results can be emailed out, or returned to 
+the browser depending on the config options you have used.</P>
+<P>One of the nice things about using lout and ghostscript together is 
+the ability to include EPS images in your generated PDFs. To do this, 
+place your EPS files in the same directory as your lout templates and 
+use lout's include image command in your templates. Soupermail assumes that
+EPS files end in a <CODE>.eps</CODE> file extension.</P>
+<P>The Soupermail example files contain an example of using Soupermail's 
+PDF commands.</P>
+<P>To use the PDF commands, you'll need to install GhostScript from
+<A HREF="http://www.cs.wisc.edu/~ghost/index.html">http://www.cs.wisc.edu/~ghost/index.html</A> and Lout from
+<A HREF="ftp://ftp.cs.usyd.edu.au/jeff/lout/.">ftp://ftp.cs.usyd.edu.au/jeff/lout/.</A></P>
+<P>
+<HR>
+<H1><A NAME="mailing lists">MAILING LISTS</A></H1>
+<P>Version 1.0.7 of Soupermail brings along mailing lists, which are ways of
+sending Soupermail generated email to a set of people defined in a
+file. To do this, you should specify a <A HREF="#item_maillist"><CODE>maillist</CODE></A> file in your form's
+configuration. The <A HREF="#item_maillist"><CODE>maillist</CODE></A> file should be a set of lines, each one
+starting with and email address, and with other optional columns following,
+separated by commas.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<pre>foo.bar@example.net,Mr Foo,nothing special
+fred.bloggs@example.com,"Bloggs, Fred",geezer
+xyz@example.com,XYZ Man,unable to think of a better name,other stuff</pre></DL>
+<P>As you should see from the example, there can be any number of extra
+columns of data in the file. When Soupermail is given a mailing list file,
+it generates an email for each address in the file based on the
+<A HREF="#item_listtemplate"><CODE>listtemplate</CODE></A> and <A HREF="#item_htmllisttemplate"><CODE>htmllisttemplate</CODE></A> config options. However, these
+templates can also take data from extra columns in the maillist file
+and use them in &lt;output&gt; elements.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+From our previous example, if the <A HREF="#item_listtemplate"><CODE>listtemplate</CODE></A> contains the following:
+<P><CODE>Hi </CODE>&lt;<CODE>output name=&quot;maillist_2&quot;</CODE>&gt;<CODE>, Email: </CODE>&lt;<CODE>output name=&quot;maillist_1&quot;</CODE>&gt;</P>
+<P>Then the email sent out to <A HREF="mailto:foo.bar@example.net">foo.bar@example.net</A> would contain:</P>
+<P>Hi Mr Foo, Email: <A HREF="mailto:foo.bar@example.net">foo.bar@example.net</A></P>
+<P>the email sent out to <A HREF="mailto:fred.bloggs@example.com">fred.bloggs@example.com</A> would contain:</P>
+<P>Hi Bloggs, Fred, Email: <A HREF="mailto:fred.bloggs@example.com">fred.bloggs@example.com</A></P>
+<P>and the email sent out to <A HREF="mailto:xyz@example.com">xyz@example.com</A> would contain</P>
+<P>Hi XYZ Man, Email: <A HREF="mailto:xyz@example.com">xyz@example.com</A></P>
+</DL>
+<P>Email addresses and other column data is not shared between the email addresses
+in the list. However, if your list is private, you should ensure it isn't
+browsable from the internet.</P>
+<P>Sometimes, you don't have your mailing list data in a file - to handle this, there
+are two other sources of list information. It is possible to pull list information
+from a form field using the <A HREF="#item_listformfield"><CODE>listformfield</CODE></A> config command to provide 
+the list data. The format of the list data provided by the form field should
+be the same format as for the data file - ie. email as the first field, with
+other fields separated by commas.</P>
+<P>Even more useful, it is possible to pull mailing list information from a
+SQL database by using the <A HREF="#item_listsql"><CODE>listsql</CODE></A> command. This specifies a SQL statement 
+which returns a table, the first field of which should be an email address.</P>
+<P>It is possible to attach files to emails sent out with a mailing list using
+the <A HREF="#item_listattachmentX"><CODE>listattachmentX</CODE></A> and <A HREF="#item_listattachmentXmime"><CODE>listattachmentXmime</CODE></A> commands.</P>
+<P>Other list config commands are: <A HREF="#item_listsubject"><CODE>listsubject</CODE></A>, <A HREF="#item_listfrom"><CODE>listfrom</CODE></A> and
+<A HREF="#item_listreplyto"><CODE>listreplyto</CODE></A>.</P>
+<P>
+<HR>
+<H1><A NAME="pipelining">PIPELINING</A></H1>
+<P>Pipelining Soupermail allows you to use Soupermail to process a form and then
+send on the original information to another URL for processing. This is
+useful if you want to use Soupermail as a logger, or as a quick email
+function to another web application.</P>
+<P>To use pipelining, you need to use the <A HREF="#item_gotosuccess"><CODE>gotosuccess</CODE></A>, <A HREF="#item_gotoblank"><CODE>gotoblank</CODE></A>,
+<A HREF="#item_gotofailure"><CODE>gotofailure</CODE></A> and <A HREF="#item_gotoexpires"><CODE>gotoexpires</CODE></A> config commands. These commands
+usually specify a URL to go to once Soupermail has finished, but they
+can also be used dynamically by using variable replacement of
+<A HREF="#cgi variables">CGI VARIABLES</A>.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+Once Soupermail's finished, I want to send the form onto a page
+with the field <STRONG>foo</STRONG> set to the word <STRONG>bar</STRONG>. I can do this with the
+following:
+<P><CODE>success: http://www.example.org/myscript?</CODE><STRONG>foo</STRONG><CODE>=</CODE><STRONG>bar</STRONG></P>
+<P>Now though, suppose I want to send whatever the user typed into one of
+my form fields (eg. <STRONG>myfoofield</STRONG>). I can use the following:</P>
+<P><CODE>success: &quot;http://wwww.example.org/myscript?</CODE><STRONG>foo</STRONG><CODE>=</CODE><STRONG>${form_myfoofield}</STRONG><CODE>&quot;</CODE></P>
+</DL>
+<P>Some things to notice; The value of the config command has been wrapped in
+double quotes - this allows CGI value replacement to happen. 
+The CGI value replacement is wrapped in { } braces - this makes it easier
+to distinguish the value.</P>
+<P>What about sending multiple values? Well, you can have things like:</P>
+<P><STRONG><CODE>foo</CODE></STRONG>=<STRONG><CODE>${form_myfoofield}</CODE></STRONG><CODE>&amp;</CODE><STRONG><CODE>baz</CODE></STRONG><CODE>=</CODE><STRONG><CODE>${cookie_myBazCookie}</CODE></STRONG></P>
+<P>Here, <STRONG>foo</STRONG> is set to whatever value <STRONG>myfoofield</STRONG> was in the original
+form, and <STRONG>baz</STRONG> is set to whatever value the cookie <STRONG>myBazCookie</STRONG> has. The
+ampersand (&amp;) character is used to separate the values.</P>
+<P>For those of you who may be doing advanced pipelining, you should know that
+URI escaping is only done to replaced values. So, this is wrong:</P>
+<P><CODE>foo=my value&amp;baz=${form_baz}</CODE></P>
+<P>The space is illegal in URLs. It should be:</P>
+<P><CODE>foo=my%20value&amp;baz=${form_baz}</CODE></P>
+<P>
+<HR>
+<H1><A NAME="database support">DATABASE SUPPORT</A></H1>
+<P>As from version 1.0.8, Soupermail has included support for database
+access. It can be used to query, insert, amend and delete records in
+a database. The commands used for this are:</P>
+<P><A HREF="#item_sqlbindX"><CODE>sqlbindX</CODE></A></P>
+<P><A HREF="#item_sqlname"><CODE>sqlname</CODE></A></P>
+<P><A HREF="#item_sqlpassword"><CODE>sqlpassword</CODE></A></P>
+<P><A HREF="#item_sqlrunX"><CODE>sqlrunX</CODE></A></P>
+<P><A HREF="#item_sqluser"><CODE>sqluser</CODE></A></P>
+<P>One important feature of Soupermail is the ability to use the values
+returned by SQL SELECT statements in your config files and in templates.
+All <A HREF="#item_sqlrunX"><CODE>sqlrunX</CODE></A> commands have an identifying number. All SQL commands
+that return a table populate a two dimensional array of values. Used
+in conjunction with the command number, it is possible to get 
+any return value from a SQL command.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+Lets say we have a table called 'test' containing these values:
+<table border="1">
+<tr><td>1</td><td>foo</td><td>boo</td></tr>
+<tr><td>2</td><td>dish</td><td>dash</td></tr>
+<tr><td>3</td><td>moo</td><td>maa</td></tr>
+</table><P>Then, we have the following in our config:</P>
+<P><CODE>sqlrun1: SELECT * FROM test</CODE></P>
+<P>We can get values back from this by using the variable
+<EM>sql_[command_number]_[row_number]_[col_number]</EM>. In config files,
+this value should be prefixed with a $ sign.</P>
+<P>In a config file:</P>
+<P><CODE>if: &quot;$sql_1_3_1&quot; then subject: The test table has at least 3 rows</CODE></P>
+<P>In a template:</P>
+<P>The third field on the second row of the table test is:</P>
+<P>&lt;output name="sql_1_2_3"&gt; = dash</P>
+</DL>
+<P>To make use of database support with Soupermail, you'll need perl's DBI module
+installed, and an appropriate DBD driver for your database. This driver must
+support placeholders and bind values. Consult your DBD driver's manual
+for more information on this.</P>
+<P>
+<HR>
+<H1><A NAME="private roots">PRIVATE ROOTS</A></H1>
+<P>From version 1.0.8, it is possible to store configuration files,
+attachment files, templates and writable locations outside
+your webserver's document tree. This is to allow you to store
+information without it being viewable with a browser.</P>
+<P>Not all ISP's will provide you with a directory outside your 
+document tree, so you may need to ask their support staff
+for an appropriate location.</P>
+<P>To call a config file in a private root, prefix the filename
+with a '~' character when setting SoupermailConf.</P>
+<DL>
+<DT><STRONG>eg.</STRONG><BR>
+<DD>
+<CODE>&lt;input type=&quot;hidden&quot; name=&quot;SoupermailConf&quot; value=&quot;~/subscribe/sub.con&quot;&gt;</CODE>
+<P>Looks for a config file $privateRoot/subscribe/sub.con</P>
+</DL>
+<P>One security restriction on private roots is that config files
+outside the private root cannot read data from inside the config
+root. ie. You can not have a config file outside the private
+root calling a template inside the private root. The aim of this
+is to save you if someone manages to write a config file on your
+server. See the section on <EM>SECURITY</EM> for more information about
+making Soupermail paranoid.</P>
+<P>
+<HR>
+<H1><A NAME="security">SECURITY</A></H1>
+<P>With the introduction of database support, Soupermail has become
+a bit of a security headache for the consciencious webmaster. Here
+are some tips about using Soupermail in a secure manner.</P>
+<P>Firstly, NEVER put a database password and username in an unsecured
+config file. If the config file can be read by a user with a web
+browser, and the file contains database connection information, then
+you are in trouble. Use the $privateRoot Soupermail has to put
+your config files outside the webserver tree.</P>
+<P>NEVER use a database user with high privileges (eg. sa, system, sys, root)
+to access your database via Soupermail, unless you are in a very
+trusted environment and you know exactly what will be going into
+your SQL statements.</P>
+<P>ALWAYS ensure you are using a good random password for your database
+access - people's names and stuff are trivial to brute-force.</P>
+<P>If you have a database with a network daemon, ALWAYS consider ways you
+can restrict access to only known hosts.</P>
+<P>ALWAYS use requires, length checking and type checking in config files 
+to make sure the data you pass to your SQL commands is valid.</P>
+<P>NEVER make web writable directories in your CGI area.</P>
+<P>ALWAYS consider how you will protect files written by Soupermail on
+your webserver. Protecting the files usually involves ensuring that
+they are safe from being read from a browser, the area being written
+to cannot contain executables, that there is no means of anonymously
+FTPing to the area and that other users on the system cannot exploit
+the area.</P>
+<P>ALWAYS remove backup files and temporary files from your live sites.</P>
+<P>NEVER transmit credit card details by un-encrypted email.</P>
+<P>NEVER store credit card numbers un-encrypted on your webspace.</P>
+<P>Get to know the admin staff of your server space, or, at least find your
+way around your service provider's support web pages.  If they don't have
+support web pages, then worry.</P>
+<P>If your job is to maintain your website, make sure you've read
+<A HREF="http://www.w3.org/Security/FAQ/.">http://www.w3.org/Security/FAQ/.</A>  Website security is easily compromised
+by misconfiguration of software - if you didn't read up about it, its 
+your fault.</P>
+<P>Where possible, use secure communications to your webspace, rather than
+insecure access (eg. SCP rather than FTP, SSH rather than Telnet,
+encrypted pcAnywhere, etc). IMHO, this is simple common sense, but it 
+never hurts to say it again.</P>
+<P>When you have Soupermail installed, you should be extra careful about
+people being able to write config files to your system. If you are
+using something like a message board, it may be possible for
+someone to write a config file with it, and then use that config file
+to read sensitive pages off your website. Beware!</P>
+<P>To help counter this, from version 1.0.8, Soupermail will not read any
+files from a directory containing a file called "soupermail.deny" (all
+lower case). This file doesn't have to contain anything, just exist.
+Place a soupermail.deny file in any directory that contains untrusted
+content. Also place a soupermail.deny in any directory that contains
+sensitive information (eg. ASP or PHP code containing database 
+logon details).</P>
+<P>For even more security, you can set the $paranoid variable in Soupermail.
+In this mode, Soupermail won't read any files from a directory, unless
+the directory contains a file called "soupermail.allow". This is
+the recommended approach for security conscious webmasters.</P>
+<P>
+<HR>
+<H1><A NAME="requirements">REQUIREMENTS</A></H1>
+<P>Soupermail requires perl 5.004 or better. See <A HREF="http://www.perl.com/">http://www.perl.com/</A> for where
+to get perl from, or <A HREF="http://www.activestate.com/">http://www.activestate.com/</A> if you need the Windows NT
+version of Perl.</P>
+<P>To handle the CGI input, Soupermail needs Lincoln D. Stein's excellent
+CGI module, available from 
+<A HREF="http://www.genome.wi.mit.edu/ftp/pub/software/WWW/cgi_docs.html">http://www.genome.wi.mit.edu/ftp/pub/software/WWW/cgi_docs.html</A></P>
+<P>To do anything, Soupermail needs the MIME::Lite module installed on your
+server. This module can be downloaded from CPAN.
+<A HREF="http://www.cpan.org/modules/by-module/MIME/">http://www.cpan.org/modules/by-module/MIME/</A></P>
+<P>To send email, Soupermail either needs a working Net::SMTP perl module 
+installed on the server, or, if you are on a UNIX server, a working 
+sendmail. Net::SMTP is distributed as part of the 
+Libnet set of packages available from CPAN. For users on Windows NT,
+libnet is available with Activestate's Perl Package Manager.</P>
+<P>On UNIX boxes, PGP requires PGP 2.6.3 or 5.0, available internationally from
+<A HREF="http://www.pgpi.org/">http://www.pgpi.org/</A></P>
+<P>Under NT, you can use the DOS version of PGP 5, again, available from
+<A HREF="http://www.pgpi.org/.">http://www.pgpi.org/.</A> Unfortunately, I haven't got version 6.x to work
+yet, so its the 16bit only.</P>
+<P>GNU Privacy Guard is available from <A HREF="http://www.gnupg.org/">http://www.gnupg.org/</A></P>
+<P>
+<HR>
+<H1><A NAME="examples">EXAMPLES</A></H1>
+<P>Some examples are distributed with Soupermail in
+<A HREF="http://soupermail.sourceforge.net/downloads/examples.zip.">http://soupermail.sourceforge.net/downloads/examples.zip.</A> 
+If anyone has any good sites with examples, please let me know.</P>
+<P>
+<HR>
+<H1><A NAME="author">AUTHOR</A></H1>
+<P>Vittal Aithal &lt;<A HREF="mailto:vittal.aithal@bigfoot.com">vittal.aithal@bigfoot.com</A>&gt;</P>
+<P>
+<HR>
+<H1><A NAME="credits">CREDITS</A></H1>
+<P>I'd would be wrong to say I wrote this all on my own, other people made my life
+difficult on the way, so I'd better credit them (only joking guys :) 
+A round of applause for everyone at
+<A HREF="http://soupermail.sourceforge.net/credits.txt">http://soupermail.sourceforge.net/credits.txt</A></P>
+<P>
+<HR>
+<H1><A NAME="history">HISTORY</A></H1>
+<P>Soupermail started life in late 1995 as a fairly lightweight CGI to handle 
+emails. However, as the years went by, it began to suffer heavily 
+from creeping featuritis, and has now grown into a monster. It started life
+at Unipalm PIPEX, and various copies/versions are used by a number of 
+companies. UUNET UK ( <A HREF="http://www.uk.uu.net/">http://www.uk.uu.net/</A> ) maintain a copy for their
+WorldWeb service users, this copy escaped and worked at 
+Ionica. However, things went a bit pear-shaped, so now it teleworks
+from my house or from Revolution ( <A HREF="http://www.revolutionltd.com/">http://www.revolutionltd.com/</A> ).</P>
+<P>
+<HR>
+<H1><A NAME="bugs">BUGS</A></H1>
+<P>Success with PGP/GPG is highly variable upon platform its run on :( GPG
+often depends on the Entropy Gathering Daemon to generate random numbers
+and this may not work in a webserver user context.</P>
+<P>CGIWrapped environments can prevent the config file location being passed in
+with the PATH_INFO option, and will result in a config file error unless the
+config location is passed in with the SoupermailConf form field.</P>
+<P>Soupermail suffers from major bloat, but I just haven't worked up the will
+to cull it down. The template code really needs to be modularised out.</P>
+<P>Empty config files return a Thank you message, although nothing has happened.
+Its debatable if this is correct.</P>
+
+
+
+</body>
+</html>

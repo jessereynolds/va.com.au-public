@@ -1,0 +1,104 @@
+<HTML>
+<HEAD><TITLE>Why Does Lyris Not Use Sendmail?</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="WhatEmailCommandsdoesLyrisSupport_.html">previous</a>] [<a href="HowdoIsubscribepeopleautomatically_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Why Does Lyris Not Use Sendmail?</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+· · <a href="DocBots.html">DocBots</a><br>
+· · <a href="RunningLyris.html">Running Lyris</a><br>
+· · <a href="Email.html">Email</a><br>
+· · · <a href="HowcanIextendLyriswithmyownprograms_.html">How can I extend Lyris with my own programs?</a><br>
+· · · <a href="HowcanIbeCertainMyEmailMessagesWereDelivered_.html">How can I be Certain My Email Messages Were Delivered?</a><br>
+· · · <a href="WhatEmailCommandsdoesLyrisSupport_.html">What Email Commands does Lyris Support?</a><br>
+· · · <a href="WhyDoesLyrisNotUseSendmail_.html"><font size=+0><b>Why Does Lyris Not Use Sendmail?</b></font></a><br>
+· · · <a href="HowdoIsubscribepeopleautomatically_.html">How do I subscribe people automatically?</a><br>
+· · <a href="LyrisAdministration.html">Lyris Administration</a><br>
+· · <a href="WebBrowsers.html">Web Browsers</a><br>
+· · <a href="UsenetNewsgroups.html">Usenet Newsgroups</a><br>
+· · <a href="International.html">International</a><br>
+· · <a href="OtherFAQissues.html">Other FAQ issues</a><br>
+· · <a href="MailingListFeatures.html">Mailing List Features</a><br>
+· · <a href="Perl_LyrisToolkit.html">Perl/Lyris Toolkit</a><br>
+· · <a href="UnixAdministration.html">Unix Administration</a><br>
+· · <a href="Up_Coming.html">Up & Coming</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Why Does Lyris Not Use Sendmail?</h3>
+<font face='Courier New'>&gt; I just talked to our Unix guru who is responsible  <br>&gt; for setting up the networks and configuring sendmail  <br>&gt; and we wondered why a list server 
+program relies on  <br>&gt; its own mailer...is there a clever reason to tell  <br>&gt; why you thought Lyris needs its own sending and  <br>&gt; receiving mail feature - besides 
+the multi-platform <br>&gt; approach argument for NT/Mac/Be...? 
+<p>
+</font>Yes, many, many reasons.  The major problem with list servers is maintenance.  With Lyris having its own mailer, it knows exactly what the problem is, the instant it occurs.  Also, if 
+Lyris used sendmail to receive email, it would have to rewrite sendmail's /etc/aliases file like mad, and that wouldn't be very elegant. 
+<p>
+More importantly, Lyris doesn't do what other list servers do for mail sending efficiency.  The other list servers send one message to a list, and use a huge BCC: list to get it out.  When someone 
+posts to a mailing list, exactly the same message gets sent to every member of the list.  The problem with this approach is that when bounces come back, it is very difficult to determine which user 
+bounced it, because every message was the same.  
+<p>
+Lyris makes every message unique, with a X-Lyris-Member-ID and X-Lyris-Member-Name SMTP header.  Then, when a bounce comes in, it becomes very easy to tell who did it and to automatically process 
+them.  
+<p>
+If you sent every message uniquely with sendmail, you would get very little mail out, as sendmail forks (makes a completely new copy of itself in memory) for each message, and so the number of 
+concurrent copies of sendmail you can run is fairly small.  The Lyris mailer is multithreaded, so it takes up very little memory for each message send, and very little CPU time.  Lyris can run 
+several thousand concurrent mail sends, even on a 64mb machine.  
+<p>
+We're also seeing very fast message delivery times as a result of the low CPU demands and efficient memory usage.<p>
+The decision to leave sendmail behind was crucial to the design of Lyris.  Lyris will coexist with sendmail on the same machine.  But, it will not use sendmail for its own mail operations.<p>
+If you are running sendmail, or some other mail transfer agent, Lyris will relocate it to another TCP/IP port, and take over SMTP port 25.  All incoming mail is first received by Lyris.  If the 
+incoming mail is not addressed to a Lyris email address, Lyris automatically passes the email off to the relocated sendmail program that processes it as normal.  With this technique, both Lyris and 
+sendmail can coexist on the same machine, and there are no strange configuration tricks to play. 
+<p>
+And, of course, having our own mailer means we can easily support many different operating systems, since we don't have to rely on the eccentricities of each platform's different mailing methods.<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Email.html">Email</a><br>
+</td><td align=right valign=top>Page 522 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

@@ -1,0 +1,37 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail Sender Templates</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail Sender Templates</h1>
+
+<p>Thank you for your interest in <output name="interest">.</p>
+
+<p>We have forwarded initial details to your email address at
+<b><output name="Email"></b>. A sale's representative will be
+contacting you shortly.</p>
+
+<p>Return <a href="index.htm">to the examples page</a>.
+<hr>
+
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr>
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="twomail.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>This page has been built from a Soupermail template called 
+<code><a href="twomail.txt">twomail.txt</a></code>.
+</p>
+</body>
+</html>
+

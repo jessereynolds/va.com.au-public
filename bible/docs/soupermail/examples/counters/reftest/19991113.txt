@@ -1,0 +1,48 @@
+SoupermailConf = reftest.con
+enc = pgp
+your_name = vittal aithal
+SoupermailConf = reftest.con
+enc = pgp
+your_name = vittal aithal
+-----BEGIN PGP MESSAGE-----
+Version: PGPfreeware 5.0i for non-commercial use
+MessageID: haHWgNnu+rol4mFyAWao/F3TBInHMQa0
+
+qANQR1DBwE4Dj+vxd7XyGRUQA/97JlRizHbDSorLO9OA7soYmlwBgtMO6ENP37MD
+zZzIJJ6EW0Zbo2iiAOtaQTt+C0u4oYLJmT10PTBQunkDyZkgv7mbWhfZyAiAQjBm
+qO93zCYhVXkFAkTicaLofYYiIN1uLojM7X+ZfZ512LyVLLEfzsjBU2MVcJU2EryC
+RUelcwP/awE2+W4/VKlEs+o9ckM0nBqRe/oYtLKEMat9P3o8pVegG7hRnI/nCxig
+v9YZApKqiTbR0WQP+Qkx7ktYPj1hmOsk5i0fdwQOydfcFlg1c5c2Y4A0cZzZCCt0
+HAth/6lla0BIbPqEh8xa0UApzWC/nLTJco1PETTcKfHpf7w3JdbJZvpz1mIxyRKs
+Qs1XPg3oQBecJEswafggzHGZO/UBdQRkb7pJOLwYf9hq6ukrRXTEnFELKxCqiVXm
+on5Dyxx/PUdBa7yf5BhH+Ecx8hPow20Cmp8E27EUF3TCfy3o1PcOlh2SjDIlZw==
+=Gi5S
+-----END PGP MESSAGE-----
+-----BEGIN PGP MESSAGE-----
+Version: PGPfreeware 5.0i for non-commercial use
+MessageID: 5LNMfFbRXk1Ecdu0Ly+PxIyqUtzp1Sgq
+
+qANQR1DBwE4Dj+vxd7XyGRUQA/9PLQc4D+wMCHVy3jR/39wYdsT4+h1NYbgiktEY
++YVPCjMdthDySAbp/ai7sxJbeTjWbmiQhx91JGadDZObCnSQtq417KjRa22dJz+r
+J+yh8zC/VeHPBsf+R0gJ872+Xf19iie38Ulzcg2ECXq8ZhBEGGO7gD2cice+dP5A
+w94euQQAnIoX3iqBSOtOkUB78lG4k8Uq5kFEXP71FUfxu6xN1fKKOBDN/Okmqk/p
+xMYiY/csLfDzaQM7WAvM88UvU5u2yIqxwO58j2vLmJHdf2VeiUrTEp4Hx+msA6kO
+F3TYgChtbnjq1uYR5UUJsqmLL++mL4dT+UJc0vS7lEHB5ggDW83JaLrqIhccYsh0
+fjEdkqUmghydLEF/ht3O1JE6YPT9E0Db1270/xKs3keqOw8EMdzjFr+fTlfwxRmC
+KUQIE6iPepczSewX3cfiZa6htGa9KS9Ok2Wlc13145BOodT4xNWgfU8rJU7s6Gjw
+=So6I
+-----END PGP MESSAGE-----
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.0.0 (GNU/Linux)
+Comment: For info see http://www.gnupg.org
+
+hQEOA4/r8Xe18hkVEAQA1WtNa0qGYKCEEOGOOzqzOni05vtc/qeUGkYZ/gyFFnXm
+1KM3UrJ31dcIga6A5HU7q/V5ArwbZ5FcKgJuG2rV8eACHQhTapM3mG79boknkFC4
+AY0XvXyz1RQGc4uYbD3p0WdLRuraEsYUOBT3fj0jWRFJGkvFe+tjLtwPEU2itP8E
+AM65nxX1k3CzF8Gxw3qxZVIX44wdY7JBn7vSmyVoniLHPTAfGmVpyGmWximCHh25
+dzSAZZUs7PHh8j1kL43DnwP8Ce+2pXdUAdFsEonIOvCdwfmpHEUfc9lk5cEd69t2
+cBJ8oeyDKYih8/gpkjBaVg5YDNLI5eephYR+mqZ1KeC6yWP8SkLy9xQYPgm2iB4c
+YmTV+/PyM8MI9sSP0b3I/WRWGxy+mPLFAeJr+bRZ1Lo/M5ryRljLQ+5tjsoqjCWd
+lwPO9f3DhLvZAKHg1LI9+znCAXiaht7i10vg6f6Q+psjeN4TdIo=
+=eeho
+-----END PGP MESSAGE-----

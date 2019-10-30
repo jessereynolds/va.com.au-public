@@ -1,0 +1,106 @@
+<HTML>
+<HEAD><TITLE>Finding NT Memory Leaks</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="LyrisDoesNotRespondtoEmailISendit.html">previous</a>] [<a href="HardDiskDefraggers.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Finding NT Memory Leaks</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· · · <a href="ProblemsrunningLyrisWebInterface.html">Problems running Lyris Web Interface</a><br>
+· · · <a href="ProblemsstartingtheLyrisServer.html">Problems starting the Lyris Server</a><br>
+· · · <a href="ProblemswithMultipleTCP_IPAddresses.html">Problems with Multiple TCP/IP Addresses</a><br>
+· · · <a href="ReinstalledWindowsNT_NowLyrisWebInterfaceNoLongerWorks.html">Reinstalled Windows NT, Now Lyris Web Interface No Longer Works</a><br>
+· · · <a href="LyrisDoesNotRespondtoEmailISendit.html">Lyris Does Not Respond to Email I Send it</a><br>
+· · · <a href="FindingNTMemoryLeaks.html"><font size=+0><b>Finding NT Memory Leaks</b></font></a><br>
+· · · <a href="HardDiskDefraggers.html">Hard Disk Defraggers</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Finding NT Memory Leaks</h3>
+When a system is out of memory, any program that tries to do work will run extremely slowly, as it uses the disk drive swap file for memory.  For example, beta test versions of 
+Microsoft's IIS have often leaked memory, so that eventually the system would slow to a crawl, and all programs would have trouble running, and use an excessive amount of CPU time.   In almost all 
+cases, when Lyris uses all the CPU power of the machine, it is because the NT system is out of memory, because some other program has been leaking memory, and now there is no system memory left.  
+<p>
+A few people have asked us about memory leaks and long-term stability on NT, so we thought we'd share what we've found.  <p>
+One thing we've found is that NT is not very good at reporting which applications are leaking memory. Prior to Lyris 2.5 beta 2, Lyris slowly leaked memory over time, but none of NT's process 
+watching tools reported the "lyris" process as growing. As of Lyris 2.5 beta 2, Lyris no longer leaks memory. 
+<p>
+What we found out is that the important number on Windows NT is the "committed bytes" that Performance Monitor reports.  This is the total amount of memory being used on your system by all programs, 
+including (we think) the operating system. 
+<p>
+When Lyris was leaking memory we found that the "committed bytes" would steadily rise, until NT would stop functioning reliably. When the "total commit" was very large, NT might report a "quota 
+limit" error, new programs would be kept from starting, and new Lyris threads could be kept from starting.  IIS might start reporting CGI and permission errors. 
+<p>
+Since then, we've found that various other programs in NT do leak memory, and that the only technique we've found to perceive this is to look at the "committed bytes".  The leaked memory builds over 
+time, until NT runs out of memory, and the system stops running reliably. 
+<p>
+Our recommendation, then, for anyone who experiences trouble with NT stability over time, is to do this:<p>
+* run "perfmon.exe" <p>
+* create a chart graphing "memory/committed bytes"<p>
+* slow the charting rate down to 5000 seconds, so that trends are visible<p>
+* Keep perfmon running in a corner of the window.<p>
+If your "committed bytes" rises over time (over several days) and don't go down, speed the charting rate back up to every second, then shut down, one by one, each process or service running on your 
+system.  When the program causing the problem is terminated, you should see a big drop on your "committed bytes".  
+<p>
+If you cannot make the "committed bytes" go down, your problem might be with IIS, or some other OS-integrated service which won't free its memory, even when stopped.  Try upgrading the service, 
+applying a service pack, or changing things around (try a different web server for a few days, for example). When the "committed bytes" stops going up over time, it's likely that you'll have fixed 
+the problem. 
+<p>
+In a chart of perfmon.exe running on clio.lyris.net (our test server), with 3 days worth of data on-screen, we charted both the "committed bytes" of the system and "private bytes" of Lyris.exe.  In 
+this chart Lyris averages about 6mb of RAM, occasionally spiking to 11mb of RAM during loaded times. The "committed bytes", the total amount of memory used on the system, stays around 40mb.  
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="Troubleshooting.html">Troubleshooting</a><br>
+</td><td align=right valign=top>Page 492 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

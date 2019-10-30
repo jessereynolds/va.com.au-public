@@ -1,0 +1,2 @@
+SoupermailConf = reftest.con
+your_name = vittal

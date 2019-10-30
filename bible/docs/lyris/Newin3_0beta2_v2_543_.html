@@ -1,0 +1,90 @@
+<HTML>
+<HEAD><TITLE>New in 3.0 beta 2 (v2.543)</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="Newin3_0beta3_v2_545_.html">previous</a>] [<a href="Newin3_0beta1_v2_542_.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>New in 3.0 beta 2 (v2.543)</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· · <a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+· · · <a href="Newinreleaseversionv3_0.html">New in release version v3.0</a><br>
+· · · <a href="Newin3_0beta5_v2_548_.html">New in 3.0 beta 5 (v2.548)</a><br>
+· · · <a href="Newin3_0beta4_v2_547_.html">New in 3.0 beta 4 (v2.547)</a><br>
+· · · <a href="Newin3_0beta3_v2_545_.html">New in 3.0 beta 3 (v2.545)</a><br>
+· · · <a href="Newin3_0beta2_v2_543_.html"><font size=+0><b>New in 3.0 beta 2 (v2.543)</b></font></a><br>
+· · · <a href="Newin3_0beta1_v2_542_.html">New in 3.0 beta 1 (v2.542)</a><br>
+· · · <a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+· · · <a href="NewinVersion2_0.html">New in Version 2.0</a><br>
+· · · <a href="NewinVersion1_2.html">New in Version 1.2</a><br>
+· · <a href="SoftwareLicenseAgreement.html">Software License Agreement</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>New in 3.0 beta 2 (v2.543)</h3>
+<B>Features</B></B><p>
+<B><I>Nochange option</I></B>: added a "nochange" option to the "reply-to" and "to" mailing list settings. This allows you to choose to have Lyris not change these  headers in list postings. By 
+default, the "Reply-to:" and "To:" headers are set by Lyris to be the mailing list.  See <a href="ReplyTo.html">Reply To</a> and  <a href="To_Header.html">To: Header</a>. 
+</I></B><p>
+<B><I>Fix for blank From</I></B>: If the "From:" field is empty, as it is on some contributed messages, Lyris will now create a "From:" field based on the Return-Path value. This behavior is 
+consistent with other mail servers, such as sendmail. Previously, the messages were being posted as-is, resulting in some confusion because the target mail system would often create one on its own 
+from the Return-Path that Lyris uses, which is listname-admin@... 
+</I></B><p>
+<B><I>Hostname must be a name</I></B>: the "host name" field for a "site" no longer will accept a tcp/ip address. You must enter a real host name. Previously, tcp/ip addresses were allowed, and 
+people would then have problems because having a From: be a tcp/ip address is not supported by a wide number of other mail servers. 
+</I></B><p>
+<B> </B><p>
+<B>Bug fixes</B></B><p>
+Fixed an initialization bug caused when no serial number was defined. With no serial number defined, Lyris would queue up more jobs that necessary, resulting in a loss of server efficiency.<p>
+Fixed a bug where the some mail jobs in the outgoing mail queue  were marked as "pending" (currently sending) when they were actually waiting for a thread to enable them to send.  Now, jobs are only 
+labeled "pending" if they really are currently sending. 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="WhatisNewinthisVersion_.html">What is New in this Version?</a><br>
+</td><td align=right valign=top>Page 500 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

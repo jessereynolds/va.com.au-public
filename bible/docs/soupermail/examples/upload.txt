@@ -1,0 +1,34 @@
+<html>
+<head>
+<base href="<output name="http_referer">">
+<title>Soupermail File Upload</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body bgcolor="white" text="black">
+
+<h1>Thank You</h1>
+
+<p><output name="myfile" pre="For uploading the file <b>" post="</b>." alt="Even though you didn't send a file."></p>
+
+
+<p>Return <a href="index.htm">to the examples page</a>.</p>
+
+
+<hr>
+<p>The Soupermail configuration file that made this page looks like this:</p>
+<table width="90%" border="1">
+<tr valign="top">
+<td class="egcon">
+<pre class="egcon">
+<!--#include virtual="upload.con"-->
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The template that made this page is
+<a href="upload.txt">upload.txt</a>.</p>
+</body>
+</html>
+

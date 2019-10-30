@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE>Date Field</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="IncomingMailfields.html">previous</a>] [<a href="TheLyriscommandline.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Date Field</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· · <a href="SecurityConsiderations.html">Security Considerations</a><br>
+· · <a href="SecurityIssuesRelatingtoMembers.html">Security Issues Relating to Members</a><br>
+· · <a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+· · · · <a href="RecipientFields.html">Recipient Fields</a><br>
+· · · · <a href="MemberFields.html">Member Fields</a><br>
+· · · · <a href="Listfields.html">List fields</a><br>
+· · · · <a href="Sitefields.html">Site fields</a><br>
+· · · · <a href="EmailAddressfields.html">Email Address fields</a><br>
+· · · · <a href="IncomingMailfields.html">Incoming Mail fields</a><br>
+· · · · <a href="DateField.html"><font size=+0><b>Date Field</b></font></a><br>
+· · <a href="TheLyriscommandline.html">The Lyris command line</a><br>
+· · <a href="Modifyinglyris_plc.html">Modifying lyris.plc</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Date Field</h3>
+You can use the current date and time as a mail merge field.  To do this, use the "date:" mail merge code, followed by the formatting characters you want to use, to display the date 
+and/or time in exactly the manner you want.  
+<p>
+For example, the code:<p>
+<font face='Courier New'><ul>$subst('date:%c')<p>
+</ul></font>will print the date and time in the default format. <p>
+Another example:<p>
+<font face='Courier New'><ul>$subst('date:%A, %B %d, %Y')<p>
+</ul></font>will display the Weekday, Month, day of month and year, in this format:<p>
+<font face='Courier New'><ul>Monday, June 14, 1997<p>
+</ul></font>Any characters which are not date formatting codes are displayed as-is.  For example, in the above example, the commas are displayed as indicated in the formatting string.<p>
+Here is a complete list of date formatting codes:<p>
+%a  day of week, using locale's abbreviated weekday names <br>%A  day of week, using locale's full weekday names <br>%b  month, using locale's abbreviated month names 
+<br>%B  month, using locale's full month names <br>%c  date and time as %x %x <br>%C century, 1992 becomes 19 (-47 to 327) <br>%d  two-digit day of month (01 
+to 31) <br>%D  date as %m/%d/%y <br>%e  two-digit day of month, single digits are preceded by a blank (1 to 31) <br>%f  if year &lt; 1000, then "%s %P", else "%s" 
+<br>%H  two-digit hour (00 to 23) <br>%I  two-digit hour (01 to 12) <br>%j  three-digit day number of year (001 to 366) <br>%k  two-digit hour, single digits 
+are preceded by a blank (0 to 23) <br>%l  two-digit hour, single digits are preceded by a blank (1 to 12) <br>%m  month number (01 to 12) <br>%M  minute (00 to 59) 
+<br>%n  newline, same as \n <br>%p  locale's equivalent of A.M. or P.M., whichever is appropriate <br>%P  A.D. or B.C. <br>%r  time as %I:%M:%S %p 
+<br>%s  positive year, -4 becomes 4 (1 to 32766) <br>%S  seconds (00 to 59) <br>%t  tab, same as \t <br>%T  time as %H:%M:%S <br>%U  week number 
+of year, Sunday is the first day of the week (00 to 53) <br>%w  day of week; Sunday is day 0 (0 to 6) <br>%W  week number of year, Monday is the first day of the week (00 to 53) 
+<br>%x   date, using locales' date format <br>%X  time, using locale's time format <br>%y  year within century (00 to 99) <br>%Y  year, including century 
+(-4713 to 32766) <br>%Z  time zone abbreviation 
+<p>
+<h2><B></h2></B><p>
+<B></B></B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="LyrisMailMerge.html">Lyris Mail Merge</a><br>
+<li><a href="NewinVersion2_5.html">New in Version 2.5</a><br>
+</td><td align=right valign=top>Page 406 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

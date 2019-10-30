@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Soupermail MultiPart Form - 1</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail MultiPart Form - 1</h1>
+
+<p>This page is part one of a three part form. The example should show
+you how to use Soupermail's templates to generate multipart forms.</p>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="multi1.con">
+
+Your Name: <input type="text" name="your_name" size="15"> (required)<p>
+Random thoughts: <textarea name="comments" rows="5" cols="25"></textarea>
+
+<p>
+
+<input type="submit" value="Next Part &gt;">
+</form>
+
+</body>
+</html>
+

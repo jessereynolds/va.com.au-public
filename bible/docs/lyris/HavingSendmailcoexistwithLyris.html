@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE>Having Sendmail coexist with Lyris</TITLE></HEAD>
+<body bgcolor="#ffffff" text="#303030" link="#ff0000" vlink="#6666aa" alink="#ffffff"><p><p>
+
+
+
+<table border=0 width=100% cellspacing=0 cellpadding=2><tr><td>
+</font></td><td align=right>
+<b>Lyris User's Guide</b><br>
+[<a href="MailServerCoexistence.html">previous</a>] [<a href="UsetwoTCP_IPaddresses.html">next</a>] [<a href="index.html">contents</a>]</td></tr></table>
+
+
+<table width=100% bgcolor="#aaaaaa" cellspacing=1 cellpadding=0 border=0>
+<tr><td>
+
+<table width=100% border=0 bgcolor="#ffffff" cellspacing=1 cellpadding=2>
+<tr><td colspan=2 bgcolor="#ffe5cf">
+
+<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td valign=top>
+<font size=+2><b>Having Sendmail coexist with Lyris</b></font></td><td align=right>
+<FORM ACTION="http://www.lyris.com/cgi-excite/AT-helpsearch.cgi" METHOD=POST>
+<TABLE><TR><TD>
+<INPUT NAME="search" VALUE="" size=20>
+<INPUT TYPE="submit" NAME="searchButton" VALUE="Search"></TD></TR>
+<TR><TD>
+<INPUT TYPE="hidden" NAME="backlink" VALUE="http://www.lyris.com/help">
+<INPUT TYPE="hidden" NAME="bltext" VALUE="Lyris Manual">
+</TD></TR></TABLE>
+<INPUT TYPE="hidden" NAME="sp" VALUE="sp">
+</td></tr></table>
+
+</td></tr>
+<tr><td width=30% valign=top bgcolor="#ffffef" >
+<font face=arial size=-1>
+<a href="index.html">Table of Contents</a><br>
+· <a href="Introduction.html">Introduction</a><br>
+· <a href="LyrisEmailCommands.html">Lyris Email Commands</a><br>
+· <a href="WebInterfaceforUsers.html">Web Interface for Users</a><br>
+· <a href="ServerAdministrator.html">Server Administrator</a><br>
+· <a href="SiteAdministrator.html">Site Administrator</a><br>
+· <a href="ListAdministrator.html">List Administrator</a><br>
+· <a href="OtherTopics.html">Other Topics</a><br>
+· <a href="Add_OnPackages.html">Add-On Packages</a><br>
+· <a href="InstallingandUpgrading.html">Installing and Upgrading</a><br>
+· · <a href="InstallingLyris.html">Installing Lyris</a><br>
+· · <a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+· · <a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+· · · <a href="HavingSendmailcoexistwithLyris.html"><font size=+0><b>Having Sendmail coexist with Lyris</b></font></a><br>
+· · · · <a href="UsetwoTCP_IPaddresses.html">Use two TCP/IP addresses</a><br>
+· · · · <a href="SendmailforwardstoLyris.html">Sendmail forwards to Lyris</a><br>
+· · · · <a href="LyrisforwardstoSendmail.html">Lyris forwards to Sendmail</a><br>
+· · · · <a href="DisableSendmail.html">Disable Sendmail</a><br>
+· · · <a href="HavingPost_OfficecoexistwithLyris.html">Having Post.Office coexist with Lyris</a><br>
+· · · <a href="HavingQmailcoexistwithLyris.html">Having Qmail coexist with Lyris</a><br>
+· · · <a href="HavingMetaInfosendmailcoexistwithLyris.html">Having MetaInfo sendmail coexist with Lyris</a><br>
+· · · <a href="HavingNetscapeMailServercoexistwithLyris.html">Having Netscape Mail Server coexist with Lyris</a><br>
+· · · <a href="HavingNotes_DominoCoexistwithLyris.html">Having Notes / Domino Coexist with Lyris</a><br>
+· · · <a href="HavingNTMailCoexistwithLyris.html">Having NTMail Coexist with Lyris</a><br>
+· · · <a href="HavingMicrosoftExchangeCoexistWithLyris.html">Having Microsoft Exchange Coexist With Lyris</a><br>
+· · · <a href="HavingAltaVistaMailCoexistwithLyris.html">Having AltaVista Mail Coexist with Lyris</a><br>
+· · <a href="UpgradingtoLyrisfromAnotherListServer.html">Upgrading to Lyris from Another List Server</a><br>
+· · <a href="Troubleshooting.html">Troubleshooting</a><br>
+· <a href="Appendix.html">Appendix</a><br>
+· <a href="FrequentlyAskedQuestions.html">Frequently Asked Questions</a><br>
+</font>
+</td><td valign=top>
+
+<table border=0 width=100% cellspacing=0 cellpadding=5><tr><td>
+<h3>Having Sendmail coexist with Lyris</h3>
+In order for Lyris function correctly, it needs to be able to receive email.<p>
+Lyris runs its own SMTP daemon for accepting email. Since you are probably   running "sendmail" (or some other mail server), you will need to decide which method you want to use so that Lyris and 
+sendmail can both receive email. 
+<p>
+1) USE TWO TCP/IP ADDRESSES: assign two TCP/IP addresses to this machine.   Tell sendmail to run on one TCP/IP address, and Lyris runs on the other.<p>
+2) SENDMAIL FORWARDS TO LYRIS: create an alias and tell sendmail to forward email addressed to the alias to Lyris that runs on another port.<p>
+3) LYRIS FORWARDS TO SENDMAIL: move sendmail to another port, and inform Lyris to forward non-Lyris bound mail to sendmail.<p>
+4) DISABLE SENDMAIL RECEIVING: disable sendmail mail receiving, and allow  Lyris to receive all mail sent to this machine.<p>
+Method "1" is the easiest approach. Method "2" is recommended for most sites.  Depending on your needs, you may find methods "3" or "4" acceptable.<p>
+<h3><i><B>More:</B><p>
+<B></i></h3></B><ul><b><a href="UsetwoTCP_IPaddresses.html">Use two TCP/IP addresses</a><p>
+<a href="SendmailforwardstoLyris.html">Sendmail forwards to Lyris</a><p>
+<a href="LyrisforwardstoSendmail.html">Lyris forwards to Sendmail</a><p>
+<a href="DisableSendmail.html">Disable Sendmail</a><p>
+</b></ul><h2><B></h2></B></B><p>
+</B><p>
+
+</td></tr></table></td></tr></table></td></tr></table>
+
+<table border=0 width=100% cellspacing=0 cellpadding=2>
+<tr><td><b>Other pages which link to this page:</b><br>
+<li><a href="ForwardMail.html">Forward Mail</a><br>
+<li><a href="InstallingLyrisonUnix.html">Installing Lyris on Unix</a><br>
+<li><a href="MakingyourUnixMailServerandLyriscoexist.html">Making your Unix Mail Server and Lyris coexist</a><br>
+<li><a href="MailServerCoexistence.html">Mail Server Coexistence</a><br>
+<li><a href="DoyouneedaMailServertoUseLyrisonNT_.html">Do you need a Mail Server to Use Lyris on NT?</a><br>
+</td><td align=right valign=top>Page 469 of 556</td></tr></table>
+</FORM>
+</BODY></HTML>

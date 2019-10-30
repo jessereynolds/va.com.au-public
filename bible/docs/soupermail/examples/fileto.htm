@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Soupermail File Saving</title>
+<link rel="stylesheet" type="text/css" href="examples.css">
+</head>
+
+<body>
+
+<h1>Soupermail File Saving</h1>
+
+<form method="post" action="/cgi-bin/soupermail.pl">
+<input type="hidden" name="SoupermailConf" value="fileto.con">
+
+Enter Some Text: <input type="text" name="some_text" size="15"><p>
+Try this Textarea: <textarea name="text_box" rows="5" cols="25"></textarea><p>
+Some checkboxes: <br>
+<input type="checkbox" name="checks" value="1"> 1<br>
+<input type="checkbox" name="checks" value="2"> 2<br>
+<input type="checkbox" name="checks" value="3"> 3<br>
+<input type="checkbox" name="checks" value="4"> 4<br>
+<input type="checkbox" name="checks" value="5"> 5<p>
+<p>
+<input type="text" name="num1" size="3" maxlength="3"> Number 1<br>
+<input type="text" name="num2" size="3" maxlength="3"> Number 2<br>
+
+
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
